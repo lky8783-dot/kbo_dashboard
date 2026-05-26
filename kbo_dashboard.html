@@ -613,18 +613,24 @@ function wmo(c) { return WMO[c] || {l:'알 수 없음',i:'❓'}; }
 function windDir(d) { return ['북','북동','동','남동','남','남서','서','북서'][Math.round(d/45)%8]; }
 function isRainy(c) { return [51,53,55,61,63,65,80,81,82,95,96,99].includes(c); }
 
+/* 돔구장 — 우천 영향 없음 */
+const DOME_STADIUMS = new Set(['고척스카이돔']);
+
 async function fetchWeather(lat, lon) {
   const p = new URLSearchParams({
     latitude:lat, longitude:lon,
     current:'temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m',
     hourly:'precipitation_probability',
+    daily:'precipitation_sum',
     forecast_hours:1,
+    forecast_days:1,
     timezone:'Asia/Seoul', wind_speed_unit:'ms',
   });
   const r = await fetch(`https://api.open-meteo.com/v1/forecast?${p}`);
   const json = await r.json();
   const cur = json.current;
   cur.precipitation_probability = json.hourly?.precipitation_probability?.[0] ?? null;
+  cur.precipitation_sum = json.daily?.precipitation_sum?.[0] ?? null;
   return cur;
 }
 
@@ -665,6 +671,8 @@ function gameCardHTML(g, weather) {
       <span style="color:var(--muted);font-size:0.68rem">체감 ${Math.round(weather.apparent_temperature)}°C</span>`;
     const pp = weather.precipitation_probability ?? null;
     const rmm = weather.precipitation ?? 0;
+    const rsum = weather.precipitation_sum ?? null;
+    const isDome = DOME_STADIUMS.has(resolveStadium(g.stadium));
     weatherDetailHTML = `
       <div class="gc-weather-details">
         <div class="gc-wd-item">
@@ -684,16 +692,18 @@ function gameCardHTML(g, weather) {
         </div>
         <div class="gc-wd-item">
           <span class="gc-wd-icon">🌧️</span>
-          <span class="gc-wd-val">${rmm} mm</span>
-          <span class="gc-wd-lbl">강수량</span>
+          <span class="gc-wd-val">${rsum !== null ? rsum+'mm' : rmm+'mm'}</span>
+          <span class="gc-wd-lbl">${rsum !== null ? '일 누적' : '강수량'}</span>
         </div>
       </div>`;
-    if (rmm >= 5) {
-      rainNotice = `<div class="rain-notice rain-heavy">🚨 강수량 ${rmm}mm/h — 우천취소 가능성 높음</div>`;
-    } else if (rmm >= 2) {
-      rainNotice = `<div class="rain-notice rain-mid">⚠️ 강수량 ${rmm}mm/h — 경기 영향 가능</div>`;
-    } else if (rmm > 0) {
-      rainNotice = `<div class="rain-notice rain-light">🌧️ 강수량 ${rmm}mm/h — 우중경기 주의</div>`;
+    if (!isDome) {
+      if (rmm >= 5) {
+        rainNotice = `<div class="rain-notice rain-heavy">🚨 강수량 ${rmm}mm/h — 우천취소 가능성 높음</div>`;
+      } else if (rmm >= 2) {
+        rainNotice = `<div class="rain-notice rain-mid">⚠️ 강수량 ${rmm}mm/h — 경기 영향 가능</div>`;
+      } else if (rmm > 0) {
+        rainNotice = `<div class="rain-notice rain-light">🌧️ 강수량 ${rmm}mm/h — 우중경기 주의</div>`;
+      }
     }
   }
 
@@ -850,13 +860,16 @@ async function renderToday(data) {
     if (wdEl) {
       const pp2 = weather.precipitation_probability ?? null;
       const rmm2 = weather.precipitation ?? 0;
-      const rainHtml2 = rmm2 >= 5
-        ? `<div class="rain-notice rain-heavy">🚨 강수량 ${rmm2}mm/h — 우천취소 가능성 높음</div>`
-        : rmm2 >= 2
-          ? `<div class="rain-notice rain-mid">⚠️ 강수량 ${rmm2}mm/h — 경기 영향 가능</div>`
-          : rmm2 > 0
-            ? `<div class="rain-notice rain-light">🌧️ 강수량 ${rmm2}mm/h — 우중경기 주의</div>`
-            : '';
+      const rsum2 = weather.precipitation_sum ?? null;
+      const isDome2 = DOME_STADIUMS.has(sName);
+      const rainHtml2 = isDome2 ? '' :
+        rmm2 >= 5
+          ? `<div class="rain-notice rain-heavy">🚨 강수량 ${rmm2}mm/h — 우천취소 가능성 높음</div>`
+          : rmm2 >= 2
+            ? `<div class="rain-notice rain-mid">⚠️ 강수량 ${rmm2}mm/h — 경기 영향 가능</div>`
+            : rmm2 > 0
+              ? `<div class="rain-notice rain-light">🌧️ 강수량 ${rmm2}mm/h — 우중경기 주의</div>`
+              : '';
       wdEl.innerHTML = `
         <div class="gc-weather-details">
           <div class="gc-wd-item">
@@ -876,8 +889,8 @@ async function renderToday(data) {
           </div>
           <div class="gc-wd-item">
             <span class="gc-wd-icon">🌧️</span>
-            <span class="gc-wd-val">${weather.precipitation} mm</span>
-            <span class="gc-wd-lbl">강수량</span>
+            <span class="gc-wd-val">${rsum2 !== null ? rsum2+'mm' : rmm2+'mm'}</span>
+            <span class="gc-wd-lbl">${rsum2 !== null ? '일 누적' : '강수량'}</span>
           </div>
         </div>
         ${rainHtml2}`;
@@ -1006,13 +1019,17 @@ async function loadAllWeather() {
       const w = wmo(weather.weather_code);
       const wd = windDir(weather.wind_direction_10m);
       const wrmm = weather.precipitation ?? 0;
-      const rainHtml = wrmm >= 5
-        ? `<div class="wcard-rain" style="border-left-color:#ef5350;color:#ef9a9a">🚨 강수량 ${wrmm}mm/h — 우천취소 가능성 높음</div>`
-        : wrmm >= 2
-          ? `<div class="wcard-rain" style="border-left-color:#ffb74d;color:#ffe082">⚠️ 강수량 ${wrmm}mm/h — 경기 영향 가능</div>`
-          : wrmm > 0
-            ? `<div class="wcard-rain" style="border-left-color:#81c784;color:#a5d6a7">🌧️ 강수량 ${wrmm}mm/h — 우중경기 주의</div>`
-            : '';
+      const wrsum = weather.precipitation_sum ?? null;
+      const wIsDome = DOME_STADIUMS.has(s.name);
+      const rainHtml = wIsDome
+        ? `<div class="wcard-rain" style="border-left-color:#4fc3f7;color:#7ec8f4">🏟️ 돔구장 — 날씨 영향 없음</div>`
+        : wrmm >= 5
+          ? `<div class="wcard-rain" style="border-left-color:#ef5350;color:#ef9a9a">🚨 강수량 ${wrmm}mm/h — 우천취소 가능성 높음</div>`
+          : wrmm >= 2
+            ? `<div class="wcard-rain" style="border-left-color:#ffb74d;color:#ffe082">⚠️ 강수량 ${wrmm}mm/h — 경기 영향 가능</div>`
+            : wrmm > 0
+              ? `<div class="wcard-rain" style="border-left-color:#81c784;color:#a5d6a7">🌧️ 강수량 ${wrmm}mm/h — 우중경기 주의</div>`
+              : '';
       card.querySelector('.wcard-body').innerHTML = `
         <div class="wcard-main">
           <div class="wcard-icon">${w.i}</div>
@@ -1032,12 +1049,12 @@ async function loadAllWeather() {
             <div><span class="wd-label">바람</span><span class="wd-val">${weather.wind_speed_10m.toFixed(1)} m/s ${wd}</span></div>
           </div>
           <div class="wcard-detail">
-            <span>🌧️</span>
-            <div><span class="wd-label">강수량</span><span class="wd-val">${weather.precipitation} mm</span></div>
-          </div>
-          <div class="wcard-detail">
             <span>☔</span>
             <div><span class="wd-label">강수확률</span><span class="wd-val">${weather.precipitation_probability !== null ? weather.precipitation_probability+'%' : '--'}</span></div>
+          </div>
+          <div class="wcard-detail">
+            <span>🌧️</span>
+            <div><span class="wd-label">일 누적</span><span class="wd-val">${wrsum !== null ? wrsum+'mm' : '--'}</span></div>
           </div>
         </div>
         ${rainHtml}`;
