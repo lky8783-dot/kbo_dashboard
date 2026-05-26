@@ -275,6 +275,21 @@
       border-radius: 0 6px 6px 0;
       font-size: 0.68rem; color: #7ec8f4;
     }
+    .rain-notice.rain-heavy {
+      background: linear-gradient(90deg, #3a1a1a, transparent);
+      border-left-color: #ef5350;
+      color: #ef9a9a;
+    }
+    .rain-notice.rain-mid {
+      background: linear-gradient(90deg, #2a2a1a, transparent);
+      border-left-color: #ffb74d;
+      color: #ffe082;
+    }
+    .rain-notice.rain-light {
+      background: linear-gradient(90deg, #1a2a1a, transparent);
+      border-left-color: #81c784;
+      color: #a5d6a7;
+    }
 
     /* ══════════════════════════════════════════════════
        최근 결과 accordion
@@ -649,6 +664,7 @@ function gameCardHTML(g, weather) {
       <span class="gc-temp">${Math.round(weather.temperature_2m)}°C</span>
       <span style="color:var(--muted);font-size:0.68rem">체감 ${Math.round(weather.apparent_temperature)}°C</span>`;
     const pp = weather.precipitation_probability ?? null;
+    const rmm = weather.precipitation ?? 0;
     weatherDetailHTML = `
       <div class="gc-weather-details">
         <div class="gc-wd-item">
@@ -668,14 +684,16 @@ function gameCardHTML(g, weather) {
         </div>
         <div class="gc-wd-item">
           <span class="gc-wd-icon">🌧️</span>
-          <span class="gc-wd-val">${weather.precipitation} mm</span>
+          <span class="gc-wd-val">${rmm} mm</span>
           <span class="gc-wd-lbl">강수량</span>
         </div>
       </div>`;
-    if (isRainy(weather.weather_code)) {
-      rainNotice = '<div class="rain-notice">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>';
-    } else if (pp !== null && pp >= 50) {
-      rainNotice = `<div class="rain-notice">☔ 강수확률 ${pp}% — 우천취소 주의</div>`;
+    if (rmm >= 5) {
+      rainNotice = `<div class="rain-notice rain-heavy">🚨 강수량 ${rmm}mm/h — 우천취소 가능성 높음</div>`;
+    } else if (rmm >= 2) {
+      rainNotice = `<div class="rain-notice rain-mid">⚠️ 강수량 ${rmm}mm/h — 경기 영향 가능</div>`;
+    } else if (rmm > 0) {
+      rainNotice = `<div class="rain-notice rain-light">🌧️ 강수량 ${rmm}mm/h — 우중경기 주의</div>`;
     }
   }
 
@@ -831,11 +849,14 @@ async function renderToday(data) {
     const wdEl = document.getElementById(`wd-${g._id}`);
     if (wdEl) {
       const pp2 = weather.precipitation_probability ?? null;
-      const rainHtml2 = isRainy(weather.weather_code)
-        ? '<div class="rain-notice">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>'
-        : (pp2 !== null && pp2 >= 50)
-          ? `<div class="rain-notice">☔ 강수확률 ${pp2}% — 우천취소 주의</div>`
-          : '';
+      const rmm2 = weather.precipitation ?? 0;
+      const rainHtml2 = rmm2 >= 5
+        ? `<div class="rain-notice rain-heavy">🚨 강수량 ${rmm2}mm/h — 우천취소 가능성 높음</div>`
+        : rmm2 >= 2
+          ? `<div class="rain-notice rain-mid">⚠️ 강수량 ${rmm2}mm/h — 경기 영향 가능</div>`
+          : rmm2 > 0
+            ? `<div class="rain-notice rain-light">🌧️ 강수량 ${rmm2}mm/h — 우중경기 주의</div>`
+            : '';
       wdEl.innerHTML = `
         <div class="gc-weather-details">
           <div class="gc-wd-item">
@@ -984,12 +1005,14 @@ async function loadAllWeather() {
       const weather = await fetchWeather(coords.lat, coords.lon);
       const w = wmo(weather.weather_code);
       const wd = windDir(weather.wind_direction_10m);
-      const wpp = weather.precipitation_probability ?? null;
-      const rainHtml = isRainy(weather.weather_code)
-        ? `<div class="wcard-rain">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>`
-        : (wpp !== null && wpp >= 50)
-          ? `<div class="wcard-rain">☔ 강수확률 ${wpp}% — 우천취소 주의</div>`
-          : '';
+      const wrmm = weather.precipitation ?? 0;
+      const rainHtml = wrmm >= 5
+        ? `<div class="wcard-rain" style="border-left-color:#ef5350;color:#ef9a9a">🚨 강수량 ${wrmm}mm/h — 우천취소 가능성 높음</div>`
+        : wrmm >= 2
+          ? `<div class="wcard-rain" style="border-left-color:#ffb74d;color:#ffe082">⚠️ 강수량 ${wrmm}mm/h — 경기 영향 가능</div>`
+          : wrmm > 0
+            ? `<div class="wcard-rain" style="border-left-color:#81c784;color:#a5d6a7">🌧️ 강수량 ${wrmm}mm/h — 우중경기 주의</div>`
+            : '';
       card.querySelector('.wcard-body').innerHTML = `
         <div class="wcard-main">
           <div class="wcard-icon">${w.i}</div>
