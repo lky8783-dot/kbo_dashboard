@@ -602,10 +602,15 @@ async function fetchWeather(lat, lon) {
   const p = new URLSearchParams({
     latitude:lat, longitude:lon,
     current:'temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m',
+    hourly:'precipitation_probability',
+    forecast_hours:1,
     timezone:'Asia/Seoul', wind_speed_unit:'ms',
   });
   const r = await fetch(`https://api.open-meteo.com/v1/forecast?${p}`);
-  return (await r.json()).current;
+  const json = await r.json();
+  const cur = json.current;
+  cur.precipitation_probability = json.hourly?.precipitation_probability?.[0] ?? null;
+  return cur;
 }
 
 /* ── 상태 배지 ── */
@@ -643,6 +648,7 @@ function gameCardHTML(g, weather) {
       <span>${w.l}</span>
       <span class="gc-temp">${Math.round(weather.temperature_2m)}°C</span>
       <span style="color:var(--muted);font-size:0.68rem">체감 ${Math.round(weather.apparent_temperature)}°C</span>`;
+    const pp = weather.precipitation_probability ?? null;
     weatherDetailHTML = `
       <div class="gc-weather-details">
         <div class="gc-wd-item">
@@ -656,6 +662,11 @@ function gameCardHTML(g, weather) {
           <span class="gc-wd-lbl">바람(${wd})</span>
         </div>
         <div class="gc-wd-item">
+          <span class="gc-wd-icon">☔</span>
+          <span class="gc-wd-val">${pp !== null ? pp+'%' : '--'}</span>
+          <span class="gc-wd-lbl">강수확률</span>
+        </div>
+        <div class="gc-wd-item">
           <span class="gc-wd-icon">🌧️</span>
           <span class="gc-wd-val">${weather.precipitation} mm</span>
           <span class="gc-wd-lbl">강수량</span>
@@ -663,6 +674,8 @@ function gameCardHTML(g, weather) {
       </div>`;
     if (isRainy(weather.weather_code)) {
       rainNotice = '<div class="rain-notice">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>';
+    } else if (pp !== null && pp >= 50) {
+      rainNotice = `<div class="rain-notice">☔ 강수확률 ${pp}% — 우천취소 주의</div>`;
     }
   }
 
@@ -817,6 +830,12 @@ async function renderToday(data) {
     // 날씨 상세 업데이트
     const wdEl = document.getElementById(`wd-${g._id}`);
     if (wdEl) {
+      const pp2 = weather.precipitation_probability ?? null;
+      const rainHtml2 = isRainy(weather.weather_code)
+        ? '<div class="rain-notice">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>'
+        : (pp2 !== null && pp2 >= 50)
+          ? `<div class="rain-notice">☔ 강수확률 ${pp2}% — 우천취소 주의</div>`
+          : '';
       wdEl.innerHTML = `
         <div class="gc-weather-details">
           <div class="gc-wd-item">
@@ -830,12 +849,17 @@ async function renderToday(data) {
             <span class="gc-wd-lbl">바람(${wd})</span>
           </div>
           <div class="gc-wd-item">
+            <span class="gc-wd-icon">☔</span>
+            <span class="gc-wd-val">${pp2 !== null ? pp2+'%' : '--'}</span>
+            <span class="gc-wd-lbl">강수확률</span>
+          </div>
+          <div class="gc-wd-item">
             <span class="gc-wd-icon">🌧️</span>
             <span class="gc-wd-val">${weather.precipitation} mm</span>
             <span class="gc-wd-lbl">강수량</span>
           </div>
         </div>
-        ${isRainy(weather.weather_code) ? '<div class="rain-notice">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>' : ''}`;
+        ${rainHtml2}`;
     }
   }));
 }
@@ -960,8 +984,12 @@ async function loadAllWeather() {
       const weather = await fetchWeather(coords.lat, coords.lon);
       const w = wmo(weather.weather_code);
       const wd = windDir(weather.wind_direction_10m);
+      const wpp = weather.precipitation_probability ?? null;
       const rainHtml = isRainy(weather.weather_code)
-        ? `<div class="wcard-rain">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>` : '';
+        ? `<div class="wcard-rain">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>`
+        : (wpp !== null && wpp >= 50)
+          ? `<div class="wcard-rain">☔ 강수확률 ${wpp}% — 우천취소 주의</div>`
+          : '';
       card.querySelector('.wcard-body').innerHTML = `
         <div class="wcard-main">
           <div class="wcard-icon">${w.i}</div>
@@ -985,8 +1013,8 @@ async function loadAllWeather() {
             <div><span class="wd-label">강수량</span><span class="wd-val">${weather.precipitation} mm</span></div>
           </div>
           <div class="wcard-detail">
-            <span>🌡️</span>
-            <div><span class="wd-label">기온</span><span class="wd-val">${weather.temperature_2m.toFixed(1)}°C</span></div>
+            <span>☔</span>
+            <div><span class="wd-label">강수확률</span><span class="wd-val">${weather.precipitation_probability !== null ? weather.precipitation_probability+'%' : '--'}</span></div>
           </div>
         </div>
         ${rainHtml}`;
