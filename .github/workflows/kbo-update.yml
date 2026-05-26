@@ -1,0 +1,37 @@
+name: KBO 데이터 업데이트
+
+on:
+  schedule:
+    # 경기 시간대(KST 14:00~23:00 = UTC 05:00~14:00), 30분마다
+    - cron: '0,30 5-14 * * *'
+    # 오전 업데이트 (전날 최종 결과 확정)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-kbo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 의존성 설치
+        run: pip install requests beautifulsoup4
+
+      - name: KBO 데이터 수집
+        run: python kbo_fetch.py
+
+      - name: 변경 시 커밋 & 푸시
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add kbo_data.json
+          git diff --staged --quiet && echo "변경 없음" && exit 0
+          git commit -m "chore: kbo data $(TZ=Asia/Seoul date +'%m/%d %H:%M KST')"
+          git push

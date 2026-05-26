@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KBO 오늘의 경기일정 & 구장 날씨 | 프로야구 실시간 정보</title>
+
+  <!-- ── SEO 기본 ── -->
+  <meta name="description" content="KBO 프로야구 오늘 경기일정과 경기결과, 잠실·고척·사직 등 전 구장 실시간 날씨를 한눈에 확인하세요. LG·두산·롯데·SSG·KT·한화·삼성·KIA·NC·키움 10구단 정보 제공.">
+  <meta name="keywords" content="KBO,KBO경기일정,오늘야구,프로야구일정,KBO경기결과,야구구장날씨,잠실야구장날씨,고척스카이돔날씨,사직야구장날씨,SSG랜더스필드날씨,삼성라이온즈파크날씨,광주기아챔피언스필드날씨,창원NC파크날씨,한화생명이글스파크날씨,kt위즈파크날씨,오늘KBO,KBO날씨,야구날씨,한국프로야구,KBO리그,LG트윈스,두산베어스,키움히어로즈,SSG랜더스,kt wiz,한화이글스,삼성라이온즈,KIA타이거즈,NC다이노스,롯데자이언츠,야구경기결과,야구스코어,2026KBO,프로야구날씨,구장날씨정보">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KBO 경기 & 날씨">
+  <meta name="language" content="ko">
+  <link rel="canonical" href="https://lky8783-dot.github.io/tistory-auto/kbo_dashboard.html">
+
+  <!-- ── Open Graph (카카오·네이버 공유) ── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="KBO 오늘의 경기일정 & 구장 날씨">
+  <meta property="og:description" content="KBO 프로야구 오늘 경기일정과 구장 실시간 날씨 정보를 한눈에 확인하세요.">
+  <meta property="og:url"         content="https://lky8783-dot.github.io/tistory-auto/kbo_dashboard.html">
+  <meta property="og:locale"      content="ko_KR">
+  <meta property="og:site_name"   content="KBO 경기 & 날씨">
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="KBO 오늘의 경기일정 & 구장 날씨">
+  <meta name="twitter:description" content="KBO 프로야구 오늘 경기일정과 구장 실시간 날씨를 확인하세요.">
+
+  <!-- ── 구조화 데이터 (JSON-LD) ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "KBO 오늘의 경기일정 & 구장 날씨",
+    "description": "KBO 프로야구 오늘 경기일정과 각 구장 실시간 날씨 정보",
+    "url": "https://lky8783-dot.github.io/tistory-auto/kbo_dashboard.html",
+    "inLanguage": "ko",
+    "about": {
+      "@type": "SportsOrganization",
+      "name": "KBO 리그 (한국야구위원회)",
+      "sport": "Baseball",
+      "url": "https://www.kbo.or.kr",
+      "location": { "@type": "Country", "name": "대한민국" }
+    },
+    "keywords": "KBO, 프로야구, KBO경기일정, 오늘야구, 경기결과, 구장날씨, 야구날씨, 잠실야구장, 고척스카이돔, 사직야구장"
+  }
+  </script>
+
+  <style>
+  /* sr-only: 화면에 보이지 않지만 검색엔진·스크린리더가 읽는 숨김 텍스트 */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #0f1923;
+      --card:   #1a2535;
+      --border: #2a3a50;
+      --muted:  #7a8fa8;
+      --accent: #4fc3f7;
+      --text:   #e8eaf0;
+      --sub:    #9eb3cc;
+    }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      background: linear-gradient(135deg, #1a2740, var(--bg));
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .page-header h1 { font-size: 1.05rem; font-weight: 700; flex: 1; }
+    .page-header h1 span { color: var(--accent); }
+    #meta { font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
+    #refresh-btn {
+      background: #1e3a5f; border: 1px solid #2e5080; color: var(--accent);
+      padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 0.78rem;
+    }
+    #refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Tabs ── */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: #111d2b;
+      padding: 0 16px;
+    }
+    .tab-btn {
+      background: none; border: none; color: var(--muted);
+      padding: 10px 16px; cursor: pointer; font-size: 0.85rem;
+      border-bottom: 2px solid transparent; transition: all 0.15s;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── Date nav ── */
+    .date-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 16px;
+      background: #111d2b;
+      border-bottom: 1px solid var(--border);
+    }
+    .date-nav button {
+      background: #1e3a5f; border: 1px solid #2e5080; color: var(--accent);
+      width: 28px; height: 28px; border-radius: 6px; cursor: pointer;
+      font-size: 1rem; display: flex; align-items: center; justify-content: center;
+    }
+    #date-label {
+      font-size: 0.9rem; font-weight: 700; color: var(--text);
+      min-width: 130px; text-align: center;
+    }
+
+    /* ── Panes ── */
+    .tab-pane { display: none; padding: 14px 14px 20px; }
+    .tab-pane.active { display: block; }
+
+    /* ── Spinner / messages ── */
+    .spinner {
+      display: inline-block; width: 18px; height: 18px;
+      border: 2px solid var(--border); border-top-color: var(--accent);
+      border-radius: 50%; animation: spin 0.8s linear infinite;
+      vertical-align: middle; margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .msg { color: var(--muted); font-size: 0.82rem; padding: 20px 0; text-align: center; }
+    .msg.err { color: #e57373; }
+
+    /* ══════════════════════════════════════════════════
+       오늘 경기 카드 (game + weather combined)
+    ══════════════════════════════════════════════════ */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .game-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .game-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.35); }
+    .game-card.live { border-color: #e57373; box-shadow: 0 0 14px rgba(229,115,115,0.15); }
+
+    /* Card top bar: stadium + time */
+    .gc-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px 0;
+    }
+    .gc-stadium { font-size: 0.78rem; font-weight: 700; color: var(--sub); }
+    .gc-time-wrap { display: flex; align-items: center; gap: 6px; }
+    .gc-time { font-size: 0.78rem; color: var(--muted); }
+
+    /* Status badge */
+    .badge {
+      font-size: 0.62rem; font-weight: 700;
+      padding: 2px 7px; border-radius: 8px;
+    }
+    .badge-pre    { background: #1e3a5f; color: var(--accent); }
+    .badge-live   { background: #5c1a1a; color: #ef9a9a; animation: pulse 1.4s ease infinite; }
+    .badge-post   { background: #1a2a1a; color: #81c784; }
+    .badge-cancel { background: #2a1a1a; color: #ef9a9a; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+    /* Weather mini-bar */
+    .gc-weather-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px 8px;
+      font-size: 0.75rem;
+      color: var(--sub);
+      border-bottom: 1px solid var(--border);
+    }
+    .gc-weather-bar .wi { font-size: 1rem; }
+    .gc-temp { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-left: 2px; }
+    .gc-weather-loading { color: var(--muted); font-size: 0.72rem; font-style: italic; }
+
+    /* Matchup with logos */
+    .gc-matchup {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 10px 10px;
+      gap: 6px;
+    }
+    .gc-team {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .gc-logo-wrap {
+      width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gc-logo {
+      max-width: 64px; max-height: 64px;
+      object-fit: contain;
+    }
+    .gc-team-name {
+      font-size: 0.7rem;
+      color: var(--sub);
+      text-align: center;
+      word-break: keep-all;
+      line-height: 1.3;
+    }
+    .gc-score-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      min-width: 56px;
+    }
+    .gc-scores {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .gc-score-sep { color: #3a5070; font-size: 1rem; }
+    .gc-vs { color: #3a5070; font-size: 0.95rem; font-weight: 700; }
+    .score-win  { color: #fff; }
+    .score-lose { color: var(--muted); }
+
+    /* Weather details row */
+    .gc-weather-details {
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 10px 12px;
+      border-top: 1px solid var(--border);
+      gap: 4px;
+    }
+    .gc-wd-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .gc-wd-icon { font-size: 0.95rem; }
+    .gc-wd-val  { font-size: 0.75rem; font-weight: 700; color: var(--text); }
+    .gc-wd-lbl  { font-size: 0.62rem; color: var(--muted); }
+
+    .rain-notice {
+      margin: 0 12px 10px;
+      background: linear-gradient(90deg, #1e3a5f, transparent);
+      border-left: 3px solid var(--accent);
+      padding: 4px 10px;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.68rem; color: #7ec8f4;
+    }
+
+    /* ══════════════════════════════════════════════════
+       최근 결과 accordion
+    ══════════════════════════════════════════════════ */
+    .result-day {
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .result-day-hd {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px;
+      background: var(--card); cursor: pointer; user-select: none;
+    }
+    .result-day-hd:hover { background: #1e2f44; }
+    .result-day-title { font-size: 0.85rem; font-weight: 700; }
+    .result-day-cnt   { font-size: 0.72rem; color: var(--muted); }
+    .chevron { color: var(--muted); font-size: 0.72rem; transition: transform 0.2s; }
+    .result-day.open .chevron { transform: rotate(90deg); }
+    .result-day-body {
+      display: none; padding: 10px; background: #131e2c;
+    }
+    .result-day.open .result-day-body { display: block; }
+
+    /* Result card (컴팩트) */
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+    }
+    .result-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .rc-top {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 8px;
+    }
+    .rc-stadium { font-size: 0.68rem; color: var(--muted); }
+    .rc-matchup {
+      display: flex; align-items: center; justify-content: space-between; gap: 4px;
+    }
+    .rc-team { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .rc-logo { width: 44px; height: 44px; object-fit: contain; }
+    .rc-name { font-size: 0.65rem; color: var(--sub); text-align: center; word-break: keep-all; }
+    .rc-score-col {
+      display: flex; flex-direction: column; align-items: center;
+      min-width: 48px; gap: 2px;
+    }
+    .rc-scores {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 1.4rem; font-weight: 700;
+    }
+    .rc-sep { color: #3a5070; font-size: 0.9rem; }
+
+    /* ── 구장 날씨 탭 ── */
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .wcard {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wcard:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+    .wcard-head {
+      padding: 10px 14px 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex; gap: 10px; align-items: center;
+    }
+    .wcard-badge {
+      width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
+    }
+    .wcard-name { font-size: 0.85rem; font-weight: 700; line-height: 1.3; }
+    .wcard-team { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+    .wcard-body { padding: 12px 14px 14px; }
+    .wcard-main {
+      display: flex; align-items: center;
+      justify-content: space-between; margin-bottom: 10px;
+    }
+    .wcard-icon { font-size: 2.4rem; line-height: 1; }
+    .wcard-right { text-align: right; }
+    .wcard-temp { font-size: 2rem; font-weight: 700; line-height: 1; }
+    .wcard-feels { font-size: 0.68rem; color: var(--muted); margin-top: 3px; }
+    .wcard-cond { font-size: 0.8rem; color: var(--sub); margin-bottom: 10px; }
+    .wcard-details { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .wcard-detail {
+      background: var(--bg); border-radius: 7px; padding: 6px 8px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .wd-label { font-size: 0.62rem; color: #5a7090; display: block; }
+    .wd-val   { font-size: 0.8rem; color: #c8d8e8; font-weight: 600; }
+    .wcard-rain {
+      margin-top: 8px;
+      background: linear-gradient(90deg, #1e3a5f, transparent);
+      border-left: 3px solid var(--accent);
+      padding: 4px 8px; border-radius: 0 5px 5px 0;
+      font-size: 0.68rem; color: #7ec8f4;
+    }
+    .wcard-loading {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 110px; color: var(--muted); font-size: 0.78rem;
+    }
+
+    /* ── 달력 (최근 결과 탭) ── */
+    .cal-header {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; padding: 6px 0 14px;
+    }
+    .cal-header button {
+      background: #1e3a5f; border: 1px solid #2e5080; color: var(--accent);
+      width: 28px; height: 28px; border-radius: 6px; cursor: pointer;
+      font-size: 1rem; display: flex; align-items: center; justify-content: center;
+    }
+    .cal-month-label { font-size: 1rem; font-weight: 700; min-width: 110px; text-align: center; }
+    .cal-weekdays {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      background: #111d2b; border: 1px solid var(--border);
+      border-bottom: none; border-radius: 8px 8px 0 0;
+    }
+    .cal-weekday {
+      text-align: center; padding: 7px 2px;
+      font-size: 0.72rem; font-weight: 700; color: var(--muted);
+    }
+    .cal-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      border: 1px solid var(--border); border-radius: 0 0 8px 8px; overflow: hidden;
+    }
+    .cal-cell {
+      min-height: 82px; padding: 5px 3px 3px;
+      border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: var(--card); overflow: hidden;
+    }
+    .cal-cell:nth-child(7n)  { border-right: none; }
+    .cal-cell.other-month    { background: #131e2c; }
+    .cal-cell.today-cell     { background: #152640; }
+    .cal-date {
+      font-size: 0.68rem; font-weight: 700; text-align: right;
+      margin-bottom: 3px; color: var(--sub);
+    }
+    .cal-date.sun   { color: #e57373; }
+    .cal-date.sat   { color: #64b5f6; }
+    .cal-date.today-num { color: var(--accent); }
+    .cal-game {
+      display: flex; align-items: center; flex-wrap: nowrap;
+      font-size: 0.58rem; padding: 1px 2px;
+      border-radius: 3px; margin-bottom: 2px; line-height: 1.5; gap: 1px;
+    }
+    .cal-team  { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 22px; }
+    .cal-score { font-weight: 700; color: var(--accent); margin: 0 2px; white-space: nowrap; }
+    .cal-win   { color: #fff; font-weight: 700; }
+    .cal-lose  { color: var(--muted); }
+    .cal-game.ended    { color: var(--sub); }
+    .cal-game.live     { color: #ef9a9a; }
+    .cal-game.upcoming { color: #4a6080; }
+    .cal-live-dot { font-size: 0.5rem; color: #ef9a9a; margin-left: 1px; }
+    @media (max-width: 480px) {
+      .cal-cell { min-height: 60px; padding: 3px 2px; }
+      .cal-game { font-size: 0.5rem; }
+      .cal-team { max-width: 16px; }
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 12px;
+      font-size: 0.68rem; color: #3a5070;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .games-grid  { grid-template-columns: 1fr; }
+      .result-grid { grid-template-columns: 1fr 1fr; }
+      .gc-logo-wrap { width: 52px; height: 52px; }
+      .gc-logo { max-width: 52px; max-height: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>⚾ KBO <span>경기 & 날씨</span></h1>
+  <span id="meta">로딩 중...</span>
+  <button id="refresh-btn" onclick="init()">새로고침</button>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="today">오늘 경기</button>
+  <button class="tab-btn"        data-tab="results">경기 일정</button>
+  <button class="tab-btn"        data-tab="weather">구장 날씨</button>
+</div>
+
+
+<div id="pane-today"   class="tab-pane active"><div class="msg"><span class="spinner"></span>불러오는 중...</div></div>
+<div id="pane-results" class="tab-pane"><div class="msg"><span class="spinner"></span>불러오는 중...</div></div>
+<div id="pane-weather" class="tab-pane"><div class="msg"><span class="spinner"></span>날씨 불러오는 중...</div></div>
+
+<!-- 검색엔진 색인용 숨김 키워드 (sr-only: 화면 미노출, 스크린리더·봇 가독) -->
+<div class="sr-only">
+  <h2>KBO 프로야구 오늘 경기일정 및 구장 날씨</h2>
+  <p>
+    오늘 KBO 경기일정, KBO 경기결과, 프로야구 일정, 야구 구장 날씨, 한국 프로야구 스코어.
+    잠실야구장 날씨, 고척스카이돔 날씨, 사직야구장 날씨, SSG랜더스필드 날씨,
+    삼성라이온즈파크 날씨, 광주기아챔피언스필드 날씨, 창원NC파크 날씨,
+    한화생명이글스파크 날씨, kt위즈파크 날씨.
+  </p>
+  <ul>
+    <li>LG 트윈스 경기일정 및 잠실야구장 날씨</li>
+    <li>두산 베어스 경기일정 및 잠실야구장 날씨</li>
+    <li>키움 히어로즈 경기일정 및 고척스카이돔 날씨</li>
+    <li>SSG 랜더스 경기일정 및 인천 SSG랜더스필드 날씨</li>
+    <li>kt wiz 경기일정 및 수원 kt위즈파크 날씨</li>
+    <li>한화 이글스 경기일정 및 대전 한화생명이글스파크 날씨</li>
+    <li>삼성 라이온즈 경기일정 및 대구 삼성라이온즈파크 날씨</li>
+    <li>KIA 타이거즈 경기일정 및 광주기아챔피언스필드 날씨</li>
+    <li>NC 다이노스 경기일정 및 창원NC파크 날씨</li>
+    <li>롯데 자이언츠 경기일정 및 부산 사직야구장 날씨</li>
+  </ul>
+  <p>
+    2026 KBO 리그 오늘경기 실시간 날씨 정보. 야구장 날씨 강수확률 기온 바람 습도.
+    오늘 야구 있나요, 오늘 프로야구 경기, KBO 오늘경기 취소, 우천취소 날씨.
+  </p>
+</div>
+
+<footer>
+  경기: <a href="https://www.kbo.or.kr" target="_blank">KBO</a> &nbsp;|&nbsp;
+  날씨: <a href="https://open-meteo.com" target="_blank">Open-Meteo</a>
+</footer>
+
+<script>
+/* ── 팀 → 앰블럼 코드 ── */
+const EMBLEM = {
+  'LG 트윈스':    './emblem/emblem_LG.png',
+  '두산 베어스':  './emblem/emblem_OB.png',
+  '키움 히어로즈':'./emblem/emblem_WO.png',
+  'SSG 랜더스':  './emblem/emblem_SK.png',
+  'kt wiz':      './emblem/emblem_KT.png',
+  '한화 이글스':  './emblem/emblem_HH.png',
+  '삼성 라이온즈':'./emblem/emblem_SS.png',
+  'KIA 타이거즈': './emblem/emblem_HT.png',
+  'NC 다이노스':  './emblem/emblem_NC.png',
+  '롯데 자이언츠':'./emblem/emblem_LT.png',
+};
+const TEAM_COLORS = {
+  'LG 트윈스':'#C30452','두산 베어스':'#131230','키움 히어로즈':'#570514',
+  'SSG 랜더스':'#CE0E2D','kt wiz':'#333','한화 이글스':'#FF6600',
+  '삼성 라이온즈':'#074CA1','KIA 타이거즈':'#EA0029','NC 다이노스':'#1B4F8E',
+  '롯데 자이언츠':'#002B5C',
+};
+
+function logoImg(teamName, cls='gc-logo') {
+  const src = EMBLEM[teamName] || '';
+  const color = TEAM_COLORS[teamName] || '#4fc3f7';
+  const initial = (teamName || '?').slice(0, 2);
+  if (!src) {
+    return `<div style="width:54px;height:54px;border-radius:50%;background:${color}33;
+      border:2px solid ${color}55;display:flex;align-items:center;justify-content:center;
+      font-size:0.7rem;color:${color};font-weight:700">${initial}</div>`;
+  }
+  return `<img src="${src}" class="${cls}" alt="${teamName}"
+    onerror="this.outerHTML='<div style=\\'width:54px;height:54px;border-radius:50%;background:${color}33;border:2px solid ${color}55;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:${color};font-weight:700\\'>${initial}</div>'"
+  >`;
+}
+
+/* ── 구장 좌표 ── */
+const STADIUM_COORDS = {
+  '잠실야구장':            { lat:37.5122, lon:127.0719 },
+  '고척스카이돔':           { lat:37.4982, lon:126.8670 },
+  'SSG 랜더스필드':        { lat:37.4370, lon:126.6930 },
+  'kt wiz 파크':           { lat:37.2997, lon:127.0098 },
+  '한화생명 이글스파크':    { lat:36.3174, lon:127.4291 },
+  '삼성 라이온즈파크':     { lat:35.8411, lon:128.6811 },
+  '광주-기아 챔피언스필드': { lat:35.1681, lon:126.8884 },
+  '창원 NC 파크':          { lat:35.2228, lon:128.5822 },
+  '사직야구장':             { lat:35.1938, lon:129.0611 },
+};
+// 약칭 → 풀네임
+const STADIUM_ALIAS = {
+  '잠실':'잠실야구장','고척':'고척스카이돔','인천':'SSG 랜더스필드',
+  '수원':'kt wiz 파크','대전':'한화생명 이글스파크','대구':'삼성 라이온즈파크',
+  '광주':'광주-기아 챔피언스필드','창원':'창원 NC 파크','부산':'사직야구장',
+  '문학':'SSG 랜더스필드','사직':'사직야구장',
+};
+
+function resolveStadium(name) {
+  if (!name) return null;
+  if (STADIUM_COORDS[name]) return name;
+  return STADIUM_ALIAS[name] || null;
+}
+
+/* ── 전 구장 목록 (구장 날씨 탭) ── */
+const STADIUMS = [
+  { name:'잠실야구장',            teams:'LG 트윈스 · 두산 베어스', color:'#C30452' },
+  { name:'고척스카이돔',           teams:'키움 히어로즈',            color:'#570514' },
+  { name:'SSG 랜더스필드',        teams:'SSG 랜더스',              color:'#CE0E2D' },
+  { name:'kt wiz 파크',           teams:'kt wiz',                  color:'#333333' },
+  { name:'한화생명 이글스파크',    teams:'한화 이글스',              color:'#FF6600' },
+  { name:'삼성 라이온즈파크',     teams:'삼성 라이온즈',            color:'#074CA1' },
+  { name:'광주-기아 챔피언스필드', teams:'KIA 타이거즈',            color:'#EA0029' },
+  { name:'창원 NC 파크',          teams:'NC 다이노스',              color:'#1B4F8E' },
+  { name:'사직야구장',             teams:'롯데 자이언츠',            color:'#002B5C' },
+];
+
+/* ── WMO ── */
+const WMO = {
+  0:{l:'맑음',i:'☀️'},1:{l:'대체로 맑음',i:'🌤️'},2:{l:'구름 조금',i:'⛅'},3:{l:'흐림',i:'☁️'},
+  45:{l:'안개',i:'🌫️'},48:{l:'안개',i:'🌫️'},
+  51:{l:'가랑비',i:'🌦️'},53:{l:'가랑비',i:'🌦️'},55:{l:'가랑비',i:'🌦️'},
+  61:{l:'비',i:'🌧️'},63:{l:'비',i:'🌧️'},65:{l:'강한 비',i:'🌧️'},
+  71:{l:'눈',i:'❄️'},73:{l:'눈',i:'❄️'},75:{l:'폭설',i:'🌨️'},77:{l:'싸락눈',i:'🌨️'},
+  80:{l:'소나기',i:'🌦️'},81:{l:'소나기',i:'🌧️'},82:{l:'강한 소나기',i:'🌧️'},
+  95:{l:'뇌우',i:'⛈️'},96:{l:'뇌우+우박',i:'⛈️'},99:{l:'뇌우+우박',i:'⛈️'},
+};
+function wmo(c) { return WMO[c] || {l:'알 수 없음',i:'❓'}; }
+function windDir(d) { return ['북','북동','동','남동','남','남서','서','북서'][Math.round(d/45)%8]; }
+function isRainy(c) { return [51,53,55,61,63,65,80,81,82,95,96,99].includes(c); }
+
+async function fetchWeather(lat, lon) {
+  const p = new URLSearchParams({
+    latitude:lat, longitude:lon,
+    current:'temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m',
+    timezone:'Asia/Seoul', wind_speed_unit:'ms',
+  });
+  const r = await fetch(`https://api.open-meteo.com/v1/forecast?${p}`);
+  return (await r.json()).current;
+}
+
+/* ── 상태 배지 ── */
+function badge(status) {
+  if (status === '진행 중') return '<span class="badge badge-live">LIVE</span>';
+  if (status === '종료')    return '<span class="badge badge-post">종료</span>';
+  if (['취소','우천취소'].includes(status)) return `<span class="badge badge-cancel">${status}</span>`;
+  return '<span class="badge badge-pre">예정</span>';
+}
+
+/* ── 경기+날씨 카드 렌더 ── */
+function gameCardHTML(g, weather) {
+  const isLive = g.status === '진행 중';
+  const hasScore = g.away_score != null && g.home_score != null;
+  const aWin = hasScore && Number(g.away_score) > Number(g.home_score);
+  const hWin = hasScore && Number(g.home_score) > Number(g.away_score);
+
+  const scoreBlock = hasScore
+    ? `<div class="gc-scores">
+        <span class="${aWin?'score-win':'score-lose'}">${g.away_score}</span>
+        <span class="gc-score-sep">:</span>
+        <span class="${hWin?'score-win':'score-lose'}">${g.home_score}</span>
+       </div>`
+    : `<div class="gc-vs">VS</div>`;
+
+  let weatherBarHTML = `<div class="gc-weather-loading"><span class="spinner"></span>날씨 불러오는 중</div>`;
+  let weatherDetailHTML = '';
+  let rainNotice = '';
+
+  if (weather) {
+    const w = wmo(weather.weather_code);
+    const wd = windDir(weather.wind_direction_10m);
+    weatherBarHTML = `
+      <span class="wi">${w.i}</span>
+      <span>${w.l}</span>
+      <span class="gc-temp">${Math.round(weather.temperature_2m)}°C</span>
+      <span style="color:var(--muted);font-size:0.68rem">체감 ${Math.round(weather.apparent_temperature)}°C</span>`;
+    weatherDetailHTML = `
+      <div class="gc-weather-details">
+        <div class="gc-wd-item">
+          <span class="gc-wd-icon">💧</span>
+          <span class="gc-wd-val">${weather.relative_humidity_2m}%</span>
+          <span class="gc-wd-lbl">습도</span>
+        </div>
+        <div class="gc-wd-item">
+          <span class="gc-wd-icon">💨</span>
+          <span class="gc-wd-val">${weather.wind_speed_10m.toFixed(1)} m/s</span>
+          <span class="gc-wd-lbl">바람(${wd})</span>
+        </div>
+        <div class="gc-wd-item">
+          <span class="gc-wd-icon">🌧️</span>
+          <span class="gc-wd-val">${weather.precipitation} mm</span>
+          <span class="gc-wd-lbl">강수량</span>
+        </div>
+      </div>`;
+    if (isRainy(weather.weather_code)) {
+      rainNotice = '<div class="rain-notice">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>';
+    }
+  }
+
+  const stadiumDisplay = g.stadium || '구장 미정';
+
+  return `
+    <div class="game-card ${isLive?'live':''}">
+      <div class="gc-topbar">
+        <span class="gc-stadium">📍 ${stadiumDisplay}</span>
+        <div class="gc-time-wrap">
+          <span class="gc-time">${g.time||''}</span>
+          ${badge(g.status)}
+        </div>
+      </div>
+      <div class="gc-weather-bar" id="wb-${g._id}">${weatherBarHTML}</div>
+      <div class="gc-matchup">
+        <div class="gc-team">
+          <div class="gc-logo-wrap">${logoImg(g.away)}</div>
+          <div class="gc-team-name">${g.away}</div>
+        </div>
+        <div class="gc-score-col">${scoreBlock}</div>
+        <div class="gc-team">
+          <div class="gc-logo-wrap">${logoImg(g.home)}</div>
+          <div class="gc-team-name">${g.home}</div>
+        </div>
+      </div>
+      ${rainNotice}
+      <div id="wd-${g._id}">${weatherDetailHTML}</div>
+    </div>`;
+}
+
+/* ── 결과 카드 ── */
+function resultCardHTML(g) {
+  const hasScore = g.away_score != null && g.home_score != null;
+  const aWin = hasScore && Number(g.away_score) > Number(g.home_score);
+  const hWin = hasScore && Number(g.home_score) > Number(g.away_score);
+  const scoreHTML = hasScore
+    ? `<div class="rc-scores">
+        <span class="${aWin?'score-win':'score-lose'}">${g.away_score}</span>
+        <span class="rc-sep">:</span>
+        <span class="${hWin?'score-win':'score-lose'}">${g.home_score}</span>
+       </div>`
+    : `<span style="color:#3a5070;font-size:0.8rem">vs</span>`;
+
+  return `
+    <div class="result-card">
+      <div class="rc-top">
+        <span class="rc-stadium">📍 ${g.stadium||''}</span>
+        ${badge(g.status)}
+      </div>
+      <div class="rc-matchup">
+        <div class="rc-team">
+          ${logoImg(g.away, 'rc-logo')}
+          <div class="rc-name">${g.away}</div>
+        </div>
+        <div class="rc-score-col">${scoreHTML}</div>
+        <div class="rc-team">
+          ${logoImg(g.home, 'rc-logo')}
+          <div class="rc-name">${g.home}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+/* ── 팀 약칭 ── */
+const TEAM_SHORT = {
+  'LG 트윈스':'LG', '두산 베어스':'두산', '키움 히어로즈':'키움',
+  'SSG 랜더스':'SSG', 'kt wiz':'KT', '한화 이글스':'한화',
+  '삼성 라이온즈':'삼성', 'KIA 타이거즈':'KIA', 'NC 다이노스':'NC',
+  '롯데 자이언츠':'롯데',
+};
+
+/* ── 탭 전환 ── */
+let weatherLoaded = false;
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.getElementById('pane-' + tab).classList.add('active');
+    if (tab === 'weather' && !weatherLoaded) loadAllWeather();
+  });
+});
+
+/* ── 날짜 유틸 ── */
+const DAYS = ['일','월','화','수','목','금','토'];
+let calMonth = new Date();
+
+function dateKey(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function shiftMonth(delta) {
+  calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + delta, 1);
+  renderCalendar(window._kboData);
+}
+
+/* ── 오늘 경기 렌더 ── */
+async function renderToday(data) {
+  const pane = document.getElementById('pane-today');
+  const today = data.today || dateKey(new Date());
+  const realGames = (data.dates?.[today]?.games || [])
+    .filter(g => g.status !== '취소' && g.status !== '우천취소');
+  const schedGames = realGames.length === 0
+    ? (window._kboSchedule?.[today] || []).map(g => ({
+        away: g.away, home: g.home, stadium: g.venue,
+        away_score: null, home_score: null, status: '예정', time: '',
+      }))
+    : [];
+  const games = realGames.length > 0 ? realGames : schedGames;
+
+  if (games.length === 0) {
+    pane.innerHTML = '<div class="msg">오늘 예정된 경기가 없습니다.</div>';
+    return;
+  }
+
+  // 각 경기에 ID 부여
+  games.forEach((g, i) => g._id = i);
+
+  // 날씨 없이 먼저 렌더
+  pane.innerHTML = `<div class="games-grid">${games.map(g => gameCardHTML(g, null)).join('')}</div>`;
+
+  // 구장별 날씨 비동기 로드
+  const stadiumWeatherCache = {};
+  await Promise.all(games.map(async g => {
+    const sName = resolveStadium(g.stadium);
+    if (!sName) return;
+    if (!stadiumWeatherCache[sName]) {
+      try {
+        const coords = STADIUM_COORDS[sName];
+        stadiumWeatherCache[sName] = await fetchWeather(coords.lat, coords.lon);
+      } catch { stadiumWeatherCache[sName] = null; }
+    }
+    const weather = stadiumWeatherCache[sName];
+    if (!weather) return;
+
+    const w = wmo(weather.weather_code);
+    const wd = windDir(weather.wind_direction_10m);
+
+    // 날씨 바 업데이트
+    const wbEl = document.getElementById(`wb-${g._id}`);
+    if (wbEl) {
+      wbEl.innerHTML = `
+        <span class="wi">${w.i}</span>
+        <span>${w.l}</span>
+        <span class="gc-temp">${Math.round(weather.temperature_2m)}°C</span>
+        <span style="color:var(--muted);font-size:0.68rem">체감 ${Math.round(weather.apparent_temperature)}°C</span>`;
+    }
+    // 날씨 상세 업데이트
+    const wdEl = document.getElementById(`wd-${g._id}`);
+    if (wdEl) {
+      wdEl.innerHTML = `
+        <div class="gc-weather-details">
+          <div class="gc-wd-item">
+            <span class="gc-wd-icon">💧</span>
+            <span class="gc-wd-val">${weather.relative_humidity_2m}%</span>
+            <span class="gc-wd-lbl">습도</span>
+          </div>
+          <div class="gc-wd-item">
+            <span class="gc-wd-icon">💨</span>
+            <span class="gc-wd-val">${weather.wind_speed_10m.toFixed(1)} m/s</span>
+            <span class="gc-wd-lbl">바람(${wd})</span>
+          </div>
+          <div class="gc-wd-item">
+            <span class="gc-wd-icon">🌧️</span>
+            <span class="gc-wd-val">${weather.precipitation} mm</span>
+            <span class="gc-wd-lbl">강수량</span>
+          </div>
+        </div>
+        ${isRainy(weather.weather_code) ? '<div class="rain-notice">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>' : ''}`;
+    }
+  }));
+}
+
+/* ── 달력 렌더 ── */
+function renderCalendar(data) {
+  if (!data) return;
+  const pane = document.getElementById('pane-results');
+  const year  = calMonth.getFullYear();
+  const month = calMonth.getMonth();
+  const todayStr = data.today || dateKey(new Date());
+
+  // 달력 셀 구성 (앞 빈칸 + 당월 + 뒤 채움)
+  const firstDow = new Date(year, month, 1).getDay();
+  const lastDate = new Date(year, month + 1, 0).getDate();
+  const prevLast = new Date(year, month, 0).getDate();
+
+  const cells = [];
+  for (let i = firstDow - 1; i >= 0; i--)
+    cells.push({ d: new Date(year, month - 1, prevLast - i), other: true });
+  for (let d = 1; d <= lastDate; d++)
+    cells.push({ d: new Date(year, month, d), other: false });
+  let next = 1;
+  while (cells.length % 7 !== 0)
+    cells.push({ d: new Date(year, month + 1, next++), other: true });
+
+  function cellHTML({ d, other }) {
+    const dStr = dateKey(d);
+    const dow   = d.getDay();
+    const isToday = dStr === todayStr;
+    const realGames = (data.dates?.[dStr]?.games || [])
+      .filter(g => g.status !== '취소' && g.status !== '우천취소');
+    const schedGames = realGames.length === 0
+      ? (window._kboSchedule?.[dStr] || []).map(g => ({
+          away: g.away, home: g.home, stadium: g.venue,
+          away_score: null, home_score: null, status: '예정',
+        }))
+      : [];
+    const games = realGames.length > 0 ? realGames : schedGames;
+
+    const dateClass = ['cal-date',
+      dow === 0 ? 'sun' : dow === 6 ? 'sat' : '',
+      isToday ? 'today-num' : '',
+    ].filter(Boolean).join(' ');
+
+    const cellClass = ['cal-cell',
+      other ? 'other-month' : '',
+      isToday ? 'today-cell' : '',
+    ].filter(Boolean).join(' ');
+
+    const gamesHTML = games.map(g => {
+      const aS = TEAM_SHORT[g.away] || g.away;
+      const hS = TEAM_SHORT[g.home] || g.home;
+      const has  = g.away_score != null && g.home_score != null;
+      const aWin = has && Number(g.away_score) > Number(g.home_score);
+      const hWin = has && Number(g.home_score) > Number(g.away_score);
+      if (g.status === '진행 중') {
+        return `<div class="cal-game live">
+          <span class="cal-team">${aS}</span>
+          <span class="cal-score">${g.away_score}:${g.home_score}</span>
+          <span class="cal-team">${hS}</span>
+          <span class="cal-live-dot">●</span></div>`;
+      }
+      if (has) {
+        return `<div class="cal-game ended">
+          <span class="cal-team ${aWin?'cal-win':'cal-lose'}">${aS}</span>
+          <span class="cal-score">${g.away_score}:${g.home_score}</span>
+          <span class="cal-team ${hWin?'cal-win':'cal-lose'}">${hS}</span></div>`;
+      }
+      return `<div class="cal-game upcoming">
+        <span class="cal-team">${aS}</span>
+        <span style="margin:0 2px;color:#3a5070">:</span>
+        <span class="cal-team">${hS}</span></div>`;
+    }).join('');
+
+    return `<div class="${cellClass}">
+      <div class="${dateClass}">${d.getDate()}</div>
+      ${gamesHTML}
+    </div>`;
+  }
+
+  const weekdayRow = DAYS.map((w, i) =>
+    `<div class="cal-weekday" style="${i===0?'color:#e57373':i===6?'color:#64b5f6':''}">${w}</div>`
+  ).join('');
+
+  pane.innerHTML = `
+    <div class="cal-header">
+      <button onclick="shiftMonth(-1)">&#8249;</button>
+      <span class="cal-month-label">${year}년 ${month+1}월</span>
+      <button onclick="shiftMonth(+1)">&#8250;</button>
+    </div>
+    <div class="cal-weekdays">${weekdayRow}</div>
+    <div class="cal-grid">${cells.map(cellHTML).join('')}</div>`;
+}
+
+/* ── 구장 날씨 탭 ── */
+async function loadAllWeather() {
+  weatherLoaded = true;
+  const pane = document.getElementById('pane-weather');
+
+  // 스켈레톤 카드 렌더
+  pane.innerHTML = `<div class="weather-grid">${STADIUMS.map((s, i) => `
+    <div class="wcard" id="wcard-${i}">
+      <div class="wcard-head">
+        <div class="wcard-badge" style="background:${s.color}22;color:${s.color}">🏟️</div>
+        <div>
+          <div class="wcard-name">${s.name}</div>
+          <div class="wcard-team">${s.teams}</div>
+        </div>
+      </div>
+      <div class="wcard-body">
+        <div class="wcard-loading"><span class="spinner"></span>불러오는 중</div>
+      </div>
+    </div>`).join('')}</div>`;
+
+  // 구장별 날씨 병렬 요청
+  await Promise.all(STADIUMS.map(async (s, i) => {
+    const coords = STADIUM_COORDS[s.name];
+    const card = document.getElementById(`wcard-${i}`);
+    if (!coords || !card) return;
+    try {
+      const weather = await fetchWeather(coords.lat, coords.lon);
+      const w = wmo(weather.weather_code);
+      const wd = windDir(weather.wind_direction_10m);
+      const rainHtml = isRainy(weather.weather_code)
+        ? `<div class="wcard-rain">⚠️ 현재 강수 중 — 경기 취소·지연 가능성</div>` : '';
+      card.querySelector('.wcard-body').innerHTML = `
+        <div class="wcard-main">
+          <div class="wcard-icon">${w.i}</div>
+          <div class="wcard-right">
+            <div class="wcard-temp">${Math.round(weather.temperature_2m)}°C</div>
+            <div class="wcard-feels">체감 ${Math.round(weather.apparent_temperature)}°C</div>
+          </div>
+        </div>
+        <div class="wcard-cond">${w.l}</div>
+        <div class="wcard-details">
+          <div class="wcard-detail">
+            <span>💧</span>
+            <div><span class="wd-label">습도</span><span class="wd-val">${weather.relative_humidity_2m}%</span></div>
+          </div>
+          <div class="wcard-detail">
+            <span>💨</span>
+            <div><span class="wd-label">바람</span><span class="wd-val">${weather.wind_speed_10m.toFixed(1)} m/s ${wd}</span></div>
+          </div>
+          <div class="wcard-detail">
+            <span>🌧️</span>
+            <div><span class="wd-label">강수량</span><span class="wd-val">${weather.precipitation} mm</span></div>
+          </div>
+          <div class="wcard-detail">
+            <span>🌡️</span>
+            <div><span class="wd-label">기온</span><span class="wd-val">${weather.temperature_2m.toFixed(1)}°C</span></div>
+          </div>
+        </div>
+        ${rainHtml}`;
+    } catch {
+      card.querySelector('.wcard-body').innerHTML =
+        '<div class="wcard-loading" style="color:#e57373">날씨 정보를 불러올 수 없습니다</div>';
+    }
+  }));
+}
+
+/* ── Init ── */
+async function init() {
+  const btn = document.getElementById('refresh-btn');
+  btn.disabled = true;
+
+  // 정규 시즌 일정 (없으면 무시)
+  if (!window._kboSchedule) {
+    try {
+      const sr = await fetch('./kbo_schedule_2026.json');
+      window._kboSchedule = sr.ok ? await sr.json() : {};
+    } catch { window._kboSchedule = {}; }
+  }
+
+  try {
+    const res = await fetch('./kbo_data.json?t=' + Date.now());
+    if (!res.ok) throw new Error(`${res.status}`);
+    const data = await res.json();
+    window._kboData = data;
+
+    await renderToday(data);
+    renderCalendar(data);
+
+    const upd = data.updated ? new Date(data.updated) : null;
+    document.getElementById('meta').textContent = upd && !isNaN(upd)
+      ? `${upd.toLocaleDateString('ko-KR')} ${upd.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})} 기준`
+      : '데이터 준비 중';
+  } catch (e) {
+    document.getElementById('pane-today').innerHTML =
+      `<div class="msg err">⚠️ 데이터를 불러올 수 없습니다.<br>
+       </div>`;
+    document.getElementById('meta').textContent = '오류';
+  }
+
+  btn.disabled = false;
+}
+
+init();
+// 5분마다 자동 갱신
+setInterval(init, 5 * 60 * 1000);
+</script>
+</body>
+</html>
