@@ -195,90 +195,120 @@ def _parse_kbo_html_table(page, date_str):
         return None
 
 
+def _parse_game_cell(cell_text):
+    """
+    '경기' 셀 텍스트 파싱: "키움 히어로즈 3 : 5 LG 트윈스" 또는 "키움 히어로즈 LG 트윈스"
+    → (away, home, away_score, home_score, status)
+    """
+    # 스코어 있는 경우: "팀A 숫자 : 숫자 팀B"
+    m = re.search(r'(.+?)\s+(\d+)\s*:\s*(\d+)\s+(.+)', cell_text)
+    if m:
+        return (
+            normalize_team(m.group(1).strip()),
+            normalize_team(m.group(4).strip()),
+            m.group(2), m.group(3), '종료'
+        )
+    # 취소
+    if any(k in cell_text for k in ('취소', '우천')):
+        parts = cell_text.split()
+        away = normalize_team(parts[0]) if parts else ''
+        home = normalize_team(parts[-1]) if len(parts) > 1 else ''
+        return away, home, None, None, '우천취소'
+    # 예정: "팀A 팀B" (스페이스 기준 앞절반 / 뒷절반)
+    # 팀명에 공백 포함되므로 알려진 팀명으로 분리
+    for tname in TEAM_MAP.values():
+        if cell_text.startswith(tname):
+            rest = cell_text[len(tname):].strip()
+            home = normalize_team(rest)
+            if home:
+                return tname, home, None, None, '예정'
+    # 마지막 수단: 공백으로 절반 분리
+    parts = cell_text.split()
+    mid   = len(parts) // 2
+    away  = normalize_team(' '.join(parts[:mid]))
+    home  = normalize_team(' '.join(parts[mid:]))
+    return away, home, None, None, '예정'
+
+
 def _extract_games_from_soup(soup, date_str):
-    """BeautifulSoup에서 경기 데이터 추출 (koreabaseball.com 테이블 구조)"""
-    # 날짜 형식 여러 가지 시도
+    """
+    koreabaseball.com tblScheduleList 테이블 구조:
+    날짜(rowspan) | 시간 | 경기(팀+스코어 한 셀) | 게임센터 | 하이라이트 | TV | 라디오 | 구장 | 비고
+    """
     y, mo, d  = date_str[:4], date_str[4:6], date_str[6:]
     date_pats = [
-        f'{y}.{mo}.{d}',          # 2026.05.27
-        f'{y}-{mo}-{d}',          # 2026-05-27
-        f'{mo}.{d}',              # 05.27
-        f'{int(mo)}.{int(d)}',    # 5.27
+        f'{y}.{mo}.{d}',
+        f'{y}-{mo}-{d}',
+        f'{mo}.{d}',
+        f'{int(mo)}.{int(d)}',
     ]
-    games = []
 
-    # 모든 테이블 시도
-    tables = soup.find_all('table') or []
-    if not tables:
-        print(f'[KBO HTML Table] {date_str}: 테이블 자체 없음')
+    # tblScheduleList 우선 탐색
+    table = (
+        soup.find('table', id='tblScheduleList') or
+        soup.find('table', class_='tbl') or
+        soup.find('table')
+    )
+    if not table:
+        print(f'[KBO HTML Table] {date_str}: 테이블 없음')
         return None
 
-    print(f'[KBO HTML Table] {date_str}: 테이블 {len(tables)}개 발견')
+    rows = table.find_all('tr')
+    print(f'[KBO HTML Table] {date_str}: {len(rows)}행')
 
-    current_date_matched = False
+    games            = []
+    current_matched  = False
 
-    for table in tables:
-        rows = table.find_all('tr')
-        print(f'[KBO HTML Table] 테이블 행 수: {len(rows)}')
+    for tr in rows:
+        cells = tr.find_all(['td', 'th'])
+        texts = [c.get_text(separator=' ', strip=True) for c in cells]
+        if not texts:
+            continue
 
-        for tr in rows:
-            tds  = tr.find_all(['td', 'th'])
-            texts = [c.get_text(separator=' ', strip=True) for c in tds]
-            if not texts:
-                continue
+        row_text = ' '.join(texts)
 
-            # 날짜 행 감지
-            row_text = ' '.join(texts)
-            for pat in date_pats:
-                if pat in row_text:
-                    current_date_matched = True
-                    break
-            else:
-                # 다른 날짜 패턴이 나오면 매칭 해제
-                if re.search(r'\d{1,4}[.\-]\d{1,2}[.\-]\d{1,2}', row_text):
-                    current_date_matched = False
+        # 날짜 감지 (새로운 날짜 행 or colspan 헤더)
+        for pat in date_pats:
+            if pat in row_text:
+                current_matched = True
+                break
+        else:
+            # 다른 날짜가 나오면 매칭 해제
+            if re.search(r'\d{4}[.\-]\d{2}[.\-]\d{2}', row_text):
+                current_matched = False
 
-            if not current_date_matched:
-                continue
+        # 시간 컬럼
+        time_val = next(
+            (t for t in texts if re.match(r'^\d{1,2}:\d{2}$', t)), None
+        )
+        if not time_val:
+            continue
+        if not current_matched:
+            continue
 
-            # 시간 컬럼 찾기
-            time_val = next(
-                (t for t in texts if re.match(r'^\d{1,2}:\d{2}$', t)), None
-            )
-            if not time_val:
-                continue
+        ti = texts.index(time_val)
 
-            ti        = texts.index(time_val)
-            away_raw  = texts[ti + 1] if ti + 1 < len(texts) else ''
-            score_raw = texts[ti + 2] if ti + 2 < len(texts) else ''
-            home_raw  = texts[ti + 3] if ti + 3 < len(texts) else ''
-            stad_raw  = next(
-                (t for t in texts[ti+4:] if t and not re.match(r'^[\d\s]+$', t)), ''
-            )
+        # ti+1 = 경기(팀+스코어), ti+6 = 구장
+        game_cell = texts[ti + 1] if ti + 1 < len(texts) else ''
+        stad_raw  = texts[ti + 6] if ti + 6 < len(texts) else ''
 
-            m    = re.search(r'(\d+)\s*[:\-]\s*(\d+)', score_raw)
-            away = normalize_team(re.sub(r'\s+', '', away_raw))
-            home = normalize_team(re.sub(r'\s+', '', home_raw))
+        if not game_cell:
+            continue
 
-            note   = row_text
-            status = '예정'
-            if any(k in note for k in ('취소', '우천')):
-                status = '우천취소'
-            elif m:
-                status = '종료'
+        away, home, a_s, h_s, status = _parse_game_cell(game_cell)
 
-            if not away or not home:
-                continue
+        if not away or not home:
+            continue
 
-            games.append({
-                'time':       time_val,
-                'away':       away,
-                'home':       home,
-                'away_score': m.group(1) if m else None,
-                'home_score': m.group(2) if m else None,
-                'status':     status,
-                'stadium':    normalize_stadium(stad_raw),
-            })
+        games.append({
+            'time':       time_val,
+            'away':       away,
+            'home':       home,
+            'away_score': a_s,
+            'home_score': h_s,
+            'status':     status,
+            'stadium':    normalize_stadium(stad_raw),
+        })
 
     print(f'[KBO HTML Table] {date_str}: {len(games)}경기')
     return games or None

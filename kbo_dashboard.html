@@ -1000,7 +1000,7 @@ async function loadAllWeather() {
       <div class="wcard-head">
         <div class="wcard-badge" style="background:${s.color}22;color:${s.color}">🏟️</div>
         <div>
-          <div class="wcard-name">${s.name}</div>
+          <div class="wcard-name">${s.name}${wIsDome ? ' <span style="font-size:0.6rem;background:#1e3a5f;color:#4fc3f7;border-radius:4px;padding:1px 6px;vertical-align:middle">돔</span>' : ''}</div>
           <div class="wcard-team">${s.teams}</div>
         </div>
       </div>
@@ -1022,7 +1022,7 @@ async function loadAllWeather() {
       const wrsum = weather.precipitation_sum ?? null;
       const wIsDome = DOME_STADIUMS.has(s.name);
       const rainHtml = wIsDome
-        ? `<div class="wcard-rain" style="border-left-color:#4fc3f7;color:#7ec8f4">🏟️ 돔구장 — 날씨 영향 없음</div>`
+        ? ''
         : wrmm >= 5
           ? `<div class="wcard-rain" style="border-left-color:#ef5350;color:#ef9a9a">🚨 강수량 ${wrmm}mm/h — 우천취소 가능성 높음</div>`
           : wrmm >= 2
