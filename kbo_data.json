@@ -1,40 +1,104 @@
 {
-  "updated": "2026-05-27T00:44:59",
+  "updated": "2026-05-27T01:28:12",
   "today": "2026-05-27",
   "dates": {
     "2026-05-27": {
       "date": "2026-05-27",
-      "games": []
+      "games": [
+        {
+          "time": "18:30",
+          "away": "kt wiz",
+          "home": "두산 베어스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "잠실야구장"
+        },
+        {
+          "time": "18:30",
+          "away": "LG 트윈스",
+          "home": "롯데 자이언츠",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "사직야구장"
+        },
+        {
+          "time": "18:30",
+          "away": "삼성 라이온즈",
+          "home": "SSG 랜더스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SSG 랜더스필드"
+        },
+        {
+          "time": "18:30",
+          "away": "한화 이글스",
+          "home": "NC 다이노스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "창원 NC 파크"
+        },
+        {
+          "time": "18:30",
+          "away": "KIA 타이거즈",
+          "home": "키움 히어로즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "고척스카이돔"
+        }
+      ]
     },
     "2026-05-26": {
       "date": "2026-05-26",
       "games": [
         {
           "time": "18:30",
-          "away": "KT6vs0두산",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "MS-T"
+          "away": "kt wiz",
+          "home": "두산 베어스",
+          "away_score": "6",
+          "home_score": "0",
+          "status": "종료",
+          "stadium": "잠실야구장"
         },
         {
           "time": "18:30",
-          "away": "LG2vs1롯데",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "SPO-2T"
+          "away": "LG 트윈스",
+          "home": "롯데 자이언츠",
+          "away_score": "2",
+          "home_score": "1",
+          "status": "종료",
+          "stadium": "사직야구장"
         },
         {
           "time": "18:30",
-          "away": "KIA5vs2키움",
-          "home": "하이라이트",
+          "away": "삼성 라이온즈",
+          "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
-          "stadium": "KN-T"
+          "status": "우천취소",
+          "stadium": "SSG 랜더스필드"
+        },
+        {
+          "time": "18:30",
+          "away": "한화 이글스",
+          "home": "NC 다이노스",
+          "away_score": null,
+          "home_score": null,
+          "status": "우천취소",
+          "stadium": "창원 NC 파크"
+        },
+        {
+          "time": "18:30",
+          "away": "KIA 타이거즈",
+          "home": "키움 히어로즈",
+          "away_score": "5",
+          "home_score": "2",
+          "status": "종료",
+          "stadium": "고척스카이돔"
         }
       ]
     },
@@ -47,75 +111,48 @@
       "games": [
         {
           "time": "14:00",
-          "away": "키움4vs6LG",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "SS-T"
+          "away": "키움 히어로즈",
+          "home": "LG 트윈스",
+          "away_score": "4",
+          "home_score": "6",
+          "status": "종료",
+          "stadium": "잠실야구장"
         },
         {
           "time": "14:00",
-          "away": "삼성10vs0롯데",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "SPO-2T"
+          "away": "삼성 라이온즈",
+          "home": "롯데 자이언츠",
+          "away_score": "10",
+          "home_score": "0",
+          "status": "종료",
+          "stadium": "사직야구장"
         },
         {
           "time": "14:00",
-          "away": "SSG2vs3KIA",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "SPO-T"
+          "away": "SSG 랜더스",
+          "home": "KIA 타이거즈",
+          "away_score": "2",
+          "home_score": "3",
+          "status": "종료",
+          "stadium": "광주-기아 챔피언스필드"
         },
         {
           "time": "14:00",
-          "away": "NC8vs5KT",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "MS-T KN-T"
+          "away": "NC 다이노스",
+          "home": "kt wiz",
+          "away_score": "8",
+          "home_score": "5",
+          "status": "종료",
+          "stadium": "kt wiz 파크"
         },
         {
           "time": "14:00",
-          "away": "두산2vs5한화",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "M-T"
-        },
-        {
-          "time": "18:30",
-          "away": "KT6vs0두산",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "MS-T"
-        },
-        {
-          "time": "18:30",
-          "away": "LG2vs1롯데",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "SPO-2T"
-        },
-        {
-          "time": "18:30",
-          "away": "KIA5vs2키움",
-          "home": "하이라이트",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "KN-T"
+          "away": "두산 베어스",
+          "home": "한화 이글스",
+          "away_score": "2",
+          "home_score": "5",
+          "status": "종료",
+          "stadium": "한화생명 이글스파크"
         }
       ]
     },
