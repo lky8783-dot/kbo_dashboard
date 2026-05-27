@@ -386,8 +386,25 @@ def fetch_pitchers(date_str):
         return {}
 
 
+GC_STATUS_MAP = {
+    '경기예정': '예정',
+    '경기중':   '진행 중',
+    '경기종료': '종료',
+    '우천취소': '우천취소',
+    '취소':     '취소',
+}
+
+
 def _parse_pitchers(soup):
-    """li.game-cont 구조에서 선발투수 추출"""
+    """
+    li.game-cont 구조에서 선발투수 + 경기 메타(상태·시간·구장) 추출.
+    반환: { (away팀명, home팀명): {
+        'away': 투수명, 'home': 투수명,
+        'status': '예정'|'진행 중'|'종료'|...,
+        'time': '18:30',
+        'stadium': '잠실야구장',
+    }}
+    """
     result = {}
 
     def pitcher_name(team_div):
@@ -408,19 +425,38 @@ def _parse_pitchers(soup):
         if not away_div or not home_div:
             continue
 
-        away_img = away_div.select_one('.emb img')
-        home_img = home_div.select_one('.emb img')
+        away_img  = away_div.select_one('.emb img')
+        home_img  = home_div.select_one('.emb img')
         away_code = away_img.get('alt', '').strip() if away_img else ''
         home_code = home_img.get('alt', '').strip() if home_img else ''
 
         away_team = normalize_team(away_code)
         home_team = normalize_team(home_code)
-        away_p    = pitcher_name(away_div)
-        home_p    = pitcher_name(home_div)
+        if not away_team or not home_team:
+            continue
 
-        if away_team and home_team:
-            result[(away_team, home_team)] = {'away': away_p, 'home': home_p}
-            print(f'[Pitcher]  {away_team} {away_p} vs {home_team} {home_p}')
+        away_p = pitcher_name(away_div)
+        home_p = pitcher_name(home_div)
+
+        # 경기 상태: <p class="staus">경기예정</p>  (KBO HTML 오타 "staus")
+        staus_el = li.select_one('p.staus, p.status')
+        raw_status = staus_el.get_text(strip=True) if staus_el else ''
+        status = GC_STATUS_MAP.get(raw_status, raw_status or '예정')
+
+        # 경기 시간·구장: div.top > ul > li 순서: [구장, 날씨img, 시간]
+        top_lis = li.select('div.top ul li')
+        stadium_raw = top_lis[0].get_text(strip=True) if len(top_lis) > 0 else ''
+        time_str    = top_lis[2].get_text(strip=True) if len(top_lis) > 2 else ''
+        stadium     = normalize_stadium(stadium_raw)
+
+        result[(away_team, home_team)] = {
+            'away':    away_p,
+            'home':    home_p,
+            'status':  status,
+            'time':    time_str,
+            'stadium': stadium,
+        }
+        print(f'[Pitcher]  {away_team} {away_p} vs {home_team} {home_p}  [{status} {time_str}]')
 
     return result
 
@@ -478,18 +514,39 @@ def fetch_day(date_str):
         try_naver(date_str) or
         []
     )
-    # 오늘 날짜에만 선발투수 추가
-    if date_str == datetime.now().strftime('%Y%m%d') and games:
+    # 오늘 날짜: 게임센터에서 선발투수 + 경기 상태(가장 최신) 갱신
+    if date_str == datetime.now().strftime('%Y%m%d'):
         try:
-            pitchers = fetch_pitchers(date_str)
-            for g in games:
-                key = (g.get('away', ''), g.get('home', ''))
-                p = pitchers.get(key)
-                if p:
-                    g['away_pitcher'] = p['away']
-                    g['home_pitcher'] = p['home']
+            gc_data = fetch_pitchers(date_str)
+            if gc_data:
+                # 게임센터 데이터를 기존 games에 머지
+                # (away, home) 키로 매칭 — 없으면 새 엔트리로 추가
+                existing_keys = {(g.get('away', ''), g.get('home', '')): i for i, g in enumerate(games)}
+                for (away_t, home_t), info in gc_data.items():
+                    idx = existing_keys.get((away_t, home_t))
+                    if idx is not None:
+                        g = games[idx]
+                        # 게임센터 상태를 우선 적용 (더 실시간)
+                        g['status']       = info['status']
+                        if info['time']:    g['time']    = info['time']
+                        if info['stadium']: g['stadium'] = info['stadium']
+                        if info['away']:    g['away_pitcher'] = info['away']
+                        if info['home']:    g['home_pitcher'] = info['home']
+                    else:
+                        # 게임센터에만 있는 경기 (calendar에서 누락)
+                        games.append({
+                            'time':         info['time'],
+                            'away':         away_t,
+                            'home':         home_t,
+                            'away_score':   None,
+                            'home_score':   None,
+                            'status':       info['status'],
+                            'stadium':      info['stadium'],
+                            'away_pitcher': info['away'],
+                            'home_pitcher': info['home'],
+                        })
         except Exception as e:
-            print(f'[Pitcher] 매칭 실패: {e}')
+            print(f'[Pitcher] 머지 실패: {e}')
     return games
 
 
