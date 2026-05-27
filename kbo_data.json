@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-27T00:20:52",
+  "updated": "2026-05-27T00:44:59",
   "today": "2026-05-27",
   "dates": {
     "2026-05-27": {
@@ -8,7 +8,35 @@
     },
     "2026-05-26": {
       "date": "2026-05-26",
-      "games": []
+      "games": [
+        {
+          "time": "18:30",
+          "away": "KT6vs0두산",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "MS-T"
+        },
+        {
+          "time": "18:30",
+          "away": "LG2vs1롯데",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SPO-2T"
+        },
+        {
+          "time": "18:30",
+          "away": "KIA5vs2키움",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "KN-T"
+        }
+      ]
     },
     "2026-05-25": {
       "date": "2026-05-25",
@@ -16,7 +44,80 @@
     },
     "2026-05-24": {
       "date": "2026-05-24",
-      "games": []
+      "games": [
+        {
+          "time": "14:00",
+          "away": "키움4vs6LG",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SS-T"
+        },
+        {
+          "time": "14:00",
+          "away": "삼성10vs0롯데",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SPO-2T"
+        },
+        {
+          "time": "14:00",
+          "away": "SSG2vs3KIA",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SPO-T"
+        },
+        {
+          "time": "14:00",
+          "away": "NC8vs5KT",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "MS-T KN-T"
+        },
+        {
+          "time": "14:00",
+          "away": "두산2vs5한화",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "M-T"
+        },
+        {
+          "time": "18:30",
+          "away": "KT6vs0두산",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "MS-T"
+        },
+        {
+          "time": "18:30",
+          "away": "LG2vs1롯데",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SPO-2T"
+        },
+        {
+          "time": "18:30",
+          "away": "KIA5vs2키움",
+          "home": "하이라이트",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "KN-T"
+        }
+      ]
     },
     "2026-05-23": {
       "date": "2026-05-23",
