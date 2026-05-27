@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-27T08:37:10",
+  "updated": "2026-05-27T16:23:23",
   "today": "2026-05-27",
   "dates": {
     "2026-05-31": {
@@ -206,59 +206,59 @@
       "date": "2026-05-27",
       "games": [
         {
-          "time": "18:30",
+          "time": "",
           "away": "kt wiz",
           "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
+          "away_score": "0",
+          "home_score": "5",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "오원석",
-          "home_pitcher": "벤자민"
+          "away_pitcher": "패오원석",
+          "home_pitcher": "승벤자민"
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "LG 트윈스",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
+          "away_score": "8",
+          "home_score": "6",
+          "status": "종료",
           "stadium": "사직야구장",
-          "away_pitcher": "치리노스",
-          "home_pitcher": "나균안"
+          "away_pitcher": "승함덕주",
+          "home_pitcher": "패나균안"
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "삼성 라이온즈",
           "home": "SSG 랜더스",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
+          "away_score": "4",
+          "home_score": "1",
+          "status": "종료",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "후라도",
-          "home_pitcher": "베니지아노"
+          "away_pitcher": "승후라도",
+          "home_pitcher": "패베니지아노"
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "한화 이글스",
           "home": "NC 다이노스",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
+          "away_score": "4",
+          "home_score": "6",
+          "status": "종료",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "박준영",
-          "home_pitcher": "토다"
+          "away_pitcher": "패정우주",
+          "home_pitcher": "승김진호"
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "KIA 타이거즈",
           "home": "키움 히어로즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
+          "away_score": "9",
+          "home_score": "2",
+          "status": "종료",
           "stadium": "고척스카이돔",
-          "away_pitcher": "네일",
-          "home_pitcher": "알칸타라"
+          "away_pitcher": "승네일",
+          "home_pitcher": "패알칸타라"
         }
       ]
     },
