@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 """
-KBO 경기 일정/결과 수집기
+KBO 경기 일정/결과 수집기  (Playwright headless 우선)
 Usage: python kbo_fetch.py
-Output: kbo_data.json  (오늘 + 최근 3일)
+Output: kbo_data.json
 """
 
 import json
 import re
 from datetime import datetime, timedelta
 import urllib.request
-import urllib.error
 
 BASE_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
-                  '(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'User-Agent': (
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/124.0.0.0 Safari/537.36'
+    ),
     'Accept': 'application/json, text/html, */*',
     'Accept-Language': 'ko-KR,ko;q=0.9,en;q=0.8',
 }
@@ -41,56 +43,245 @@ STATUS_MAP = {
     'PREPARED':  '예정',
 }
 
+STADIUM_MAP = {
+    '잠실': '잠실야구장', '고척': '고척스카이돔',
+    '문학': 'SSG 랜더스필드', '인천': 'SSG 랜더스필드',
+    '수원': 'kt wiz 파크',
+    '대전': '한화생명 이글스파크',
+    '대구': '삼성 라이온즈파크',
+    '광주': '광주-기아 챔피언스필드',
+    '창원': '창원 NC 파크',
+    '사직': '사직야구장', '부산': '사직야구장',
+}
 
-def get(url, extra_headers=None):
-    h = {**BASE_HEADERS, **(extra_headers or {})}
-    req = urllib.request.Request(url, headers=h)
-    with urllib.request.urlopen(req, timeout=20) as r:
-        charset = r.headers.get_content_charset() or 'utf-8'
-        return r.read().decode(charset)
 
-
-def normalize(name):
+def normalize_team(name):
     if not name:
         return name
     name = name.strip()
     return TEAM_MAP.get(name, name)
 
 
-# ── 1) Naver Sports API (수정된 파라미터) ──────────────────────────────────────
+def normalize_stadium(name):
+    if not name:
+        return name
+    name = name.strip()
+    if name in STADIUM_MAP:
+        return STADIUM_MAP[name]
+    for k, v in STADIUM_MAP.items():
+        if k in name:
+            return v
+    return name
+
+
+def http_get(url, extra_headers=None):
+    h = {**BASE_HEADERS, **(extra_headers or {})}
+    req = urllib.request.Request(url, headers=h)
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return r.read().decode(r.headers.get_content_charset() or 'utf-8')
+
+
+# ── 1) Playwright: koreabaseball.com (headless Chrome) ───────────────────────
+def try_playwright(date_str):
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print('[Playwright] 미설치 — pip install playwright && playwright install chromium')
+        return None
+
+    year  = date_str[:4]
+    month = date_str[4:6].lstrip('0')
+    day   = date_str[6:].lstrip('0')
+
+    captured = []   # 네트워크 응답에서 잡힌 JSON 게임 데이터
+
+    def on_response(response):
+        """XHR/fetch 응답 인터셉트: JSON 게임 데이터 캡처"""
+        url = response.url
+        if not any(k in url for k in ('Schedule', 'Game', 'schedule', 'game')):
+            return
+        try:
+            ct = response.headers.get('content-type', '')
+            if 'json' not in ct and 'javascript' not in ct:
+                return
+            data = response.json()
+            # 다양한 응답 키 시도
+            game_list = (
+                data.get('data') or
+                data.get('games') or
+                data.get('result', {}).get('games') or
+                data.get('list') or []
+            )
+            if game_list:
+                captured.extend(game_list)
+                print(f'[Playwright XHR] {len(game_list)}경기 캡처: {url}')
+        except Exception:
+            pass
+
+    try:
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch(headless=True, args=['--no-sandbox'])
+            ctx  = browser.new_context(
+                user_agent=BASE_HEADERS['User-Agent'],
+                locale='ko-KR',
+            )
+            page = ctx.new_page()
+            page.on('response', on_response)
+
+            # koreabaseball.com 일정 페이지
+            url = f'https://www.koreabaseball.com/Schedule/Schedule.aspx'
+            print(f'[Playwright] {url} 로딩 중...')
+            page.goto(url, wait_until='networkidle', timeout=30000)
+
+            # 날짜 선택이 필요하면 드롭다운/버튼 조작
+            # (페이지 기본값이 오늘이 아닐 경우 대비)
+            try:
+                # 월 선택 드롭다운 (있으면)
+                sel_month = page.query_selector('select[name*="month"], select[id*="month"], #ddlMonth')
+                if sel_month:
+                    sel_month.select_option(value=month)
+                    page.wait_for_load_state('networkidle', timeout=5000)
+            except Exception:
+                pass
+
+            # XHR로 못 잡았으면 HTML 테이블 파싱
+            if not captured:
+                games = _parse_kbo_html_table(page, date_str)
+                browser.close()
+                return games if games else None
+
+            browser.close()
+
+        # XHR 캡처 데이터 파싱
+        games = []
+        for g in captured:
+            sc  = g.get('statusCode', g.get('gameStatus', 'READY'))
+            a_s = g.get('awayScore', g.get('visitScore'))
+            h_s = g.get('homeScore')
+            games.append({
+                'time':       g.get('gameTime', g.get('time', '')),
+                'away':       normalize_team(g.get('awayTeamCode') or g.get('awayTeamName') or g.get('visitTeamCode', '')),
+                'home':       normalize_team(g.get('homeTeamCode') or g.get('homeTeamName', '')),
+                'away_score': None if a_s in ('', None) else str(a_s),
+                'home_score': None if h_s in ('', None) else str(h_s),
+                'status':     STATUS_MAP.get(sc, sc),
+                'stadium':    normalize_stadium(g.get('stadiumName', g.get('stadium', ''))),
+            })
+        print(f'[Playwright] {date_str}: {len(games)}경기')
+        return games or None
+
+    except Exception as e:
+        print(f'[Playwright] 오류: {e}')
+        return None
+
+
+def _parse_kbo_html_table(page, date_str):
+    """Playwright page 객체에서 schedule 테이블 HTML 파싱"""
+    try:
+        from bs4 import BeautifulSoup
+        html = page.content()
+        soup = BeautifulSoup(html, 'html.parser')
+        return _extract_games_from_soup(soup, date_str)
+    except Exception as e:
+        print(f'[Playwright HTML parse] {e}')
+        return None
+
+
+def _extract_games_from_soup(soup, date_str):
+    """BeautifulSoup에서 경기 데이터 추출 (koreabaseball.com 테이블 구조)"""
+    target_date = f'{date_str[:4]}.{date_str[4:6]}.{date_str[6:]}'
+    games = []
+
+    # 테이블 찾기
+    table = (
+        soup.find('table', class_=re.compile(r'tbl', re.I)) or
+        soup.find('table', id=re.compile(r'schedule', re.I)) or
+        soup.find('table')
+    )
+    if not table:
+        return None
+
+    current_date = ''
+    for tr in table.find_all('tr'):
+        tds = tr.find_all('td')
+        if not tds:
+            continue
+
+        texts = [td.get_text(separator=' ', strip=True) for td in tds]
+
+        # 날짜 셀 갱신
+        date_cell = next(
+            (t for t in texts if re.match(r'\d{4}\.\d{2}\.\d{2}', t)), None
+        )
+        if date_cell:
+            current_date = date_cell[:10]
+
+        # 오늘 날짜만 처리
+        if current_date != target_date:
+            continue
+
+        # 시간 컬럼
+        time_val = next((t for t in texts if re.match(r'^\d{1,2}:\d{2}$', t)), None)
+        if not time_val:
+            continue
+
+        ti = texts.index(time_val)
+        # 구조: [날짜?] 시간 원정팀 스코어(또는 vs) 홈팀 ... 구장
+        away_raw  = texts[ti + 1] if ti + 1 < len(texts) else ''
+        score_raw = texts[ti + 2] if ti + 2 < len(texts) else ''
+        home_raw  = texts[ti + 3] if ti + 3 < len(texts) else ''
+        stad_raw  = texts[ti + 4] if ti + 4 < len(texts) else ''
+
+        m    = re.search(r'(\d+)\s*[:\-]\s*(\d+)', score_raw)
+        away = normalize_team(re.sub(r'\s+', '', away_raw))
+        home = normalize_team(re.sub(r'\s+', '', home_raw))
+
+        # 취소 여부
+        status = '예정'
+        note   = texts[-1] if texts else ''
+        if any(k in note for k in ('취소', '우천')):
+            status = '우천취소'
+        elif m:
+            status = '종료'
+
+        games.append({
+            'time':       time_val,
+            'away':       away,
+            'home':       home,
+            'away_score': m.group(1) if m else None,
+            'home_score': m.group(2) if m else None,
+            'status':     status,
+            'stadium':    normalize_stadium(stad_raw),
+        })
+
+    print(f'[KBO HTML Table] {date_str}: {len(games)}경기')
+    return games or None
+
+
+# ── 2) Naver Sports API (urllib 폴백) ─────────────────────────────────────────
 def try_naver(date_str):
-    """
-    api-gw.sports.naver.com: 'sports=kbo' → 'category=kbo' 로 수정
-    두 엔드포인트 순서대로 시도
-    """
     candidates = [
         (
             f'https://api-gw.sports.naver.com/schedule/games'
             f'?category=kbo&date={date_str}&roundCode=&pageSize=20&pageNo=1',
-            {'Referer': 'https://sports.naver.com/',
-             'Origin':  'https://sports.naver.com'},
+            {'Referer': 'https://sports.naver.com/', 'Origin': 'https://sports.naver.com'},
         ),
         (
             f'https://api-gw.sports.naver.com/schedule/games'
             f'?leagueCode=kbo&date={date_str}&pageSize=20&pageNo=1',
-            {'Referer': 'https://sports.naver.com/',
-             'Origin':  'https://sports.naver.com'},
+            {'Referer': 'https://sports.naver.com/', 'Origin': 'https://sports.naver.com'},
         ),
     ]
-
     for url, extra in candidates:
         try:
-            raw  = get(url, extra)
-            data = json.loads(raw)
+            data = json.loads(http_get(url, extra))
             game_list = (
                 data.get('result', {}).get('games') or
                 data.get('games') or
                 data.get('list') or []
             )
             if not game_list:
-                print(f'[Naver] {date_str}: 응답은 왔으나 경기 없음 ({url})')
                 continue
-
             games = []
             for g in game_list:
                 sc  = g.get('statusCode', 'READY')
@@ -98,114 +289,26 @@ def try_naver(date_str):
                 h_s = g.get('homeScore')
                 games.append({
                     'time':       g.get('gameTime', ''),
-                    'away':       normalize(g.get('awayTeamCode') or g.get('awayTeamName', '')),
-                    'home':       normalize(g.get('homeTeamCode') or g.get('homeTeamName', '')),
+                    'away':       normalize_team(g.get('awayTeamCode') or g.get('awayTeamName', '')),
+                    'home':       normalize_team(g.get('homeTeamCode') or g.get('homeTeamName', '')),
                     'away_score': None if a_s in ('', None) else str(a_s),
                     'home_score': None if h_s in ('', None) else str(h_s),
                     'status':     STATUS_MAP.get(sc, sc),
-                    'stadium':    g.get('stadiumName', ''),
+                    'stadium':    normalize_stadium(g.get('stadiumName', '')),
                 })
-            print(f'[Naver] {date_str}: {len(games)}경기 ({url})')
+            print(f'[Naver] {date_str}: {len(games)}경기')
             return games
         except Exception as e:
-            print(f'[Naver] {date_str}: {e} ({url})')
-
+            print(f'[Naver] {date_str}: {e}')
     return None
-
-
-# ── 2) KBO 공식 홈페이지 HTML 파싱 ────────────────────────────────────────────
-def try_kbo_html(date_str):
-    year = date_str[:4]
-    url  = (f'https://www.kbo.or.kr/schedule/schedule_list.asp'
-            f'?leId=1&srId=0&seasonId={year}&date={date_str}')
-    try:
-        html = get(url, {'Referer': 'https://www.kbo.or.kr/'})
-    except Exception as e:
-        print(f'[KBO HTML] {date_str}: {e}')
-        return None
-
-    try:
-        from bs4 import BeautifulSoup
-    except ImportError:
-        print('[KBO HTML] beautifulsoup4 미설치')
-        return None
-
-    try:
-        soup  = BeautifulSoup(html, 'html.parser')
-        table = (
-            soup.find('table', class_=re.compile(r'sch', re.I)) or
-            soup.find('table')
-        )
-        if not table:
-            print(f'[KBO HTML] {date_str}: 테이블 없음')
-            return None
-
-        games = []
-        for tr in table.find_all('tr'):
-            tds = [td.get_text(separator=' ', strip=True) for td in tr.find_all('td')]
-            if len(tds) < 4:
-                continue
-            time_val = next((t for t in tds if re.match(r'^\d{1,2}:\d{2}$', t)), None)
-            if not time_val:
-                continue
-            ti    = tds.index(time_val)
-            score = tds[ti + 2] if ti + 2 < len(tds) else ''
-            m     = re.search(r'(\d+)\s*[:\-]\s*(\d+)', score)
-            games.append({
-                'time':       time_val,
-                'away':       normalize(tds[ti + 1]) if ti + 1 < len(tds) else '',
-                'home':       normalize(tds[ti + 3]) if ti + 3 < len(tds) else '',
-                'away_score': m.group(1) if m else None,
-                'home_score': m.group(2) if m else None,
-                'status':     '종료' if m else '예정',
-                'stadium':    tds[ti + 4] if ti + 4 < len(tds) else '',
-            })
-
-        print(f'[KBO HTML] {date_str}: {len(games)}경기')
-        return games or None
-    except Exception as e:
-        print(f'[KBO HTML] {date_str}: 파싱 오류 {e}')
-        return None
-
-
-# ── 3) 스포티비 나우 API ────────────────────────────────────────────────────────
-def try_spotv(date_str):
-    """
-    SPOTV 스코어센터 - 날짜별 KBO 경기 목록
-    """
-    url = f'https://www.spotvnow.co.kr/api/score/kbo/schedule?date={date_str}'
-    try:
-        raw  = get(url, {'Referer': 'https://www.spotvnow.co.kr/'})
-        data = json.loads(raw)
-        game_list = data.get('data') or data.get('games') or data.get('list') or []
-        if not game_list:
-            print(f'[SPOTV] {date_str}: 경기 없음')
-            return None
-        games = []
-        for g in game_list:
-            games.append({
-                'time':       g.get('gameTime', g.get('time', '')),
-                'away':       normalize(g.get('awayTeam', g.get('away', ''))),
-                'home':       normalize(g.get('homeTeam', g.get('home', ''))),
-                'away_score': g.get('awayScore'),
-                'home_score': g.get('homeScore'),
-                'status':     STATUS_MAP.get(g.get('gameStatus', ''), '예정'),
-                'stadium':    g.get('stadium', ''),
-            })
-        print(f'[SPOTV] {date_str}: {len(games)}경기')
-        return games
-    except Exception as e:
-        print(f'[SPOTV] {date_str}: {e}')
-        return None
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def fetch_day(date_str):
     return (
+        try_playwright(date_str) or
         try_naver(date_str) or
-        try_kbo_html(date_str) or
-        try_spotv(date_str) or
         []
     )
 
@@ -227,7 +330,6 @@ def main():
         games = fetch_day(ds)
         dates_data[df] = {'date': df, 'games': games}
 
-    # 최근 7일만 보관
     keep       = sorted(dates_data.keys(), reverse=True)[:7]
     dates_data = {k: dates_data[k] for k in keep}
 
