@@ -293,6 +293,18 @@
       color: #a5d6a7;
     }
 
+    /* ── 선발투수 ── */
+    .gc-pitchers {
+      display: flex; align-items: center;
+      padding: 7px 14px 10px; border-top: 1px solid var(--border); gap: 4px;
+    }
+    .gp-side { flex: 1; text-align: center; }
+    .gp-name { font-size: 0.75rem; color: var(--sub); font-weight: 600; }
+    .gp-label {
+      flex-shrink: 0; padding: 0 8px;
+      font-size: 0.6rem; color: var(--muted); text-align: center; white-space: nowrap;
+    }
+
     /* ══════════════════════════════════════════════════
        최근 결과 accordion
     ══════════════════════════════════════════════════ */
@@ -774,6 +786,14 @@ function gameCardHTML(g, weather) {
 
   const stadiumDisplay = g.stadium || '구장 미정';
 
+  const pitcherHTML = (g.away_pitcher || g.home_pitcher)
+    ? `<div class="gc-pitchers">
+        <div class="gp-side"><span class="gp-name">${g.away_pitcher || '-'}</span></div>
+        <div class="gp-label">⚾<br>선발</div>
+        <div class="gp-side"><span class="gp-name">${g.home_pitcher || '-'}</span></div>
+      </div>`
+    : '';
+
   return `
     <div class="game-card ${isLive?'live':''}">
       <div class="gc-topbar">
@@ -797,6 +817,7 @@ function gameCardHTML(g, weather) {
       </div>
       ${rainNotice}
       <div id="wd-${g._id}">${weatherDetailHTML}</div>
+      ${pitcherHTML}
     </div>`;
 }
 
@@ -875,8 +896,7 @@ function shiftMonth(delta) {
 async function renderToday(data) {
   const pane = document.getElementById('pane-today');
   const today = data.today || dateKey(new Date());
-  const realGames = (data.dates?.[today]?.games || [])
-    .filter(g => g.status !== '취소' && g.status !== '우천취소');
+  const realGames = (data.dates?.[today]?.games || []);
   const schedGames = realGames.length === 0
     ? (window._kboSchedule?.[today] || []).map(g => ({
         away: g.away, home: g.home, stadium: g.venue,

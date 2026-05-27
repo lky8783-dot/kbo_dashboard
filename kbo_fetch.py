@@ -345,7 +345,87 @@ def _parse_cal_line(line):
     return None
 
 
-# ── 2) Naver Sports API (폴백) ────────────────────────────────────────────────
+# ── 2) 게임센터 선발투수 ─────────────────────────────────────────────────────
+def fetch_pitchers(date_str):
+    """
+    koreabaseball.com 게임센터에서 선발투수 수집.
+    반환: { (away팀명, home팀명): {'away': 투수명, 'home': 투수명} }
+
+    HTML 구조:
+      li.game-cont > .team.away > .emb > img[alt=팀코드]
+                                > .today-pitcher > p > span.before(선) + 투수명
+      li.game-cont > .team.home > ...
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+        from bs4 import BeautifulSoup
+    except ImportError:
+        return {}
+
+    try:
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch(headless=True, args=['--no-sandbox'])
+            ctx = browser.new_context(
+                user_agent=BASE_HEADERS['User-Agent'], locale='ko-KR'
+            )
+            page = ctx.new_page()
+            url = (f'https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx'
+                   f'?gameDate={date_str}')
+            print(f'[Pitcher] {url}')
+            page.goto(url, wait_until='networkidle', timeout=30000)
+            html = page.content()
+            browser.close()
+
+        soup = BeautifulSoup(html, 'html.parser')
+        result = _parse_pitchers(soup)
+        print(f'[Pitcher] {date_str}: {len(result)}경기 선발투수 수집')
+        return result
+
+    except Exception as e:
+        print(f'[Pitcher] 오류: {e}')
+        return {}
+
+
+def _parse_pitchers(soup):
+    """li.game-cont 구조에서 선발투수 추출"""
+    result = {}
+
+    def pitcher_name(team_div):
+        """today-pitcher div에서 투수명 추출 (span.before '선' 제거)"""
+        p_div = team_div.find('div', class_='today-pitcher')
+        if not p_div:
+            return ''
+        p_tag = p_div.find('p')
+        if not p_tag:
+            return p_div.get_text(strip=True).lstrip('선')
+        for span in p_tag.find_all('span', class_='before'):
+            span.decompose()
+        return p_tag.get_text(strip=True)
+
+    for li in soup.find_all('li', class_='game-cont'):
+        away_div = li.select_one('.team.away')
+        home_div = li.select_one('.team.home')
+        if not away_div or not home_div:
+            continue
+
+        away_img = away_div.select_one('.emb img')
+        home_img = home_div.select_one('.emb img')
+        away_code = away_img.get('alt', '').strip() if away_img else ''
+        home_code = home_img.get('alt', '').strip() if home_img else ''
+
+        away_team = normalize_team(away_code)
+        home_team = normalize_team(home_code)
+        away_p    = pitcher_name(away_div)
+        home_p    = pitcher_name(home_div)
+
+        if away_team and home_team:
+            result[(away_team, home_team)] = {'away': away_p, 'home': home_p}
+            print(f'[Pitcher]  {away_team} {away_p} vs {home_team} {home_p}')
+
+    return result
+
+
+# ── 3) Naver Sports API (폴백) ────────────────────────────────────────────────
 def try_naver(date_str):
     candidates = [
         (
@@ -393,11 +473,24 @@ def try_naver(date_str):
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def fetch_day(date_str):
-    return (
+    games = (
         try_kbo_calendar(date_str) or
         try_naver(date_str) or
         []
     )
+    # 오늘 날짜에만 선발투수 추가
+    if date_str == datetime.now().strftime('%Y%m%d') and games:
+        try:
+            pitchers = fetch_pitchers(date_str)
+            for g in games:
+                key = (g.get('away', ''), g.get('home', ''))
+                p = pitchers.get(key)
+                if p:
+                    g['away_pitcher'] = p['away']
+                    g['home_pitcher'] = p['home']
+        except Exception as e:
+            print(f'[Pitcher] 매칭 실패: {e}')
+    return games
 
 
 def main():
@@ -417,7 +510,9 @@ def main():
         games = fetch_day(ds)
         dates_data[df] = {'date': df, 'games': games}
 
-    keep       = sorted(dates_data.keys(), reverse=True)[:7]
+    # 시즌 시작일 이후 모든 날짜 보존 (달력·순위표에 필요)
+    SEASON_START = '2026-03-01'
+    keep       = sorted([k for k in dates_data if k >= SEASON_START], reverse=True)
     dates_data = {k: dates_data[k] for k in keep}
 
     result = {
