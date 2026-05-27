@@ -268,21 +268,28 @@ def _parse_calendar_day(soup, day, date_str):
     return unique or None
 
 
+KNOWN_TEAMS = set(TEAM_MAP.values())
+
+
+def _is_team(name):
+    """정규화 후 알려진 팀명인지 확인"""
+    return normalize_team(name) in KNOWN_TEAMS
+
+
 def _parse_cal_line(line):
     """
     달력 한 줄 게임 텍스트 → 게임 dict 또는 None
 
-    패턴:
-      완료  : "NC 1 : 5 LG ①"  또는  "NC 1:5 LG"
-      취소  : "롯데 : KT [수원]"  또는  "롯데:KT[수원]"
-      예정  : "LG 두산"  (팀명 두 개, 스코어 없음)
+    koreabaseball.com 달력 실제 형식:
+      완료  : "KT 6:0 두산"  또는  "KT 6:0 두산 ①"
+      예정  : "LG : 두산"    (콜론 양쪽 공백, 숫자 없음)
+      취소  : "롯데:KT[수원]" (대괄호 구장 또는 취소 키워드)
     """
     line = line.strip()
-    # 너무 짧거나 숫자만 있으면 날짜/기타
     if not line or line.isdigit() or len(line) < 3:
         return None
 
-    # ── 완료: 숫자:숫자 포함 ──
+    # ── 1) 완료: "팀A 점수:점수 팀B [①]" ──
     m = re.match(
         r'^(.+?)\s+(\d+)\s*:\s*(\d+)\s+(.+?)(?:\s*[①②③④⑤⑥⑦⑧⑨])?$',
         line
@@ -290,7 +297,7 @@ def _parse_cal_line(line):
     if m:
         away = normalize_team(m.group(1).strip())
         home = normalize_team(m.group(4).strip())
-        if away and home and away in ALL_TEAM_NAMES | {normalize_team(k) for k in TEAM_MAP}:
+        if away in KNOWN_TEAMS and home in KNOWN_TEAMS:
             return {
                 'time':       '',
                 'away':       away,
@@ -301,14 +308,13 @@ def _parse_cal_line(line):
                 'stadium':    '',
             }
 
-    # ── 취소: [구장] 또는 취소/우천 키워드 포함 (스코어 없음) ──
+    # ── 2) 취소: [구장] 또는 취소/우천 키워드 ──
     if any(k in line for k in ('취소', '우천')) or re.search(r'\[.+\]', line):
-        # 팀명 추출: "롯데:KT[수원]" → 롯데, KT
         m2 = re.match(r'^(.+?)\s*[:·]\s*(.+?)(?:\s*\[.*\])?$', line)
         if m2:
             away = normalize_team(m2.group(1).strip())
             home = normalize_team(re.sub(r'\[.*\]', '', m2.group(2)).strip())
-            if away and home:
+            if away in KNOWN_TEAMS and home in KNOWN_TEAMS:
                 return {
                     'time':       '',
                     'away':       away,
@@ -319,20 +325,17 @@ def _parse_cal_line(line):
                     'stadium':    '',
                 }
 
-    # ── 예정: 팀명 두 개 (스코어 없음) ──
-    # 알려진 팀명으로 분리 시도
-    parts = line.split()
-    if len(parts) >= 2:
-        # 팀명은 1~2 토큰으로 구성
-        for split_at in range(1, len(parts)):
-            away_try = normalize_team(' '.join(parts[:split_at]))
-            home_try = normalize_team(' '.join(parts[split_at:]))
-            if away_try != ' '.join(parts[:split_at]) and home_try != ' '.join(parts[split_at:]):
-                # 둘 다 TEAM_MAP에서 변환됨
+    # ── 3) 예정: "팀A : 팀B" (콜론 구분, 숫자 없음) ──
+    if ':' in line and not re.search(r'\d+\s*:\s*\d+', line):
+        m3 = re.match(r'^(.+?)\s*:\s*(.+?)(?:\s*[①②③④⑤])?$', line)
+        if m3:
+            away = normalize_team(m3.group(1).strip())
+            home = normalize_team(m3.group(2).strip())
+            if away in KNOWN_TEAMS and home in KNOWN_TEAMS:
                 return {
                     'time':       '',
-                    'away':       away_try,
-                    'home':       home_try,
+                    'away':       away,
+                    'home':       home,
                     'away_score': None,
                     'home_score': None,
                     'status':     '예정',
