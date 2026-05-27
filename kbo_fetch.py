@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-KBO 경기 일정/결과 수집기  (Playwright headless 우선)
+KBO 경기 일정/결과 수집기  (달력 뷰 우선)
 Usage: python kbo_fetch.py
 Output: kbo_data.json
 """
@@ -54,6 +54,9 @@ STADIUM_MAP = {
     '사직': '사직야구장', '부산': '사직야구장',
 }
 
+# 알려진 팀명 전체 목록 (달력 텍스트 파싱용)
+ALL_TEAM_NAMES = set(TEAM_MAP.keys()) | set(TEAM_MAP.values())
+
 
 def normalize_team(name):
     if not name:
@@ -81,226 +84,265 @@ def http_get(url, extra_headers=None):
         return r.read().decode(r.headers.get_content_charset() or 'utf-8')
 
 
-# ── 1) Playwright: koreabaseball.com (headless Chrome) ───────────────────────
-def try_playwright(date_str):
+# ── 1) 달력 뷰 파싱 (Primary) ────────────────────────────────────────────────
+def try_kbo_calendar(date_str):
+    """
+    koreabaseball.com 달력 탭에서 특정 날짜 경기 파싱
+    - 경기시간은 달력에 표시되지 않아 빈 값으로 처리
+    """
     try:
         from playwright.sync_api import sync_playwright
+        from bs4 import BeautifulSoup
     except ImportError:
-        print('[Playwright] 미설치 — pip install playwright && playwright install chromium')
+        print('[Calendar] playwright/bs4 미설치')
         return None
 
     year  = date_str[:4]
-    month = date_str[4:6].lstrip('0')
-    day   = date_str[6:].lstrip('0')
-
-    captured = []   # 네트워크 응답에서 잡힌 JSON 게임 데이터
-
-    def on_response(response):
-        """XHR/fetch 응답 인터셉트: JSON 게임 데이터 캡처"""
-        url = response.url
-        if not any(k in url for k in ('Schedule', 'Game', 'schedule', 'game')):
-            return
-        try:
-            ct = response.headers.get('content-type', '')
-            if 'json' not in ct and 'javascript' not in ct:
-                return
-            data = response.json()
-            # 다양한 응답 키 시도
-            game_list = (
-                data.get('data') or
-                data.get('games') or
-                data.get('result', {}).get('games') or
-                data.get('list') or []
-            )
-            if game_list:
-                captured.extend(game_list)
-                print(f'[Playwright XHR] {len(game_list)}경기 캡처: {url}')
-        except Exception:
-            pass
+    month = date_str[4:6]
+    day   = int(date_str[6:])
 
     try:
         with sync_playwright() as pw:
             browser = pw.chromium.launch(headless=True, args=['--no-sandbox'])
-            ctx  = browser.new_context(
+            ctx = browser.new_context(
                 user_agent=BASE_HEADERS['User-Agent'],
                 locale='ko-KR',
             )
             page = ctx.new_page()
-            page.on('response', on_response)
 
-            # 날짜 파라미터 포함 URL
+            # 리스트 뷰 URL로 이동 후 달력 탭 클릭
             url = (
                 f'https://www.koreabaseball.com/Schedule/Schedule.aspx'
                 f'?seriesId=0&teamId=0&gameDate={date_str}'
             )
-            print(f'[Playwright] {url} 로딩 중...')
+            print(f'[Calendar] {url} 로딩 중...')
             page.goto(url, wait_until='networkidle', timeout=30000)
 
-            # 테이블 행이 생길 때까지 최대 5초 추가 대기
+            # 달력 탭 클릭
             try:
-                page.wait_for_selector('table tbody tr td', timeout=5000)
-            except Exception:
-                pass
-
-            # 디버그: 테이블 첫 500자 출력
-            try:
-                tbl_html = page.eval_on_selector('table', 'el => el.outerHTML')
-                print(f'[Playwright DEBUG table] {tbl_html[:500]}')
+                page.click('text=달력', timeout=5000)
+                page.wait_for_load_state('networkidle', timeout=15000)
+                print('[Calendar] 달력 탭 클릭 완료')
             except Exception as e:
-                print(f'[Playwright DEBUG] 테이블 없음: {e}')
-                # 페이지 전체 텍스트 일부 출력
-                txt = page.inner_text('body')
-                print(f'[Playwright DEBUG body] {txt[:300]}')
+                print(f'[Calendar] 달력 탭 클릭 실패: {e}')
 
-            # XHR로 못 잡았으면 HTML 테이블 파싱
-            if not captured:
-                games = _parse_kbo_html_table(page, date_str)
-                browser.close()
-                return games if games else None
+            # 년/월 select 값 확인 및 조정
+            try:
+                cur_year  = page.eval_on_selector(
+                    'select[name*="year"], select[id*="year"], select[id*="Year"]',
+                    'el => el.value'
+                )
+                cur_month = page.eval_on_selector(
+                    'select[name*="month"], select[id*="month"], select[id*="Month"]',
+                    'el => el.value'
+                )
+                if str(cur_year) != year or str(int(cur_month)) != str(int(month)):
+                    print(f'[Calendar] 현재 {cur_year}/{cur_month} → {year}/{int(month)} 로 변경 필요')
+                    # select 값 변경 후 이벤트 발생
+                    page.select_option(
+                        'select[name*="year"], select[id*="year"], select[id*="Year"]',
+                        value=year
+                    )
+                    page.select_option(
+                        'select[name*="month"], select[id*="month"], select[id*="Month"]',
+                        value=str(int(month))
+                    )
+                    page.wait_for_load_state('networkidle', timeout=10000)
+                else:
+                    print(f'[Calendar] 현재 {cur_year}/{cur_month} — 올바른 월')
+            except Exception as e:
+                print(f'[Calendar] 년/월 확인 건너뜀: {e}')
 
+            # 디버그: 달력 HTML 앞부분
+            try:
+                cal_html = page.eval_on_selector(
+                    'table, .calendar, [class*="cal"]',
+                    'el => el.outerHTML'
+                )
+                print(f'[Calendar DEBUG] {cal_html[:600]}')
+            except Exception as e:
+                print(f'[Calendar DEBUG] 달력 요소 없음: {e}')
+                body_txt = page.inner_text('body')
+                print(f'[Calendar DEBUG body] {body_txt[:400]}')
+
+            html = page.content()
             browser.close()
 
-        # XHR 캡처 데이터 파싱
-        games = []
-        for g in captured:
-            sc  = g.get('statusCode', g.get('gameStatus', 'READY'))
-            a_s = g.get('awayScore', g.get('visitScore'))
-            h_s = g.get('homeScore')
-            games.append({
-                'time':       g.get('gameTime', g.get('time', '')),
-                'away':       normalize_team(g.get('awayTeamCode') or g.get('awayTeamName') or g.get('visitTeamCode', '')),
-                'home':       normalize_team(g.get('homeTeamCode') or g.get('homeTeamName', '')),
-                'away_score': None if a_s in ('', None) else str(a_s),
-                'home_score': None if h_s in ('', None) else str(h_s),
-                'status':     STATUS_MAP.get(sc, sc),
-                'stadium':    normalize_stadium(g.get('stadiumName', g.get('stadium', ''))),
-            })
-        print(f'[Playwright] {date_str}: {len(games)}경기')
+        soup = BeautifulSoup(html, 'html.parser')
+        games = _parse_calendar_day(soup, day, date_str)
+        print(f'[Calendar] {date_str}: {len(games) if games else 0}경기')
         return games or None
 
     except Exception as e:
-        print(f'[Playwright] 오류: {e}')
+        print(f'[Calendar] 오류: {e}')
         return None
 
 
-def _parse_kbo_html_table(page, date_str):
-    """Playwright page 객체에서 schedule 테이블 HTML 파싱"""
-    try:
-        from bs4 import BeautifulSoup
-        html = page.content()
-        soup = BeautifulSoup(html, 'html.parser')
-        return _extract_games_from_soup(soup, date_str)
-    except Exception as e:
-        print(f'[Playwright HTML parse] {e}')
-        return None
-
-
-def _extract_games_from_soup(soup, date_str):
+def _parse_calendar_day(soup, day, date_str):
     """
-    koreabaseball.com tblScheduleList 실제 구조:
-    <td class="day" rowspan="N">날짜</td>
-    <td class="time"><b>HH:MM</b></td>
-    <td class="play">
-      <span>원정팀</span>
-      <em><span class="win/lose">6</span><span>vs</span><span class="win/lose">0</span></em>
-      <span>홈팀</span>
-    </td>
-    ... (relay, highlight, TV, radio)
-    <td>구장</td>
-    <td>비고</td>
-    """
-    y, mo, d  = date_str[:4], date_str[4:6], date_str[6:]
-    date_pats = [
-        f'{y}.{mo}.{d}',
-        f'{y}-{mo}-{d}',
-        f'{int(mo)}.{int(d)}',
-        f'{mo}.{d}',
-    ]
+    달력 HTML에서 특정 날짜 셀을 찾아 경기 목록 파싱.
 
-    table = (
-        soup.find('table', id='tblScheduleList') or
-        soup.find('table', class_='tbl') or
+    예상 형식:
+      완료: "NC 1:5 LG ①"   →  원정팀 원정점수:홈점수 홈팀 [게임번호]
+      취소: "롯데:KT[수원]"  →  원정팀:홈팀[구장] (빨간 텍스트, 스코어 없음)
+      예정: "LG 두산"        →  원정팀 홈팀 (스코어 없음)
+    """
+    target_day = str(day)
+
+    # ── 달력 테이블/컨테이너 탐색 ──
+    # id/class 기반 우선 시도
+    cal_container = (
+        soup.find(id=re.compile(r'cal', re.I)) or
+        soup.find(class_=re.compile(r'cal', re.I)) or
         soup.find('table')
     )
-    if not table:
-        print(f'[KBO HTML Table] {date_str}: 테이블 없음')
+    if not cal_container:
+        print('[Calendar] 달력 컨테이너 없음')
         return None
 
-    rows = table.find_all('tr')
-    print(f'[KBO HTML Table] {date_str}: {len(rows)}행')
+    # ── 날짜 셀 탐색 ──
+    # 셀 내 첫 번째 숫자 텍스트(날짜)가 target_day와 일치하는 <td> 찾기
+    target_td = None
+    for td in cal_container.find_all('td'):
+        # 셀 내 날짜 숫자 추출: 첫 번째 자식 텍스트 또는 span/a 내 숫자
+        day_text = ''
+        first_child = next(
+            (c for c in td.children if hasattr(c, 'get_text') or isinstance(c, str)),
+            None
+        )
+        if first_child:
+            day_text = (
+                first_child.get_text(strip=True)
+                if hasattr(first_child, 'get_text')
+                else str(first_child).strip()
+            )
+        # 숫자만 있는 경우 날짜로 판단
+        if day_text == target_day or (day_text.isdigit() and int(day_text) == day):
+            target_td = td
+            print(f'[Calendar] {day}일 셀 발견 (첫 텍스트: "{day_text}")')
+            break
 
-    games           = []
-    current_matched = False
+    # 못 찾으면 텍스트 전체에서 숫자 재탐색
+    if not target_td:
+        for td in cal_container.find_all('td'):
+            texts = [t.strip() for t in td.stripped_strings]
+            if texts and texts[0] == target_day:
+                target_td = td
+                print(f'[Calendar] {day}일 셀 발견 (stripped_strings[0])')
+                break
 
-    for tr in rows:
-        # ── 날짜 셀 감지 (td.day, rowspan) ──
-        day_td = tr.find('td', class_='day')
-        if day_td:
-            day_text = day_td.get_text(strip=True)
-            current_matched = any(pat in day_text for pat in date_pats)
+    if not target_td:
+        print(f'[Calendar] {day}일 셀을 찾지 못함')
+        return None
 
-        if not current_matched:
-            continue
+    # ── 셀 내 경기 항목 파싱 ──
+    games = []
+    # <li>, <a>, <p>, <span> 등 게임 항목 태그 탐색
+    game_items = target_td.find_all(['li', 'a', 'p', 'span'])
+    if game_items:
+        for item in game_items:
+            text = item.get_text(separator=' ', strip=True)
+            g = _parse_cal_line(text)
+            if g:
+                games.append(g)
+    else:
+        # 태그 없이 텍스트만 있는 경우: 줄바꿈 기반 파싱
+        raw = target_td.get_text(separator='\n', strip=True)
+        for line in raw.split('\n'):
+            line = line.strip()
+            if not line or line == target_day:
+                continue
+            g = _parse_cal_line(line)
+            if g:
+                games.append(g)
 
-        # ── 시간 셀 ──
-        time_td = tr.find('td', class_='time')
-        if not time_td:
-            continue
-        time_val = time_td.get_text(strip=True)
-        if not re.match(r'^\d{1,2}:\d{2}$', time_val):
-            continue
+    # 중복 제거 (동일 away+home)
+    seen = set()
+    unique = []
+    for g in games:
+        key = (g['away'], g['home'])
+        if key not in seen:
+            seen.add(key)
+            unique.append(g)
 
-        # ── 경기 셀 (td.play) ──
-        play_td = tr.find('td', class_='play')
-        if not play_td:
-            continue
-
-        # 원정/홈팀: play 직계 자식 <span>
-        team_spans = play_td.find_all('span', recursive=False)
-        away = normalize_team(team_spans[0].get_text(strip=True)) if team_spans else ''
-        home = normalize_team(team_spans[-1].get_text(strip=True)) if len(team_spans) > 1 else ''
-
-        # 스코어: <em> 내부 숫자 <span>
-        a_s = h_s = None
-        status = '예정'
-        em = play_td.find('em')
-        if em:
-            score_spans = [s for s in em.find_all('span')
-                           if s.get_text(strip=True).isdigit()]
-            if len(score_spans) >= 2:
-                a_s    = score_spans[0].get_text(strip=True)
-                h_s    = score_spans[1].get_text(strip=True)
-                status = '종료'
-
-        # 취소 여부: 비고(마지막 td) 또는 play 텍스트
-        all_tds = tr.find_all('td')
-        note    = all_tds[-1].get_text(strip=True) if all_tds else ''
-        if any(k in note for k in ('취소', '우천')) or \
-           any(k in play_td.get_text() for k in ('취소', '우천')):
-            status = '우천취소'
-            a_s = h_s = None
-
-        # 구장: 뒤에서 두 번째 td
-        stad_raw = all_tds[-2].get_text(strip=True) if len(all_tds) >= 2 else ''
-
-        if not away or not home:
-            continue
-
-        games.append({
-            'time':       time_val,
-            'away':       away,
-            'home':       home,
-            'away_score': a_s,
-            'home_score': h_s,
-            'status':     status,
-            'stadium':    normalize_stadium(stad_raw),
-        })
-
-    print(f'[KBO HTML Table] {date_str}: {len(games)}경기')
-    return games or None
+    return unique or None
 
 
-# ── 2) Naver Sports API (urllib 폴백) ─────────────────────────────────────────
+def _parse_cal_line(line):
+    """
+    달력 한 줄 게임 텍스트 → 게임 dict 또는 None
+
+    패턴:
+      완료  : "NC 1 : 5 LG ①"  또는  "NC 1:5 LG"
+      취소  : "롯데 : KT [수원]"  또는  "롯데:KT[수원]"
+      예정  : "LG 두산"  (팀명 두 개, 스코어 없음)
+    """
+    line = line.strip()
+    # 너무 짧거나 숫자만 있으면 날짜/기타
+    if not line or line.isdigit() or len(line) < 3:
+        return None
+
+    # ── 완료: 숫자:숫자 포함 ──
+    m = re.match(
+        r'^(.+?)\s+(\d+)\s*:\s*(\d+)\s+(.+?)(?:\s*[①②③④⑤⑥⑦⑧⑨])?$',
+        line
+    )
+    if m:
+        away = normalize_team(m.group(1).strip())
+        home = normalize_team(m.group(4).strip())
+        if away and home and away in ALL_TEAM_NAMES | {normalize_team(k) for k in TEAM_MAP}:
+            return {
+                'time':       '',
+                'away':       away,
+                'home':       home,
+                'away_score': m.group(2),
+                'home_score': m.group(3),
+                'status':     '종료',
+                'stadium':    '',
+            }
+
+    # ── 취소: [구장] 또는 취소/우천 키워드 포함 (스코어 없음) ──
+    if any(k in line for k in ('취소', '우천')) or re.search(r'\[.+\]', line):
+        # 팀명 추출: "롯데:KT[수원]" → 롯데, KT
+        m2 = re.match(r'^(.+?)\s*[:·]\s*(.+?)(?:\s*\[.*\])?$', line)
+        if m2:
+            away = normalize_team(m2.group(1).strip())
+            home = normalize_team(re.sub(r'\[.*\]', '', m2.group(2)).strip())
+            if away and home:
+                return {
+                    'time':       '',
+                    'away':       away,
+                    'home':       home,
+                    'away_score': None,
+                    'home_score': None,
+                    'status':     '우천취소',
+                    'stadium':    '',
+                }
+
+    # ── 예정: 팀명 두 개 (스코어 없음) ──
+    # 알려진 팀명으로 분리 시도
+    parts = line.split()
+    if len(parts) >= 2:
+        # 팀명은 1~2 토큰으로 구성
+        for split_at in range(1, len(parts)):
+            away_try = normalize_team(' '.join(parts[:split_at]))
+            home_try = normalize_team(' '.join(parts[split_at:]))
+            if away_try != ' '.join(parts[:split_at]) and home_try != ' '.join(parts[split_at:]):
+                # 둘 다 TEAM_MAP에서 변환됨
+                return {
+                    'time':       '',
+                    'away':       away_try,
+                    'home':       home_try,
+                    'away_score': None,
+                    'home_score': None,
+                    'status':     '예정',
+                    'stadium':    '',
+                }
+
+    return None
+
+
+# ── 2) Naver Sports API (폴백) ────────────────────────────────────────────────
 def try_naver(date_str):
     candidates = [
         (
@@ -349,7 +391,7 @@ def try_naver(date_str):
 
 def fetch_day(date_str):
     return (
-        try_playwright(date_str) or
+        try_kbo_calendar(date_str) or
         try_naver(date_str) or
         []
     )
