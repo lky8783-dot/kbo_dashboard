@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T12:30:49",
+  "updated": "2026-05-28T13:01:09",
   "today": "2026-05-28",
   "dates": {
     "2026-05-31": {
@@ -159,23 +159,19 @@
           "time": "18:30",
           "away": "kt wiz",
           "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회초",
-          "stadium": "잠실야구장",
-          "away_pitcher": "한승택",
-          "home_pitcher": "최주형"
+          "away_score": "0",
+          "home_score": "0",
+          "status": "종료",
+          "stadium": "잠실야구장"
         },
         {
           "time": "18:30",
           "away": "LG 트윈스",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
-          "stadium": "사직야구장",
-          "away_pitcher": "박시원",
-          "home_pitcher": "고승민"
+          "away_score": "5",
+          "home_score": "8",
+          "status": "종료",
+          "stadium": "사직야구장"
         },
         {
           "time": "18:30",
@@ -192,21 +188,19 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김태연",
-          "home_pitcher": "배재환"
+          "away_pitcher": "심우준",
+          "home_pitcher": "손주환"
         },
         {
           "time": "18:30",
           "away": "KIA 타이거즈",
           "home": "키움 히어로즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회말",
-          "stadium": "고척스카이돔",
-          "away_pitcher": "한재승",
-          "home_pitcher": "박주홍"
+          "away_score": "5",
+          "home_score": "0",
+          "status": "종료",
+          "stadium": "고척스카이돔"
         }
       ]
     },
