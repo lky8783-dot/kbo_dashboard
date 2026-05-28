@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T09:30:46",
+  "updated": "2026-05-28T10:00:54",
   "today": "2026-05-28",
   "dates": {
     "2026-05-31": {
@@ -161,9 +161,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "고영표",
+          "away_pitcher": "류현인",
           "home_pitcher": "곽빈"
         },
         {
@@ -172,10 +172,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "사직야구장",
-          "away_pitcher": "홍창기",
-          "home_pitcher": "김진욱"
+          "away_pitcher": "이정용",
+          "home_pitcher": "박승욱"
         },
         {
           "time": "18:30",
@@ -183,9 +183,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "3회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김지찬",
+          "away_pitcher": "박계범",
           "home_pitcher": "긴지로"
         },
         {
@@ -194,9 +194,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "왕옌청",
+          "away_pitcher": "강백호",
           "home_pitcher": "김태경"
         },
         {
@@ -205,10 +205,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "고척스카이돔",
           "away_pitcher": "황동하",
-          "home_pitcher": "로젠버그"
+          "home_pitcher": "최주환"
         }
       ]
     },
