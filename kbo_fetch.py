@@ -449,14 +449,19 @@ def _parse_pitchers(soup):
         time_str    = top_lis[2].get_text(strip=True) if len(top_lis) > 2 else ''
         stadium     = normalize_stadium(stadium_raw)
 
+        # 중계 방송사: div.middle > div.broadcasting
+        bc_el = li.select_one('div.middle div.broadcasting, div.broadcasting')
+        broadcaster = bc_el.get_text(strip=True) if bc_el else ''
+
         result[(away_team, home_team)] = {
-            'away':    away_p,
-            'home':    home_p,
-            'status':  status,
-            'time':    time_str,
-            'stadium': stadium,
+            'away':        away_p,
+            'home':        home_p,
+            'status':      status,
+            'time':        time_str,
+            'stadium':     stadium,
+            'broadcaster': broadcaster,
         }
-        print(f'[Pitcher]  {away_team} {away_p} vs {home_team} {home_p}  [{status} {time_str}]')
+        print(f'[Pitcher]  {away_team} {away_p} vs {home_team} {home_p}  [{status} {time_str}] 중계:{broadcaster}')
 
     return result
 
@@ -532,6 +537,7 @@ def fetch_day(date_str):
                         if info['stadium']: g['stadium'] = info['stadium']
                         if info['away']:    g['away_pitcher'] = info['away']
                         if info['home']:    g['home_pitcher'] = info['home']
+                        if info.get('broadcaster'): g['broadcaster'] = info['broadcaster']
                     else:
                         # 게임센터에만 있는 경기 (calendar에서 누락)
                         games.append({
@@ -544,6 +550,7 @@ def fetch_day(date_str):
                             'stadium':      info['stadium'],
                             'away_pitcher': info['away'],
                             'home_pitcher': info['home'],
+                            'broadcaster':  info.get('broadcaster', ''),
                         })
         except Exception as e:
             print(f'[Pitcher] 머지 실패: {e}')

@@ -472,7 +472,7 @@
       .cal-team { max-width: 16px; }
     }
 
-    /* ── 최근 경기 결과 스트립 ── */
+    /* ── 경기 결과 스트립 (오늘/어제) ── */
     .recent-strip {
       display: flex; align-items: center; gap: 8px;
       padding: 6px 14px 7px; background: #0d1720;
@@ -498,6 +498,21 @@
     .ri-win  { color: var(--text); font-weight: 700; }
     .ri-lose { color: #4a6080; }
     .ri-score { font-size: 0.7rem; font-weight: 700; color: var(--accent); margin: 0 3px; }
+
+    /* ── 방송사 배지 ── */
+    .gc-broadcaster {
+      font-size: 0.62rem; color: #e0a800; background: #2a2000;
+      border: 1px solid #4a3800; border-radius: 4px;
+      padding: 1px 6px; white-space: nowrap;
+    }
+
+    /* ── 다음경기 섹션 헤더 ── */
+    .next-game-header {
+      padding: 12px 14px 6px;
+      font-size: 0.78rem; font-weight: 700; color: var(--sub);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 6px;
+    }
 
     /* ── 순위표 ── */
     .standings-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -794,11 +809,15 @@ function gameCardHTML(g, weather) {
       </div>`
     : '';
 
+  const broadcasterHTML = g.broadcaster
+    ? `<span class="gc-broadcaster">📺 ${g.broadcaster}</span>` : '';
+
   return `
     <div class="game-card ${isLive?'live':''}">
       <div class="gc-topbar">
         <span class="gc-stadium">📍 ${stadiumDisplay}</span>
         <div class="gc-time-wrap">
+          ${broadcasterHTML}
           <span class="gc-time">${g.time||''}</span>
           ${badge(g.status)}
         </div>
@@ -893,6 +912,60 @@ function shiftMonth(delta) {
 }
 
 /* ── 오늘 경기 렌더 ── */
+/* ── KST 기준 현재 시각 (분 단위) ── */
+function kstMinutes() {
+  const now = new Date();
+  return ((now.getUTCHours() + 9) % 24) * 60 + now.getUTCMinutes();
+}
+
+/* ── 오늘 경기 종료 여부 판정 ── */
+function isTodayOver(games) {
+  if (kstMinutes() >= 23 * 60 + 30) return true;
+  return games.length > 0 &&
+    games.every(g => ['종료','취소','우천취소'].includes(g.status));
+}
+
+/* ── 오늘 결과 한줄 스트립 ── */
+function todayResultStripHTML(games, today) {
+  const d = new Date(today + 'T00:00:00');
+  const label = `오늘(${d.getMonth()+1}/${d.getDate()}) 결과`;
+  const finished = games.filter(g => g.status === '종료');
+  if (!finished.length) return '';
+  const items = finished.map(g => {
+    const aS = Number(g.away_score), hS = Number(g.home_score);
+    const aW = aS > hS, hW = hS > aS;
+    const aName = TEAM_SHORT[g.away] || g.away;
+    const hName = TEAM_SHORT[g.home] || g.home;
+    return `<div class="recent-item">
+      <span class="ri-team ${aW?'ri-win':'ri-lose'}">${aName}</span>
+      <span class="ri-score">${g.away_score}:${g.home_score}</span>
+      <span class="ri-team ${hW?'ri-win':'ri-lose'}">${hName}</span>
+    </div>`;
+  }).join('');
+  return `<div class="recent-strip">
+    <span class="rs-label">📋 ${label}</span>
+    <div class="rs-scroll">${items}</div>
+  </div>`;
+}
+
+/* ── 다음 경기 날짜 찾기 ── */
+function findNextGameDate(data, today) {
+  const sorted = Object.keys(data.dates || {}).sort();
+  // 오늘 이후 경기 예정 날짜
+  for (const d of sorted) {
+    if (d <= today) continue;
+    const games = data.dates[d]?.games || [];
+    if (games.some(g => ['예정','준비중'].includes(g.status) || g.away_score == null)) return d;
+  }
+  // kboSchedule 폴백
+  if (window._kboSchedule) {
+    for (const d of Object.keys(window._kboSchedule).sort()) {
+      if (d > today) return d;
+    }
+  }
+  return null;
+}
+
 async function renderToday(data) {
   const pane = document.getElementById('pane-today');
   const today = data.today || dateKey(new Date());
@@ -903,8 +976,54 @@ async function renderToday(data) {
         away_score: null, home_score: null, status: '예정', time: '',
       }))
     : [];
-  const games = realGames.length > 0 ? realGames : schedGames;
+  const todayGames = realGames.length > 0 ? realGames : schedGames;
 
+  // ── 23:30 이후 또는 전 경기 종료: 오늘결과 한줄 + 다음경기 카드 ──
+  if (isTodayOver(todayGames) && todayGames.length > 0) {
+    const nextDate = findNextGameDate(data, today);
+    const nextGames = nextDate
+      ? (data.dates?.[nextDate]?.games ||
+         (window._kboSchedule?.[nextDate] || []).map(g => ({
+           away: g.away, home: g.home, stadium: g.venue,
+           away_score: null, home_score: null, status: '예정', time: g.time || '',
+         })))
+      : [];
+    nextGames.forEach((g, i) => g._id = 100 + i);
+
+    const nd = nextDate ? new Date(nextDate + 'T00:00:00') : null;
+    const nextLabel = nd
+      ? `다음 경기 — ${nd.getMonth()+1}/${nd.getDate()}(${DAYS[nd.getDay()]})`
+      : '다음 경기';
+
+    pane.innerHTML =
+      todayResultStripHTML(todayGames, today) +
+      (nextGames.length
+        ? `<div class="next-game-header">🗓️ ${nextLabel}</div>
+           <div class="games-grid" style="padding:14px 14px 20px">${nextGames.map(g => gameCardHTML(g, null)).join('')}</div>`
+        : '<div class="msg">다음 경기 일정이 없습니다.</div>');
+
+    // 다음경기 날씨 비동기 로드
+    const stadiumWeatherCache = {};
+    await Promise.all(nextGames.map(async g => {
+      const sName = resolveStadium(g.stadium);
+      if (!sName) return;
+      if (!stadiumWeatherCache[sName]) {
+        try {
+          const coords = STADIUM_COORDS[sName];
+          stadiumWeatherCache[sName] = await fetchWeather(coords.lat, coords.lon);
+        } catch { stadiumWeatherCache[sName] = null; }
+      }
+      const weather = stadiumWeatherCache[sName];
+      if (!weather) return;
+      const w = wmo(weather.weather_code);
+      const wEl = document.getElementById(`wb-${g._id}`);
+      if (wEl) wEl.innerHTML = `<span class="wi">${w.i}</span><span>${w.l}</span><span class="gc-temp">${Math.round(weather.temperature_2m)}°C</span>`;
+    }));
+    return;
+  }
+
+  // ── 경기 진행 중 / 오늘 예정 ── 기존 로직
+  const games = todayGames;
   if (games.length === 0) {
     pane.innerHTML = '<div class="msg">오늘 예정된 경기가 없습니다.</div>';
     return;
