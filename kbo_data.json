@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T09:00:50",
+  "updated": "2026-05-28T09:30:46",
   "today": "2026-05-28",
   "dates": {
     "2026-05-31": {
@@ -172,9 +172,9 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "사직야구장",
-          "away_pitcher": "이정용",
+          "away_pitcher": "홍창기",
           "home_pitcher": "김진욱"
         },
         {
@@ -183,9 +183,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "최원태",
+          "away_pitcher": "김지찬",
           "home_pitcher": "긴지로"
         },
         {
