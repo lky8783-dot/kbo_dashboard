@@ -1,12 +1,7 @@
 name: KBO 데이터 업데이트
 
 on:
-  schedule:
-    # 경기 시간대(KST 14:00~23:00 = UTC 05:00~14:00), 30분마다
-    - cron: '0,30 5-14 * * *'
-    # 오전 업데이트 (전날 최종 결과 확정)
-    - cron: '0 1 * * *'
-  workflow_dispatch:
+  workflow_dispatch:   # 외부 크론 서비스(cron-job.org)가 GitHub API로 호출
 
 jobs:
   update-kbo:
