@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-27T16:23:23",
-  "today": "2026-05-27",
+  "updated": "2026-05-28T01:12:17",
+  "today": "2026-05-28",
   "dates": {
     "2026-05-31": {
       "date": "2026-05-31",
@@ -156,49 +156,59 @@
       "date": "2026-05-28",
       "games": [
         {
-          "time": "",
+          "time": "18:30",
           "away": "kt wiz",
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "잠실야구장",
+          "away_pitcher": "고영표",
+          "home_pitcher": "곽빈"
         },
         {
-          "time": "",
+          "time": "18:30",
           "away": "LG 트윈스",
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "사직야구장",
+          "away_pitcher": "이정용",
+          "home_pitcher": "김진욱"
         },
         {
-          "time": "",
+          "time": "18:30",
           "away": "삼성 라이온즈",
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "SSG 랜더스필드",
+          "away_pitcher": "최원태",
+          "home_pitcher": "긴지로"
         },
         {
-          "time": "",
+          "time": "18:30",
           "away": "한화 이글스",
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "창원 NC 파크",
+          "away_pitcher": "왕옌청",
+          "home_pitcher": "김태경"
         },
         {
-          "time": "",
+          "time": "18:30",
           "away": "KIA 타이거즈",
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "고척스카이돔",
+          "away_pitcher": "황동하",
+          "home_pitcher": "로젠버그"
         }
       ]
     },
@@ -212,9 +222,7 @@
           "away_score": "0",
           "home_score": "5",
           "status": "종료",
-          "stadium": "잠실야구장",
-          "away_pitcher": "패오원석",
-          "home_pitcher": "승벤자민"
+          "stadium": ""
         },
         {
           "time": "",
@@ -223,9 +231,7 @@
           "away_score": "8",
           "home_score": "6",
           "status": "종료",
-          "stadium": "사직야구장",
-          "away_pitcher": "승함덕주",
-          "home_pitcher": "패나균안"
+          "stadium": ""
         },
         {
           "time": "",
@@ -234,9 +240,7 @@
           "away_score": "4",
           "home_score": "1",
           "status": "종료",
-          "stadium": "SSG 랜더스필드",
-          "away_pitcher": "승후라도",
-          "home_pitcher": "패베니지아노"
+          "stadium": ""
         },
         {
           "time": "",
@@ -245,9 +249,7 @@
           "away_score": "4",
           "home_score": "6",
           "status": "종료",
-          "stadium": "창원 NC 파크",
-          "away_pitcher": "패정우주",
-          "home_pitcher": "승김진호"
+          "stadium": ""
         },
         {
           "time": "",
@@ -256,9 +258,7 @@
           "away_score": "9",
           "home_score": "2",
           "status": "종료",
-          "stadium": "고척스카이돔",
-          "away_pitcher": "승네일",
-          "home_pitcher": "패알칸타라"
+          "stadium": ""
         }
       ]
     },
