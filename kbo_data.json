@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-28T14:30:49",
-  "today": "2026-05-28",
+  "updated": "2026-05-29T00:00:52",
+  "today": "2026-05-29",
   "dates": {
     "2026-05-31": {
       "date": "2026-05-31",
@@ -106,49 +106,64 @@
       "date": "2026-05-29",
       "games": [
         {
-          "time": "",
+          "time": "18:30",
           "away": "KIA 타이거즈",
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "잠실야구장",
+          "away_pitcher": "이의리",
+          "home_pitcher": "웰스",
+          "broadcaster": "K-2T"
         },
         {
-          "time": "",
+          "time": "18:30",
           "away": "두산 베어스",
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "삼성 라이온즈파크",
+          "away_pitcher": "잭로그",
+          "home_pitcher": "원태인",
+          "broadcaster": "SPO-T"
         },
         {
-          "time": "",
+          "time": "18:30",
           "away": "롯데 자이언츠",
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "창원 NC 파크",
+          "away_pitcher": "박세웅",
+          "home_pitcher": "구창모",
+          "broadcaster": "SPO-2T"
         },
         {
-          "time": "",
+          "time": "18:30",
           "away": "SSG 랜더스",
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "한화생명 이글스파크",
+          "away_pitcher": "최민준",
+          "home_pitcher": "화이트",
+          "broadcaster": "KN-T"
         },
         {
-          "time": "",
+          "time": "18:30",
           "away": "kt wiz",
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
+          "status": "예정",
+          "stadium": "고척스카이돔",
+          "away_pitcher": "사우어",
+          "home_pitcher": "배동현",
+          "broadcaster": "SS-T,MS-T"
         }
       ]
     },
@@ -156,59 +171,49 @@
       "date": "2026-05-28",
       "games": [
         {
-          "time": "18:30",
+          "time": "",
           "away": "kt wiz",
           "home": "두산 베어스",
           "away_score": "11",
           "home_score": "3",
           "status": "종료",
-          "stadium": "잠실야구장",
-          "away_pitcher": "승고영표",
-          "home_pitcher": "패양재훈"
+          "stadium": ""
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "LG 트윈스",
           "home": "롯데 자이언츠",
           "away_score": "5",
           "home_score": "8",
           "status": "종료",
-          "stadium": "사직야구장",
-          "away_pitcher": "패우강훈",
-          "home_pitcher": "승정철원"
+          "stadium": ""
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "삼성 라이온즈",
           "home": "SSG 랜더스",
           "away_score": "10",
           "home_score": "1",
           "status": "종료",
-          "stadium": "SSG 랜더스필드",
-          "away_pitcher": "승최원태",
-          "home_pitcher": "패긴지로"
+          "stadium": ""
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "한화 이글스",
           "home": "NC 다이노스",
           "away_score": "18",
           "home_score": "7",
           "status": "종료",
-          "stadium": "창원 NC 파크",
-          "away_pitcher": "승황준서",
-          "home_pitcher": "패임지민"
+          "stadium": ""
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "KIA 타이거즈",
           "home": "키움 히어로즈",
           "away_score": "5",
           "home_score": "0",
           "status": "종료",
-          "stadium": "고척스카이돔",
-          "away_pitcher": "승황동하",
-          "home_pitcher": "패로젠버그"
+          "stadium": ""
         }
       ]
     },
