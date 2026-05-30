@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T11:00:49",
+  "updated": "2026-05-30T11:30:46",
   "today": "2026-05-30",
   "dates": {
     "2026-05-31": {
@@ -79,12 +79,10 @@
           "time": "17:00",
           "away": "롯데 자이언츠",
           "home": "NC 다이노스",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "2",
+          "home_score": "6",
+          "status": "종료",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "노진혁",
-          "home_pitcher": "전사민",
           "broadcaster": "SPO-2T"
         },
         {
@@ -93,10 +91,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "한유섬",
-          "home_pitcher": "정우주",
+          "away_pitcher": "최지훈",
+          "home_pitcher": "이민우",
           "broadcaster": "SPO-T"
         },
         {
@@ -105,10 +103,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "손동현",
-          "home_pitcher": "오선진",
+          "away_pitcher": "장성우",
+          "home_pitcher": "김성진",
           "broadcaster": "SS-T,MS-T"
         }
       ]
