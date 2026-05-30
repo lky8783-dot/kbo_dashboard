@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T07:00:50",
+  "updated": "2026-05-30T07:31:03",
   "today": "2026-05-30",
   "dates": {
     "2026-05-31": {
@@ -61,10 +61,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "박찬호",
-          "home_pitcher": "백정현",
+          "away_pitcher": "이병헌",
+          "home_pitcher": "김지찬",
           "broadcaster": "S-T"
         },
         {
