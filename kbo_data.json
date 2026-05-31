@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T04:00:49",
+  "updated": "2026-05-31T05:00:49",
   "today": "2026-05-31",
   "dates": {
     "2026-05-31": {
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "최민석",
+          "away_pitcher": "정수빈",
           "home_pitcher": "양창섭",
           "broadcaster": "SPO-T"
         },
