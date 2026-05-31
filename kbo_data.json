@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T05:00:49",
+  "updated": "2026-05-31T05:30:46",
   "today": "2026-05-31",
   "dates": {
     "2026-05-31": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "양현종",
+          "away_pitcher": "김호령",
           "home_pitcher": "톨허스트",
           "broadcaster": "M-T"
         },
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "정수빈",
-          "home_pitcher": "양창섭",
+          "away_pitcher": "최민석",
+          "home_pitcher": "전병우",
           "broadcaster": "SPO-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "창원 NC 파크",
           "away_pitcher": "비슬리",
-          "home_pitcher": "테일러",
+          "home_pitcher": "박시원",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "한화생명 이글스파크",
           "away_pitcher": "타케다",
-          "home_pitcher": "에르난데스",
+          "home_pitcher": "김태연",
           "broadcaster": "KN-T"
         },
         {
@@ -59,9 +59,9 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "보쉴리",
+          "away_pitcher": "최원준",
           "home_pitcher": "박준현",
           "broadcaster": "SS-T,MS-T"
         }
