@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T06:30:46",
+  "updated": "2026-05-31T07:00:48",
   "today": "2026-05-31",
   "dates": {
     "2026-05-31": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "양현종",
+          "away_pitcher": "조상우",
           "home_pitcher": "신민재",
           "broadcaster": "M-T"
         },
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "5회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "정수빈",
-          "home_pitcher": "양창섭",
+          "away_pitcher": "이용찬",
+          "home_pitcher": "박승규",
           "broadcaster": "SPO-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "비슬리",
-          "home_pitcher": "데이비슨",
+          "away_pitcher": "레이예스",
+          "home_pitcher": "테일러",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "최지훈",
-          "home_pitcher": "에르난데스",
+          "away_pitcher": "김민",
+          "home_pitcher": "심우준",
           "broadcaster": "KN-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김현수",
-          "home_pitcher": "하영민",
+          "away_pitcher": "보쉴리",
+          "home_pitcher": "안치홍",
           "broadcaster": "SS-T,MS-T"
         }
       ]
