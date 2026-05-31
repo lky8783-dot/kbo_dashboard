@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T08:00:57",
+  "updated": "2026-05-31T08:30:53",
   "today": "2026-05-31",
   "dates": {
     "2026-05-31": {
@@ -9,36 +9,30 @@
           "time": "14:00",
           "away": "KIA 타이거즈",
           "home": "LG 트윈스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "0",
+          "home_score": "0",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "김범수",
-          "home_pitcher": "신민재",
           "broadcaster": "M-T"
         },
         {
           "time": "14:00",
           "away": "두산 베어스",
           "home": "삼성 라이온즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "4",
+          "home_score": "9",
+          "status": "종료",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "최주형",
-          "home_pitcher": "디아즈",
           "broadcaster": "SPO-T"
         },
         {
           "time": "14:00",
           "away": "롯데 자이언츠",
           "home": "NC 다이노스",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "2",
+          "home_score": "8",
+          "status": "종료",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "노진혁",
-          "home_pitcher": "최요한",
           "broadcaster": "SPO-2T"
         },
         {
@@ -55,12 +49,10 @@
           "time": "14:00",
           "away": "kt wiz",
           "home": "키움 히어로즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회말",
+          "away_score": "5",
+          "home_score": "1",
+          "status": "종료",
           "stadium": "고척스카이돔",
-          "away_pitcher": "박영현",
-          "home_pitcher": "임병욱",
           "broadcaster": "SS-T,MS-T"
         }
       ]
