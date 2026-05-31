@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T08:30:53",
+  "updated": "2026-05-31T09:00:54",
   "today": "2026-05-31",
   "dates": {
     "2026-05-31": {
@@ -9,10 +9,12 @@
           "time": "14:00",
           "away": "KIA 타이거즈",
           "home": "LG 트윈스",
-          "away_score": "0",
-          "home_score": "0",
+          "away_score": "3",
+          "home_score": "5",
           "status": "종료",
           "stadium": "잠실야구장",
+          "away_pitcher": "패양현종",
+          "home_pitcher": "승톨허스트",
           "broadcaster": "M-T"
         },
         {
@@ -23,6 +25,8 @@
           "home_score": "9",
           "status": "종료",
           "stadium": "삼성 라이온즈파크",
+          "away_pitcher": "패최민석",
+          "home_pitcher": "승양창섭",
           "broadcaster": "SPO-T"
         },
         {
@@ -33,6 +37,8 @@
           "home_score": "8",
           "status": "종료",
           "stadium": "창원 NC 파크",
+          "away_pitcher": "패비슬리",
+          "home_pitcher": "승테일러",
           "broadcaster": "SPO-2T"
         },
         {
@@ -43,6 +49,8 @@
           "home_score": "6",
           "status": "종료",
           "stadium": "한화생명 이글스파크",
+          "away_pitcher": "패김민",
+          "home_pitcher": "승이상규",
           "broadcaster": "KN-T"
         },
         {
@@ -53,6 +61,8 @@
           "home_score": "1",
           "status": "종료",
           "stadium": "고척스카이돔",
+          "away_pitcher": "승보쉴리",
+          "home_pitcher": "패박준현",
           "broadcaster": "SS-T,MS-T"
         }
       ]
