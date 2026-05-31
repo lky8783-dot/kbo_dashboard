@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T07:30:47",
+  "updated": "2026-05-31T08:00:57",
   "today": "2026-05-31",
   "dates": {
     "2026-05-31": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "최지민",
-          "home_pitcher": "오지환",
+          "away_pitcher": "김범수",
+          "home_pitcher": "신민재",
           "broadcaster": "M-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "8회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "이유찬",
-          "home_pitcher": "최지광",
+          "away_pitcher": "최주형",
+          "home_pitcher": "디아즈",
           "broadcaster": "SPO-T"
         },
         {
@@ -35,22 +35,20 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "박준우",
-          "home_pitcher": "안중열",
+          "away_pitcher": "노진혁",
+          "home_pitcher": "최요한",
           "broadcaster": "SPO-2T"
         },
         {
           "time": "14:00",
           "away": "SSG 랜더스",
           "home": "한화 이글스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "2",
+          "home_score": "6",
+          "status": "종료",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "조병현",
-          "home_pitcher": "오재원",
           "broadcaster": "KN-T"
         },
         {
@@ -59,10 +57,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회말",
+          "status": "9회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "조영건",
-          "home_pitcher": "배정대",
+          "away_pitcher": "박영현",
+          "home_pitcher": "임병욱",
           "broadcaster": "SS-T,MS-T"
         }
       ]
