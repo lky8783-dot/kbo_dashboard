@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-02T09:30:52",
+  "updated": "2026-06-02T10:01:10",
   "today": "2026-06-02",
   "dates": {
     "2026-06-02": {
@@ -11,9 +11,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "박준영",
+          "away_pitcher": "심우준",
           "home_pitcher": "벤자민",
           "broadcaster": "KN-T"
         },
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "삼성 라이온즈파크",
           "away_pitcher": "토다",
-          "home_pitcher": "후라도",
+          "home_pitcher": "류지혁",
           "broadcaster": "SS-T"
         },
         {
@@ -35,9 +35,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "알칸타라",
+          "away_pitcher": "권혁빈",
           "home_pitcher": "베니지아노",
           "broadcaster": "SPO-2T"
         },
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "나균안",
-          "home_pitcher": "네일",
+          "home_pitcher": "김태군",
           "broadcaster": "MS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "kt wiz 파크",
           "away_pitcher": "임찬규",
-          "home_pitcher": "한차현",
+          "home_pitcher": "한승택",
           "broadcaster": "SPO-T"
         }
       ]
