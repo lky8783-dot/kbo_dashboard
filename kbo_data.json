@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-02T12:01:06",
+  "updated": "2026-06-02T12:31:00",
   "today": "2026-06-02",
   "dates": {
     "2026-06-02": {
@@ -9,12 +9,10 @@
           "time": "18:30",
           "away": "한화 이글스",
           "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "0",
+          "home_score": "0",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "김종수",
-          "home_pitcher": "카메론",
           "broadcaster": "KN-T"
         },
         {
@@ -23,22 +21,20 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "박건우",
-          "home_pitcher": "장찬희",
+          "away_pitcher": "임지민",
+          "home_pitcher": "박승규",
           "broadcaster": "SS-T"
         },
         {
           "time": "18:30",
           "away": "키움 히어로즈",
           "home": "SSG 랜더스",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "0",
+          "home_score": "0",
+          "status": "종료",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "서건창",
-          "home_pitcher": "박시후",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +43,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "8회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "유강남",
-          "home_pitcher": "정해영",
+          "away_pitcher": "박정민",
+          "home_pitcher": "김태군",
           "broadcaster": "MS-T"
         },
         {
@@ -59,10 +55,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "8회말",
+          "status": "9회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "함덕주",
-          "home_pitcher": "김상수",
+          "away_pitcher": "김영우",
+          "home_pitcher": "최원준",
           "broadcaster": "SPO-T"
         }
       ]
