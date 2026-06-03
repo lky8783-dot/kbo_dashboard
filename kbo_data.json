@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-03T10:30:56",
+  "updated": "2026-06-03T11:01:22",
   "today": "2026-06-03",
   "dates": {
     "2026-06-03": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "8회말",
+          "status": "10회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "이상규",
-          "home_pitcher": "박지훈",
+          "away_pitcher": "심우준",
+          "home_pitcher": "최지강",
           "broadcaster": "KN-T"
         },
         {
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "오장한",
+          "away_pitcher": "안중열",
           "home_pitcher": "최지광",
           "broadcaster": "SS-T"
         },
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "박지성",
-          "home_pitcher": "정준재",
+          "away_pitcher": "김웅빈",
+          "home_pitcher": "조병현",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,22 +47,20 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "한태양",
-          "home_pitcher": "최지민",
+          "away_pitcher": "손호영",
+          "home_pitcher": "김건국",
           "broadcaster": "MS-T"
         },
         {
           "time": "17:00",
           "away": "LG 트윈스",
           "home": "kt wiz",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "0",
+          "home_score": "0",
+          "status": "종료",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "김진성",
-          "home_pitcher": "권동진",
           "broadcaster": "SPO-T"
         }
       ]
