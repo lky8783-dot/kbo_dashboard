@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-03T11:30:54",
+  "updated": "2026-06-03T12:01:03",
   "today": "2026-06-03",
   "dates": {
     "2026-06-03": {
@@ -9,24 +9,20 @@
           "time": "17:00",
           "away": "한화 이글스",
           "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "11회초",
+          "away_score": "3",
+          "home_score": "3",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "황영묵",
-          "home_pitcher": "박정수",
           "broadcaster": "KN-T"
         },
         {
           "time": "17:00",
           "away": "NC 다이노스",
           "home": "삼성 라이온즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "10회초",
+          "away_score": "0",
+          "home_score": "0",
+          "status": "종료",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "박시원",
-          "home_pitcher": "김재윤",
           "broadcaster": "SS-T"
         },
         {
