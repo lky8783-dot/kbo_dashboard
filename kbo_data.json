@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-03T11:01:22",
+  "updated": "2026-06-03T11:30:54",
   "today": "2026-06-03",
   "dates": {
     "2026-06-03": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "10회초",
+          "status": "11회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "심우준",
-          "home_pitcher": "최지강",
+          "away_pitcher": "황영묵",
+          "home_pitcher": "박정수",
           "broadcaster": "KN-T"
         },
         {
@@ -23,42 +23,38 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "9회초",
+          "status": "10회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "안중열",
-          "home_pitcher": "최지광",
+          "away_pitcher": "박시원",
+          "home_pitcher": "김재윤",
           "broadcaster": "SS-T"
         },
         {
           "time": "17:00",
           "away": "키움 히어로즈",
           "home": "SSG 랜더스",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "4",
+          "home_score": "5",
+          "status": "종료",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김웅빈",
-          "home_pitcher": "조병현",
           "broadcaster": "SPO-2T"
         },
         {
           "time": "17:00",
           "away": "롯데 자이언츠",
           "home": "KIA 타이거즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "8",
+          "home_score": "3",
+          "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "손호영",
-          "home_pitcher": "김건국",
           "broadcaster": "MS-T"
         },
         {
           "time": "17:00",
           "away": "LG 트윈스",
           "home": "kt wiz",
-          "away_score": "0",
-          "home_score": "0",
+          "away_score": "6",
+          "home_score": "7",
           "status": "종료",
           "stadium": "kt wiz 파크",
           "broadcaster": "SPO-T"
