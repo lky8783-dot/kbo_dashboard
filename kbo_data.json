@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04T11:01:02",
+  "updated": "2026-06-04T11:30:54",
   "today": "2026-06-04",
   "dates": {
     "2026-06-04": {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "삼성 라이온즈파크",
           "away_pitcher": "구창모",
-          "home_pitcher": "류지혁",
+          "home_pitcher": "전병우",
           "broadcaster": "SS-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "박채울",
-          "home_pitcher": "최민준",
+          "away_pitcher": "권혁빈",
+          "home_pitcher": "전영준",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "5회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "김세민",
-          "home_pitcher": "시라카와",
+          "away_pitcher": "이진하",
+          "home_pitcher": "김호령",
           "broadcaster": "MS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "웰스",
-          "home_pitcher": "김민혁",
+          "away_pitcher": "김진수",
+          "home_pitcher": "최원준",
           "broadcaster": "SPO-T"
         }
       ]
