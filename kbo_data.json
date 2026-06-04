@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04T14:01:07",
+  "updated": "2026-06-04T14:31:01",
   "today": "2026-06-04",
   "dates": {
     "2026-06-04": {
@@ -9,10 +9,12 @@
           "time": "18:30",
           "away": "한화 이글스",
           "home": "두산 베어스",
-          "away_score": "0",
-          "home_score": "0",
+          "away_score": "1",
+          "home_score": "3",
           "status": "종료",
           "stadium": "잠실야구장",
+          "away_pitcher": "패화이트",
+          "home_pitcher": "승최준호",
           "broadcaster": "KN-T"
         },
         {
@@ -23,6 +25,8 @@
           "home_score": "3",
           "status": "종료",
           "stadium": "삼성 라이온즈파크",
+          "away_pitcher": "승구창모",
+          "home_pitcher": "패원태인",
           "broadcaster": "SS-T"
         },
         {
@@ -33,6 +37,8 @@
           "home_score": "7",
           "status": "종료",
           "stadium": "SSG 랜더스필드",
+          "away_pitcher": "패배동현",
+          "home_pitcher": "승전영준",
           "broadcaster": "SPO-2T"
         },
         {
@@ -43,6 +49,8 @@
           "home_score": "10",
           "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
+          "away_pitcher": "패박세웅",
+          "home_pitcher": "승시라카와",
           "broadcaster": "MS-T"
         },
         {
@@ -53,6 +61,8 @@
           "home_score": "5",
           "status": "종료",
           "stadium": "kt wiz 파크",
+          "away_pitcher": "승김진수",
+          "home_pitcher": "패사우어",
           "broadcaster": "SPO-T"
         }
       ]
