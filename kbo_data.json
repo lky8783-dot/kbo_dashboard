@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04T12:01:10",
+  "updated": "2026-06-04T12:30:58",
   "today": "2026-06-04",
   "dates": {
     "2026-06-04": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "화이트",
-          "home_pitcher": "안재석",
+          "away_pitcher": "이원석",
+          "home_pitcher": "최준호",
           "broadcaster": "KN-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "김한별",
-          "home_pitcher": "미야지",
+          "away_pitcher": "전사민",
+          "home_pitcher": "김성윤",
           "broadcaster": "SS-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "SSG 랜더스필드",
           "away_pitcher": "박정훈",
-          "home_pitcher": "정준재",
+          "home_pitcher": "조형우",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "이승헌",
-          "home_pitcher": "아데를린",
+          "away_pitcher": "손호영",
+          "home_pitcher": "김현수",
           "broadcaster": "MS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "함덕주",
-          "home_pitcher": "허경민",
+          "away_pitcher": "우강훈",
+          "home_pitcher": "장진혁",
           "broadcaster": "SPO-T"
         }
       ]
