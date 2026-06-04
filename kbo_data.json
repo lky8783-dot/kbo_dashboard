@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04T13:01:05",
+  "updated": "2026-06-04T13:31:04",
   "today": "2026-06-04",
   "dates": {
     "2026-06-04": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "화이트",
-          "home_pitcher": "안재석",
+          "away_pitcher": "문현빈",
+          "home_pitcher": "이병헌",
           "broadcaster": "KN-T"
         },
         {
@@ -31,8 +31,8 @@
           "time": "18:30",
           "away": "키움 히어로즈",
           "home": "SSG 랜더스",
-          "away_score": "0",
-          "home_score": "0",
+          "away_score": "6",
+          "home_score": "7",
           "status": "종료",
           "stadium": "SSG 랜더스필드",
           "broadcaster": "SPO-2T"
