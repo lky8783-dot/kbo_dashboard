@@ -1248,8 +1248,8 @@ function renderStandings(data) {
       <td><div class="st-team-cell">${logoEl}<span class="st-name">${name}</span></div></td>
       <td>${t.gp}</td>
       <td style="color:#81c784;font-weight:600">${t.w}</td>
+      <td style="color:var(--muted)">${t.d ?? 0}</td>
       <td style="color:#e57373">${t.l}</td>
-      <td style="color:var(--muted)">${t.d ?? t.d ?? 0}</td>
       <td class="st-pct">${pct}</td>
       <td class="st-gb">${gb}</td>
       ${useOfficial ? `<td style="font-size:0.72rem;color:var(--sub)">${t.last10||''}</td>` : ''}
@@ -1268,7 +1268,7 @@ function renderStandings(data) {
       <table class="standings-table">
         <thead><tr>
           <th>순위</th><th style="text-align:left;padding-left:10px">팀</th>
-          <th>경기</th><th>승</th><th>패</th><th>무</th>
+          <th>경기</th><th>승</th><th>무</th><th>패</th>
           <th>승률</th><th>게임차</th>${extraTh}<th>연속</th>
         </tr></thead>
         <tbody>${rows}</tbody>
