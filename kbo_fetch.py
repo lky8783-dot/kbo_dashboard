@@ -397,12 +397,14 @@ GC_STATUS_MAP = {
 
 def _parse_pitchers(soup):
     """
-    li.game-cont 구조에서 선발투수 + 경기 메타(상태·시간·구장) 추출.
+    li.game-cont 구조에서 선발투수 + 경기 메타(상태·시간·구장·스코어) 추출.
     반환: { (away팀명, home팀명): {
         'away': 투수명, 'home': 투수명,
         'status': '예정'|'진행 중'|'종료'|...,
         'time': '18:30',
         'stadium': '잠실야구장',
+        'away_score': '3' or None,
+        'home_score': '1' or None,
     }}
     """
     result = {}
@@ -418,6 +420,21 @@ def _parse_pitchers(soup):
         for span in p_tag.find_all('span', class_='before'):
             span.decompose()
         return p_tag.get_text(strip=True)
+
+    def extract_score(team_div, li_el):
+        """
+        팀 div(또는 li 전체)에서 스코어 숫자 추출.
+        KBO 게임센터 HTML은 버전마다 구조가 다르므로 여러 셀렉터를 순서대로 시도.
+        """
+        # 1) 팀 div 내 .score / em / strong / span 숫자
+        for sel in ['.score em', 'em.score', 'span.score', 'strong.score',
+                    '.score', 'em', 'strong']:
+            el = team_div.select_one(sel)
+            if el:
+                t = el.get_text(strip=True)
+                if t.isdigit():
+                    return t
+        return None
 
     for li in soup.find_all('li', class_='game-cont'):
         away_div = li.select_one('.team.away')
@@ -453,6 +470,48 @@ def _parse_pitchers(soup):
         bc_el = li.select_one('div.middle div.broadcasting, div.broadcasting')
         broadcaster = bc_el.get_text(strip=True) if bc_el else ''
 
+        # ── 스코어 추출 (경기 중·종료 시) ──────────────────────────────────
+        away_score = None
+        home_score = None
+
+        if status in ('진행 중', '종료'):
+            # 방법 1: 팀 div에서 직접 추출
+            away_score = extract_score(away_div, li)
+            home_score = extract_score(home_div, li)
+
+            # 방법 2: li 전체에서 숫자쌍 탐색 (방법1 실패 시)
+            if away_score is None or home_score is None:
+                # score-board, result-score, .score 등 중앙 영역
+                for sb_sel in ['.score-board', '.result-score', '.scoreboard',
+                                'div.middle', 'div.score']:
+                    sb = li.select_one(sb_sel)
+                    if sb:
+                        nums = [
+                            el.get_text(strip=True)
+                            for el in sb.find_all(['em', 'span', 'strong', 'b'])
+                            if el.get_text(strip=True).isdigit()
+                        ]
+                        if len(nums) >= 2:
+                            away_score, home_score = nums[0], nums[1]
+                            break
+
+            # 방법 3: li 전체 텍스트에서 "숫자 : 숫자" 패턴
+            # (야구 점수는 보통 0~20 — 18:30 같은 시간 형식 제외)
+            if away_score is None or home_score is None:
+                li_text = li.get_text(separator=' ')
+                for m in re.finditer(r'\b(\d{1,2})\s*:\s*(\d{1,2})\b', li_text):
+                    a_n, h_n = int(m.group(1)), int(m.group(2))
+                    if a_n <= 20 and h_n <= 20:   # 시간(18:30 등) 제외
+                        away_score, home_score = str(a_n), str(h_n)
+                        break
+
+        print(f'[Pitcher]  {away_team} vs {home_team}  [{status} {time_str}]'
+              f'  score={away_score}:{home_score}  중계:{broadcaster}')
+
+        # 디버그: 스코어를 못 찾았을 때 li HTML 앞부분 출력
+        if status in ('진행 중', '종료') and away_score is None:
+            print(f'[Pitcher WARN] 스코어 미수집 — li HTML: {str(li)[:400]}')
+
         result[(away_team, home_team)] = {
             'away':        away_p,
             'home':        home_p,
@@ -460,8 +519,9 @@ def _parse_pitchers(soup):
             'time':        time_str,
             'stadium':     stadium,
             'broadcaster': broadcaster,
+            'away_score':  away_score,
+            'home_score':  home_score,
         }
-        print(f'[Pitcher]  {away_team} {away_p} vs {home_team} {home_p}  [{status} {time_str}] 중계:{broadcaster}')
 
     return result
 
@@ -538,14 +598,19 @@ def fetch_day(date_str):
                         if info['away']:    g['away_pitcher'] = info['away']
                         if info['home']:    g['home_pitcher'] = info['home']
                         if info.get('broadcaster'): g['broadcaster'] = info['broadcaster']
+                        # 스코어 업데이트 (경기 중·종료 시 게임센터 값 우선)
+                        if info.get('away_score') is not None:
+                            g['away_score'] = info['away_score']
+                        if info.get('home_score') is not None:
+                            g['home_score'] = info['home_score']
                     else:
                         # 게임센터에만 있는 경기 (calendar에서 누락)
                         games.append({
                             'time':         info['time'],
                             'away':         away_t,
                             'home':         home_t,
-                            'away_score':   None,
-                            'home_score':   None,
+                            'away_score':   info.get('away_score'),
+                            'home_score':   info.get('home_score'),
                             'status':       info['status'],
                             'stadium':      info['stadium'],
                             'away_pitcher': info['away'],
