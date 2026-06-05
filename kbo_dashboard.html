@@ -1201,27 +1201,47 @@ function renderStandings(data) {
   const pane = document.getElementById('pane-standings');
   if (!data) { pane.innerHTML = '<div class="msg">데이터 없음</div>'; return; }
 
-  const st = computeStandings(data);
-  const today = data.today || dateKey(new Date());
-  const d = new Date(today + 'T00:00:00');
-  const dateLabel = `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일 기준`;
+  // ① KBO 공식 스크래핑 데이터 우선, 없으면 ② 자체 계산 폴백
+  const useOfficial = data.standings && data.standings.length > 0;
+  const st = useOfficial ? data.standings : computeStandings(data);
+  const sourceLabel = useOfficial
+    ? `KBO 공식 순위 · ${data.standings_updated || data.today} 기준`
+    : `자체 계산 (최근 ${Object.keys(data.dates||{}).length}일 기준)`;
+
+  // 자체계산 데이터는 streak 형식이 다름 — 통합 처리
+  function streakHTML(t) {
+    if (useOfficial) {
+      // streak 예: "2연승", "3연패", "W2", "L3" 등
+      const s = t.streak || '';
+      const isW = /^[W승]|연승/.test(s);
+      const isL = /^[L패]|연패/.test(s);
+      const cls = isW ? 'st-ws' : isL ? 'st-ls' : '';
+      const icon = isW ? '↑' : isL ? '↓' : '';
+      return s ? `<span class="${cls}">${icon}${s.replace(/^[WL]/,'')}</span>`
+               : '<span style="color:var(--muted)">-</span>';
+    } else {
+      const n = t.streak || 0;
+      if (n <= 1) return `<span style="color:var(--muted);font-size:0.7rem">${t.streakType||'-'}1</span>`;
+      return `<span class="${t.streakType==='W'?'st-ws':'st-ls'}">${t.streakType==='W'?'↑':'↓'}${n}</span>`;
+    }
+  }
 
   const rows = st.map(t => {
     const rankCls = t.rank <= 3 ? `r${t.rank}` : '';
     const logoSrc = EMBLEM[t.team] || '';
-    const color = TEAM_COLORS[t.team] || '#4fc3f7';
+    const color   = TEAM_COLORS[t.team] || '#4fc3f7';
     const initial = (t.team || '?').slice(0, 2);
     const logoEl = logoSrc
       ? `<img src="${logoSrc}" class="st-logo" alt="${t.team}"
-           onerror="this.outerHTML='<div style=\\'width:26px;height:26px;border-radius:50%;background:${color}33;border:1px solid ${color}55;display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:${color};font-weight:700\\'>${initial}</div>'">`
+             onerror="this.outerHTML='<div style=\\'width:26px;height:26px;border-radius:50%;background:${color}33;border:1px solid ${color}55;display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:${color};font-weight:700\\'>${initial}</div>'">`
       : `<div style="width:26px;height:26px;border-radius:50%;background:${color}33;border:1px solid ${color}55;
-           display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:${color};font-weight:700">${initial}</div>`;
+             display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:${color};font-weight:700">${initial}</div>`;
 
-    const streakTxt = t.streak > 1
-      ? `<span class="${t.streakType==='W'?'st-ws':'st-ls'}">${t.streakType==='W'?'↑':'↓'}${t.streak}</span>`
-      : `<span style="color:var(--muted);font-size:0.7rem">${t.streakType||'-'}1</span>`;
-
+    const pct = typeof t.pct === 'number' ? t.pct.toFixed(3).replace(/^0/, '') : t.pct || '-';
+    const gb  = t.gb !== undefined ? t.gb : '-';
     const name = TEAM_SHORT[t.team] || t.team;
+    const last10HTML = t.last10
+      ? `<td style="font-size:0.72rem;color:var(--sub)">${t.last10}</td>` : '';
 
     return `<tr>
       <td><span class="st-rank ${rankCls}">${t.rank}</span></td>
@@ -1229,21 +1249,27 @@ function renderStandings(data) {
       <td>${t.gp}</td>
       <td style="color:#81c784;font-weight:600">${t.w}</td>
       <td style="color:#e57373">${t.l}</td>
-      <td style="color:var(--muted)">${t.d}</td>
-      <td class="st-pct">${t.pct.toFixed(3).replace(/^0/,'')}</td>
-      <td class="st-gb">${t.gb}</td>
-      <td>${streakTxt}</td>
+      <td style="color:var(--muted)">${t.d ?? t.d ?? 0}</td>
+      <td class="st-pct">${pct}</td>
+      <td class="st-gb">${gb}</td>
+      ${useOfficial ? `<td style="font-size:0.72rem;color:var(--sub)">${t.last10||''}</td>` : ''}
+      <td>${streakHTML(t)}</td>
     </tr>`;
   }).join('');
 
+  const extraTh = useOfficial ? '<th>최근10</th>' : '';
+
   pane.innerHTML = `
-    <div class="st-updated">${dateLabel} 기준 · ${st.length}개 팀</div>
+    <div class="st-updated" style="display:flex;align-items:center;gap:8px">
+      <span>${sourceLabel}</span>
+      ${useOfficial ? '<a href="https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx" target="_blank" style="font-size:0.7rem;color:var(--accent);text-decoration:none">KBO↗</a>' : ''}
+    </div>
     <div class="standings-wrap">
       <table class="standings-table">
         <thead><tr>
           <th>순위</th><th style="text-align:left;padding-left:10px">팀</th>
           <th>경기</th><th>승</th><th>패</th><th>무</th>
-          <th>승률</th><th>게임차</th><th>연속</th>
+          <th>승률</th><th>게임차</th>${extraTh}<th>연속</th>
         </tr></thead>
         <tbody>${rows}</tbody>
       </table>
