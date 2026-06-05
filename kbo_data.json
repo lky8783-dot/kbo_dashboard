@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-05T09:01:07",
+  "updated": "2026-06-05T09:30:57",
   "today": "2026-06-05",
   "dates": {
     "2026-06-05": {
@@ -11,9 +11,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "하영민",
+          "away_pitcher": "서건창",
           "home_pitcher": "최승용",
           "broadcaster": "SPO-2T,SS-T"
         },
@@ -23,9 +23,9 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "사직야구장",
-          "away_pitcher": "류현진",
+          "away_pitcher": "이진영",
           "home_pitcher": "로드리게스",
           "broadcaster": "MS-T"
         },
@@ -59,9 +59,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김윤식",
+          "away_pitcher": "홍창기",
           "home_pitcher": "라일리",
           "broadcaster": "KN-T"
         }
