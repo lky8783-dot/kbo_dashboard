@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-05T12:30:59",
+  "updated": "2026-06-05T13:01:03",
   "today": "2026-06-05",
   "dates": {
     "2026-06-05": {
@@ -9,12 +9,10 @@
           "time": "18:30",
           "away": "키움 히어로즈",
           "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "3",
+          "home_score": "4",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "김건희",
-          "home_pitcher": "이영하",
           "broadcaster": "SPO-2T,SS-T"
         },
         {
@@ -31,12 +29,10 @@
           "time": "18:30",
           "away": "kt wiz",
           "home": "SSG 랜더스",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "5",
+          "home_score": "6",
+          "status": "종료",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김민혁",
-          "home_pitcher": "조병현",
           "broadcaster": "SPO-T"
         },
         {
@@ -53,12 +49,10 @@
           "time": "18:30",
           "away": "LG 트윈스",
           "home": "NC 다이노스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "5",
+          "home_score": "4",
+          "status": "종료",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "함덕주",
-          "home_pitcher": "김한별",
           "broadcaster": "KN-T"
         }
       ]
@@ -2992,14 +2986,14 @@
     {
       "rank": 2,
       "team": "kt wiz",
-      "gp": 56,
+      "gp": 57,
       "w": 33,
-      "d": 22,
+      "d": 23,
       "l": 1,
-      "pct": 0.6,
-      "gb": "1.5",
+      "pct": 0.589,
+      "gb": "2",
       "last10": "6승0무4패",
-      "streak": "1패"
+      "streak": "2패"
     },
     {
       "rank": 3,
@@ -3040,17 +3034,29 @@
     {
       "rank": 6,
       "team": "두산 베어스",
-      "gp": 57,
-      "w": 27,
+      "gp": 58,
+      "w": 28,
       "d": 28,
       "l": 2,
-      "pct": 0.491,
-      "gb": "7.5",
-      "last10": "5승1무4패",
-      "streak": "2승"
+      "pct": 0.5,
+      "gb": "7",
+      "last10": "6승1무3패",
+      "streak": "3승"
     },
     {
       "rank": 7,
+      "team": "SSG 랜더스",
+      "gp": 57,
+      "w": 25,
+      "d": 31,
+      "l": 1,
+      "pct": 0.446,
+      "gb": "10",
+      "last10": "3승0무7패",
+      "streak": "3승"
+    },
+    {
+      "rank": 8,
       "team": "NC 다이노스",
       "gp": 55,
       "w": 24,
@@ -3059,18 +3065,6 @@
       "pct": 0.444,
       "gb": "10",
       "last10": "6승0무4패",
-      "streak": "2승"
-    },
-    {
-      "rank": 8,
-      "team": "SSG 랜더스",
-      "gp": 56,
-      "w": 24,
-      "d": 31,
-      "l": 1,
-      "pct": 0.436,
-      "gb": "10.5",
-      "last10": "2승0무8패",
       "streak": "2승"
     },
     {
@@ -3088,14 +3082,14 @@
     {
       "rank": 10,
       "team": "키움 히어로즈",
-      "gp": 58,
+      "gp": 59,
       "w": 21,
-      "d": 36,
+      "d": 37,
       "l": 1,
-      "pct": 0.368,
-      "gb": "14.5",
+      "pct": 0.362,
+      "gb": "15",
       "last10": "1승0무9패",
-      "streak": "2패"
+      "streak": "3패"
     }
   ],
   "standings_updated": "2026-06-05"
