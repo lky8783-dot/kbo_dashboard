@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-06T08:30:51",
+  "updated": "2026-06-06T09:01:09",
   "today": "2026-06-06",
   "dates": {
     "2026-06-06": {
@@ -21,10 +21,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "서건창",
-          "home_pitcher": "최민석",
+          "away_pitcher": "안우진",
+          "home_pitcher": "정수빈",
           "broadcaster": "SPO-2T,SS-T"
         },
         {
@@ -33,10 +33,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회말",
           "stadium": "사직야구장",
           "away_pitcher": "에르난데스",
-          "home_pitcher": "손호영",
+          "home_pitcher": "장두성",
           "broadcaster": "KN-T"
         },
         {
@@ -45,10 +45,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "장찬희",
-          "home_pitcher": "나성범",
+          "away_pitcher": "박계범",
+          "home_pitcher": "양현종",
           "broadcaster": "MS-T"
         },
         {
@@ -57,10 +57,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "구본혁",
-          "home_pitcher": "테일러",
+          "away_pitcher": "톨허스트",
+          "home_pitcher": "김한별",
           "broadcaster": "SPO-T"
         }
       ]
