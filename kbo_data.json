@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-06T07:31:02",
+  "updated": "2026-06-06T08:01:06",
   "today": "2026-06-06",
   "dates": {
     "2026-06-06": {
@@ -11,10 +11,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "손동현",
-          "home_pitcher": "정준재",
+          "away_pitcher": "김상수",
+          "home_pitcher": "최용준",
           "broadcaster": "S-T"
         },
         {
@@ -47,9 +47,9 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "장찬희",
+          "away_pitcher": "김지찬",
           "home_pitcher": "양현종",
           "broadcaster": "MS-T"
         },
