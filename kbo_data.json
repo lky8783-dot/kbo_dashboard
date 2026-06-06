@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-06T07:00:57",
+  "updated": "2026-06-06T07:31:02",
   "today": "2026-06-06",
   "dates": {
     "2026-06-06": {
@@ -11,10 +11,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김현수",
-          "home_pitcher": "박시후",
+          "away_pitcher": "손동현",
+          "home_pitcher": "정준재",
           "broadcaster": "S-T"
         },
         {
