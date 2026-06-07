@@ -1,69 +1,119 @@
 {
-  "updated": "2026-06-06T14:30:55",
-  "today": "2026-06-06",
+  "updated": "2026-06-07T00:01:00",
+  "today": "2026-06-07",
   "dates": {
-    "2026-06-06": {
-      "date": "2026-06-06",
+    "2026-06-07": {
+      "date": "2026-06-07",
       "games": [
-        {
-          "time": "14:00",
-          "away": "kt wiz",
-          "home": "SSG 랜더스",
-          "away_score": "7",
-          "home_score": "3",
-          "status": "종료",
-          "stadium": "SSG 랜더스필드",
-          "away_pitcher": "승한승혁",
-          "home_pitcher": "패한두솔",
-          "broadcaster": "S-T"
-        },
         {
           "time": "17:00",
           "away": "키움 히어로즈",
           "home": "두산 베어스",
-          "away_score": "1",
-          "home_score": "9",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "잠실야구장",
-          "away_pitcher": "패안우진",
-          "home_pitcher": "승최민석",
+          "away_pitcher": "알칸타라",
+          "home_pitcher": "벤자민",
           "broadcaster": "SPO-2T,SS-T"
         },
         {
           "time": "17:00",
           "away": "한화 이글스",
           "home": "롯데 자이언츠",
-          "away_score": "7",
-          "home_score": "2",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "사직야구장",
-          "away_pitcher": "승정우주",
-          "home_pitcher": "패박정민",
-          "broadcaster": "KN-T"
+          "away_pitcher": "황준서",
+          "home_pitcher": "비슬리",
+          "broadcaster": "MS-T"
+        },
+        {
+          "time": "17:00",
+          "away": "kt wiz",
+          "home": "SSG 랜더스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SSG 랜더스필드",
+          "away_pitcher": "오원석",
+          "home_pitcher": "베니지아노",
+          "broadcaster": "SPO-T"
         },
         {
           "time": "17:00",
           "away": "삼성 라이온즈",
           "home": "KIA 타이거즈",
-          "away_score": "3",
-          "home_score": "2",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "승김재윤",
-          "home_pitcher": "패성영탁",
-          "broadcaster": "MS-T"
+          "away_pitcher": "양창섭",
+          "home_pitcher": "네일",
+          "broadcaster": "M-T"
         },
         {
           "time": "17:00",
           "away": "LG 트윈스",
           "home": "NC 다이노스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "창원 NC 파크",
+          "away_pitcher": "송승기",
+          "home_pitcher": "토다",
+          "broadcaster": "KN-T"
+        }
+      ]
+    },
+    "2026-06-06": {
+      "date": "2026-06-06",
+      "games": [
+        {
+          "time": "",
+          "away": "kt wiz",
+          "home": "SSG 랜더스",
+          "away_score": "7",
+          "home_score": "3",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "키움 히어로즈",
+          "home": "두산 베어스",
+          "away_score": "1",
+          "home_score": "9",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "한화 이글스",
+          "home": "롯데 자이언츠",
+          "away_score": "7",
+          "home_score": "2",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "삼성 라이온즈",
+          "home": "KIA 타이거즈",
+          "away_score": "3",
+          "home_score": "2",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "LG 트윈스",
+          "home": "NC 다이노스",
           "away_score": "5",
           "home_score": "8",
           "status": "종료",
-          "stadium": "창원 NC 파크",
-          "away_pitcher": "패김진수",
-          "home_pitcher": "승김진호",
-          "broadcaster": "SPO-T"
+          "stadium": ""
         }
       ]
     },
@@ -3152,5 +3202,5 @@
       "streak": "4패"
     }
   ],
-  "standings_updated": "2026-06-06"
+  "standings_updated": "2026-06-07"
 }
