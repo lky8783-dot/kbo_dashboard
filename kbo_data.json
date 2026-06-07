@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07T12:00:57",
+  "updated": "2026-06-07T12:30:56",
   "today": "2026-06-07",
   "dates": {
     "2026-06-07": {
@@ -13,18 +13,20 @@
           "home_score": "1",
           "status": "종료",
           "stadium": "잠실야구장",
+          "away_pitcher": "승알칸타라",
+          "home_pitcher": "패벤자민",
           "broadcaster": "SPO-2T,SS-T"
         },
         {
           "time": "17:00",
           "away": "한화 이글스",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "10회말",
+          "away_score": "9",
+          "home_score": "8",
+          "status": "종료",
           "stadium": "사직야구장",
-          "away_pitcher": "박준영",
-          "home_pitcher": "전민재",
+          "away_pitcher": "승박준영",
+          "home_pitcher": "패최준용",
           "broadcaster": "MS-T"
         },
         {
@@ -35,6 +37,8 @@
           "home_score": "7",
           "status": "종료",
           "stadium": "SSG 랜더스필드",
+          "away_pitcher": "패오원석",
+          "home_pitcher": "승베니지아노",
           "broadcaster": "SPO-T"
         },
         {
@@ -45,6 +49,8 @@
           "home_score": "7",
           "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
+          "away_pitcher": "패배찬승",
+          "home_pitcher": "승조상우",
           "broadcaster": "M-T"
         },
         {
@@ -55,6 +61,8 @@
           "home_score": "7",
           "status": "종료",
           "stadium": "창원 NC 파크",
+          "away_pitcher": "패김진수",
+          "home_pitcher": "승류진욱",
           "broadcaster": "KN-T"
         }
       ]
@@ -3124,14 +3132,14 @@
     {
       "rank": 5,
       "team": "한화 이글스",
-      "gp": 57,
-      "w": 29,
+      "gp": 58,
+      "w": 30,
       "d": 27,
       "l": 1,
-      "pct": 0.518,
-      "gb": "5.5",
-      "last10": "6승1무3패",
-      "streak": "2승"
+      "pct": 0.526,
+      "gb": "5",
+      "last10": "7승1무2패",
+      "streak": "3승"
     },
     {
       "rank": 6,
@@ -3172,14 +3180,14 @@
     {
       "rank": 9,
       "team": "롯데 자이언츠",
-      "gp": 57,
+      "gp": 58,
       "w": 22,
-      "d": 34,
+      "d": 35,
       "l": 1,
-      "pct": 0.393,
-      "gb": "12.5",
+      "pct": 0.386,
+      "gb": "13",
       "last10": "3승0무7패",
-      "streak": "3패"
+      "streak": "4패"
     },
     {
       "rank": 10,
