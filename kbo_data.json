@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07T07:31:00",
+  "updated": "2026-06-07T08:00:58",
   "today": "2026-06-07",
   "dates": {
     "2026-06-07": {
@@ -23,9 +23,9 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "사직야구장",
-          "away_pitcher": "황준서",
+          "away_pitcher": "오재원",
           "home_pitcher": "비슬리",
           "broadcaster": "MS-T"
         },
