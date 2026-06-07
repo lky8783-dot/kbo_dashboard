@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07T10:00:58",
+  "updated": "2026-06-07T10:30:52",
   "today": "2026-06-07",
   "dates": {
     "2026-06-07": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "서건창",
-          "home_pitcher": "최준호",
+          "away_pitcher": "권혁빈",
+          "home_pitcher": "박신지",
           "broadcaster": "SPO-2T,SS-T"
         },
         {
@@ -23,22 +23,20 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "사직야구장",
-          "away_pitcher": "심우준",
-          "home_pitcher": "현도훈",
+          "away_pitcher": "조동욱",
+          "home_pitcher": "고승민",
           "broadcaster": "MS-T"
         },
         {
           "time": "17:00",
           "away": "kt wiz",
           "home": "SSG 랜더스",
-          "away_score": null,
-          "home_score": null,
-          "status": "7회말",
+          "away_score": "0",
+          "home_score": "7",
+          "status": "종료",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "전용주",
-          "home_pitcher": "정준재",
           "broadcaster": "SPO-T"
         },
         {
@@ -47,10 +45,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "최형우",
-          "home_pitcher": "네일",
+          "away_pitcher": "김성윤",
+          "home_pitcher": "김범수",
           "broadcaster": "M-T"
         },
         {
@@ -59,10 +57,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김영우",
-          "home_pitcher": "김형준",
+          "away_pitcher": "홍창기",
+          "home_pitcher": "전사민",
           "broadcaster": "KN-T"
         }
       ]
