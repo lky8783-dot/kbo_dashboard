@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07T11:01:05",
+  "updated": "2026-06-07T11:30:53",
   "today": "2026-06-07",
   "dates": {
     "2026-06-07": {
@@ -9,12 +9,10 @@
           "time": "17:00",
           "away": "키움 히어로즈",
           "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회말",
+          "away_score": "4",
+          "home_score": "1",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "원종현",
-          "home_pitcher": "윤준호",
           "broadcaster": "SPO-2T,SS-T"
         },
         {
@@ -23,10 +21,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "8회말",
+          "status": "9회말",
           "stadium": "사직야구장",
-          "away_pitcher": "이민우",
-          "home_pitcher": "황성빈",
+          "away_pitcher": "박준영",
+          "home_pitcher": "정보근",
           "broadcaster": "MS-T"
         },
         {
@@ -45,9 +43,9 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "박계범",
+          "away_pitcher": "구자욱",
           "home_pitcher": "조상우",
           "broadcaster": "M-T"
         },
@@ -55,12 +53,10 @@
           "time": "17:00",
           "away": "LG 트윈스",
           "home": "NC 다이노스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "6",
+          "home_score": "7",
+          "status": "종료",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김진성",
-          "home_pitcher": "김주원",
           "broadcaster": "KN-T"
         }
       ]
@@ -3142,14 +3138,14 @@
     {
       "rank": 6,
       "team": "두산 베어스",
-      "gp": 59,
+      "gp": 60,
       "w": 29,
-      "d": 28,
+      "d": 29,
       "l": 2,
-      "pct": 0.509,
-      "gb": "6.5",
-      "last10": "7승1무2패",
-      "streak": "4승"
+      "pct": 0.5,
+      "gb": "7",
+      "last10": "6승1무3패",
+      "streak": "1패"
     },
     {
       "rank": 7,
@@ -3190,14 +3186,14 @@
     {
       "rank": 10,
       "team": "키움 히어로즈",
-      "gp": 60,
-      "w": 21,
+      "gp": 61,
+      "w": 22,
       "d": 38,
       "l": 1,
-      "pct": 0.356,
-      "gb": "15.5",
-      "last10": "1승0무9패",
-      "streak": "4패"
+      "pct": 0.367,
+      "gb": "15",
+      "last10": "2승0무8패",
+      "streak": "1승"
     }
   ],
   "standings_updated": "2026-06-07"
