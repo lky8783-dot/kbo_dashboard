@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07T10:30:52",
+  "updated": "2026-06-07T11:01:05",
   "today": "2026-06-07",
   "dates": {
     "2026-06-07": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "권혁빈",
-          "home_pitcher": "박신지",
+          "away_pitcher": "원종현",
+          "home_pitcher": "윤준호",
           "broadcaster": "SPO-2T,SS-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "사직야구장",
-          "away_pitcher": "조동욱",
-          "home_pitcher": "고승민",
+          "away_pitcher": "이민우",
+          "home_pitcher": "황성빈",
           "broadcaster": "MS-T"
         },
         {
@@ -45,10 +45,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "김성윤",
-          "home_pitcher": "김범수",
+          "away_pitcher": "박계범",
+          "home_pitcher": "조상우",
           "broadcaster": "M-T"
         },
         {
@@ -57,10 +57,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "홍창기",
-          "home_pitcher": "전사민",
+          "away_pitcher": "김진성",
+          "home_pitcher": "김주원",
           "broadcaster": "KN-T"
         }
       ]
@@ -3093,18 +3093,6 @@
     },
     {
       "rank": 2,
-      "team": "kt wiz",
-      "gp": 58,
-      "w": 34,
-      "d": 23,
-      "l": 1,
-      "pct": 0.596,
-      "gb": "1.5",
-      "last10": "6승0무4패",
-      "streak": "1승"
-    },
-    {
-      "rank": 3,
       "team": "삼성 라이온즈",
       "gp": 57,
       "w": 33,
@@ -3114,6 +3102,18 @@
       "gb": "2",
       "last10": "5승0무5패",
       "streak": "1승"
+    },
+    {
+      "rank": 3,
+      "team": "kt wiz",
+      "gp": 59,
+      "w": 34,
+      "d": 24,
+      "l": 1,
+      "pct": 0.586,
+      "gb": "2",
+      "last10": "6승0무4패",
+      "streak": "1패"
     },
     {
       "rank": 4,
@@ -3153,6 +3153,18 @@
     },
     {
       "rank": 7,
+      "team": "SSG 랜더스",
+      "gp": 59,
+      "w": 26,
+      "d": 32,
+      "l": 1,
+      "pct": 0.448,
+      "gb": "10",
+      "last10": "4승0무6패",
+      "streak": "1승"
+    },
+    {
+      "rank": 8,
       "team": "NC 다이노스",
       "gp": 57,
       "w": 25,
@@ -3162,18 +3174,6 @@
       "gb": "10",
       "last10": "6승0무4패",
       "streak": "1승"
-    },
-    {
-      "rank": 8,
-      "team": "SSG 랜더스",
-      "gp": 58,
-      "w": 25,
-      "d": 32,
-      "l": 1,
-      "pct": 0.439,
-      "gb": "10.5",
-      "last10": "3승0무7패",
-      "streak": "1패"
     },
     {
       "rank": 9,
