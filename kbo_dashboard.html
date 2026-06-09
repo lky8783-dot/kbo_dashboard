@@ -1643,12 +1643,12 @@ function _buildRecordsHTML(kind, data) {
   let top3Cards = '';
   if (kind === 'hitter' && rows.length) {
     const defs = [
-      { label:'타율',   names:['타율','AVG'],   higher:true  },
-      { label:'홈런',   names:['홈런','HR'],    higher:true  },
-      { label:'타점',   names:['타점','RBI'],   higher:true  },
-      { label:'도루',   names:['도루','SB'],    higher:true  },
-      { label:'OPS',   names:['OPS'],           higher:true  },
-      { label:'WAR',   names:['WAR'],           higher:true  },
+      { label:'타율',  names:['타율','AVG','avg','battingAvg','seasonAvg','ba'], higher:true  },
+      { label:'홈런',  names:['홈런','HR','hr','homeRun'],                       higher:true  },
+      { label:'타점',  names:['타점','RBI','rbi'],                               higher:true  },
+      { label:'도루',  names:['도루','SB','sb','stolenBase'],                    higher:true  },
+      { label:'OPS',  names:['OPS','ops'],                                       higher:true  },
+      { label:'WAR',  names:['WAR','war','warcalc'],                             higher:true  },
     ];
     const cards = defs.map(d => {
       const ci = _colIdx(headers, d.names);
@@ -1663,13 +1663,13 @@ function _buildRecordsHTML(kind, data) {
     }
   } else if (kind === 'pitcher' && rows.length) {
     const defs = [
-      { label:'평균자책점', names:['평균자책점','ERA'], higher:false },
-      { label:'승',        names:['승'],               higher:true  },
-      { label:'세이브',    names:['세이브','SV'],       higher:true  },
-      { label:'홀드',      names:['홀드','HD'],         higher:true  },
-      { label:'탈삼진',    names:['탈삼진','SO','K'],   higher:true  },
-      { label:'WHIP',      names:['WHIP'],              higher:false },
-      { label:'WAR',       names:['WAR'],               higher:true  },
+      { label:'평균자책점', names:['평균자책점','ERA','era'],                         higher:false },
+      { label:'승',        names:['승','win','wins'],                                higher:true  },
+      { label:'세이브',    names:['세이브','SV','sv','save'],                        higher:true  },
+      { label:'홀드',      names:['홀드','HD','hold','hld'],                         higher:true  },
+      { label:'탈삼진',    names:['탈삼진','SO','K','so','strikeOut','strikeoutCount'], higher:true  },
+      { label:'WHIP',      names:['WHIP','whip'],                                    higher:false },
+      { label:'WAR',       names:['WAR','war','warcalc'],                            higher:true  },
     ];
     const cards = defs.map(d => {
       const ci = _colIdx(headers, d.names);
@@ -1687,12 +1687,12 @@ function _buildRecordsHTML(kind, data) {
     const teamRows = rows.map(r => [r[0], '', ...r.slice(1)]);
     const teamHeaders = headers;
     const defs = [
-      { label:'팀 타율',     names:['타율','AVG'],  higher:true,  nc:0, tc:0 },
-      { label:'팀 홈런',     names:['홈런','HR'],   higher:true,  nc:0, tc:0 },
-      { label:'팀 OPS',     names:['OPS'],          higher:true,  nc:0, tc:0 },
-      { label:'팀 ERA',     names:['평균자책점','ERA'], higher:false, nc:0, tc:0 },
-      { label:'팀 WHIP',    names:['WHIP'],         higher:false, nc:0, tc:0 },
-      { label:'팀 도루',     names:['도루','SB'],    higher:true,  nc:0, tc:0 },
+      { label:'팀 타율',  names:['타율','AVG','avg','battingAvg'],      higher:true  },
+      { label:'팀 홈런',  names:['홈런','HR','hr','homeRun'],           higher:true  },
+      { label:'팀 OPS',  names:['OPS','ops'],                           higher:true  },
+      { label:'팀 ERA',  names:['평균자책점','ERA','era'],              higher:false },
+      { label:'팀 WHIP', names:['WHIP','whip'],                         higher:false },
+      { label:'팀 도루',  names:['도루','SB','sb','stolenBase'],        higher:true  },
     ];
     // 팀기록은 nameCol=0, teamCol=0 (팀명만 있음)
     const cards = defs.map(d => {
@@ -1716,10 +1716,10 @@ function _buildRecordsHTML(kind, data) {
   // 기본 정렬 컬럼 설정
   let defSortIdx = 2, defAsc = false;
   if (kind === 'hitter') {
-    const ci = _colIdx(headers, ['타율','AVG']);
+    const ci = _colIdx(headers, ['타율','AVG','avg','battingAvg','seasonAvg']);
     if (ci >= 0) { defSortIdx = ci; defAsc = false; }
   } else if (kind === 'pitcher') {
-    const ci = _colIdx(headers, ['평균자책점','ERA']);
+    const ci = _colIdx(headers, ['평균자책점','ERA','era']);
     if (ci >= 0) { defSortIdx = ci; defAsc = true; }
   }
 

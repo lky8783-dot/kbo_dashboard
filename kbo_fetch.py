@@ -786,10 +786,82 @@ def _fetch_standings_kbo() -> list:
 
 
 # ── Naver 스포츠 기록 스크래핑 ───────────────────────────────────────────────
+
+# API 필드명 → 한글 컬럼명
+_NAVER_FIELD_MAP = {
+    # 공통
+    'playerName': '선수명', 'name': '선수명',
+    'teamName': '팀',     'team': '팀', 'teamCode': '팀',
+    'gameCount': '경기',  'game': '경기',
+    # 타자
+    'atBat': '타수',         'ab': '타수',
+    'hit': '안타',           'h': '안타',
+    'doubleHit': '2루타',    'double': '2루타',
+    'tripleHit': '3루타',    'triple': '3루타',
+    'homeRun': '홈런',       'hr': '홈런',
+    'rbi': '타점',
+    'run': '득점',           'r': '득점',
+    'baseOnBalls': '볼넷',   'bb': '볼넷',
+    'strikeOut': '삼진',     'so': '삼진',
+    'stolenBase': '도루',    'sb': '도루',
+    'battingAvg': '타율',    'seasonAvg': '타율', 'avg': '타율', 'ba': '타율',
+    'onBasePct': '출루율',   'obp': '출루율',
+    'sluggingPct': '장타율', 'slg': '장타율',
+    'ops': 'OPS',
+    'war': 'WAR',            'warcalc': 'WAR',
+    # 투수
+    'win': '승',             'wins': '승',
+    'lose': '패',            'losses': '패',
+    'save': '세이브',        'sv': '세이브',
+    'hold': '홀드',          'hld': '홀드',
+    'inning': '이닝',        'ip': '이닝', 'pitchedInning': '이닝',
+    'hitAllowed': '피안타',
+    'homeRunAllowed': '피홈런',
+    'walkAllowed': '볼넷',
+    'strikeoutCount': '탈삼진', 'k': '탈삼진',
+    'earnedRun': '자책',
+    'era': '평균자책점',
+    'whip': 'WHIP',
+    # 팀순위
+    'rank': '순위',
+    'winCount': '승',   'loseCount': '패', 'drawCount': '무',
+    'winningRate': '승률', 'winRate': '승률',
+    'gamesBehind': '게임차', 'gb': '게임차',
+    'recentTen': '최근10경기', 'last10': '최근10경기',
+    'streak': '연속',
+}
+
+
+def _map_field(key: str) -> str:
+    """API 필드명 → 표시 컬럼명"""
+    return _NAVER_FIELD_MAP.get(key, _NAVER_FIELD_MAP.get(key.lower(), key))
+
+
+def _find_record_list(obj, depth=0) -> list:
+    """
+    JSON 객체에서 선수/팀 기록 리스트(dict 5개 이상)를 재귀 탐색.
+    컬럼 수가 가장 많은 리스트를 반환.
+    """
+    if depth > 5:
+        return []
+    candidates = []
+    if isinstance(obj, list):
+        if len(obj) >= 5 and all(isinstance(x, dict) for x in obj[:3]):
+            candidates.append(obj)
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            candidates.extend(_find_record_list(v, depth + 1))
+    # 컬럼 수 내림차순
+    candidates.sort(key=lambda lst: len(lst[0]) if lst else 0, reverse=True)
+    return candidates
+
+
 def fetch_naver_records(tab: str) -> dict:
     """
     Naver 스포츠 KBO 기록 스크래핑
-    tab: 'hitter' | 'pitcher' | 'teamRecord'
+    1차: 네트워크 JSON API 인터셉트  (React 앱 비동기 로드)
+    2차: DOM <table> 파싱 폴백
+    tab: 'hitter' | 'pitcher' | 'teamRecord' | 'teamRank'
     Returns: {'headers': [...], 'rows': [[...]...]}
     """
     try:
@@ -798,7 +870,26 @@ def fetch_naver_records(tab: str) -> dict:
         print(f'[NaverRec:{tab}] playwright 미설치')
         return {}
 
-    url = f'https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab={tab}'
+    page_url = (
+        f'https://m.sports.naver.com/kbaseball/record/kbo'
+        f'?seasonCode=2026&tab={tab}'
+    )
+    captured = []   # (url, json_body)
+
+    def _on_response(resp):
+        try:
+            if resp.status != 200:
+                return
+            ct = resp.headers.get('content-type', '')
+            if 'json' not in ct:
+                return
+            u = resp.url
+            if 'naver.com' not in u:
+                return
+            body = resp.json()
+            captured.append((u, body))
+        except Exception:
+            pass
 
     try:
         with sync_playwright() as pw:
@@ -809,34 +900,83 @@ def fetch_naver_records(tab: str) -> dict:
                 viewport={'width': 390, 'height': 844},
             )
             page = ctx.new_page()
-            print(f'[NaverRec:{tab}] 로딩 중... {url}')
-            page.goto(url, wait_until='networkidle', timeout=30000)
-            try:
-                page.wait_for_selector('table', timeout=10000)
-            except Exception:
-                print(f'[NaverRec:{tab}] table 대기 타임아웃 — 계속 진행')
+            page.on('response', _on_response)
+
+            print(f'[NaverRec:{tab}] 로딩 중... {page_url}')
+            page.goto(page_url, wait_until='networkidle', timeout=40000)
+            page.wait_for_timeout(2000)
+
+            # 스크롤 → 지연 로딩 트리거
+            page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
             page.wait_for_timeout(1500)
 
-            result = page.evaluate("""() => {
-                const table = document.querySelector('table');
-                if (!table) return null;
-                const headers = Array.from(table.querySelectorAll('thead th, thead td'))
-                    .map(el => el.textContent.trim()).filter(Boolean);
-                const rows = Array.from(table.querySelectorAll('tbody tr'))
-                    .map(tr => Array.from(tr.querySelectorAll('td, th'))
-                        .map(td => td.textContent.trim()));
-                return { headers, rows: rows.filter(r => r.length > 2) };
+            # DOM <table> 폴백용 추출
+            dom = page.evaluate("""() => {
+                for (const tbl of document.querySelectorAll('table')) {
+                    const ths = Array.from(tbl.querySelectorAll('thead th,thead td'))
+                        .map(e => e.textContent.trim()).filter(Boolean);
+                    const trs = Array.from(tbl.querySelectorAll('tbody tr'))
+                        .map(tr => Array.from(tr.querySelectorAll('td,th'))
+                            .map(td => td.textContent.trim()))
+                        .filter(r => r.length > 2);
+                    if (ths.length > 3 && trs.length > 3) {
+                        return { ok: true, headers: ths, rows: trs };
+                    }
+                }
+                // 디버그 정보
+                return {
+                    ok: false,
+                    tableCount: document.querySelectorAll('table').length,
+                    bodyText: document.body.innerText.slice(0, 600)
+                };
             }""")
             browser.close()
 
-        if not result or not result.get('rows'):
-            print(f'[NaverRec:{tab}] 데이터 없음 (테이블 미확인)')
-            return {}
+        print(f'[NaverRec:{tab}] 인터셉트: {len(captured)}개 API 응답')
 
-        print(f'[NaverRec:{tab}] 헤더:{len(result["headers"])} 행:{len(result["rows"])}')
-        for r in result['rows'][:3]:
-            print(f'  {r[:8]}')
-        return result
+        # ── 1) API 인터셉트 결과 파싱 ──────────────────────────────────────
+        # 관련 URL 우선 정렬
+        HINTS = {
+            'hitter':     ['hitter', 'batter', 'batting'],
+            'pitcher':    ['pitcher', 'pitching'],
+            'teamRecord': ['team', 'record'],
+            'teamRank':   ['rank', 'standing', 'team'],
+        }
+        hints = HINTS.get(tab, [tab.lower()])
+        ordered = sorted(captured,
+            key=lambda x: sum(h in x[0].lower() for h in hints),
+            reverse=True)
+
+        for api_url, body in ordered:
+            candidates = _find_record_list(body)
+            for items in candidates:
+                if len(items) < 5 or not isinstance(items[0], dict):
+                    continue
+                keys = list(items[0].keys())
+                if len(keys) < 4:
+                    continue
+                headers = [_map_field(k) for k in keys]
+                rows    = [[str(item.get(k, '')) for k in keys] for item in items]
+                print(f'[NaverRec:{tab}] API 파싱 성공: {len(items)}행  '
+                      f'컬럼={headers[:6]}  (url={api_url[:60]})')
+                return {'headers': headers, 'rows': rows}
+
+        # ── 2) DOM <table> 폴백 ────────────────────────────────────────────
+        if dom and dom.get('ok'):
+            h, r = dom['headers'], dom['rows']
+            print(f'[NaverRec:{tab}] DOM 파싱 성공: 헤더={len(h)} 행={len(r)}')
+            return {'headers': h, 'rows': r}
+
+        # 실패 진단
+        if dom:
+            print(f'[NaverRec:{tab}] DOM 테이블 없음 '
+                  f'(table 태그:{dom.get("tableCount",0)}개)')
+            print(f'[NaverRec:{tab}] 페이지 텍스트: '
+                  f'{dom.get("bodyText","")[:300]}')
+        print(f'[NaverRec:{tab}] 수집 실패 — 캡처 URL 목록:')
+        for u, _ in captured:
+            print(f'  {u[:100]}')
+        return {}
 
     except Exception as e:
         import traceback; traceback.print_exc()
