@@ -1,69 +1,123 @@
 {
-  "updated": "2026-06-07T14:30:57",
-  "today": "2026-06-07",
+  "updated": "2026-06-09T00:01:04",
+  "today": "2026-06-09",
   "dates": {
+    "2026-06-09": {
+      "date": "2026-06-09",
+      "games": [
+        {
+          "time": "18:30",
+          "away": "SSG 랜더스",
+          "home": "LG 트윈스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "잠실야구장",
+          "away_pitcher": "김민준",
+          "home_pitcher": "임찬규",
+          "broadcaster": "SPO-2T"
+        },
+        {
+          "time": "18:30",
+          "away": "두산 베어스",
+          "home": "롯데 자이언츠",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "사직야구장",
+          "away_pitcher": "곽빈",
+          "home_pitcher": "나균안",
+          "broadcaster": "MS-T"
+        },
+        {
+          "time": "18:30",
+          "away": "삼성 라이온즈",
+          "home": "kt wiz",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "kt wiz 파크",
+          "away_pitcher": "최원태",
+          "home_pitcher": "고영표",
+          "broadcaster": "SPO-T"
+        },
+        {
+          "time": "18:30",
+          "away": "KIA 타이거즈",
+          "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "한화생명 이글스파크",
+          "away_pitcher": "황동하",
+          "home_pitcher": "왕옌청",
+          "broadcaster": "KN-T"
+        },
+        {
+          "time": "18:30",
+          "away": "NC 다이노스",
+          "home": "키움 히어로즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "고척스카이돔",
+          "away_pitcher": "김태경",
+          "home_pitcher": "로젠버그",
+          "broadcaster": "SS-T"
+        }
+      ]
+    },
+    "2026-06-08": {
+      "date": "2026-06-08",
+      "games": []
+    },
     "2026-06-07": {
       "date": "2026-06-07",
       "games": [
         {
-          "time": "17:00",
+          "time": "",
           "away": "키움 히어로즈",
           "home": "두산 베어스",
           "away_score": "4",
           "home_score": "1",
           "status": "종료",
-          "stadium": "잠실야구장",
-          "away_pitcher": "승알칸타라",
-          "home_pitcher": "패벤자민",
-          "broadcaster": "SPO-2T,SS-T"
+          "stadium": ""
         },
         {
-          "time": "17:00",
+          "time": "",
           "away": "한화 이글스",
           "home": "롯데 자이언츠",
           "away_score": "9",
           "home_score": "8",
           "status": "종료",
-          "stadium": "사직야구장",
-          "away_pitcher": "승박준영",
-          "home_pitcher": "패최준용",
-          "broadcaster": "MS-T"
+          "stadium": ""
         },
         {
-          "time": "17:00",
+          "time": "",
           "away": "kt wiz",
           "home": "SSG 랜더스",
           "away_score": "0",
           "home_score": "7",
           "status": "종료",
-          "stadium": "SSG 랜더스필드",
-          "away_pitcher": "패오원석",
-          "home_pitcher": "승베니지아노",
-          "broadcaster": "SPO-T"
+          "stadium": ""
         },
         {
-          "time": "17:00",
+          "time": "",
           "away": "삼성 라이온즈",
           "home": "KIA 타이거즈",
           "away_score": "6",
           "home_score": "7",
           "status": "종료",
-          "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "패배찬승",
-          "home_pitcher": "승조상우",
-          "broadcaster": "M-T"
+          "stadium": ""
         },
         {
-          "time": "17:00",
+          "time": "",
           "away": "LG 트윈스",
           "home": "NC 다이노스",
           "away_score": "6",
           "home_score": "7",
           "status": "종료",
-          "stadium": "창원 NC 파크",
-          "away_pitcher": "패김진수",
-          "home_pitcher": "승류진욱",
-          "broadcaster": "KN-T"
+          "stadium": ""
         }
       ]
     },
@@ -3202,5 +3256,5 @@
       "streak": "1승"
     }
   ],
-  "standings_updated": "2026-06-07"
+  "standings_updated": "2026-06-09"
 }
