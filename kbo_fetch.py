@@ -574,15 +574,119 @@ def try_naver(date_str):
 # ── 팀 순위 스크래핑 ──────────────────────────────────────────────────────────
 def fetch_standings():
     """
-    koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx
-    → 팀 순위 테이블 파싱
+    Naver 스포츠 팀순위(teamRank) 우선 스크래핑, 실패 시 KBO 공식 페이지 폴백.
     반환: list of dict {rank, team, gp, w, d, l, pct, gb, last10, streak}
+    """
+    # 1) Naver 우선
+    raw = fetch_naver_records('teamRank')
+    if raw and raw.get('rows'):
+        standings = _parse_naver_standings(raw)
+        if standings:
+            print(f'[Standings] Naver 수집 완료: {len(standings)}팀')
+            for s in standings:
+                print(f'  {s["rank"]}위 {s["team"]}  '
+                      f'{s["w"]}승{s["d"]}무{s["l"]}패  '
+                      f'승률{s["pct"]}  GB{s["gb"]}  최근10:{s["last10"]}')
+            return standings
+        print('[Standings] Naver 파싱 실패 — KBO 공식 폴백')
+    else:
+        print('[Standings] Naver 데이터 없음 — KBO 공식 폴백')
+
+    # 2) 폴백: KBO 공식 페이지
+    return _fetch_standings_kbo()
+
+
+def _parse_naver_standings(raw: dict) -> list:
+    """fetch_naver_records('teamRank') 결과 → standings 구조로 변환"""
+    headers = raw.get('headers', [])
+    rows    = raw.get('rows', [])
+    if not headers or not rows:
+        return []
+
+    print(f'[Standings] Naver 헤더: {headers}')
+
+    def _ci(names):
+        """헤더에서 첫 번째 매칭 컬럼 인덱스 반환"""
+        for n in names:
+            i = next((j for j, h in enumerate(headers) if n in h), -1)
+            if i >= 0:
+                return i
+        return -1
+
+    rank_ci   = _ci(['순위'])
+    team_ci   = _ci(['팀'])
+    gp_ci     = _ci(['경기'])
+    w_ci      = _ci(['승'])
+    d_ci      = _ci(['무'])
+    l_ci      = _ci(['패'])
+    pct_ci    = _ci(['승률'])
+    gb_ci     = _ci(['게임차'])
+    last10_ci = _ci(['최근'])
+    streak_ci = _ci(['연속'])
+
+    standings = []
+    for i, row in enumerate(rows):
+        try:
+            if len(row) < 4:
+                continue
+
+            def _v(ci, default=''):
+                return row[ci] if 0 <= ci < len(row) else default
+
+            def _int(ci):
+                return int(re.sub(r'\D', '', _v(ci)) or 0)
+
+            rank_raw = _v(rank_ci)
+            rank = int(re.sub(r'\D', '', rank_raw) or 0)
+            if rank == 0:
+                rank = i + 1  # 인덱스 기반 폴백
+
+            team_raw = _v(team_ci) or row[0]
+            team = normalize_team(team_raw) or team_raw
+
+            gp = _int(gp_ci)
+            w  = _int(w_ci)
+            d  = _int(d_ci)
+            l  = _int(l_ci)
+
+            pct_s = _v(pct_ci).replace(',', '.')
+            try:
+                pct = float(pct_s)
+            except Exception:
+                pct = w / (w + l) if (w + l) > 0 else 0.0
+
+            gb     = _v(gb_ci) or '-'
+            last10 = _v(last10_ci)
+            streak = _v(streak_ci)
+
+            standings.append({
+                'rank':   rank,
+                'team':   team,
+                'gp':     gp,
+                'w':      w,
+                'd':      d,
+                'l':      l,
+                'pct':    round(pct, 3),
+                'gb':     gb,
+                'last10': last10,
+                'streak': streak,
+            })
+        except Exception as e:
+            print(f'[Standings] 행 파싱 오류: {e} — {row[:6]}')
+            continue
+
+    return standings
+
+
+def _fetch_standings_kbo() -> list:
+    """
+    폴백: koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx
     """
     try:
         from playwright.sync_api import sync_playwright
         from bs4 import BeautifulSoup
     except ImportError:
-        print('[Standings] playwright/bs4 미설치')
+        print('[Standings/KBO] playwright/bs4 미설치')
         return []
 
     try:
@@ -594,44 +698,34 @@ def fetch_standings():
             )
             page = ctx.new_page()
             url = 'https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx'
-            print(f'[Standings] {url} 로딩 중...')
+            print(f'[Standings/KBO] {url} 로딩 중...')
             page.goto(url, wait_until='networkidle', timeout=30000)
             page.wait_for_timeout(2000)
             html = page.content()
             browser.close()
 
         soup = BeautifulSoup(html, 'html.parser')
-
-        # 순위 테이블 탐색
         table = (
             soup.find('table', id=re.compile(r'tblRank', re.I)) or
             soup.find('table', class_=re.compile(r'rank', re.I)) or
             soup.find('table')
         )
         if not table:
-            print('[Standings] 테이블을 찾지 못함')
+            print('[Standings/KBO] 테이블을 찾지 못함')
             return []
 
-        # 헤더 파싱
-        headers = []
-        thead = table.find('thead') or table
-        for th in thead.find_all('th'):
-            headers.append(th.get_text(strip=True))
-        print(f'[Standings] 헤더: {headers}')
+        headers = [th.get_text(strip=True) for th in (table.find('thead') or table).find_all('th')]
+        print(f'[Standings/KBO] 헤더: {headers}')
 
-        # 행 파싱
         standings = []
-        tbody = table.find('tbody') or table
-        for tr in tbody.find_all('tr'):
+        for tr in (table.find('tbody') or table).find_all('tr'):
             cells = [td.get_text(strip=True) for td in tr.find_all('td')]
             if len(cells) < 7:
                 continue
 
-            # 헤더 기반 파싱 (순위/팀/경기/승/무/패/승률/게임차/...)
             def _cell(idx, default=''):
                 return cells[idx] if idx < len(cells) else default
 
-            # 순위
             try:
                 rank = int(re.sub(r'\D', '', _cell(0)) or 0)
             except Exception:
@@ -639,22 +733,20 @@ def fetch_standings():
             if rank == 0:
                 continue
 
-            # 팀명
             team_raw = _cell(1)
             team = normalize_team(team_raw) if team_raw else ''
             if not team:
-                # 이미지 alt 탐색
-                td_team = tr.find_all('td')[1] if len(tr.find_all('td')) > 1 else None
-                if td_team:
-                    img = td_team.find('img')
+                td_list = tr.find_all('td')
+                if len(td_list) > 1:
+                    img = td_list[1].find('img')
                     if img:
                         team = normalize_team(img.get('alt', '') or img.get('title', ''))
 
             try:
-                gp  = int(_cell(2)  or 0)
-                w   = int(_cell(3)  or 0)
-                d   = int(_cell(4)  or 0)   # 무승부
-                l   = int(_cell(5)  or 0)
+                gp = int(_cell(2) or 0)
+                w  = int(_cell(3) or 0)
+                d  = int(_cell(4) or 0)
+                l  = int(_cell(5) or 0)
             except Exception:
                 continue
 
@@ -664,12 +756,8 @@ def fetch_standings():
             except Exception:
                 pct = w / (w + l) if (w + l) > 0 else 0.0
 
-            gb_s = _cell(7)
-            gb = gb_s if gb_s else '-'
-
-            # 최근 10경기 (있으면)
-            last10 = _cell(8) if len(cells) > 8 else ''
-            # 연속 (있으면)
+            gb         = _cell(7) or '-'
+            last10     = _cell(8) if len(cells) > 8 else ''
             streak_raw = _cell(9) if len(cells) > 9 else ''
 
             standings.append({
@@ -685,14 +773,15 @@ def fetch_standings():
                 'streak': streak_raw,
             })
 
-        print(f'[Standings] {len(standings)}팀 파싱 완료')
+        print(f'[Standings/KBO] {len(standings)}팀 파싱 완료')
         for s in standings:
-            print(f'  {s["rank"]}위 {s["team"]}  {s["w"]}승{s["d"]}무{s["l"]}패  승률{s["pct"]}  GB{s["gb"]}')
+            print(f'  {s["rank"]}위 {s["team"]}  {s["w"]}승{s["d"]}무{s["l"]}패  '
+                  f'승률{s["pct"]}  GB{s["gb"]}')
         return standings
 
     except Exception as e:
         import traceback; traceback.print_exc()
-        print(f'[Standings] 오류: {e}')
+        print(f'[Standings/KBO] 오류: {e}')
         return []
 
 

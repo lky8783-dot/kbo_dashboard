@@ -1334,7 +1334,7 @@ function _buildRankHTML(data) {
   const useOfficial = data.standings && data.standings.length > 0;
   const st = useOfficial ? data.standings : computeStandings(data);
   const sourceLabel = useOfficial
-    ? `KBO 공식 순위 · ${data.standings_updated || data.today} 기준`
+    ? `Naver 스포츠 팀순위 · ${data.standings_updated || data.today} 기준`
     : `자체 계산 (최근 ${Object.keys(data.dates||{}).length}일 기준)`;
 
   function streakHTML(t) {
@@ -1385,7 +1385,7 @@ function _buildRankHTML(data) {
   return `
     <div class="st-updated" style="display:flex;align-items:center;gap:8px;padding:8px 14px 4px">
       <span>${sourceLabel}</span>
-      ${useOfficial ? '<a href="https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx" target="_blank" style="font-size:0.7rem;color:var(--accent);text-decoration:none">KBO↗</a>' : ''}
+      ${useOfficial ? '<a href="https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab=teamRank" target="_blank" style="font-size:0.7rem;color:var(--accent);text-decoration:none">Naver↗</a>' : ''}
     </div>
     <div class="standings-wrap">
       <table class="standings-table">
@@ -1400,11 +1400,120 @@ function _buildRankHTML(data) {
 }
 
 /* ── 최근열경기 HTML ── */
+/* ── 최근열경기 HTML ── */
 function _buildRecent10HTML(data) {
+  const standings = (data?.standings || []).filter(t => t.last10);
+  // standings에 last10 데이터 있으면 팀별 시각화, 없으면 날짜별 폴백
+  if (standings.length) return _buildLast10ByTeam(standings, data);
+  return _buildRecent10ByDates(data);
+}
+
+/* 팀별 최근 10경기 성적 시각화 */
+function _buildLast10ByTeam(standings, data) {
+  function parseLast10(s) {
+    if (!s) return null;
+    let m = s.match(/^(\d+)-(\d+)-(\d+)$/);
+    if (m) return { w: +m[1], d: +m[2], l: +m[3] };
+    m = s.match(/^(\d+)-(\d+)$/);
+    if (m) return { w: +m[1], d: 0, l: +m[2] };
+    const ww = (s.match(/(\d+)승/) || [])[1];
+    const dd = (s.match(/(\d+)무/) || [])[1];
+    const ll = (s.match(/(\d+)패/) || [])[1];
+    if (ww !== undefined || ll !== undefined)
+      return { w: +(ww||0), d: +(dd||0), l: +(ll||0) };
+    return null;
+  }
+
+  const rows = standings.map(t => {
+    const color   = TEAM_COLORS[t.team] || '#4fc3f7';
+    const logoSrc = EMBLEM[t.team] || '';
+    const initial = (t.team || '?').slice(0, 2);
+    const logo = logoSrc
+      ? `<img src="${logoSrc}" style="width:26px;height:26px;object-fit:contain" alt="${t.team}"
+             onerror="this.style.display='none'">`
+      : `<div style="width:26px;height:26px;border-radius:50%;background:${color}33;
+             display:flex;align-items:center;justify-content:center;
+             font-size:0.55rem;color:${color};font-weight:700">${initial}</div>`;
+
+    const name = TEAM_SHORT[t.team] || t.team;
+    const p    = parseLast10(t.last10);
+    const rankCls = t.rank <= 3 ? `r${t.rank}` : '';
+
+    const statHTML = p
+      ? `<span style="color:#81c784;font-weight:700;min-width:18px;text-align:right">${p.w}</span>
+         <span style="color:var(--muted);font-size:0.68rem;margin:0 3px">승</span>
+         <span style="color:var(--muted);min-width:14px;text-align:center">${p.d}</span>
+         <span style="color:var(--muted);font-size:0.68rem;margin:0 3px">무</span>
+         <span style="color:#e57373;min-width:18px">${p.l}</span>
+         <span style="color:var(--muted);font-size:0.68rem;margin:0 3px">패</span>`
+      : `<span style="color:var(--muted)">${t.last10}</span>`;
+
+    let barHTML = '';
+    if (p && (p.w + p.d + p.l) > 0) {
+      const tot = p.w + p.d + p.l;
+      const wp = (p.w / tot * 100).toFixed(1);
+      const dp = (p.d / tot * 100).toFixed(1);
+      const lp = (100 - parseFloat(wp) - parseFloat(dp)).toFixed(1);
+      barHTML = `
+        <div style="display:flex;height:6px;border-radius:3px;overflow:hidden;width:80px;flex-shrink:0">
+          <div style="width:${wp}%;background:#81c784"></div>
+          <div style="width:${dp}%;background:#7a8fa8"></div>
+          <div style="width:${lp}%;background:#e57373"></div>
+        </div>`;
+    }
+
+    const sk = t.streak || '';
+    const isW = /^[W승]|연승/.test(sk);
+    const isL = /^[L패]|연패/.test(sk);
+    const skColor = isW ? '#81c784' : isL ? '#e57373' : 'var(--muted)';
+    const skIcon  = isW ? '↑' : isL ? '↓' : '';
+    const skHTML  = sk
+      ? `<span style="color:${skColor};font-size:0.72rem;font-weight:700">${skIcon}${sk.replace(/^[WL]/,'')}</span>`
+      : '<span style="color:var(--muted)">-</span>';
+
+    return `<tr>
+      <td style="padding:8px 10px"><span class="st-rank ${rankCls}">${t.rank}</span></td>
+      <td style="padding:8px 10px">
+        <div style="display:flex;align-items:center;gap:7px">
+          ${logo}
+          <span style="font-size:0.78rem;font-weight:600">${name}</span>
+        </div>
+      </td>
+      <td style="padding:8px 14px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:0.78rem">
+          <div style="display:flex;align-items:center">${statHTML}</div>
+          ${barHTML}
+        </div>
+      </td>
+      <td style="padding:8px 10px;text-align:center">${skHTML}</td>
+    </tr>`;
+  }).join('');
+
+  const updated = data?.standings_updated || data?.today || '';
+  return `
+    <div class="st-updated" style="padding:6px 14px 4px;font-size:0.63rem;color:var(--muted)">
+      최근 10경기 성적 · ${updated} 기준
+      <a href="https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab=teamRank"
+         target="_blank" style="color:var(--accent);margin-left:4px">Naver↗</a>
+    </div>
+    <div class="standings-wrap">
+      <table class="standings-table">
+        <thead><tr>
+          <th style="width:32px">순위</th>
+          <th style="text-align:left;padding-left:10px">팀</th>
+          <th style="text-align:left;padding-left:14px">최근 10경기</th>
+          <th>연속</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+/* 폴백: 날짜별 경기 결과 리스트 */
+function _buildRecent10ByDates(data) {
   if (!data || !data.dates) return '<div class="msg">데이터 없음</div>';
   const today = data.today || dateKey(new Date());
   const allDates = Object.keys(data.dates).filter(d => d <= today).sort().reverse();
-  // 종료 경기가 있는 날짜만, 최근 10일
   const gameDates = allDates
     .filter(d => (data.dates[d]?.games || []).some(g => g.status === '종료'))
     .slice(0, 10);
