@@ -696,6 +696,65 @@ def fetch_standings():
         return []
 
 
+# ── Naver 스포츠 기록 스크래핑 ───────────────────────────────────────────────
+def fetch_naver_records(tab: str) -> dict:
+    """
+    Naver 스포츠 KBO 기록 스크래핑
+    tab: 'hitter' | 'pitcher' | 'teamRecord'
+    Returns: {'headers': [...], 'rows': [[...]...]}
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print(f'[NaverRec:{tab}] playwright 미설치')
+        return {}
+
+    url = f'https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab={tab}'
+
+    try:
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch(headless=True, args=['--no-sandbox'])
+            ctx = browser.new_context(
+                user_agent=BASE_HEADERS['User-Agent'],
+                locale='ko-KR',
+                viewport={'width': 390, 'height': 844},
+            )
+            page = ctx.new_page()
+            print(f'[NaverRec:{tab}] 로딩 중... {url}')
+            page.goto(url, wait_until='networkidle', timeout=30000)
+            try:
+                page.wait_for_selector('table', timeout=10000)
+            except Exception:
+                print(f'[NaverRec:{tab}] table 대기 타임아웃 — 계속 진행')
+            page.wait_for_timeout(1500)
+
+            result = page.evaluate("""() => {
+                const table = document.querySelector('table');
+                if (!table) return null;
+                const headers = Array.from(table.querySelectorAll('thead th, thead td'))
+                    .map(el => el.textContent.trim()).filter(Boolean);
+                const rows = Array.from(table.querySelectorAll('tbody tr'))
+                    .map(tr => Array.from(tr.querySelectorAll('td, th'))
+                        .map(td => td.textContent.trim()));
+                return { headers, rows: rows.filter(r => r.length > 2) };
+            }""")
+            browser.close()
+
+        if not result or not result.get('rows'):
+            print(f'[NaverRec:{tab}] 데이터 없음 (테이블 미확인)')
+            return {}
+
+        print(f'[NaverRec:{tab}] 헤더:{len(result["headers"])} 행:{len(result["rows"])}')
+        for r in result['rows'][:3]:
+            print(f'  {r[:8]}')
+        return result
+
+    except Exception as e:
+        import traceback; traceback.print_exc()
+        print(f'[NaverRec:{tab}] 오류: {e}')
+        return {}
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def fetch_day(date_str):
@@ -772,12 +831,21 @@ def main():
     # 팀 순위 수집
     standings = fetch_standings()
 
+    # 타자/투수/팀 기록 수집
+    hitter_records  = fetch_naver_records('hitter')
+    pitcher_records = fetch_naver_records('pitcher')
+    team_records    = fetch_naver_records('teamRecord')
+
     result = {
         'updated':            today.strftime('%Y-%m-%dT%H:%M:%S'),
         'today':              today.strftime('%Y-%m-%d'),
         'dates':              dates_data,
         'standings':          standings,
         'standings_updated':  today.strftime('%Y-%m-%d'),
+        'hitter_records':     hitter_records,
+        'pitcher_records':    pitcher_records,
+        'team_records':       team_records,
+        'records_updated':    today.strftime('%Y-%m-%d'),
     }
 
     with open('kbo_data.json', 'w', encoding='utf-8') as f:

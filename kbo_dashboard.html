@@ -544,6 +544,97 @@
     .st-ls   { font-size: 0.7rem; color: #e57373; font-weight: 700; }
     .st-updated { font-size: 0.65rem; color: var(--muted); text-align: right; padding: 8px 14px 4px; }
 
+    /* ── 서브탭 (순위 탭 내부) ── */
+    .sub-tabs-bar {
+      display: flex; background: #0d1720;
+      border-bottom: 2px solid var(--border);
+      overflow-x: auto; scrollbar-width: none; flex-shrink: 0;
+    }
+    .sub-tabs-bar::-webkit-scrollbar { display: none; }
+    .sub-tab {
+      background: none; border: none; color: var(--muted);
+      padding: 9px 14px; cursor: pointer; font-size: 0.8rem;
+      border-bottom: 2px solid transparent; margin-bottom: -2px;
+      white-space: nowrap; flex-shrink: 0; transition: all 0.15s;
+    }
+    .sub-tab:hover { color: var(--text); }
+    .sub-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── TOP3 카드 영역 ── */
+    .top3-section {
+      padding: 12px 14px 10px;
+      border-bottom: 1px solid var(--border);
+      background: #111d2b;
+    }
+    .top3-section-title {
+      font-size: 0.65rem; color: var(--muted); font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .top3-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+      gap: 8px;
+    }
+    .top3-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 9px 10px;
+    }
+    .top3-stat-lbl {
+      font-size: 0.6rem; color: var(--accent); font-weight: 700;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .top3-item {
+      display: flex; align-items: center; gap: 5px;
+      padding: 2px 0; font-size: 0.73rem; line-height: 1.4;
+    }
+    .t3-rank { font-size: 0.6rem; width: 14px; text-align: center; color: var(--muted); flex-shrink:0; }
+    .t3-rank.r1 { color: #ffd54f; font-weight: 700; }
+    .t3-rank.r2 { color: #b0bec5; font-weight: 700; }
+    .t3-rank.r3 { color: #ff8a65; font-weight: 700; }
+    .t3-name { flex: 1; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .t3-team { font-size: 0.6rem; color: var(--muted); flex-shrink:0; }
+    .t3-val  { font-weight: 700; color: var(--accent); font-size: 0.8rem; flex-shrink:0; min-width:32px; text-align:right; }
+
+    /* ── 기록 테이블 ── */
+    .rec-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .rec-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 0.78rem; min-width: 560px;
+    }
+    .rec-table th {
+      padding: 8px 7px; background: #111d2b; color: var(--muted);
+      font-size: 0.64rem; font-weight: 600; text-align: center;
+      border-bottom: 2px solid var(--border);
+      cursor: pointer; white-space: nowrap;
+      position: sticky; top: 0; z-index: 1; user-select: none;
+    }
+    .rec-table th:hover { color: var(--accent); }
+    .rec-table th.s-asc::after  { content: ' ▲'; color: var(--accent); }
+    .rec-table th.s-desc::after { content: ' ▼'; color: var(--accent); }
+    .rec-table td {
+      padding: 6px 7px; text-align: center;
+      border-bottom: 1px solid var(--border); white-space: nowrap;
+    }
+    .rec-table tr:hover td { background: #1e2f44; }
+    .rec-no-data { color: var(--muted); font-size: 0.8rem; padding: 24px; text-align: center; }
+
+    /* ── 최근열경기 (리스트) ── */
+    .r10-day { margin-bottom: 10px; }
+    .r10-day-hd {
+      font-size: 0.72rem; color: var(--sub); font-weight: 700;
+      padding: 6px 14px 4px; border-top: 1px solid var(--border);
+    }
+    .r10-games { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 14px 6px; }
+    .r10-game {
+      display: flex; align-items: center; gap: 5px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 3px 10px; font-size: 0.73rem;
+    }
+    .r10-team { color: var(--sub); }
+    .r10-win  { color: var(--text); font-weight: 700; }
+    .r10-lose { color: #4a6080; }
+    .r10-score { color: var(--accent); font-weight: 700; margin: 0 3px; }
+
     /* ── Footer ── */
     footer {
       text-align: center; padding: 12px;
@@ -882,8 +973,10 @@ const TEAM_SHORT = {
 };
 
 /* ── 탭 전환 ── */
-let weatherLoaded  = false;
+let weatherLoaded   = false;
 let standingsLoaded = false;
+let _activeSubTab   = 'rank';
+let _recSortState   = { tab: '', idx: -1, asc: false };
 
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
@@ -894,7 +987,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     const tab = btn.dataset.tab;
     document.getElementById('pane-' + tab).classList.add('active');
     if (tab === 'weather'   && !weatherLoaded)   loadAllWeather();
-    if (tab === 'standings' && !standingsLoaded) renderStandings(window._kboData);
+    if (tab === 'standings' && !standingsLoaded) renderStandingsTab(window._kboData);
   });
 });
 
@@ -1195,23 +1288,57 @@ function computeStandings(data) {
   return arr;
 }
 
-/* ── 순위표 렌더 ── */
-function renderStandings(data) {
+/* ═══════════════════════════════════════════════════════
+   순위 탭 — 서브탭 구조
+   ═══════════════════════════════════════════════════════ */
+function renderStandingsTab(data) {
   standingsLoaded = true;
   const pane = document.getElementById('pane-standings');
   if (!data) { pane.innerHTML = '<div class="msg">데이터 없음</div>'; return; }
 
-  // ① KBO 공식 스크래핑 데이터 우선, 없으면 ② 자체 계산 폴백
+  pane.innerHTML = `
+    <div class="sub-tabs-bar">
+      <button class="sub-tab active" data-st="rank"    onclick="switchSubTab('rank')">팀순위</button>
+      <button class="sub-tab"        data-st="recent10" onclick="switchSubTab('recent10')">최근열경기</button>
+      <button class="sub-tab"        data-st="teamrec"  onclick="switchSubTab('teamrec')">팀기록</button>
+      <button class="sub-tab"        data-st="hitter"   onclick="switchSubTab('hitter')">타자기록</button>
+      <button class="sub-tab"        data-st="pitcher"  onclick="switchSubTab('pitcher')">투수기록</button>
+    </div>
+    <div id="st-content"></div>`;
+
+  _activeSubTab = 'rank';
+  switchSubTab('rank');
+}
+
+/* ── 서브탭 전환 ── */
+function switchSubTab(name) {
+  _activeSubTab = name;
+  document.querySelectorAll('.sub-tab').forEach(b => {
+    b.classList.toggle('active', b.dataset.st === name);
+  });
+  const data = window._kboData;
+  const el = document.getElementById('st-content');
+  if (!el) return;
+  _recSortState = { tab: '', idx: -1, asc: false };
+
+  if (name === 'rank')     el.innerHTML = _buildRankHTML(data);
+  else if (name === 'recent10') el.innerHTML = _buildRecent10HTML(data);
+  else if (name === 'teamrec')  el.innerHTML = _buildRecordsHTML('team', data);
+  else if (name === 'hitter')   el.innerHTML = _buildRecordsHTML('hitter', data);
+  else if (name === 'pitcher')  el.innerHTML = _buildRecordsHTML('pitcher', data);
+}
+
+/* ── 팀순위 HTML ── */
+function _buildRankHTML(data) {
+  if (!data) return '<div class="msg">데이터 없음</div>';
   const useOfficial = data.standings && data.standings.length > 0;
   const st = useOfficial ? data.standings : computeStandings(data);
   const sourceLabel = useOfficial
     ? `KBO 공식 순위 · ${data.standings_updated || data.today} 기준`
     : `자체 계산 (최근 ${Object.keys(data.dates||{}).length}일 기준)`;
 
-  // 자체계산 데이터는 streak 형식이 다름 — 통합 처리
   function streakHTML(t) {
     if (useOfficial) {
-      // streak 예: "2연승", "3연패", "W2", "L3" 등
       const s = t.streak || '';
       const isW = /^[W승]|연승/.test(s);
       const isL = /^[L패]|연패/.test(s);
@@ -1237,12 +1364,9 @@ function renderStandings(data) {
       : `<div style="width:26px;height:26px;border-radius:50%;background:${color}33;border:1px solid ${color}55;
              display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:${color};font-weight:700">${initial}</div>`;
 
-    const pct = typeof t.pct === 'number' ? t.pct.toFixed(3).replace(/^0/, '') : t.pct || '-';
-    const gb  = t.gb !== undefined ? t.gb : '-';
+    const pct  = typeof t.pct === 'number' ? t.pct.toFixed(3).replace(/^0/, '') : t.pct || '-';
+    const gb   = t.gb !== undefined ? t.gb : '-';
     const name = TEAM_SHORT[t.team] || t.team;
-    const last10HTML = t.last10
-      ? `<td style="font-size:0.72rem;color:var(--sub)">${t.last10}</td>` : '';
-
     return `<tr>
       <td><span class="st-rank ${rankCls}">${t.rank}</span></td>
       <td><div class="st-team-cell">${logoEl}<span class="st-name">${name}</span></div></td>
@@ -1258,9 +1382,8 @@ function renderStandings(data) {
   }).join('');
 
   const extraTh = useOfficial ? '<th>최근10</th>' : '';
-
-  pane.innerHTML = `
-    <div class="st-updated" style="display:flex;align-items:center;gap:8px">
+  return `
+    <div class="st-updated" style="display:flex;align-items:center;gap:8px;padding:8px 14px 4px">
       <span>${sourceLabel}</span>
       ${useOfficial ? '<a href="https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx" target="_blank" style="font-size:0.7rem;color:var(--accent);text-decoration:none">KBO↗</a>' : ''}
     </div>
@@ -1275,6 +1398,232 @@ function renderStandings(data) {
       </table>
     </div>`;
 }
+
+/* ── 최근열경기 HTML ── */
+function _buildRecent10HTML(data) {
+  if (!data || !data.dates) return '<div class="msg">데이터 없음</div>';
+  const today = data.today || dateKey(new Date());
+  const allDates = Object.keys(data.dates).filter(d => d <= today).sort().reverse();
+  // 종료 경기가 있는 날짜만, 최근 10일
+  const gameDates = allDates
+    .filter(d => (data.dates[d]?.games || []).some(g => g.status === '종료'))
+    .slice(0, 10);
+
+  if (!gameDates.length) return '<div class="msg">최근 경기 결과 없음</div>';
+
+  const html = gameDates.map(d => {
+    const dt = new Date(d + 'T00:00:00');
+    const label = `${dt.getMonth()+1}/${dt.getDate()}(${DAYS[dt.getDay()]})`;
+    const games = (data.dates[d]?.games || []).filter(g => g.status === '종료');
+    const gamesHTML = games.map(g => {
+      const aS = Number(g.away_score), hS = Number(g.home_score);
+      const aW = aS > hS, hW = hS > aS;
+      const aN = TEAM_SHORT[g.away] || g.away;
+      const hN = TEAM_SHORT[g.home] || g.home;
+      return `<div class="r10-game">
+        <span class="r10-team ${aW?'r10-win':'r10-lose'}">${aN}</span>
+        <span class="r10-score">${g.away_score}:${g.home_score}</span>
+        <span class="r10-team ${hW?'r10-win':'r10-lose'}">${hN}</span>
+      </div>`;
+    }).join('');
+    return `<div class="r10-day">
+      <div class="r10-day-hd">📅 ${label} — ${games.length}경기</div>
+      <div class="r10-games">${gamesHTML}</div>
+    </div>`;
+  }).join('');
+
+  return `<div style="padding-top:4px">${html}</div>`;
+}
+
+/* ══════════════════════════════════════════════════════
+   기록 테이블 공통 유틸
+   ══════════════════════════════════════════════════════ */
+function _colIdx(headers, names) {
+  for (const n of names) {
+    const i = headers.findIndex(h => h === n || h.includes(n));
+    if (i >= 0) return i;
+  }
+  return -1;
+}
+
+function _parseNum(v) {
+  if (!v && v !== 0) return NaN;
+  return parseFloat(String(v).replace(/,/g, ''));
+}
+
+function _top3(rows, colIdx, higher=true, nameCol=0, teamCol=1) {
+  return rows
+    .map(r => ({ name: r[nameCol]||'', team: r[teamCol]||'', val: _parseNum(r[colIdx]), raw: r[colIdx]||'' }))
+    .filter(x => !isNaN(x.val))
+    .sort((a, b) => higher ? b.val - a.val : a.val - b.val)
+    .slice(0, 3);
+}
+
+function _top3CardHTML(label, items) {
+  if (!items.length) return '';
+  const rows = items.map((p, i) => `
+    <div class="top3-item">
+      <span class="t3-rank r${i+1}">${['①','②','③'][i]}</span>
+      <span class="t3-name">${p.name}</span>
+      <span class="t3-team">${p.team}</span>
+      <span class="t3-val">${p.raw}</span>
+    </div>`).join('');
+  return `<div class="top3-card"><div class="top3-stat-lbl">${label}</div>${rows}</div>`;
+}
+
+function _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc) {
+  if (!headers.length || !rows.length)
+    return '<div class="rec-no-data">기록 데이터 없음 (다음 fetch 시 수집)</div>';
+
+  const si   = _recSortState.tab === tabKey ? _recSortState.idx  : defSortIdx;
+  const sasc = _recSortState.tab === tabKey ? _recSortState.asc  : defAsc;
+
+  const sorted = [...rows].sort((a, b) => {
+    const va = _parseNum(a[si]), vb = _parseNum(b[si]);
+    if (!isNaN(va) && !isNaN(vb)) return sasc ? va - vb : vb - va;
+    return sasc
+      ? (a[si]||'').localeCompare(b[si]||'')
+      : (b[si]||'').localeCompare(a[si]||'');
+  });
+
+  const thRow = headers.map((h, i) => {
+    let cls = '';
+    if (i === si) cls = sasc ? 's-asc' : 's-desc';
+    return `<th class="${cls}" onclick="sortRecTable('${tabKey}',${i})">${h}</th>`;
+  }).join('');
+
+  const tRows = sorted.slice(0, 200).map((r, ri) => {
+    const cells = r.map((c, ci) => {
+      if (ci === 0) return `<td style="text-align:left;padding-left:10px;font-weight:600;color:var(--text)">${c}</td>`;
+      if (ci === 1) return `<td style="color:var(--muted);font-size:0.72rem">${c}</td>`;
+      return `<td>${c}</td>`;
+    }).join('');
+    return `<tr>${cells}</tr>`;
+  }).join('');
+
+  return `<div class="rec-wrap">
+    <table class="rec-table">
+      <thead><tr>${thRow}</tr></thead>
+      <tbody>${tRows}</tbody>
+    </table>
+  </div>`;
+}
+
+function sortRecTable(tabKey, colIdx) {
+  const prev = _recSortState;
+  const asc = (prev.tab === tabKey && prev.idx === colIdx) ? !prev.asc : false;
+  _recSortState = { tab: tabKey, idx: colIdx, asc };
+  const data = window._kboData;
+  const el = document.getElementById('st-content');
+  if (!el) return;
+  const kindMap = { teamrec: 'team', hitter: 'hitter', pitcher: 'pitcher' };
+  el.innerHTML = _buildRecordsHTML(kindMap[tabKey] || tabKey, data);
+}
+
+/* ── 팀기록 / 타자기록 / 투수기록 HTML 빌더 ── */
+function _buildRecordsHTML(kind, data) {
+  // kind: 'team' | 'hitter' | 'pitcher'
+  const tabKey  = kind === 'team' ? 'teamrec' : kind;
+  const recKey  = kind === 'team' ? 'team_records' : `${kind}_records`;
+  const rec     = (data || {})[recKey] || {};
+  const headers = rec.headers || [];
+  const rows    = rec.rows    || [];
+  const updated = (data || {}).records_updated || '';
+
+  /* ---- TOP3 카드 정의 ---- */
+  let top3Cards = '';
+  if (kind === 'hitter' && rows.length) {
+    const defs = [
+      { label:'타율',   names:['타율','AVG'],   higher:true  },
+      { label:'홈런',   names:['홈런','HR'],    higher:true  },
+      { label:'타점',   names:['타점','RBI'],   higher:true  },
+      { label:'도루',   names:['도루','SB'],    higher:true  },
+      { label:'OPS',   names:['OPS'],           higher:true  },
+      { label:'WAR',   names:['WAR'],           higher:true  },
+    ];
+    const cards = defs.map(d => {
+      const ci = _colIdx(headers, d.names);
+      if (ci < 0) return '';
+      return _top3CardHTML(d.label, _top3(rows, ci, d.higher));
+    }).filter(Boolean);
+    if (cards.length) {
+      top3Cards = `<div class="top3-section">
+        <div class="top3-section-title">🏆 지표별 TOP 3</div>
+        <div class="top3-grid">${cards.join('')}</div>
+      </div>`;
+    }
+  } else if (kind === 'pitcher' && rows.length) {
+    const defs = [
+      { label:'평균자책점', names:['평균자책점','ERA'], higher:false },
+      { label:'승',        names:['승'],               higher:true  },
+      { label:'세이브',    names:['세이브','SV'],       higher:true  },
+      { label:'홀드',      names:['홀드','HD'],         higher:true  },
+      { label:'탈삼진',    names:['탈삼진','SO','K'],   higher:true  },
+      { label:'WHIP',      names:['WHIP'],              higher:false },
+      { label:'WAR',       names:['WAR'],               higher:true  },
+    ];
+    const cards = defs.map(d => {
+      const ci = _colIdx(headers, d.names);
+      if (ci < 0) return '';
+      return _top3CardHTML(d.label, _top3(rows, ci, d.higher));
+    }).filter(Boolean);
+    if (cards.length) {
+      top3Cards = `<div class="top3-section">
+        <div class="top3-section-title">🏆 지표별 TOP 3</div>
+        <div class="top3-grid">${cards.join('')}</div>
+      </div>`;
+    }
+  } else if (kind === 'team' && rows.length) {
+    // 팀기록은 선수명/팀 컬럼 구조가 다름 — 첫 컬럼이 팀명
+    const teamRows = rows.map(r => [r[0], '', ...r.slice(1)]);
+    const teamHeaders = headers;
+    const defs = [
+      { label:'팀 타율',     names:['타율','AVG'],  higher:true,  nc:0, tc:0 },
+      { label:'팀 홈런',     names:['홈런','HR'],   higher:true,  nc:0, tc:0 },
+      { label:'팀 OPS',     names:['OPS'],          higher:true,  nc:0, tc:0 },
+      { label:'팀 ERA',     names:['평균자책점','ERA'], higher:false, nc:0, tc:0 },
+      { label:'팀 WHIP',    names:['WHIP'],         higher:false, nc:0, tc:0 },
+      { label:'팀 도루',     names:['도루','SB'],    higher:true,  nc:0, tc:0 },
+    ];
+    // 팀기록은 nameCol=0, teamCol=0 (팀명만 있음)
+    const cards = defs.map(d => {
+      const ci = _colIdx(teamHeaders, d.names);
+      if (ci < 0) return '';
+      const t3 = rows
+        .map(r => ({ name: r[0]||'', team: '', val: _parseNum(r[ci]), raw: r[ci]||'' }))
+        .filter(x => !isNaN(x.val))
+        .sort((a,b) => d.higher ? b.val - a.val : a.val - b.val)
+        .slice(0,3);
+      return _top3CardHTML(d.label, t3);
+    }).filter(Boolean);
+    if (cards.length) {
+      top3Cards = `<div class="top3-section">
+        <div class="top3-section-title">🏆 지표별 TOP 3</div>
+        <div class="top3-grid">${cards.join('')}</div>
+      </div>`;
+    }
+  }
+
+  // 기본 정렬 컬럼 설정
+  let defSortIdx = 2, defAsc = false;
+  if (kind === 'hitter') {
+    const ci = _colIdx(headers, ['타율','AVG']);
+    if (ci >= 0) { defSortIdx = ci; defAsc = false; }
+  } else if (kind === 'pitcher') {
+    const ci = _colIdx(headers, ['평균자책점','ERA']);
+    if (ci >= 0) { defSortIdx = ci; defAsc = true; }
+  }
+
+  const updLabel = updated
+    ? `<div class="st-updated" style="padding:6px 14px 4px;font-size:0.63rem;color:var(--muted)">
+        Naver 스포츠 기준 · ${updated}
+        <a href="https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab=${kind==='team'?'teamRecord':kind}" target="_blank" style="color:var(--accent);margin-left:4px">Naver↗</a>
+       </div>`
+    : '';
+
+  return updLabel + top3Cards + _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc);
+}
+
 
 /* ── 달력 렌더 ── */
 function renderCalendar(data) {
@@ -1468,7 +1817,7 @@ async function init() {
 
     await renderToday(data);
     renderCalendar(data);
-    renderStandings(data);
+    renderStandingsTab(data);
 
     const upd = data.updated ? new Date(data.updated) : null;
     document.getElementById('meta').textContent = upd && !isNaN(upd)
