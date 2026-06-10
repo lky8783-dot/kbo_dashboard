@@ -1433,6 +1433,73 @@ function _buildRankHTML(data) {
   }).join('');
 
   const extraTh = useOfficial ? '<th>최근10</th>' : '';
+
+  // ── 최근10경기 인라인 섹션 ──────────────────────────────────
+  const last10St = st.filter(t => t.last10);
+  const last10Inline = last10St.length ? (() => {
+    const sortedL10 = [...last10St].sort((a,b) => {
+      const pa = parseLast10(a.last10), pb = parseLast10(b.last10);
+      if (!pa||!pb) return 0;
+      return pb.w - pa.w || pb.d - pa.d || pa.l - pb.l;
+    });
+    const l10Rows = sortedL10.map((t, idx) => {
+      const color  = TEAM_COLORS[t.team] || '#4fc3f7';
+      const src    = EMBLEM[t.team] || '';
+      const init   = (t.team||'?').slice(0,2);
+      const logoEl = src
+        ? `<img src="${src}" style="width:24px;height:24px;object-fit:contain" alt="${t.team}" onerror="this.style.display='none'">`
+        : `<div style="width:24px;height:24px;border-radius:50%;background:${color}33;border:1px solid ${color}55;display:flex;align-items:center;justify-content:center;font-size:0.5rem;color:${color};font-weight:700">${init}</div>`;
+      const name   = TEAM_SHORT[t.team] || t.team;
+      const p      = parseLast10(t.last10);
+      const rn     = idx+1;
+      const rc     = rn<=3 ? `r${rn}` : '';
+      const bar = p && (p.w+p.d+p.l)>0 ? (() => {
+        const tot=p.w+p.d+p.l, wp=(p.w/tot*100).toFixed(1), dp=(p.d/tot*100).toFixed(1), lp=(100-+wp-+dp).toFixed(1);
+        return `<div style="display:flex;height:5px;border-radius:3px;overflow:hidden;width:70px;flex-shrink:0">
+          <div style="width:${wp}%;background:#81c784"></div>
+          <div style="width:${dp}%;background:#7a8fa8"></div>
+          <div style="width:${lp}%;background:#e57373"></div>
+        </div>`;
+      })() : '';
+      const wdl = p
+        ? `<span style="color:#81c784;font-weight:700">${p.w}승</span><span style="color:var(--muted);font-size:0.68rem"> ${p.d}무 </span><span style="color:#e57373">${p.l}패</span>`
+        : `<span style="color:var(--muted)">${t.last10}</span>`;
+      const sk = t.streak||'';
+      const isWs = /^[W승]|연승/.test(sk), isLs = /^[L패]|연패/.test(sk);
+      const skCol = isWs?'#81c784':isLs?'#e57373':'var(--muted)';
+      const skIco = isWs?'↑':isLs?'↓':'';
+      return `<tr>
+        <td style="text-align:center"><span class="st-rank ${rc}">${rn}</span></td>
+        <td style="text-align:left;padding-left:8px">
+          <div style="display:flex;align-items:center;gap:6px">${logoEl}
+            <span style="font-size:0.78rem;font-weight:600">${name}</span>
+          </div>
+        </td>
+        <td style="text-align:left;padding:6px 10px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.78rem">
+            <div>${wdl}</div>${bar}
+          </div>
+        </td>
+        <td style="text-align:center;color:${skCol};font-size:0.72rem;font-weight:700">${skIco}${sk.replace(/^[WL]/,'')}</td>
+      </tr>`;
+    }).join('');
+    return `
+      <div style="border-top:2px solid var(--border);padding-top:2px;margin-top:4px">
+        <div style="padding:8px 14px 4px;font-size:0.8rem;font-weight:700;color:var(--text)">최근 10경기</div>
+        <div class="standings-wrap">
+          <table class="standings-table">
+            <thead><tr>
+              <th style="width:32px">순위</th>
+              <th style="text-align:left;padding-left:8px">팀</th>
+              <th style="text-align:left;padding-left:10px">최근 10경기</th>
+              <th>연속</th>
+            </tr></thead>
+            <tbody>${l10Rows}</tbody>
+          </table>
+        </div>
+      </div>`;
+  })() : '';
+
   return `
     <div class="st-updated" style="display:flex;align-items:center;gap:8px;padding:8px 14px 4px">
       <span>${sourceLabel}</span>
@@ -1447,35 +1514,43 @@ function _buildRankHTML(data) {
         </tr></thead>
         <tbody>${rows}</tbody>
       </table>
-    </div>`;
+    </div>
+    ${last10Inline}`;
 }
 
 /* ── 최근열경기 HTML ── */
-/* ── 최근열경기 HTML ── */
 function _buildRecent10HTML(data) {
   const standings = (data?.standings || []).filter(t => t.last10);
-  // standings에 last10 데이터 있으면 팀별 시각화, 없으면 날짜별 폴백
-  if (standings.length) return _buildLast10ByTeam(standings, data);
+  // standings에 last10 데이터 있으면 팀별 시각화(최근 승수 정렬), 없으면 날짜별 폴백
+  if (standings.length) return _buildLast10ByTeam(standings, data, true);
   return _buildRecent10ByDates(data);
 }
 
 /* 팀별 최근 10경기 성적 시각화 */
-function _buildLast10ByTeam(standings, data) {
-  function parseLast10(s) {
-    if (!s) return null;
-    let m = s.match(/^(\d+)-(\d+)-(\d+)$/);
-    if (m) return { w: +m[1], d: +m[2], l: +m[3] };
-    m = s.match(/^(\d+)-(\d+)$/);
-    if (m) return { w: +m[1], d: 0, l: +m[2] };
-    const ww = (s.match(/(\d+)승/) || [])[1];
-    const dd = (s.match(/(\d+)무/) || [])[1];
-    const ll = (s.match(/(\d+)패/) || [])[1];
-    if (ww !== undefined || ll !== undefined)
-      return { w: +(ww||0), d: +(dd||0), l: +(ll||0) };
-    return null;
-  }
+function parseLast10(s) {
+  if (!s) return null;
+  let m = s.match(/^(\d+)-(\d+)-(\d+)$/);
+  if (m) return { w: +m[1], d: +m[2], l: +m[3] };
+  m = s.match(/^(\d+)-(\d+)$/);
+  if (m) return { w: +m[1], d: 0, l: +m[2] };
+  const ww = (s.match(/(\d+)승/) || [])[1];
+  const dd = (s.match(/(\d+)무/) || [])[1];
+  const ll = (s.match(/(\d+)패/) || [])[1];
+  if (ww !== undefined || ll !== undefined)
+    return { w: +(ww||0), d: +(dd||0), l: +(ll||0) };
+  return null;
+}
 
-  const rows = standings.map(t => {
+function _buildLast10ByTeam(standings, data, sortByRecent = false) {
+  const src = sortByRecent
+    ? [...standings].sort((a, b) => {
+        const pa = parseLast10(a.last10), pb = parseLast10(b.last10);
+        if (!pa || !pb) return 0;
+        return pb.w - pa.w || pb.d - pa.d || pa.l - pb.l;
+      })
+    : standings;
+
+  const rows = src.map((t, idx) => {
     const color   = TEAM_COLORS[t.team] || '#4fc3f7';
     const logoSrc = EMBLEM[t.team] || '';
     const initial = (t.team || '?').slice(0, 2);
@@ -1486,9 +1561,10 @@ function _buildLast10ByTeam(standings, data) {
              display:flex;align-items:center;justify-content:center;
              font-size:0.55rem;color:${color};font-weight:700">${initial}</div>`;
 
-    const name = TEAM_SHORT[t.team] || t.team;
-    const p    = parseLast10(t.last10);
-    const rankCls = t.rank <= 3 ? `r${t.rank}` : '';
+    const name    = TEAM_SHORT[t.team] || t.team;
+    const p       = parseLast10(t.last10);
+    const rankNum = sortByRecent ? idx+1 : t.rank;
+    const rankCls = rankNum <= 3 ? `r${rankNum}` : '';
 
     const statHTML = p
       ? `<span style="color:#81c784;font-weight:700;min-width:18px;text-align:right">${p.w}</span>
@@ -1523,7 +1599,7 @@ function _buildLast10ByTeam(standings, data) {
       : '<span style="color:var(--muted)">-</span>';
 
     return `<tr>
-      <td style="padding:8px 10px"><span class="st-rank ${rankCls}">${t.rank}</span></td>
+      <td style="padding:8px 10px"><span class="st-rank ${rankCls}">${rankNum}</span></td>
       <td style="padding:8px 10px">
         <div style="display:flex;align-items:center;gap:7px">
           ${logo}
@@ -1619,6 +1695,66 @@ function _top3(rows, colIdx, higher=true, nameCol=0, teamCol=1) {
     .slice(0, 3);
 }
 
+/* camelCase(미번역) 컬럼 · 중복 컬럼 제거 */
+function _filterRecCols(headers, rows) {
+  const seen = new Set();
+  const keep = [];
+  headers.forEach((h, i) => {
+    if (/[a-z][A-Z]/.test(h)) return;   // camelCase → 미번역 내부 ID
+    if (seen.has(h)) return;             // 중복 컬럼
+    seen.add(h); keep.push(i);
+  });
+  if (keep.length === headers.length) return { headers, rows };
+  return {
+    headers: keep.map(i => headers[i]),
+    rows:    rows.map(r => keep.map(i => r[i] ?? '')),
+  };
+}
+
+/* 선수 기록 Naver 스타일 TOP3 카드 (팀 로고 + 선수명) */
+function _playerTop3Card(label, rows, headers, valNames, higher) {
+  const nameCI = _colIdx(headers, ['선수명','playerName','name']);
+  const teamCI = _colIdx(headers, ['팀','team','teamName']);
+  const valCI  = _colIdx(headers, valNames);
+  if (nameCI < 0 || valCI < 0 || !rows.length) return '';
+  const top3 = rows
+    .map(r => ({
+      name: r[nameCI]||'',
+      team: teamCI >= 0 ? r[teamCI]||'' : '',
+      val:  _parseNum(r[valCI]),
+      raw:  r[valCI]||'',
+    }))
+    .filter(x => !isNaN(x.val))
+    .sort((a,b) => higher ? b.val-a.val : a.val-b.val)
+    .slice(0,3);
+  if (!top3.length) return '';
+  const [p1,p2,p3] = top3;
+  const meds = ['gold','silver','bronze'];
+  const smallRows = [p2,p3].filter(Boolean).map((p,i) => `
+    <div class="trec-rank-row">
+      <span class="trec-medal ${meds[i+1]}">${i+2}</span>
+      ${_teamLogoEl(p.team,18)}
+      <span class="trec-rank-name">${p.name}</span>
+      <span style="font-size:0.58rem;color:var(--muted);flex-shrink:0">${p.team}</span>
+      <span class="trec-rank-val">${p.raw}</span>
+    </div>`).join('');
+  return `
+    <div class="trec-top3-card">
+      <div class="trec-top3-title">${label}</div>
+      <div class="trec-top1-row">
+        <span class="trec-medal gold">1</span>
+        ${_teamLogoEl(p1.team,46)}
+        <div class="trec-top1-info">
+          <div class="trec-top1-name">${p1.name}
+            <span style="font-size:0.58rem;color:var(--muted);margin-left:3px">${p1.team}</span>
+          </div>
+          <div class="trec-top1-val">${p1.raw}</div>
+        </div>
+      </div>
+      ${smallRows}
+    </div>`;
+}
+
 function _top3CardHTML(label, items) {
   if (!items.length) return '';
   const rows = items.map((p, i) => `
@@ -1631,7 +1767,7 @@ function _top3CardHTML(label, items) {
   return `<div class="top3-card"><div class="top3-stat-lbl">${label}</div>${rows}</div>`;
 }
 
-function _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc) {
+function _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc, maxRows = 200) {
   if (!headers.length || !rows.length)
     return '<div class="rec-no-data">기록 데이터 없음 (다음 fetch 시 수집)</div>';
 
@@ -1652,7 +1788,7 @@ function _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc) {
     return `<th class="${cls}" onclick="sortRecTable('${tabKey}',${i})">${h}</th>`;
   }).join('');
 
-  const tRows = sorted.slice(0, 200).map((r, ri) => {
+  const tRows = sorted.slice(0, maxRows).map((r, ri) => {
     const cells = r.map((c, ci) => {
       if (ci === 0) return `<td style="text-align:left;padding-left:10px;font-weight:600;color:var(--text)">${c}</td>`;
       if (ci === 1) return `<td style="color:var(--muted);font-size:0.72rem">${c}</td>`;
@@ -1838,108 +1974,69 @@ function _buildTeamRecordsHTML(data) {
     <div id="trec-table-wrap">${_buildTeamRecTable(data)}</div>`;
 }
 
-/* ── 팀기록 / 타자기록 / 투수기록 HTML 빌더 ── */
+/* ── 타자기록 / 투수기록 HTML 빌더 ── */
 function _buildRecordsHTML(kind, data) {
-  // kind: 'team' | 'hitter' | 'pitcher'
-  const tabKey  = kind === 'team' ? 'teamrec' : kind;
-  const recKey  = kind === 'team' ? 'team_records' : `${kind}_records`;
-  const rec     = (data || {})[recKey] || {};
-  const headers = rec.headers || [];
-  const rows    = rec.rows    || [];
+  if (kind === 'team') return _buildTeamRecordsHTML(data);
+
+  // kind: 'hitter' | 'pitcher'
+  const rec     = (data || {})[`${kind}_records`] || {};
+  const rawHdrs = rec.headers || [];
+  const rawRows = rec.rows    || [];
   const updated = (data || {}).records_updated || '';
 
-  /* ---- TOP3 카드 정의 ---- */
+  // camelCase ID 컬럼 · 중복 컬럼 제거
+  const { headers, rows } = _filterRecCols(rawHdrs, rawRows);
+
+  // TOP3 카드 정의
+  const cardDefs = kind === 'hitter' ? [
+    { label:'타율',  vals:['타율','AVG','avg','battingAvg','seasonAvg','ba'], higher:true  },
+    { label:'홈런',  vals:['홈런','HR','hr','homeRun'],                        higher:true  },
+    { label:'타점',  vals:['타점','RBI','rbi'],                                higher:true  },
+    { label:'도루',  vals:['도루','SB','sb','stolenBase'],                     higher:true  },
+    { label:'OPS',  vals:['OPS','ops'],                                        higher:true  },
+    { label:'WAR',  vals:['WAR','war','warcalc'],                              higher:true  },
+  ] : [
+    { label:'평균자책점', vals:['평균자책점','ERA','era'],                         higher:false },
+    { label:'승',        vals:['승','win','wins'],                               higher:true  },
+    { label:'탈삼진',    vals:['탈삼진','SO','K','so','strikeOut','strikeoutCount'], higher:true  },
+    { label:'세이브',    vals:['세이브','SV','sv','save'],                         higher:true  },
+    { label:'WHIP',      vals:['WHIP','whip'],                                   higher:false },
+    { label:'WAR',       vals:['WAR','war','warcalc'],                           higher:true  },
+  ];
+
   let top3Cards = '';
-  if (kind === 'hitter' && rows.length) {
-    const defs = [
-      { label:'타율',  names:['타율','AVG','avg','battingAvg','seasonAvg','ba'], higher:true  },
-      { label:'홈런',  names:['홈런','HR','hr','homeRun'],                       higher:true  },
-      { label:'타점',  names:['타점','RBI','rbi'],                               higher:true  },
-      { label:'도루',  names:['도루','SB','sb','stolenBase'],                    higher:true  },
-      { label:'OPS',  names:['OPS','ops'],                                       higher:true  },
-      { label:'WAR',  names:['WAR','war','warcalc'],                             higher:true  },
-    ];
-    const cards = defs.map(d => {
-      const ci = _colIdx(headers, d.names);
-      if (ci < 0) return '';
-      return _top3CardHTML(d.label, _top3(rows, ci, d.higher));
-    }).filter(Boolean);
+  if (rows.length) {
+    const cards = cardDefs
+      .map(d => _playerTop3Card(d.label, rows, headers, d.vals, d.higher))
+      .filter(Boolean);
     if (cards.length) {
-      top3Cards = `<div class="top3-section">
-        <div class="top3-section-title">🏆 지표별 TOP 3</div>
-        <div class="top3-grid">${cards.join('')}</div>
-      </div>`;
-    }
-  } else if (kind === 'pitcher' && rows.length) {
-    const defs = [
-      { label:'평균자책점', names:['평균자책점','ERA','era'],                         higher:false },
-      { label:'승',        names:['승','win','wins'],                                higher:true  },
-      { label:'세이브',    names:['세이브','SV','sv','save'],                        higher:true  },
-      { label:'홀드',      names:['홀드','HD','hold','hld'],                         higher:true  },
-      { label:'탈삼진',    names:['탈삼진','SO','K','so','strikeOut','strikeoutCount'], higher:true  },
-      { label:'WHIP',      names:['WHIP','whip'],                                    higher:false },
-      { label:'WAR',       names:['WAR','war','warcalc'],                            higher:true  },
-    ];
-    const cards = defs.map(d => {
-      const ci = _colIdx(headers, d.names);
-      if (ci < 0) return '';
-      return _top3CardHTML(d.label, _top3(rows, ci, d.higher));
-    }).filter(Boolean);
-    if (cards.length) {
-      top3Cards = `<div class="top3-section">
-        <div class="top3-section-title">🏆 지표별 TOP 3</div>
-        <div class="top3-grid">${cards.join('')}</div>
-      </div>`;
-    }
-  } else if (kind === 'team' && rows.length) {
-    // 팀기록은 선수명/팀 컬럼 구조가 다름 — 첫 컬럼이 팀명
-    const teamRows = rows.map(r => [r[0], '', ...r.slice(1)]);
-    const teamHeaders = headers;
-    const defs = [
-      { label:'팀 타율',  names:['타율','AVG','avg','battingAvg'],      higher:true  },
-      { label:'팀 홈런',  names:['홈런','HR','hr','homeRun'],           higher:true  },
-      { label:'팀 OPS',  names:['OPS','ops'],                           higher:true  },
-      { label:'팀 ERA',  names:['평균자책점','ERA','era'],              higher:false },
-      { label:'팀 WHIP', names:['WHIP','whip'],                         higher:false },
-      { label:'팀 도루',  names:['도루','SB','sb','stolenBase'],        higher:true  },
-    ];
-    // 팀기록은 nameCol=0, teamCol=0 (팀명만 있음)
-    const cards = defs.map(d => {
-      const ci = _colIdx(teamHeaders, d.names);
-      if (ci < 0) return '';
-      const t3 = rows
-        .map(r => ({ name: r[0]||'', team: '', val: _parseNum(r[ci]), raw: r[ci]||'' }))
-        .filter(x => !isNaN(x.val))
-        .sort((a,b) => d.higher ? b.val - a.val : a.val - b.val)
-        .slice(0,3);
-      return _top3CardHTML(d.label, t3);
-    }).filter(Boolean);
-    if (cards.length) {
-      top3Cards = `<div class="top3-section">
-        <div class="top3-section-title">🏆 지표별 TOP 3</div>
-        <div class="top3-grid">${cards.join('')}</div>
-      </div>`;
+      top3Cards = `
+        <div class="trec-top3-section">
+          <div class="trec-top3-section-lbl">🏆 지표별 TOP 3</div>
+          <div class="trec-top3-grid">${cards.join('')}</div>
+        </div>`;
     }
   }
 
-  // 기본 정렬 컬럼 설정
-  let defSortIdx = 2, defAsc = false;
+  // 기본 정렬
+  let defSortIdx = 0, defAsc = false;
   if (kind === 'hitter') {
     const ci = _colIdx(headers, ['타율','AVG','avg','battingAvg','seasonAvg']);
     if (ci >= 0) { defSortIdx = ci; defAsc = false; }
-  } else if (kind === 'pitcher') {
+  } else {
     const ci = _colIdx(headers, ['평균자책점','ERA','era']);
     if (ci >= 0) { defSortIdx = ci; defAsc = true; }
   }
 
   const updLabel = updated
-    ? `<div class="st-updated" style="padding:6px 14px 4px;font-size:0.63rem;color:var(--muted)">
+    ? `<div style="padding:6px 14px 4px;font-size:0.63rem;color:var(--muted)">
         Naver 스포츠 기준 · ${updated}
-        <a href="https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab=${kind==='team'?'teamRecord':kind}" target="_blank" style="color:var(--accent);margin-left:4px">Naver↗</a>
+        <a href="https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab=${kind}"
+           target="_blank" style="color:var(--accent);margin-left:4px">Naver↗</a>
        </div>`
     : '';
 
-  return updLabel + top3Cards + _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc);
+  return updLabel + top3Cards + _recTableHTML(kind, headers, rows, defSortIdx, defAsc, 50);
 }
 
 
