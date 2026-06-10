@@ -837,23 +837,83 @@ def _map_field(key: str) -> str:
     return _NAVER_FIELD_MAP.get(key, _NAVER_FIELD_MAP.get(key.lower(), key))
 
 
-def _find_record_list(obj, depth=0) -> list:
+# ── 탭별 기대 스탯 필드 (소문자) ──────────────────────────────────────────────
+_STAT_HINTS = {
+    'hitter': {
+        'battingavg', 'seasonavg', 'avg', 'homerun', 'rbi',
+        'ops', 'hit', 'onbasepct', 'sluggingpct', 'stolenbase',
+        'strikeout', 'run', 'atbat',
+    },
+    'pitcher': {
+        'era', 'win', 'lose', 'save', 'whip',
+        'strikeoutcount', 'inning', 'hold', 'pitchedinning',
+        'earnedrun',
+    },
+    'teamrecord': {
+        'battingavg', 'era', 'homerun', 'stolenbase',
+        'ops', 'onbasepct', 'run', 'hit', 'sluggingpct',
+    },
+    'teamrank': {
+        'wincount', 'losecount', 'drawcount', 'winningrate',
+        'gamesbehind', 'rank', 'recentten', 'streak',
+    },
+}
+# 레지스트리 마커: 이 필드가 있으면 스포츠 팀/선수 목록(통계 아님)
+_REGISTRY_MARKERS = frozenset({
+    'categoryId', 'categoryName', 'categoryNameEng',
+    'categoryCode', 'leagueCode',
+})
+
+
+def _score_candidate(items: list, tab: str) -> int:
     """
-    JSON 객체에서 선수/팀 기록 리스트(dict 5개 이상)를 재귀 탐색.
-    컬럼 수가 가장 많은 리스트를 반환.
+    리스트가 해당 탭의 KBO 기록일 가능성 점수.
+    음수(-100) → 제외 대상 (레지스트리/무관 데이터).
     """
-    if depth > 5:
+    if not items or not isinstance(items[0], dict):
+        return -100
+    sample = items[0]
+    sample_keys_lower = {k.lower() for k in sample.keys()}
+
+    # ① 레지스트리 마커 감지
+    if set(sample.keys()) & _REGISTRY_MARKERS:
+        # categoryId 값이 여러 종목인지 확인
+        cats = {str(it.get('categoryId', '')) for it in items[:min(len(items), 15)]}
+        non_kbo = cats - {'kbo', '', 'None', 'null'}
+        if non_kbo:
+            return -100   # 멀티스포츠 레지스트리 → 제외
+
+    # ② 스탯 필드 힌트 매칭
+    hints = _STAT_HINTS.get(tab.lower(), set())
+    hint_score = sum(1 for h in hints if h in sample_keys_lower)
+
+    # ③ 컬럼 수 (상세할수록 높은 점수)
+    col_score = min(len(sample.keys()), 30)
+
+    # ④ 행 수 (팀 탭은 10행, 선수 탭은 50~200행 예상)
+    row_cnt = len(items)
+    if 'team' in tab.lower():
+        # 10개 팀에 가까울수록 보너스
+        row_score = max(0, 10 - abs(row_cnt - 10))
+    else:
+        row_score = min(row_cnt // 20, 5)
+
+    return hint_score * 20 + col_score + row_score
+
+
+def _find_scored_lists(obj, tab: str, depth=0) -> list:
+    """JSON 트리를 재귀 탐색, (score, list) 쌍으로 반환"""
+    if depth > 6:
         return []
-    candidates = []
+    results = []
     if isinstance(obj, list):
-        if len(obj) >= 5 and all(isinstance(x, dict) for x in obj[:3]):
-            candidates.append(obj)
+        if len(obj) >= 3 and all(isinstance(x, dict) for x in obj[:3]):
+            score = _score_candidate(obj, tab)
+            results.append((score, obj))
     elif isinstance(obj, dict):
         for v in obj.values():
-            candidates.extend(_find_record_list(v, depth + 1))
-    # 컬럼 수 내림차순
-    candidates.sort(key=lambda lst: len(lst[0]) if lst else 0, reverse=True)
-    return candidates
+            results.extend(_find_scored_lists(v, tab, depth + 1))
+    return results
 
 
 def fetch_naver_records(tab: str) -> dict:
@@ -934,32 +994,49 @@ def fetch_naver_records(tab: str) -> dict:
 
         print(f'[NaverRec:{tab}] 인터셉트: {len(captured)}개 API 응답')
 
-        # ── 1) API 인터셉트 결과 파싱 ──────────────────────────────────────
-        # 관련 URL 우선 정렬
-        HINTS = {
-            'hitter':     ['hitter', 'batter', 'batting'],
-            'pitcher':    ['pitcher', 'pitching'],
-            'teamRecord': ['team', 'record'],
-            'teamRank':   ['rank', 'standing', 'team'],
+        # ── 1) API 인터셉트 결과 파싱 (점수 기반) ─────────────────────────
+        # URL 힌트로 1차 정렬 (KBO 스탯 URL 우선)
+        URL_HINTS = {
+            'hitter':     ['hitter', 'batter', 'batting', 'kbo'],
+            'pitcher':    ['pitcher', 'pitching', 'kbo'],
+            'teamRecord': ['teamrecord', 'team', 'record', 'kbo'],
+            'teamRank':   ['teamrank', 'rank', 'standing', 'kbo'],
         }
-        hints = HINTS.get(tab, [tab.lower()])
+        url_hints = URL_HINTS.get(tab, [tab.lower()])
         ordered = sorted(captured,
-            key=lambda x: sum(h in x[0].lower() for h in hints),
+            key=lambda x: sum(h in x[0].lower() for h in url_hints),
             reverse=True)
 
+        print(f'[NaverRec:{tab}] 캡처 URL 목록:')
+        for u, _ in captured:
+            print(f'  {u[:100]}')
+
+        best_score, best_result = -999, {}
         for api_url, body in ordered:
-            candidates = _find_record_list(body)
-            for items in candidates:
-                if len(items) < 5 or not isinstance(items[0], dict):
+            scored = _find_scored_lists(body, tab)
+            for score, items in sorted(scored, key=lambda x: x[0], reverse=True):
+                if score <= 0:
+                    break
+                if len(items) < 3 or not isinstance(items[0], dict):
                     continue
                 keys = list(items[0].keys())
-                if len(keys) < 4:
+                if len(keys) < 3:
                     continue
-                headers = [_map_field(k) for k in keys]
-                rows    = [[str(item.get(k, '')) for k in keys] for item in items]
-                print(f'[NaverRec:{tab}] API 파싱 성공: {len(items)}행  '
-                      f'컬럼={headers[:6]}  (url={api_url[:60]})')
-                return {'headers': headers, 'rows': rows}
+                print(f'[NaverRec:{tab}] 후보: score={score} '
+                      f'{len(items)}행 컬럼={[_map_field(k) for k in keys[:6]]} '
+                      f'url={api_url[:60]}')
+                if score > best_score:
+                    best_score = score
+                    headers = [_map_field(k) for k in keys]
+                    rows    = [[str(item.get(k, '')) for k in keys]
+                               for item in items]
+                    best_result = {'headers': headers, 'rows': rows}
+
+        if best_result:
+            h, r = best_result['headers'], best_result['rows']
+            print(f'[NaverRec:{tab}] API 파싱 성공(score={best_score}): '
+                  f'{len(r)}행 컬럼={h[:8]}')
+            return best_result
 
         # ── 2) DOM <table> 폴백 ────────────────────────────────────────────
         if dom and dom.get('ok'):
