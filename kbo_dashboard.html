@@ -595,6 +595,57 @@
     .t3-team { font-size: 0.6rem; color: var(--muted); flex-shrink:0; }
     .t3-val  { font-weight: 700; color: var(--accent); font-size: 0.8rem; flex-shrink:0; min-width:32px; text-align:right; }
 
+    /* ── 팀기록 TOP3 카드 (네이버 스타일) ── */
+    .trec-top3-section { background: #111d2b; border-bottom: 1px solid var(--border); }
+    .trec-top3-section-lbl {
+      font-size: 0.64rem; color: var(--muted); font-weight: 700;
+      letter-spacing: 0.05em; padding: 10px 14px 4px;
+    }
+    .trec-top3-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 8px; padding: 4px 12px 14px;
+    }
+    .trec-top3-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 11px 11px 8px; min-width: 0;
+    }
+    .trec-top3-title {
+      font-size: 0.64rem; color: var(--muted); font-weight: 700;
+      letter-spacing: 0.06em; margin-bottom: 8px; text-transform: uppercase;
+    }
+    .trec-top1-row {
+      display: flex; align-items: center; gap: 7px; margin-bottom: 6px;
+    }
+    .trec-medal {
+      width: 17px; height: 17px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.58rem; font-weight: 800;
+    }
+    .trec-medal.gold   { background: #ffd54f; color: #4a3600; }
+    .trec-medal.silver { background: #b0bec5; color: #2a2a2a; }
+    .trec-medal.bronze { background: #ff8a65; color: #4a1800; }
+    .trec-top1-info { flex: 1; min-width: 0; }
+    .trec-top1-name { font-size: 0.65rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .trec-top1-val  { font-size: 1.0rem; font-weight: 700; color: var(--accent); }
+    .trec-rank-row {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 0; border-top: 1px solid var(--border); font-size: 0.71rem;
+    }
+    .trec-rank-name { flex: 1; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .trec-rank-val  { color: var(--text); font-weight: 600; }
+    /* ── 팀기록 내부 탭 (공격/수비) ── */
+    .trec-inner-tabs {
+      display: flex; border-bottom: 1px solid var(--border); padding: 0 14px; gap: 0;
+    }
+    .trec-sub-tab {
+      background: none; border: none; border-bottom: 2px solid transparent;
+      color: var(--muted); padding: 8px 16px; cursor: pointer; font-size: 0.82rem;
+      margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; white-space: nowrap;
+    }
+    .trec-sub-tab:hover  { color: var(--text); }
+    .trec-sub-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
     /* ── 기록 테이블 ── */
     .rec-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .rec-table {
@@ -1321,9 +1372,9 @@ function switchSubTab(name) {
   if (!el) return;
   _recSortState = { tab: '', idx: -1, asc: false };
 
-  if (name === 'rank')     el.innerHTML = _buildRankHTML(data);
+  if (name === 'rank')          el.innerHTML = _buildRankHTML(data);
   else if (name === 'recent10') el.innerHTML = _buildRecent10HTML(data);
-  else if (name === 'teamrec')  el.innerHTML = _buildRecordsHTML('team', data);
+  else if (name === 'teamrec')  { _teamRecSubTab = 'batting'; el.innerHTML = _buildTeamRecordsHTML(data); }
   else if (name === 'hitter')   el.innerHTML = _buildRecordsHTML('hitter', data);
   else if (name === 'pitcher')  el.innerHTML = _buildRecordsHTML('pitcher', data);
 }
@@ -1623,10 +1674,168 @@ function sortRecTable(tabKey, colIdx) {
   const asc = (prev.tab === tabKey && prev.idx === colIdx) ? !prev.asc : false;
   _recSortState = { tab: tabKey, idx: colIdx, asc };
   const data = window._kboData;
+
+  // 팀기록 내부 탭은 trec-table-wrap 만 교체
+  if (tabKey === 'teambat' || tabKey === 'teampitch') {
+    const el = document.getElementById('trec-table-wrap');
+    if (el) el.innerHTML = _buildTeamRecTable(data);
+    return;
+  }
+
   const el = document.getElementById('st-content');
   if (!el) return;
   const kindMap = { teamrec: 'team', hitter: 'hitter', pitcher: 'pitcher' };
   el.innerHTML = _buildRecordsHTML(kindMap[tabKey] || tabKey, data);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   팀기록 — 네이버 스타일 TOP3 + 공격/수비 내부 탭
+   ══════════════════════════════════════════════════════════════ */
+const _TEAM_FULL_MAP = {
+  'KT':'kt wiz','KT위즈':'kt wiz',
+  'LG':'LG 트윈스',
+  '두산':'두산 베어스','OB':'두산 베어스','DB':'두산 베어스',
+  '키움':'키움 히어로즈','WO':'키움 히어로즈',
+  'SSG':'SSG 랜더스','SK':'SSG 랜더스',
+  '한화':'한화 이글스','HH':'한화 이글스',
+  '삼성':'삼성 라이온즈','SS':'삼성 라이온즈',
+  'KIA':'KIA 타이거즈','HT':'KIA 타이거즈','기아':'KIA 타이거즈',
+  'NC':'NC 다이노스',
+  '롯데':'롯데 자이언츠','LT':'롯데 자이언츠',
+};
+
+function _resolveTeam(n) {
+  if (!n) return '';
+  const t = n.trim();
+  return EMBLEM[t] ? t : (_TEAM_FULL_MAP[t] || t);
+}
+
+function _teamLogoEl(name, size) {
+  const full = _resolveTeam(name);
+  const src  = EMBLEM[full] || '';
+  const col  = TEAM_COLORS[full] || '#4fc3f7';
+  const init = (full || name || '?').slice(0, 2);
+  if (!src)
+    return `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${col}33;border:2px solid ${col}55;display:flex;align-items:center;justify-content:center;font-size:${Math.max(8,Math.round(size*0.28))}px;color:${col};font-weight:700;flex-shrink:0">${init}</div>`;
+  return `<img src="${src}" style="width:${size}px;height:${size}px;object-fit:contain;flex-shrink:0" alt="${full}" onerror="this.style.display='none'">`;
+}
+
+let _teamRecSubTab = 'batting';
+
+function switchTeamRecTab(tab) {
+  _teamRecSubTab = tab;
+  document.querySelectorAll('.trec-sub-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.tt === tab));
+  const el = document.getElementById('trec-table-wrap');
+  if (el) el.innerHTML = _buildTeamRecTable(window._kboData);
+}
+
+function _teamTop3Card(label, rows, headers, valNames, higher) {
+  const nameCI = _colIdx(headers, ['팀','team','teamName','name']);
+  const valCI  = _colIdx(headers, valNames);
+  if (nameCI < 0 || valCI < 0 || !rows.length) return '';
+  const top3 = rows
+    .map(r => ({ name: r[nameCI]||'', val: _parseNum(r[valCI]), raw: r[valCI]||'' }))
+    .filter(x => !isNaN(x.val))
+    .sort((a,b) => higher ? b.val-a.val : a.val-b.val)
+    .slice(0,3);
+  if (!top3.length) return '';
+  const [p1,p2,p3] = top3;
+  const meds = ['gold','silver','bronze'];
+  const smallRows = [p2,p3].filter(Boolean).map((p,i) => `
+    <div class="trec-rank-row">
+      <span class="trec-medal ${meds[i+1]}">${i+2}</span>
+      ${_teamLogoEl(p.name,18)}
+      <span class="trec-rank-name">${p.name}</span>
+      <span class="trec-rank-val">${p.raw}</span>
+    </div>`).join('');
+  return `
+    <div class="trec-top3-card">
+      <div class="trec-top3-title">${label}</div>
+      <div class="trec-top1-row">
+        <span class="trec-medal gold">1</span>
+        ${_teamLogoEl(p1.name, 46)}
+        <div class="trec-top1-info">
+          <div class="trec-top1-name">${p1.name}</div>
+          <div class="trec-top1-val">${p1.raw}</div>
+        </div>
+      </div>
+      ${smallRows}
+    </div>`;
+}
+
+function _buildTeamRecTable(data) {
+  const batRec  = (data||{}).team_batting_records || (data||{}).team_records || {};
+  const pitRec  = (data||{}).team_pitch_records   || {};
+  const isBat   = _teamRecSubTab !== 'pitching';
+  const rec     = isBat ? batRec : pitRec;
+  const headers = rec.headers || [];
+  const rows    = rec.rows    || [];
+  const tabKey  = isBat ? 'teambat' : 'teampitch';
+
+  if (!headers.length || !rows.length)
+    return '<div class="rec-no-data">데이터 준비 중 (다음 fetch 시 수집)</div>';
+
+  let defSortIdx = 0, defAsc = false;
+  if (isBat) {
+    const ci = _colIdx(headers, ['타율','AVG','avg']);
+    if (ci >= 0) { defSortIdx = ci; defAsc = false; }
+  } else {
+    const ci = _colIdx(headers, ['평균자책점','ERA','era']);
+    if (ci >= 0) { defSortIdx = ci; defAsc = true; }
+  }
+  return _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc);
+}
+
+function _buildTeamRecordsHTML(data) {
+  const batRec  = (data||{}).team_batting_records || (data||{}).team_records || {};
+  const pitRec  = (data||{}).team_pitch_records   || {};
+  const batRows = batRec.rows    || [];
+  const batHdrs = batRec.headers || [];
+  const pitRows = pitRec.rows    || [];
+  const pitHdrs = pitRec.headers || [];
+  const updated = (data||{}).records_updated || '';
+
+  // ── TOP3 카드 정의 (공격 + 수비)
+  const cardDefs = [
+    { label:'타율',      rows:batRows, hdrs:batHdrs, vals:['타율'],         higher:true  },
+    { label:'홈런',      rows:batRows, hdrs:batHdrs, vals:['홈런'],          higher:true  },
+    { label:'안타',      rows:batRows, hdrs:batHdrs, vals:['안타'],          higher:true  },
+    { label:'도루',      rows:batRows, hdrs:batHdrs, vals:['도루'],          higher:true  },
+    { label:'득점',      rows:batRows, hdrs:batHdrs, vals:['득점'],          higher:true  },
+    { label:'OPS',      rows:batRows, hdrs:batHdrs, vals:['OPS','ops'],     higher:true  },
+    { label:'평균자책점', rows:pitRows, hdrs:pitHdrs, vals:['평균자책점','ERA'], higher:false },
+    { label:'실점',      rows:pitRows, hdrs:pitHdrs, vals:['실점','득점'],   higher:false },
+    { label:'WHIP',     rows:pitRows, hdrs:pitHdrs, vals:['WHIP','whip'],   higher:false },
+  ];
+
+  const cards = cardDefs
+    .map(d => _teamTop3Card(d.label, d.rows, d.hdrs, d.vals, d.higher))
+    .filter(Boolean);
+
+  const top3HTML = cards.length ? `
+    <div class="trec-top3-section">
+      <div class="trec-top3-section-lbl">🏆 지표별 TOP 3</div>
+      <div class="trec-top3-grid">${cards.join('')}</div>
+    </div>` : '';
+
+  const updLabel = updated
+    ? `<div style="padding:6px 14px 4px;font-size:0.63rem;color:var(--muted)">
+        Naver 스포츠 기준 · ${updated}
+        <a href="https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab=teamRecord"
+           target="_blank" style="color:var(--accent);margin-left:4px">Naver↗</a>
+       </div>`
+    : '';
+
+  const batAct = _teamRecSubTab !== 'pitching';
+  return `
+    ${updLabel}
+    ${top3HTML}
+    <div class="trec-inner-tabs">
+      <button class="trec-sub-tab${batAct?' active':''}" data-tt="batting"  onclick="switchTeamRecTab('batting')">공격기록</button>
+      <button class="trec-sub-tab${!batAct?' active':''}" data-tt="pitching" onclick="switchTeamRecTab('pitching')">수비기록</button>
+    </div>
+    <div id="trec-table-wrap">${_buildTeamRecTable(data)}</div>`;
 }
 
 /* ── 팀기록 / 타자기록 / 투수기록 HTML 빌더 ── */

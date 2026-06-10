@@ -819,9 +819,15 @@ _NAVER_FIELD_MAP = {
     'homeRunAllowed': '피홈런',
     'walkAllowed': '볼넷',
     'strikeoutCount': '탈삼진', 'k': '탈삼진',
-    'earnedRun': '자책',
+    'earnedRun': '자책점',
     'era': '평균자책점',
     'whip': 'WHIP',
+    # 팀 수비 추가
+    'runAllowed': '실점',  'runsAllowed': '실점', 'allowedRun': '실점',
+    'wildPitch': '폭투',   'wp': '폭투',
+    'qualityStart': 'QS',  'qs': 'QS',
+    'error': '실책',       'fieldingError': '실책',
+    'balk': '보크',
     # 팀순위
     'rank': '순위',
     'winCount': '승',   'loseCount': '패', 'drawCount': '무',
@@ -850,8 +856,15 @@ _STAT_HINTS = {
         'earnedrun',
     },
     'teamrecord': {
-        'battingavg', 'era', 'homerun', 'stolenbase',
+        'battingavg', 'homerun', 'stolenbase',
         'ops', 'onbasepct', 'run', 'hit', 'sluggingpct',
+        'rbi', 'atbat', 'double', 'doublehit',
+    },
+    'teampitching': {
+        'era', 'whip', 'hitallowed', 'earnedrun',
+        'pitchedinning', 'inning', 'strikeoutcount',
+        'homerunallowed', 'wildpitch', 'runallowed',
+        'qualitystart', 'qs',
     },
     'teamrank': {
         'wincount', 'losecount', 'drawcount', 'winningrate',
@@ -1061,6 +1074,122 @@ def fetch_naver_records(tab: str) -> dict:
         return {}
 
 
+def fetch_team_records() -> dict:
+    """
+    팀 공격기록 + 수비기록 모두 수집 (Naver 팀기록 페이지).
+    1. ?tab=teamRecord 로드 → 공격기록 API 캡처
+    2. "수비기록" 탭 클릭 → 수비기록 API 캡처
+    Returns: {'batting': {headers, rows}, 'pitching': {headers, rows}}
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print('[TeamRec] playwright 미설치')
+        return {}
+
+    page_url = (
+        'https://m.sports.naver.com/kbaseball/record/kbo'
+        '?seasonCode=2026&tab=teamRecord'
+    )
+    captured: list = []   # (url, body, phase)
+    _phase = ['batting']  # mutable closure
+
+    def _on_response(resp):
+        try:
+            if resp.status != 200:
+                return
+            ct = resp.headers.get('content-type', '')
+            if 'json' not in ct:
+                return
+            if 'naver.com' not in resp.url:
+                return
+            body = resp.json()
+            captured.append((resp.url, body, _phase[0]))
+        except Exception:
+            pass
+
+    try:
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch(headless=True, args=['--no-sandbox'])
+            ctx = browser.new_context(
+                user_agent=BASE_HEADERS['User-Agent'],
+                locale='ko-KR',
+                viewport={'width': 390, 'height': 844},
+            )
+            page = ctx.new_page()
+            page.on('response', _on_response)
+
+            print(f'[TeamRec] 로딩 중... {page_url}')
+            page.goto(page_url, wait_until='networkidle', timeout=40000)
+            page.wait_for_timeout(2000)
+            page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
+            page.wait_for_timeout(1000)
+
+            # 수비기록 탭 클릭 시도
+            _phase[0] = 'pitching'
+            clicked = False
+            for selector in ['text=수비기록', 'button:has-text("수비")',
+                              '[class*="tab"]:has-text("수비")',
+                              'li:has-text("수비기록")']:
+                try:
+                    page.click(selector, timeout=4000)
+                    page.wait_for_timeout(2500)
+                    print(f'[TeamRec] 수비기록 탭 클릭 성공 ({selector})')
+                    clicked = True
+                    break
+                except Exception:
+                    pass
+            if not clicked:
+                print('[TeamRec] 수비기록 탭 클릭 실패 — 공격 데이터만 수집')
+
+            browser.close()
+
+        print(f'[TeamRec] 인터셉트: {len(captured)}개 API 응답')
+        for u, _, ph in captured:
+            print(f'  [{ph}] {u[:100]}')
+
+        def _extract(hint_tab, phase_filter):
+            best_score, best_result = -999, {}
+            candidates = [(u, b) for u, b, ph in captured if ph == phase_filter]
+            # phase 필터링 후 없으면 전체에서 시도
+            if not candidates:
+                candidates = [(u, b) for u, b, _ in captured]
+            for api_url, body in candidates:
+                scored = _find_scored_lists(body, hint_tab)
+                for score, items in sorted(scored, key=lambda x: x[0], reverse=True):
+                    if score <= 0:
+                        break
+                    if len(items) < 3 or not isinstance(items[0], dict):
+                        continue
+                    keys = list(items[0].keys())
+                    if len(keys) < 3:
+                        continue
+                    print(f'[TeamRec:{hint_tab}] 후보 score={score} '
+                          f'{len(items)}행 컬럼={[_map_field(k) for k in keys[:6]]} '
+                          f'url={api_url[:60]}')
+                    if score > best_score:
+                        best_score = score
+                        headers = [_map_field(k) for k in keys]
+                        rows    = [[str(item.get(k, '')) for k in keys]
+                                   for item in items]
+                        best_result = {'headers': headers, 'rows': rows}
+            if best_result:
+                print(f'[TeamRec:{hint_tab}] 선택 score={best_score} '
+                      f'{len(best_result["rows"])}행')
+            else:
+                print(f'[TeamRec:{hint_tab}] 수집 실패')
+            return best_result
+
+        batting  = _extract('teamRecord',   'batting')
+        pitching = _extract('teamPitching', 'pitching')
+        return {'batting': batting, 'pitching': pitching}
+
+    except Exception as e:
+        import traceback; traceback.print_exc()
+        print(f'[TeamRec] 오류: {e}')
+        return {}
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def fetch_day(date_str):
@@ -1140,18 +1269,22 @@ def main():
     # 타자/투수/팀 기록 수집
     hitter_records  = fetch_naver_records('hitter')
     pitcher_records = fetch_naver_records('pitcher')
-    team_records    = fetch_naver_records('teamRecord')
+    team_recs       = fetch_team_records()          # 공격 + 수비 모두
+    team_batting    = team_recs.get('batting', {})
+    team_pitching   = team_recs.get('pitching', {})
 
     result = {
-        'updated':            today.strftime('%Y-%m-%dT%H:%M:%S'),
-        'today':              today.strftime('%Y-%m-%d'),
-        'dates':              dates_data,
-        'standings':          standings,
-        'standings_updated':  today.strftime('%Y-%m-%d'),
-        'hitter_records':     hitter_records,
-        'pitcher_records':    pitcher_records,
-        'team_records':       team_records,
-        'records_updated':    today.strftime('%Y-%m-%d'),
+        'updated':              today.strftime('%Y-%m-%dT%H:%M:%S'),
+        'today':                today.strftime('%Y-%m-%d'),
+        'dates':                dates_data,
+        'standings':            standings,
+        'standings_updated':    today.strftime('%Y-%m-%d'),
+        'hitter_records':       hitter_records,
+        'pitcher_records':      pitcher_records,
+        'team_records':         team_batting,   # 하위 호환
+        'team_batting_records': team_batting,
+        'team_pitch_records':   team_pitching,
+        'records_updated':      today.strftime('%Y-%m-%d'),
     }
 
     with open('kbo_data.json', 'w', encoding='utf-8') as f:
