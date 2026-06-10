@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-10T11:30:57",
+  "updated": "2026-06-10T12:01:06",
   "today": "2026-06-10",
   "dates": {
     "2026-06-10": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "이로운",
-          "home_pitcher": "송찬의",
+          "away_pitcher": "함덕주",
+          "home_pitcher": "오태곤",
           "broadcaster": "SPO-2T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "사직야구장",
-          "away_pitcher": "잭로그",
-          "home_pitcher": "손성빈",
+          "away_pitcher": "최준호",
+          "home_pitcher": "레이예스",
           "broadcaster": "MS-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "kt wiz 파크",
           "away_pitcher": "이재현",
-          "home_pitcher": "손동현",
+          "home_pitcher": "한승혁",
           "broadcaster": "SPO-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "이형범",
-          "home_pitcher": "심우준",
+          "away_pitcher": "박재현",
+          "home_pitcher": "이상규",
           "broadcaster": "KN-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "데이비슨",
-          "home_pitcher": "박지성",
+          "away_pitcher": "김주원",
+          "home_pitcher": "윤석원",
           "broadcaster": "SS-T"
         }
       ]
