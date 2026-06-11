@@ -9,6 +9,10 @@ import json
 import re
 from datetime import datetime, timedelta
 import urllib.request
+try:
+    import requests as _requests
+except ImportError:
+    _requests = None
 
 BASE_HEADERS = {
     'User-Agent': (
@@ -606,26 +610,39 @@ def _parse_naver_standings(raw: dict) -> list:
     print(f'[Standings] Naver 헤더: {headers}')
 
     def _ci(names):
-        """헤더에서 첫 번째 매칭 컬럼 인덱스 반환"""
+        """헤더에서 첫 번째 매칭 컬럼 인덱스 반환 (정확한 일치 우선)"""
+        # 1차: 정확한 일치
         for n in names:
-            i = next((j for j, h in enumerate(headers) if n in h), -1)
+            try:
+                return headers.index(n)
+            except ValueError:
+                pass
+        # 2차: 부분 일치 폴백 (단, 더 짧은 n이 더 긴 h에 포함될 때만)
+        for n in names:
+            i = next((j for j, h in enumerate(headers)
+                      if n in h and h != n), -1)
             if i >= 0:
                 return i
         return -1
 
     rank_ci   = _ci(['순위'])
-    team_ci   = _ci(['팀'])
-    gp_ci     = _ci(['경기'])
-    w_ci      = _ci(['승'])
-    d_ci      = _ci(['무'])
-    l_ci      = _ci(['패'])
-    pct_ci    = _ci(['승률'])
-    gb_ci     = _ci(['게임차'])
-    last10_ci = _ci(['최근'])
-    streak_ci = _ci(['연속'])
+    team_ci      = _ci(['팀'])
+    gp_ci        = _ci(['경기'])
+    w_ci         = _ci(['승'])
+    d_ci         = _ci(['무'])
+    l_ci         = _ci(['패'])
+    pct_ci       = _ci(['승률'])
+    gb_ci        = _ci(['게임차'])
+    last10_ci    = _ci(['최근'])
+    streak_ci    = _ci(['연속'])
+    next_opp_ci  = _ci(['다음상대'])
+    next_logo_ci = _ci(['상대팀로고'])
+    team_logo_ci = _ci(['팀로고'])
 
     standings = []
     for i, row in enumerate(rows):
+        if len(standings) >= 10:
+            break  # KBO는 10개 구단
         try:
             if len(row) < 4:
                 continue
@@ -655,27 +672,104 @@ def _parse_naver_standings(raw: dict) -> list:
             except Exception:
                 pct = w / (w + l) if (w + l) > 0 else 0.0
 
-            gb     = _v(gb_ci) or '-'
-            last10 = _v(last10_ci)
-            streak = _v(streak_ci)
+            gb_raw = _v(gb_ci)
+            # 1위(0.0)는 '-'로 표시
+            try:
+                gb = '-' if float(gb_raw) == 0 else gb_raw
+            except Exception:
+                gb = gb_raw or '-'
+
+            last10_raw = _v(last10_ci)
+            # 'WWLLW' 형식(W/L 문자) → '3승0무2패' 변환
+            if last10_raw and re.match(r'^[WLDTwldt]+$', last10_raw):
+                uw = last10_raw.upper()
+                ww = uw.count('W')
+                dd = uw.count('D') + uw.count('T')
+                ll = uw.count('L')
+                last10 = f'{ww}승{dd}무{ll}패'
+            else:
+                last10 = last10_raw
+
+            streak_raw = _v(streak_ci)
+            # '3W' 또는 '3L' 형식 변환
+            if streak_raw and re.match(r'^\d+[WL]$', streak_raw):
+                num = streak_raw[:-1]
+                ch  = 'W' if streak_raw[-1] == 'W' else 'L'
+                streak = f'{num}{"연승" if ch=="W" else "연패"}'
+            # '3승' / '3패' 형식 → '3연승' / '3연패'
+            elif streak_raw and re.match(r'^\d+[승패무]$', streak_raw):
+                num = streak_raw[:-1]
+                ch  = streak_raw[-1]
+                if ch == '승':
+                    streak = f'{num}연승'
+                elif ch == '패':
+                    streak = f'{num}연패'
+                else:
+                    streak = streak_raw
+            else:
+                streak = streak_raw
+
+            next_opp  = normalize_team(_v(next_opp_ci)) or _v(next_opp_ci)
+            next_logo = _v(next_logo_ci)
+            team_logo = _v(team_logo_ci)
 
             standings.append({
-                'rank':   rank,
-                'team':   team,
-                'gp':     gp,
-                'w':      w,
-                'd':      d,
-                'l':      l,
-                'pct':    round(pct, 3),
-                'gb':     gb,
-                'last10': last10,
-                'streak': streak,
+                'rank':      rank,
+                'team':      team,
+                'team_logo': team_logo,
+                'gp':        gp,
+                'w':         w,
+                'd':         d,
+                'l':         l,
+                'pct':       round(pct, 3),
+                'gb':        gb,
+                'last10':    last10,
+                'streak':    streak,
+                'next_opp':  next_opp,
+                'next_logo': next_logo,
             })
         except Exception as e:
             print(f'[Standings] 행 파싱 오류: {e} — {row[:6]}')
             continue
 
     return standings
+
+
+# 팀기록 컬럼 정의 (teamRank API offset 기록 포함)
+_TEAM_BAT_COLS  = {'팀','팀로고','타율','득점','타점','타수','홈런','안타',
+                   '2루타','3루타','도루','볼넷','사구','삼진','출루율','장타율','OPS'}
+_TEAM_PIT_COLS  = {'팀','팀로고','평균자책점','실점','자책점','이닝','피안타','피홈런',
+                   '탈삼진','볼넷허용','사구허용','실책','WHIP','QS','세이브','홀드','폭투'}
+
+
+def _extract_team_batting(raw: dict) -> dict:
+    """teamRank raw → 팀 공격기록 (offense* 컬럼만 추출)"""
+    headers = raw.get('headers', [])
+    rows    = raw.get('rows',    [])
+    if not headers or not rows:
+        return {}
+    keep = [i for i, h in enumerate(headers) if h in _TEAM_BAT_COLS]
+    if len(keep) < 3:
+        return {}
+    return {
+        'headers': [headers[i] for i in keep],
+        'rows':    [[r[i] if i < len(r) else '' for i in keep] for r in rows],
+    }
+
+
+def _extract_team_pitching(raw: dict) -> dict:
+    """teamRank raw → 팀 수비기록 (defense* 컬럼만 추출)"""
+    headers = raw.get('headers', [])
+    rows    = raw.get('rows',    [])
+    if not headers or not rows:
+        return {}
+    keep = [i for i, h in enumerate(headers) if h in _TEAM_PIT_COLS]
+    if len(keep) < 3:
+        return {}
+    return {
+        'headers': [headers[i] for i in keep],
+        'rows':    [[r[i] if i < len(r) else '' for i in keep] for r in rows],
+    }
 
 
 def _fetch_standings_kbo() -> list:
@@ -793,6 +887,11 @@ _NAVER_FIELD_MAP = {
     'playerName': '선수명', 'name': '선수명',
     'teamName': '팀',     'team': '팀', 'teamCode': '팀',
     'gameCount': '경기',  'game': '경기',
+    'ranking': '순위',    # hitter/pitcher 기록 순위
+    'playerImageUrl':      '선수사진',
+    'teamImageUrl':        '팀로고',
+    'opposingTeamName':    '다음상대',
+    'opposingTeamImageUrl':'상대팀로고',
     # 타자
     'atBat': '타수',         'ab': '타수',
     'hit': '안타',           'h': '안타',
@@ -809,6 +908,29 @@ _NAVER_FIELD_MAP = {
     'sluggingPct': '장타율', 'slg': '장타율',
     'ops': 'OPS',
     'war': 'WAR',            'warcalc': 'WAR',
+    # ── Naver hitter prefix (hitter* 방식) ──────────────────────────────────
+    'hitterHra':       '타율',    'hitterGameCount': '경기',
+    'hitterAb':        '타수',    'hitterHit':       '안타',
+    'hitterH2':        '2루타',   'hitterH3':        '3루타',
+    'hitterHr':        '홈런',    'hitterRbi':       '타점',
+    'hitterRun':       '득점',    'hitterSb':        '도루',
+    'hitterCs':        '도루실패','hitterBb':        '볼넷',
+    'hitterHp':        '사구',    'hitterKk':        '삼진',
+    'hitterGd':        '병살타',  'hitterObp':       '출루율',
+    'hitterSlg':       '장타율',  'hitterOps':       'OPS',
+    'hitterWar':       'WAR',
+    # ── Naver pitcher prefix (pitcher* 방식) ────────────────────────────────
+    'pitcherEra':      '평균자책점', 'pitcherGameCount': '경기',
+    'pitcherW':        '승',         'pitcherL':         '패',
+    'pitcherSv':       '세이브',     'pitcherHld':       '홀드',
+    'pitcherHold':     '홀드',       'pitcherIp':        '이닝',
+    'pitcherPitchedInning': '이닝',  'pitcherHit':       '피안타',
+    'pitcherHr':       '피홈런',     'pitcherEr':        '자책점',
+    'pitcherBb':       '볼넷',       'pitcherHp':        '사구',
+    'pitcherKk':       '탈삼진',     'pitcherRun':       '실점',
+    'pitcherWhip':     'WHIP',        'pitcherWar':       'WAR',
+    'pitcherQs':       'QS',          'pitcherCg':        '완투',
+    'pitcherSho':      '완봉',
     # 투수
     'win': '승',             'wins': '승',
     'lose': '패',            'losses': '패',
@@ -830,12 +952,78 @@ _NAVER_FIELD_MAP = {
     'balk': '보크',
     # 팀순위
     'rank': '순위',
-    'winCount': '승',   'loseCount': '패', 'drawCount': '무',
-    'winningRate': '승률', 'winRate': '승률',
+    'winCount': '승',      'loseCount': '패',  'drawCount': '무',
+    'winningRate': '승률', 'winRate': '승률',  'pct': '승률',
     'gamesBehind': '게임차', 'gb': '게임차',
-    'recentTen': '최근10경기', 'last10': '최근10경기',
-    'streak': '연속',
+    'recentTen': '최근10경기', 'last10': '최근10경기', 'recent10': '최근10경기',
+    'streak': '연속', 'continuousResult': '연속',
+    # Naver teamRank 실제 필드명
+    'winGameCount':         '승',
+    'drawnGameCount':       '무',
+    'loseGameCount':        '패',
+    'gameBehind':           '게임차',
+    'wra':                  '승률',
+    'continuousGameResult': '연속',
+    'lastFiveGames':        '최근5경기',
+    # ── 팀 공격 (offense* prefix) ────────────────────────────────────────────
+    'offenseHra':  '타율',   'offenseRun':  '득점',  'offenseRbi': '타점',
+    'offenseAb':   '타수',   'offenseHr':   '홈런',  'offenseHit': '안타',
+    'offenseH2':   '2루타',  'offenseH3':   '3루타', 'offenseSb':  '도루',
+    'offenseBb':   '볼넷',   'offenseHp':   '사구',  'offenseBbhp':'볼넷+사구',
+    'offenseKk':   '삼진',   'offenseGd':   '병살타','offenseObp': '출루율',
+    'offenseSlg':  '장타율', 'offenseOps':  'OPS',
+    # ── 팀 수비 (defense* prefix) ────────────────────────────────────────────
+    'defenseEra':  '평균자책점', 'defenseR':   '실점',   'defenseEr':   '자책점',
+    'defenseInning':'이닝',      'defenseHit': '피안타', 'defenseHr':   '피홈런',
+    'defenseKk':   '탈삼진',    'defenseBb':  '볼넷허용','defenseHp':  '사구허용',
+    'defenseBbhp': '볼넷+사구허용','defenseErr':'실책',  'defenseWhip': 'WHIP',
+    'defenseQs':   'QS',         'defenseSave':'세이브', 'defenseHold': '홀드',
+    'defenseWp':   '폭투',
+    # ── 투수 개인 기록 추가 필드명 ────────────────────────────────────────────
+    'pitcherWin':       '승',          'pitcherLose':     '패',
+    'pitcherSave':      '세이브',      'pitcherHold':     '홀드',
+    'pitcherInning':    '이닝',        'pitcherR':        '실점',
+    'pitcherWra':       '승률',        'pitcherStart':    '선발',
+    'pitcherPitchCount':'투구수',
+    'pitcherInningKk':  '9이닝K',      'pitcherInningBb': '9이닝BB',
+    'pitcherKkBbRate':  'K/BB',        'pitcherPaKkRate': 'K%',
+    'pitcherPaBbRate':  'BB%',
 }
+
+# 수집 시 완전히 제외할 불필요 필드
+_SKIP_FIELDS = frozenset({
+    # 신체/개인정보
+    'weight', 'height', 'backNumber',
+    # Naver 내부 메타
+    'isRetire', 'isPlayer', 'osId', 'profile', 'enable',
+    'teamId', 'teamShortName', 'seasonId', 'year',
+    'upperCategoryId', 'categoryId', 'league', 'division',
+    'isQualified', 'isKoreanPlayer',
+    # 고급 스탯 (표시 불필요)
+    'hitterIsop', 'hitterBabip', 'hitterWoba', 'hitterWrcPlus', 'hitterWpa',
+    'pitcherBabip', 'pitcherFip', 'pitcherXfip', 'pitcherWpa',
+    # playerId (이미 ranking/순위로 식별)
+    'playerId',
+    # teamRank 내부 필드 (표시 불필요)
+    'wcRanking', 'wcGameBehind', 'gameType', 'orderNo',
+    'hasMyTeam', 'myTeamCategoryId', 'nextScheduleGameId',
+    'keyword', 'pkId',
+    # 투수 고급 지표 (복잡해서 표시 불필요)
+    'pitcherKkBbRate', 'pitcherPaKkRate', 'pitcherPaBbRate',
+    'pitcherInningKk', 'pitcherInningBb', 'pitcherPitchCount',
+})
+
+
+def _fmt_api_val(v) -> str:
+    """API 값 → 표시용 문자열 (None 제거, 긴 소수 정리)"""
+    if v is None:
+        return ''
+    if isinstance(v, float):
+        # 소수점 3자리로 반올림 후 Python 기본 표시 (불필요한 trailing 0 없음)
+        if abs(v) < 10:
+            return str(round(v, 3))
+        return str(round(v, 2))
+    return str(v)
 
 
 def _map_field(key: str) -> str:
@@ -849,22 +1037,35 @@ _STAT_HINTS = {
         'battingavg', 'seasonavg', 'avg', 'homerun', 'rbi',
         'ops', 'hit', 'onbasepct', 'sluggingpct', 'stolenbase',
         'strikeout', 'run', 'atbat',
+        # Naver hitter prefix (lowercase)
+        'hitterhra', 'hitterhit', 'hitterhr', 'hitterrbi',
+        'hitterrun', 'hitterops', 'hitterwar', 'hitterab',
+        'hittersb', 'hitterkk', 'hitterobp', 'hitterslg',
     },
     'pitcher': {
         'era', 'win', 'lose', 'save', 'whip',
         'strikeoutcount', 'inning', 'hold', 'pitchedinning',
         'earnedrun',
+        # Naver pitcher prefix (lowercase)
+        'pitchera', 'pitcherw', 'pitchersv', 'pitcherwhip',
+        'pitcherkk', 'pitcherwar', 'pitcherip',
     },
     'teamrecord': {
         'battingavg', 'homerun', 'stolenbase',
         'ops', 'onbasepct', 'run', 'hit', 'sluggingpct',
         'rbi', 'atbat', 'double', 'doublehit',
+        # Naver offense prefix (lowercase)
+        'offensehra', 'offensehr', 'offensehit', 'offenserun',
+        'offenseops', 'offensesb', 'offrbi',
     },
     'teampitching': {
         'era', 'whip', 'hitallowed', 'earnedrun',
         'pitchedinning', 'inning', 'strikeoutcount',
         'homerunallowed', 'wildpitch', 'runallowed',
         'qualitystart', 'qs',
+        # Naver defense prefix (lowercase)
+        'defenseera', 'defensewhip', 'defensekk', 'defenser',
+        'defenseqs', 'defensesave',
     },
     'teamrank': {
         'wincount', 'losecount', 'drawcount', 'winningrate',
@@ -927,6 +1128,68 @@ def _find_scored_lists(obj, tab: str, depth=0) -> list:
         for v in obj.values():
             results.extend(_find_scored_lists(v, tab, depth + 1))
     return results
+
+
+def _fetch_naver_api_direct(tab: str) -> dict:
+    """
+    Naver 스포츠 API 직접 호출 (Playwright 없이 requests 사용).
+    tab: 'hitter' | 'pitcher' | 'teamRank'
+    """
+    if _requests is None:
+        print(f'[DirectAPI:{tab}] requests 미설치 — 건너뜀')
+        return {}
+    DIRECT_URLS = {
+        'hitter': (
+            'https://api-gw.sports.naver.com/statistics/categories/kbo'
+            '/seasons/2026/players?playerType=HITTER&limit=50'
+        ),
+        'pitcher': (
+            'https://api-gw.sports.naver.com/statistics/categories/kbo'
+            '/seasons/2026/players?playerType=PITCHER&limit=50'
+        ),
+        'teamRank': (
+            'https://api-gw.sports.naver.com/statistics/categories/kbo'
+            '/seasons/2026/teams?gameType=REGULAR_SEASON'
+        ),
+    }
+    url = DIRECT_URLS.get(tab)
+    if not url:
+        return {}
+    hdrs = {
+        **BASE_HEADERS,
+        'Referer': f'https://m.sports.naver.com/kbaseball/record/kbo?seasonCode=2026&tab={tab}',
+        'Accept': 'application/json, text/plain, */*',
+        'Origin': 'https://m.sports.naver.com',
+    }
+    try:
+        resp = _requests.get(url, headers=hdrs, timeout=15)
+        if resp.status_code != 200:
+            print(f'[DirectAPI:{tab}] HTTP {resp.status_code}')
+            return {}
+        body = resp.json()
+        scored = _find_scored_lists(body, tab)
+        best_score, best_result = -999, {}
+        for score, items in sorted(scored, key=lambda x: x[0], reverse=True):
+            if score <= 0 or len(items) < 3 or not isinstance(items[0], dict):
+                break
+            keys = list(items[0].keys())
+            if len(keys) < 3:
+                continue
+            if score > best_score:
+                best_score = score
+                fkeys = [k for k in keys if k not in _SKIP_FIELDS]
+                headers = [_map_field(k) for k in fkeys]
+                rows = [[_fmt_api_val(item.get(k)) for k in fkeys] for item in items]
+                best_result = {'headers': headers, 'rows': rows}
+        if best_result:
+            h, r = best_result['headers'], best_result['rows']
+            print(f'[DirectAPI:{tab}] 성공(score={best_score}): {len(r)}행 컬럼={h[:6]}')
+            return best_result
+        print(f'[DirectAPI:{tab}] 데이터 미발견 (score={best_score})')
+        return {}
+    except Exception as e:
+        print(f'[DirectAPI:{tab}] 오류: {e}')
+        return {}
 
 
 def fetch_naver_records(tab: str) -> dict:
@@ -1040,16 +1303,27 @@ def fetch_naver_records(tab: str) -> dict:
                       f'url={api_url[:60]}')
                 if score > best_score:
                     best_score = score
-                    headers = [_map_field(k) for k in keys]
-                    rows    = [[str(item.get(k, '')) for k in keys]
+                    # _SKIP_FIELDS 제외
+                    fkeys = [k for k in keys if k not in _SKIP_FIELDS]
+                    headers = [_map_field(k) for k in fkeys]
+                    rows    = [[_fmt_api_val(item.get(k)) for k in fkeys]
                                for item in items]
                     best_result = {'headers': headers, 'rows': rows}
 
-        if best_result:
+        # 탭별 최소 점수 임계값 (낮은 품질 데이터로 덮어쓰기 방지)
+        MIN_SCORE = {
+            'hitter': 50, 'pitcher': 50,
+            'teamRecord': 20, 'teamRank': 15,
+        }
+        min_s = MIN_SCORE.get(tab, 20)
+        if best_result and best_score >= min_s:
             h, r = best_result['headers'], best_result['rows']
             print(f'[NaverRec:{tab}] API 파싱 성공(score={best_score}): '
                   f'{len(r)}행 컬럼={h[:8]}')
             return best_result
+        elif best_result:
+            print(f'[NaverRec:{tab}] 점수 미달(score={best_score} < {min_s}) — 결과 버림')
+            best_result = {}
 
         # ── 2) DOM <table> 폴백 ────────────────────────────────────────────
         if dom and dom.get('ok'):
@@ -1169,8 +1443,9 @@ def fetch_team_records() -> dict:
                           f'url={api_url[:60]}')
                     if score > best_score:
                         best_score = score
-                        headers = [_map_field(k) for k in keys]
-                        rows    = [[str(item.get(k, '')) for k in keys]
+                        fkeys = [k for k in keys if k not in _SKIP_FIELDS]
+                        headers = [_map_field(k) for k in fkeys]
+                        rows    = [[_fmt_api_val(item.get(k)) for k in fkeys]
                                    for item in items]
                         best_result = {'headers': headers, 'rows': rows}
             if best_result:
@@ -1263,15 +1538,48 @@ def main():
     keep       = sorted([k for k in dates_data if k >= SEASON_START], reverse=True)
     dates_data = {k: dates_data[k] for k in keep}
 
-    # 팀 순위 수집
-    standings = fetch_standings()
+    # 팀 순위 수집 (직접 API 우선 → Playwright 폴백)
+    raw_teamrank = _fetch_naver_api_direct('teamRank')
+    if not (raw_teamrank and raw_teamrank.get('rows')):
+        print('[teamRank] 직접 API 실패 → Playwright 시도')
+        raw_teamrank = fetch_naver_records('teamRank')
+    standings       = (_parse_naver_standings(raw_teamrank)
+                       if raw_teamrank and raw_teamrank.get('rows') else [])
+    if standings:
+        print(f'[Standings] Naver 파싱: {len(standings)}팀')
+    else:
+        print('[Standings] Naver 파싱 실패 → KBO 공식 폴백')
+        standings = _fetch_standings_kbo()
 
-    # 타자/투수/팀 기록 수집
-    hitter_records  = fetch_naver_records('hitter')
-    pitcher_records = fetch_naver_records('pitcher')
-    team_recs       = fetch_team_records()          # 공격 + 수비 모두
-    team_batting    = team_recs.get('batting', {})
-    team_pitching   = team_recs.get('pitching', {})
+    # teamRank 응답에서 팀 공격/수비 기록 추출 (별도 fetch 불필요)
+    team_batting  = _extract_team_batting(raw_teamrank  or {})
+    team_pitching = _extract_team_pitching(raw_teamrank or {})
+    if not team_batting.get('rows') or not team_pitching.get('rows'):
+        print('[TeamRec] teamRank에서 팀기록 미추출 → 별도 fetch 시도')
+        team_recs     = fetch_team_records()
+        team_batting  = team_batting  or team_recs.get('batting',  {})
+        team_pitching = team_pitching or team_recs.get('pitching', {})
+
+    # 타자/투수 개인 기록 수집 (직접 API 우선 → Playwright 폴백 → 기존 보존)
+    _is_good = lambda rec: bool(rec and rec.get('rows') and len(rec.get('rows',[])) >= 10)
+    prev_hitter  = existing.get('hitter_records',  {})
+    prev_pitcher = existing.get('pitcher_records', {})
+
+    hitter_records  = _fetch_naver_api_direct('hitter')
+    if not _is_good(hitter_records):
+        print('[hitter] 직접 API 실패 → Playwright 시도')
+        hitter_records = fetch_naver_records('hitter')
+    if not _is_good(hitter_records) and _is_good(prev_hitter):
+        print(f'[hitter] 새 데이터 품질 미달 → 기존 {len(prev_hitter["rows"])}행 유지')
+        hitter_records = prev_hitter
+
+    pitcher_records = _fetch_naver_api_direct('pitcher')
+    if not _is_good(pitcher_records):
+        print('[pitcher] 직접 API 실패 → Playwright 시도')
+        pitcher_records = fetch_naver_records('pitcher')
+    if not _is_good(pitcher_records) and _is_good(prev_pitcher):
+        print(f'[pitcher] 새 데이터 품질 미달 → 기존 {len(prev_pitcher["rows"])}행 유지')
+        pitcher_records = prev_pitcher
 
     result = {
         'updated':              today.strftime('%Y-%m-%dT%H:%M:%S'),

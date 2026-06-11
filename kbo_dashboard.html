@@ -1418,6 +1418,19 @@ function _buildRankHTML(data) {
     const pct  = typeof t.pct === 'number' ? t.pct.toFixed(3).replace(/^0/, '') : t.pct || '-';
     const gb   = t.gb !== undefined ? t.gb : '-';
     const name = TEAM_SHORT[t.team] || t.team;
+
+    // 다음상대 셀
+    let nextOppCell = '';
+    if (useOfficial) {
+      const opp  = t.next_opp  || '';
+      const logo = t.next_logo || '';
+      const oppShort = TEAM_SHORT[opp] || opp;
+      const oppImgEl = logo && logo.startsWith('http')
+        ? `<img src="${logo}" style="width:16px;height:16px;object-fit:contain;flex-shrink:0" onerror="this.style.display='none'">`
+        : (opp ? _teamLogoEl(opp, 16) : '');
+      nextOppCell = `<td style="white-space:nowrap"><div style="display:flex;align-items:center;justify-content:center;gap:3px">${oppImgEl}<span style="font-size:0.68rem;color:var(--sub)">${oppShort}</span></div></td>`;
+    }
+
     return `<tr>
       <td><span class="st-rank ${rankCls}">${t.rank}</span></td>
       <td><div class="st-team-cell">${logoEl}<span class="st-name">${name}</span></div></td>
@@ -1429,10 +1442,12 @@ function _buildRankHTML(data) {
       <td class="st-gb">${gb}</td>
       ${useOfficial ? `<td style="font-size:0.72rem;color:var(--sub)">${t.last10||''}</td>` : ''}
       <td>${streakHTML(t)}</td>
+      ${nextOppCell}
     </tr>`;
   }).join('');
 
   const extraTh = useOfficial ? '<th>최근10</th>' : '';
+  const nextOppTh = useOfficial ? '<th>다음상대</th>' : '';
 
   // ── 최근10경기 인라인 섹션 ──────────────────────────────────
   const last10St = st.filter(t => t.last10);
@@ -1485,13 +1500,13 @@ function _buildRankHTML(data) {
     }).join('');
     return `
       <div style="border-top:2px solid var(--border);padding-top:2px;margin-top:4px">
-        <div style="padding:8px 14px 4px;font-size:0.8rem;font-weight:700;color:var(--text)">최근 10경기</div>
+        <div style="padding:8px 14px 4px;font-size:0.8rem;font-weight:700;color:var(--text)">최근 ${(() => { const p = parseLast10(sortedL10[0]?.last10||''); return p ? p.w+p.d+p.l : 10; })()}경기</div>
         <div class="standings-wrap">
           <table class="standings-table">
             <thead><tr>
               <th style="width:32px">순위</th>
               <th style="text-align:left;padding-left:8px">팀</th>
-              <th style="text-align:left;padding-left:10px">최근 10경기</th>
+              <th style="text-align:left;padding-left:10px">최근 경기 성적</th>
               <th>연속</th>
             </tr></thead>
             <tbody>${l10Rows}</tbody>
@@ -1510,7 +1525,7 @@ function _buildRankHTML(data) {
         <thead><tr>
           <th>순위</th><th style="text-align:left;padding-left:10px">팀</th>
           <th>경기</th><th>승</th><th>무</th><th>패</th>
-          <th>승률</th><th>게임차</th>${extraTh}<th>연속</th>
+          <th>승률</th><th>게임차</th>${extraTh}<th>연속</th>${nextOppTh}
         </tr></thead>
         <tbody>${rows}</tbody>
       </table>
@@ -1713,14 +1728,16 @@ function _filterRecCols(headers, rows) {
 
 /* 선수 기록 Naver 스타일 TOP3 카드 (팀 로고 + 선수명) */
 function _playerTop3Card(label, rows, headers, valNames, higher) {
-  const nameCI = _colIdx(headers, ['선수명','playerName','name']);
-  const teamCI = _colIdx(headers, ['팀','team','teamName']);
-  const valCI  = _colIdx(headers, valNames);
+  const nameCI  = _colIdx(headers, ['선수명','playerName','name']);
+  const teamCI  = _colIdx(headers, ['팀','team','teamName']);
+  const logoCI  = _colIdx(headers, ['팀로고']);
+  const valCI   = _colIdx(headers, valNames);
   if (nameCI < 0 || valCI < 0 || !rows.length) return '';
   const top3 = rows
     .map(r => ({
       name: r[nameCI]||'',
       team: teamCI >= 0 ? r[teamCI]||'' : '',
+      logo: logoCI >= 0 ? r[logoCI]||'' : '',
       val:  _parseNum(r[valCI]),
       raw:  r[valCI]||'',
     }))
@@ -1730,10 +1747,15 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
   if (!top3.length) return '';
   const [p1,p2,p3] = top3;
   const meds = ['gold','silver','bronze'];
+  function _logoEl(p, size) {
+    if (p.logo && p.logo.startsWith('http'))
+      return `<img src="${p.logo}" style="width:${size}px;height:${size}px;object-fit:contain;flex-shrink:0" onerror="this.outerHTML=''">`;
+    return _teamLogoEl(p.team, size);
+  }
   const smallRows = [p2,p3].filter(Boolean).map((p,i) => `
     <div class="trec-rank-row">
       <span class="trec-medal ${meds[i+1]}">${i+2}</span>
-      ${_teamLogoEl(p.team,18)}
+      ${_logoEl(p,18)}
       <span class="trec-rank-name">${p.name}</span>
       <span style="font-size:0.58rem;color:var(--muted);flex-shrink:0">${p.team}</span>
       <span class="trec-rank-val">${p.raw}</span>
@@ -1743,7 +1765,7 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
       <div class="trec-top3-title">${label}</div>
       <div class="trec-top1-row">
         <span class="trec-medal gold">1</span>
-        ${_teamLogoEl(p1.team,46)}
+        ${_logoEl(p1,46)}
         <div class="trec-top1-info">
           <div class="trec-top1-name">${p1.name}
             <span style="font-size:0.58rem;color:var(--muted);margin-left:3px">${p1.team}</span>
@@ -1771,6 +1793,20 @@ function _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc, maxRows = 200)
   if (!headers.length || !rows.length)
     return '<div class="rec-no-data">기록 데이터 없음 (다음 fetch 시 수집)</div>';
 
+  // 선수사진·팀로고는 별도 컬럼으로 표시 않고 인라인 처리
+  const photoCI = headers.indexOf('선수사진');
+  const logoCI  = headers.indexOf('팀로고');
+  const nameCI  = headers.indexOf('선수명');
+  const teamCI  = headers.indexOf('팀');
+  const skipSet = new Set();
+  if (photoCI >= 0) skipSet.add(photoCI);
+  if (logoCI  >= 0) skipSet.add(logoCI);
+
+  // 표시 컬럼 (원본 인덱스 유지)
+  const visCols = headers
+    .map((h, i) => ({ h, i }))
+    .filter(({ i }) => !skipSet.has(i));
+
   const si   = _recSortState.tab === tabKey ? _recSortState.idx  : defSortIdx;
   const sasc = _recSortState.tab === tabKey ? _recSortState.asc  : defAsc;
 
@@ -1782,16 +1818,34 @@ function _recTableHTML(tabKey, headers, rows, defSortIdx, defAsc, maxRows = 200)
       : (b[si]||'').localeCompare(a[si]||'');
   });
 
-  const thRow = headers.map((h, i) => {
+  const thRow = visCols.map(({ h, i }) => {
     let cls = '';
     if (i === si) cls = sasc ? 's-asc' : 's-desc';
     return `<th class="${cls}" onclick="sortRecTable('${tabKey}',${i})">${h}</th>`;
   }).join('');
 
-  const tRows = sorted.slice(0, maxRows).map((r, ri) => {
-    const cells = r.map((c, ci) => {
-      if (ci === 0) return `<td style="text-align:left;padding-left:10px;font-weight:600;color:var(--text)">${c}</td>`;
-      if (ci === 1) return `<td style="color:var(--muted);font-size:0.72rem">${c}</td>`;
+  const tRows = sorted.slice(0, maxRows).map(r => {
+    const cells = visCols.map(({ h, i }, vi) => {
+      const c = r[i] ?? '';
+      // 선수명: 사진 인라인
+      if (i === nameCI) {
+        const photo = photoCI >= 0 ? (r[photoCI]||'') : '';
+        const imgEl = photo && photo.startsWith('http')
+          ? `<img src="${photo}" style="width:24px;height:24px;border-radius:50%;object-fit:cover;flex-shrink:0;margin-right:5px" onerror="this.style.display='none'">`
+          : '';
+        return `<td style="text-align:left;padding-left:8px;white-space:nowrap"><div style="display:flex;align-items:center">${imgEl}<span style="font-weight:600;color:var(--text)">${c}</span></div></td>`;
+      }
+      // 팀명: 로고 인라인
+      if (i === teamCI) {
+        const logo = logoCI >= 0 ? (r[logoCI]||'') : '';
+        const imgEl = logo && logo.startsWith('http')
+          ? `<img src="${logo}" style="width:18px;height:18px;object-fit:contain;flex-shrink:0" onerror="this.style.display='none'">`
+          : _teamLogoEl(c, 18);
+        return `<td style="white-space:nowrap"><div style="display:flex;align-items:center;gap:3px">${imgEl}<span style="font-size:0.75rem;color:var(--muted)">${c}</span></div></td>`;
+      }
+      // 첫 번째 표시 컬럼 (순위 등)
+      if (vi === 0)
+        return `<td style="text-align:center;font-weight:600;color:var(--text)">${c}</td>`;
       return `<td>${c}</td>`;
     }).join('');
     return `<tr>${cells}</tr>`;
@@ -1868,20 +1922,31 @@ function switchTeamRecTab(tab) {
 
 function _teamTop3Card(label, rows, headers, valNames, higher) {
   const nameCI = _colIdx(headers, ['팀','team','teamName','name']);
+  const logoCI = _colIdx(headers, ['팀로고']);
   const valCI  = _colIdx(headers, valNames);
   if (nameCI < 0 || valCI < 0 || !rows.length) return '';
   const top3 = rows
-    .map(r => ({ name: r[nameCI]||'', val: _parseNum(r[valCI]), raw: r[valCI]||'' }))
+    .map(r => ({
+      name: r[nameCI]||'',
+      logo: logoCI >= 0 ? r[logoCI]||'' : '',
+      val: _parseNum(r[valCI]),
+      raw: r[valCI]||''
+    }))
     .filter(x => !isNaN(x.val))
     .sort((a,b) => higher ? b.val-a.val : a.val-b.val)
     .slice(0,3);
   if (!top3.length) return '';
   const [p1,p2,p3] = top3;
   const meds = ['gold','silver','bronze'];
+  function _tlogoEl(p, size) {
+    if (p.logo && p.logo.startsWith('http'))
+      return `<img src="${p.logo}" style="width:${size}px;height:${size}px;object-fit:contain;flex-shrink:0" onerror="this.outerHTML=''">`;
+    return _teamLogoEl(p.name, size);
+  }
   const smallRows = [p2,p3].filter(Boolean).map((p,i) => `
     <div class="trec-rank-row">
       <span class="trec-medal ${meds[i+1]}">${i+2}</span>
-      ${_teamLogoEl(p.name,18)}
+      ${_tlogoEl(p,18)}
       <span class="trec-rank-name">${p.name}</span>
       <span class="trec-rank-val">${p.raw}</span>
     </div>`).join('');
@@ -1890,7 +1955,7 @@ function _teamTop3Card(label, rows, headers, valNames, higher) {
       <div class="trec-top3-title">${label}</div>
       <div class="trec-top1-row">
         <span class="trec-medal gold">1</span>
-        ${_teamLogoEl(p1.name, 46)}
+        ${_tlogoEl(p1, 46)}
         <div class="trec-top1-info">
           <div class="trec-top1-name">${p1.name}</div>
           <div class="trec-top1-val">${p1.raw}</div>
@@ -1901,16 +1966,19 @@ function _teamTop3Card(label, rows, headers, valNames, higher) {
 }
 
 function _buildTeamRecTable(data) {
-  const batRec  = (data||{}).team_batting_records || (data||{}).team_records || {};
-  const pitRec  = (data||{}).team_pitch_records   || {};
+  const batRaw  = (data||{}).team_batting_records || (data||{}).team_records || {};
+  const pitRaw  = (data||{}).team_pitch_records   || {};
   const isBat   = _teamRecSubTab !== 'pitching';
-  const rec     = isBat ? batRec : pitRec;
-  const headers = rec.headers || [];
-  const rows    = rec.rows    || [];
+  const rawRec  = isBat ? batRaw : pitRaw;
   const tabKey  = isBat ? 'teambat' : 'teampitch';
 
-  if (!headers.length || !rows.length)
+  const rawHeaders = rawRec.headers || [];
+  const rawRows    = rawRec.rows    || [];
+  if (!rawHeaders.length || !rawRows.length)
     return '<div class="rec-no-data">데이터 준비 중 (다음 fetch 시 수집)</div>';
+
+  // camelCase 잔여 컬럼 제거
+  const { headers, rows } = _filterRecCols(rawHeaders, rawRows);
 
   let defSortIdx = 0, defAsc = false;
   if (isBat) {
@@ -1924,12 +1992,15 @@ function _buildTeamRecTable(data) {
 }
 
 function _buildTeamRecordsHTML(data) {
-  const batRec  = (data||{}).team_batting_records || (data||{}).team_records || {};
-  const pitRec  = (data||{}).team_pitch_records   || {};
-  const batRows = batRec.rows    || [];
-  const batHdrs = batRec.headers || [];
-  const pitRows = pitRec.rows    || [];
-  const pitHdrs = pitRec.headers || [];
+  const batRaw  = (data||{}).team_batting_records || (data||{}).team_records || {};
+  const pitRaw  = (data||{}).team_pitch_records   || {};
+  // camelCase 잔여 필드 제거 후 TOP3에 사용
+  const batFiltered = _filterRecCols(batRaw.headers||[], batRaw.rows||[]);
+  const pitFiltered = _filterRecCols(pitRaw.headers||[], pitRaw.rows||[]);
+  const batRows = batFiltered.rows;
+  const batHdrs = batFiltered.headers;
+  const pitRows = pitFiltered.rows;
+  const pitHdrs = pitFiltered.headers;
   const updated = (data||{}).records_updated || '';
 
   // ── TOP3 카드 정의 (공격 + 수비)
