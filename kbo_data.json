@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-11T02:00:58",
+  "updated": "2026-06-11T03:00:59",
   "today": "2026-06-11",
   "dates": {
     "2026-06-11": {
@@ -7068,7 +7068,7 @@
         "N",
         "Y",
         "18131923",
-        "None",
+        "{\"name\":\"약셀 리오스\",\"image\":\"https://ssl.pstatic.net/sstatic/people/profileImg/t/2fb02191-d92b-430e-af2c-3621fa914ace.png\",\"teamName\":\"LG 트윈스\",\"teamCode\":\"LG\",\"position\":\"투수\",\"backNumber\":\"46\",\"retire\":null,\"job\":[\"야구선수\"],\"viewName\":\"Yacksel Rios\",\"keyword\":\"약셀리오스\",\"os\":18131923}",
         "Y",
         "LG",
         "LG",
