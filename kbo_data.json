@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-11T13:02:28",
+  "updated": "2026-06-11T13:13:13",
   "today": "2026-06-11",
   "dates": {
     "2026-06-11": {
@@ -3387,6 +3387,131 @@
     }
   ],
   "standings_updated": "2026-06-11",
+  "last10_records": {
+    "headers": [
+      "팀",
+      "팀로고",
+      "최근10경기",
+      "타율",
+      "평균자책점",
+      "득점",
+      "실점",
+      "홈런",
+      "피홈런"
+    ],
+    "rows": [
+      [
+        "LG 트윈스",
+        "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88",
+        "7승 0무 3패",
+        "0.298",
+        "4.421",
+        "63",
+        "44",
+        "16",
+        "6"
+      ],
+      [
+        "NC 다이노스",
+        "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88",
+        "7승 0무 3패",
+        "0.332",
+        "4.297",
+        "62",
+        "44",
+        "12",
+        "13"
+      ],
+      [
+        "한화 이글스",
+        "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88",
+        "6승 1무 3패",
+        "0.285",
+        "3.363",
+        "59",
+        "44",
+        "9",
+        "11"
+      ],
+      [
+        "두산 베어스",
+        "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88",
+        "6승 1무 3패",
+        "0.267",
+        "3.4",
+        "44",
+        "39",
+        "8",
+        "5"
+      ],
+      [
+        "kt wiz",
+        "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
+        "6승 0무 4패",
+        "0.274",
+        "4.909",
+        "47",
+        "52",
+        "4",
+        "14"
+      ],
+      [
+        "KIA 타이거즈",
+        "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
+        "5승 0무 5패",
+        "0.258",
+        "3.375",
+        "45",
+        "39",
+        "12",
+        "10"
+      ],
+      [
+        "SSG 랜더스",
+        "https://sports-phinf.pstatic.net/team/kbo/default/SK.png?type=f92_88",
+        "4승 0무 6패",
+        "0.283",
+        "6.907",
+        "54",
+        "69",
+        "16",
+        "11"
+      ],
+      [
+        "삼성 라이온즈",
+        "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88",
+        "3승 0무 7패",
+        "0.233",
+        "5.011",
+        "47",
+        "54",
+        "13",
+        "11"
+      ],
+      [
+        "키움 히어로즈",
+        "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88",
+        "3승 0무 7패",
+        "0.256",
+        "5.375",
+        "47",
+        "55",
+        "8",
+        "9"
+      ],
+      [
+        "롯데 자이언츠",
+        "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88",
+        "2승 0무 8패",
+        "0.236",
+        "5.825",
+        "36",
+        "64",
+        "5",
+        "13"
+      ]
+    ]
+  },
   "hitter_records": {
     "headers": [
       "순위",

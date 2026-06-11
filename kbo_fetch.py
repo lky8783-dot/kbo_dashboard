@@ -1192,6 +1192,80 @@ def _fetch_naver_api_direct(tab: str) -> dict:
         return {}
 
 
+def _fetch_naver_last10() -> dict:
+    """Naver 스포츠 최근 10경기 팀별 기록 직접 API 호출"""
+    if _requests is None:
+        print('[Last10] requests 미설치 — 건너뜀')
+        return {}
+    url = ('https://api-gw.sports.naver.com/statistics/categories/kbo'
+           '/seasons/2026/teams/last-ten-games')
+    hdrs = {
+        **BASE_HEADERS,
+        'Referer': ('https://m.sports.naver.com/kbaseball/record/kbo'
+                    '?seasonCode=2026&tab=teamRank'),
+        'Accept': 'application/json, text/plain, */*',
+        'Origin': 'https://m.sports.naver.com',
+    }
+    KEEP = [
+        ('teamName',              '팀'),
+        ('teamImageUrl',          '팀로고'),
+        ('lastTenGameResult',     '최근10경기'),
+        ('lastTenGameOffenseHra', '타율'),
+        ('lastTenGameDefenseEra', '평균자책점'),
+        ('lastTenGameOffenseRun', '득점'),
+        ('lastTenGameDefenseRun', '실점'),
+        ('lastTenGameOffenseHr',  '홈런'),
+        ('lastTenGameDefenseHr',  '피홈런'),
+    ]
+    try:
+        resp = _requests.get(url, headers=hdrs, timeout=15)
+        if resp.status_code != 200:
+            print(f'[Last10] HTTP {resp.status_code}')
+            return {}
+        body = resp.json()
+
+        def _find_teams(obj, depth=0):
+            if depth > 5:
+                return None
+            if (isinstance(obj, list) and len(obj) >= 5
+                    and isinstance(obj[0], dict)
+                    and 'lastTenGameResult' in obj[0]):
+                return obj
+            if isinstance(obj, dict):
+                for v in obj.values():
+                    r = _find_teams(v, depth + 1)
+                    if r:
+                        return r
+            return None
+
+        teams = _find_teams(body)
+        if not teams:
+            print('[Last10] 팀 데이터 미발견')
+            return {}
+        headers = [kn for _, kn in KEEP]
+        rows = []
+        for t in teams:
+            row = []
+            for raw_key, _ in KEEP:
+                v = t.get(raw_key)
+                if isinstance(v, float):
+                    row.append(str(round(v, 3)))
+                elif v is None:
+                    row.append('')
+                else:
+                    row.append(str(v))
+            rows.append(row)
+        # 팀명 정규화
+        team_ci = headers.index('팀')
+        for row in rows:
+            row[team_ci] = normalize_team(row[team_ci]) or row[team_ci]
+        print(f'[Last10] 성공: {len(rows)}팀')
+        return {'headers': headers, 'rows': rows}
+    except Exception as e:
+        print(f'[Last10] 오류: {e}')
+        return {}
+
+
 def fetch_naver_records(tab: str) -> dict:
     """
     Naver 스포츠 KBO 기록 스크래핑
@@ -1538,6 +1612,12 @@ def main():
     keep       = sorted([k for k in dates_data if k >= SEASON_START], reverse=True)
     dates_data = {k: dates_data[k] for k in keep}
 
+    # 최근 10경기 팀별 기록
+    prev_last10   = existing.get('last10_records', {})
+    last10_records = _fetch_naver_last10()
+    if not (last10_records and last10_records.get('rows')):
+        last10_records = prev_last10
+
     # 팀 순위 수집 (직접 API 우선 → Playwright 폴백)
     raw_teamrank = _fetch_naver_api_direct('teamRank')
     if not (raw_teamrank and raw_teamrank.get('rows')):
@@ -1587,6 +1667,7 @@ def main():
         'dates':                dates_data,
         'standings':            standings,
         'standings_updated':    today.strftime('%Y-%m-%d'),
+        'last10_records':       last10_records,
         'hitter_records':       hitter_records,
         'pitcher_records':      pitcher_records,
         'team_records':         team_batting,   # 하위 호환
