@@ -1821,10 +1821,12 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
   const teamCI  = _colIdx(headers, ['팀','team','teamName']);
   const logoCI  = _colIdx(headers, ['팀로고']);
   const photoCI = _colIdx(headers, ['선수사진']);
+  const rankCI  = _colIdx(headers, ['순위']);
   const valCI   = _colIdx(headers, valNames);
   if (nameCI < 0 || valCI < 0 || !rows.length) return '';
   const top3 = rows
     .map(r => ({
+      rank:  rankCI >= 0 ? _parseNum(r[rankCI]) : Infinity,
       name:  r[nameCI]||'',
       team:  teamCI  >= 0 ? r[teamCI]||''  : '',
       logo:  logoCI  >= 0 ? r[logoCI]||''  : '',
@@ -1832,8 +1834,8 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
       val:   _parseNum(r[valCI]),
       raw:   r[valCI]||'',
     }))
-    .filter(x => !isNaN(x.val))
-    .sort((a,b) => higher ? b.val-a.val : a.val-b.val)
+    .filter(x => !isNaN(x.rank) && x.rank > 0)
+    .sort((a,b) => a.rank - b.rank)
     .slice(0,3);
   if (!top3.length) return '';
   const [p1,p2,p3] = top3;

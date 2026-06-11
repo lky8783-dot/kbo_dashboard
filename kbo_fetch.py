@@ -1192,6 +1192,113 @@ def _fetch_naver_api_direct(tab: str) -> dict:
         return {}
 
 
+def _fetch_welcom_ranking(position: str) -> dict:
+    """
+    웰컴톱랭킹에서 선수별 톱랭킹포인트·기본점수·승리기여도 수집.
+    position: 'T' (타자) | '1' (투수)
+    반환: {'선수명': {'톱랭킹포인트': '...', '기본점수': '...', '승리기여도': '...'}, ...}
+    """
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        print('[Welcom] bs4 미설치')
+        return {}
+    if _requests is None:
+        print('[Welcom] requests 미설치')
+        return {}
+
+    hdrs = {
+        **BASE_HEADERS,
+        'Referer': 'https://www.welcometopranking.com/baseball/',
+    }
+    result = {}
+    # Naver 50명 이상 커버하도록 3페이지(60명)까지 수집
+    for page in range(1, 4):
+        url = (
+            f'https://www.welcometopranking.com/baseball/'
+            f'?p=chart&searchType=YEARLY&searchDate=2026'
+            f'&position={position}&team=&page={page}&orderBy=&orderSort='
+        )
+        try:
+            resp = _requests.get(url, headers=hdrs, timeout=15)
+            if resp.status_code != 200:
+                break
+            soup = BeautifulSoup(resp.text, 'html.parser')
+            table = soup.find('table')
+            if not table:
+                break
+            ths = [th.get_text(strip=True) for th in table.find_all('th')]
+            # 필요 컬럼 인덱스
+            def ci(names):
+                for n in names:
+                    try:
+                        return ths.index(n)
+                    except ValueError:
+                        pass
+                return -1
+            name_ci  = ci(['선수명'])
+            pt_ci    = ci(['톱랭킹포인트'])
+            base_ci  = ci(['기본점수'])
+            win_ci   = ci(['승리기여도'])
+            if name_ci < 0:
+                break
+            rows = []
+            for tr in table.find_all('tr')[1:]:
+                cells = [td.get_text(strip=True) for td in tr.find_all('td')]
+                if len(cells) > max(name_ci, pt_ci, base_ci, win_ci):
+                    rows.append(cells)
+            if not rows:
+                break
+            for cells in rows:
+                name = cells[name_ci].strip()
+                if name:
+                    result[name] = {
+                        '톱랭킹포인트': cells[pt_ci]   if pt_ci   >= 0 else '',
+                        '기본점수':     cells[base_ci] if base_ci >= 0 else '',
+                        '승리기여도':   cells[win_ci]  if win_ci  >= 0 else '',
+                    }
+        except Exception as e:
+            print(f'[Welcom:{position}] page{page} 오류: {e}')
+            break
+    print(f'[Welcom:{position}] 수집 완료: {len(result)}명')
+    return result
+
+
+def _merge_welcom(records: dict, welcom_data: dict) -> dict:
+    """
+    hitter/pitcher records에 웰컴톱랭킹 컬럼 병합.
+    선수명 기준으로 매칭, 없으면 빈값 추가.
+    """
+    if not records or not records.get('headers') or not welcom_data:
+        return records
+    headers = list(records['headers'])
+    rows = records['rows']
+    name_ci = headers.index('선수명') if '선수명' in headers else -1
+    if name_ci < 0:
+        return records
+
+    new_cols = ['톱랭킹포인트', '기본점수', '승리기여도']
+    # 이미 있으면 건너뜀
+    for col in new_cols:
+        if col not in headers:
+            headers.append(col)
+
+    new_rows = []
+    for row in rows:
+        r = list(row)
+        # headers 길이에 맞게 확장
+        while len(r) < len(headers):
+            r.append('')
+        player_name = r[name_ci] if name_ci < len(r) else ''
+        info = welcom_data.get(player_name, {})
+        for col in new_cols:
+            idx = headers.index(col)
+            r[idx] = info.get(col, '')
+        new_rows.append(r)
+
+    return {'headers': headers, 'rows': new_rows}
+
+
 def _fetch_naver_last10() -> dict:
     """Naver 스포츠 최근 10경기 팀별 기록 직접 API 호출"""
     if _requests is None:
@@ -1660,6 +1767,14 @@ def main():
     if not _is_good(pitcher_records) and _is_good(prev_pitcher):
         print(f'[pitcher] 새 데이터 품질 미달 → 기존 {len(prev_pitcher["rows"])}행 유지')
         pitcher_records = prev_pitcher
+
+    # 웰컴톱랭킹 데이터 수집 및 병합
+    welcom_hitter  = _fetch_welcom_ranking('T')
+    welcom_pitcher = _fetch_welcom_ranking('1')
+    if welcom_hitter  and _is_good(hitter_records):
+        hitter_records  = _merge_welcom(hitter_records,  welcom_hitter)
+    if welcom_pitcher and _is_good(pitcher_records):
+        pitcher_records = _merge_welcom(pitcher_records, welcom_pitcher)
 
     result = {
         'updated':              today.strftime('%Y-%m-%dT%H:%M:%S'),
