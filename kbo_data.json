@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-11T09:30:55",
+  "updated": "2026-06-11T10:01:14",
   "today": "2026-06-11",
   "dates": {
     "2026-06-11": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "김건우",
+          "away_pitcher": "김성욱",
           "home_pitcher": "김윤식",
           "broadcaster": "SPO-2T"
         },
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회말",
           "stadium": "사직야구장",
           "away_pitcher": "타카다",
-          "home_pitcher": "박세웅",
+          "home_pitcher": "나승엽",
           "broadcaster": "MS-T"
         },
         {
@@ -35,7 +35,7 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회초",
           "stadium": "kt wiz 파크",
           "away_pitcher": "김지찬",
           "home_pitcher": "스기모토",
@@ -47,9 +47,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "박재현",
+          "away_pitcher": "변우혁",
           "home_pitcher": "류현진",
           "broadcaster": "KN-T"
         },
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김주원",
-          "home_pitcher": "박준현",
+          "away_pitcher": "라일리",
+          "home_pitcher": "권혁빈",
           "broadcaster": "SS-T"
         }
       ]
