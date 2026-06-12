@@ -1816,17 +1816,20 @@ function _filterRecCols(headers, rows) {
 }
 
 /* 선수 기록 Naver 스타일 TOP3 카드 (선수사진 + 팀로고 폴백) */
+/* 선수 기록 TOP3 카드 — 공동순위 SCR (1,1,3 / 1,2,2 / 1,1,1) */
 function _playerTop3Card(label, rows, headers, valNames, higher) {
   const nameCI  = _colIdx(headers, ['선수명','playerName','name']);
   const teamCI  = _colIdx(headers, ['팀','team','teamName']);
   const logoCI  = _colIdx(headers, ['팀로고']);
   const photoCI = _colIdx(headers, ['선수사진']);
+  const rankCI2 = _colIdx(headers, ['순위']);
   const valCI   = _colIdx(headers, valNames);
   if (nameCI < 0 || valCI < 0 || !rows.length) return '';
-  const rankCI2 = _colIdx(headers, ['순위']);
-  const top3 = rows
+
+  // 지표값 정렬
+  const sorted = rows
     .map(r => ({
-      rank:  rankCI2 >= 0 ? _parseNum(r[rankCI2]) : NaN,
+      offRank: rankCI2 >= 0 ? _parseNum(r[rankCI2]) : NaN,
       name:  r[nameCI]||'',
       team:  teamCI  >= 0 ? r[teamCI]||''  : '',
       logo:  logoCI  >= 0 ? r[logoCI]||''  : '',
@@ -1834,19 +1837,22 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
       val:   _parseNum(r[valCI]),
       raw:   r[valCI]||'',
     }))
-    .filter(x => !isNaN(x.val) && (rankCI2 < 0 || (!isNaN(x.rank) && x.rank > 0)))
-    .sort((a,b) => higher ? b.val-a.val : a.val-b.val)
-    .slice(0,3);
-  if (!top3.length) return '';
-  const [p1,p2,p3] = top3;
-  // 동률 메달 판정: 같은 값이면 같은 등급
-  // 1·2위 동률 → 금금동, 2·3위 동률 → 금은은, 전원 동률 → 금금금
-  function _medClass(p) {
-    if (p.val === top3[0].val) return 'gold';
-    if (top3[1] && p.val === top3[1].val && top3[1].val !== top3[0].val) return 'silver';
-    return 'bronze';
+    .filter(x => !isNaN(x.val) && (rankCI2 < 0 || (!isNaN(x.offRank) && x.offRank > 0)))
+    .sort((a, b) => higher ? b.val - a.val : a.val - b.val);
+
+  // SCR 공동순위: 같은 값이면 같은 cr, 다음은 건너뜀 (1,1,3 / 1,2,2)
+  let cr = 1;
+  for (let i = 0; i < sorted.length; i++) {
+    if (i > 0 && sorted[i].val !== sorted[i - 1].val) cr = i + 1;
+    sorted[i].cr = cr;
   }
-  // 선수사진 우선, 없으면 팀로고, 없으면 CSS 원형
+
+  // cr ≤ 3인 선수들만, 최대 3명
+  const top3 = sorted.filter(x => x.cr <= 3).slice(0, 3);
+  if (!top3.length) return '';
+
+  const medCls = r => r === 1 ? 'gold' : r === 2 ? 'silver' : 'bronze';
+
   function _playerImg(p, size) {
     if (p.photo && p.photo.startsWith('http'))
       return `<img src="${p.photo}" style="width:${size}px;height:${size}px;border-radius:50%;object-fit:cover;flex-shrink:0" onerror="this.style.display='none'" alt="${p.name}">`;
@@ -1854,20 +1860,23 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
       return `<img src="${p.logo}" style="width:${size}px;height:${size}px;object-fit:contain;flex-shrink:0" onerror="this.style.display='none'" alt="${p.team}">`;
     return _teamLogoEl(p.team, size);
   }
-  const smallRows = [p2,p3].filter(Boolean).map((p,i) => `
+
+  const [p1, ...rest] = top3;
+  const smallRows = rest.map(p => `
     <div class="trec-rank-row">
-      <span class="trec-medal ${_medClass(p)}">${i+2}</span>
-      ${_playerImg(p,24)}
+      <span class="trec-medal ${medCls(p.cr)}">${p.cr}</span>
+      ${_playerImg(p, 24)}
       <span class="trec-rank-name">${p.name}</span>
       <span style="font-size:0.58rem;color:var(--muted);flex-shrink:0">${p.team}</span>
       <span class="trec-rank-val">${p.raw}</span>
     </div>`).join('');
+
   return `
     <div class="trec-top3-card">
       <div class="trec-top3-title">${label}</div>
       <div class="trec-top1-row">
-        <span class="trec-medal ${_medClass(p1)}">1</span>
-        ${_playerImg(p1,46)}
+        <span class="trec-medal ${medCls(p1.cr)}">${p1.cr}</span>
+        ${_playerImg(p1, 46)}
         <div class="trec-top1-info">
           <div class="trec-top1-name">${p1.name}
             <span style="font-size:0.58rem;color:var(--muted);margin-left:3px">${p1.team}</span>
