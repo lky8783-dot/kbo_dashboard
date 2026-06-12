@@ -1839,7 +1839,13 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
     .slice(0,3);
   if (!top3.length) return '';
   const [p1,p2,p3] = top3;
-  const meds = ['gold','silver','bronze'];
+  // 동률 메달 판정: 같은 값이면 같은 등급
+  // 1·2위 동률 → 금금동, 2·3위 동률 → 금은은, 전원 동률 → 금금금
+  function _medClass(p) {
+    if (p.val === top3[0].val) return 'gold';
+    if (top3[1] && p.val === top3[1].val && top3[1].val !== top3[0].val) return 'silver';
+    return 'bronze';
+  }
   // 선수사진 우선, 없으면 팀로고, 없으면 CSS 원형
   function _playerImg(p, size) {
     if (p.photo && p.photo.startsWith('http'))
@@ -1850,7 +1856,7 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
   }
   const smallRows = [p2,p3].filter(Boolean).map((p,i) => `
     <div class="trec-rank-row">
-      <span class="trec-medal ${meds[i+1]}">${i+2}</span>
+      <span class="trec-medal ${_medClass(p)}">${i+2}</span>
       ${_playerImg(p,24)}
       <span class="trec-rank-name">${p.name}</span>
       <span style="font-size:0.58rem;color:var(--muted);flex-shrink:0">${p.team}</span>
@@ -1860,7 +1866,7 @@ function _playerTop3Card(label, rows, headers, valNames, higher) {
     <div class="trec-top3-card">
       <div class="trec-top3-title">${label}</div>
       <div class="trec-top1-row">
-        <span class="trec-medal gold">1</span>
+        <span class="trec-medal ${_medClass(p1)}">1</span>
         ${_playerImg(p1,46)}
         <div class="trec-top1-info">
           <div class="trec-top1-name">${p1.name}
