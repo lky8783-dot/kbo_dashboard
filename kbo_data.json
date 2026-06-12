@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-12T11:30:56",
+  "updated": "2026-06-12T12:01:07",
   "today": "2026-06-12",
   "dates": {
     "2026-06-12": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "레이예스",
+          "away_pitcher": "손호영",
           "home_pitcher": "배재준",
           "broadcaster": "SPO-2T"
         },
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "문승원",
-          "home_pitcher": "김지찬",
+          "away_pitcher": "오태곤",
+          "home_pitcher": "미야지",
           "broadcaster": "SPO-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "9회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "카메론",
-          "home_pitcher": "한재승",
+          "away_pitcher": "박찬호",
+          "home_pitcher": "김범수",
           "broadcaster": "KN-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "김주원",
-          "home_pitcher": "전용주",
+          "away_pitcher": "테일러",
+          "home_pitcher": "권동진",
           "broadcaster": "SS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "페라자",
-          "home_pitcher": "김서준",
+          "away_pitcher": "심우준",
+          "home_pitcher": "박진형",
           "broadcaster": "MS-T"
         }
       ]
