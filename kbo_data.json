@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-14T07:01:11",
+  "updated": "2026-06-14T07:31:05",
   "today": "2026-06-14",
   "dates": {
     "2026-06-14": {
@@ -11,10 +11,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "이원석",
-          "home_pitcher": "박지성",
+          "away_pitcher": "이상규",
+          "home_pitcher": "어준서",
           "broadcaster": "S-T"
         },
         {
@@ -59,7 +59,7 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "경기취소",
           "stadium": "kt wiz 파크",
           "away_pitcher": "김준원",
           "home_pitcher": "고영표",
@@ -3412,8 +3412,8 @@
       "gb": "1.5",
       "last10": "4승0무1패",
       "streak": "2연승",
-      "next_opp": "NC 다이노스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
+      "next_opp": "두산 베어스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
     },
     {
       "rank": 3,
@@ -3487,8 +3487,8 @@
       "gb": "11.0",
       "last10": "2승0무3패",
       "streak": "2연패",
-      "next_opp": "kt wiz",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
+      "next_opp": "한화 이글스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
     },
     {
       "rank": 8,
