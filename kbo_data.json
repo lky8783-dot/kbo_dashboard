@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-14T07:31:05",
+  "updated": "2026-06-14T08:01:11",
   "today": "2026-06-14",
   "dates": {
     "2026-06-14": {
@@ -9,12 +9,10 @@
           "time": "14:00",
           "away": "한화 이글스",
           "home": "키움 히어로즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "2",
+          "home_score": "3",
+          "status": "종료",
           "stadium": "고척스카이돔",
-          "away_pitcher": "이상규",
-          "home_pitcher": "어준서",
           "broadcaster": "S-T"
         },
         {
@@ -23,9 +21,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "비슬리",
+          "away_pitcher": "황성빈",
           "home_pitcher": "임찬규",
           "broadcaster": "SPO-2T"
         },
@@ -35,9 +33,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "해치",
+          "away_pitcher": "정준재",
           "home_pitcher": "양창섭",
           "broadcaster": "MS-T"
         },
@@ -47,9 +45,9 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "곽빈",
+          "away_pitcher": "정수빈",
           "home_pitcher": "김태형",
           "broadcaster": "KN-T"
         },
@@ -3457,8 +3455,8 @@
       "gb": "7.0",
       "last10": "2승0무3패",
       "streak": "2연패",
-      "next_opp": "키움 히어로즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
+      "next_opp": "NC 다이노스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
     },
     {
       "rank": 6,
@@ -3532,8 +3530,8 @@
       "gb": "15.5",
       "last10": "3승0무2패",
       "streak": "2연승",
-      "next_opp": "한화 이글스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
+      "next_opp": "삼성 라이온즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
     }
   ],
   "standings_updated": "2026-06-14",
