@@ -1,69 +1,119 @@
 {
-  "updated": "2026-06-13T14:30:55",
-  "today": "2026-06-13",
+  "updated": "2026-06-14T00:01:05",
+  "today": "2026-06-14",
   "dates": {
-    "2026-06-13": {
-      "date": "2026-06-13",
+    "2026-06-14": {
+      "date": "2026-06-14",
       "games": [
+        {
+          "time": "14:00",
+          "away": "한화 이글스",
+          "home": "키움 히어로즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "고척스카이돔",
+          "away_pitcher": "왕옌청",
+          "home_pitcher": "로젠버그",
+          "broadcaster": "S-T"
+        },
         {
           "time": "17:00",
           "away": "롯데 자이언츠",
           "home": "LG 트윈스",
-          "away_score": "3",
-          "home_score": "5",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "잠실야구장",
-          "away_pitcher": "패이민석",
-          "home_pitcher": "승김진성",
+          "away_pitcher": "비슬리",
+          "home_pitcher": "임찬규",
           "broadcaster": "SPO-2T"
         },
         {
           "time": "17:00",
           "away": "SSG 랜더스",
           "home": "삼성 라이온즈",
-          "away_score": "6",
-          "home_score": "7",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "패김민",
-          "home_pitcher": "승최지광",
-          "broadcaster": "SPO-T"
+          "away_pitcher": "해치",
+          "home_pitcher": "양창섭",
+          "broadcaster": "MS-T"
         },
         {
           "time": "17:00",
           "away": "두산 베어스",
           "home": "KIA 타이거즈",
-          "away_score": "1",
-          "home_score": "2",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "패벤자민",
-          "home_pitcher": "승네일",
+          "away_pitcher": "곽빈",
+          "home_pitcher": "김태형",
           "broadcaster": "KN-T"
         },
         {
           "time": "17:00",
           "away": "NC 다이노스",
           "home": "kt wiz",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "kt wiz 파크",
+          "away_pitcher": "김준원",
+          "home_pitcher": "고영표",
+          "broadcaster": "SPO-T,SS-T"
+        }
+      ]
+    },
+    "2026-06-13": {
+      "date": "2026-06-13",
+      "games": [
+        {
+          "time": "",
+          "away": "롯데 자이언츠",
+          "home": "LG 트윈스",
+          "away_score": "3",
+          "home_score": "5",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "SSG 랜더스",
+          "home": "삼성 라이온즈",
+          "away_score": "6",
+          "home_score": "7",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "두산 베어스",
+          "home": "KIA 타이거즈",
+          "away_score": "1",
+          "home_score": "2",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "NC 다이노스",
+          "home": "kt wiz",
           "away_score": "9",
           "home_score": "11",
           "status": "종료",
-          "stadium": "kt wiz 파크",
-          "away_pitcher": "패이용준",
-          "home_pitcher": "승한승혁",
-          "broadcaster": "SS-T"
+          "stadium": ""
         },
         {
-          "time": "17:00",
+          "time": "",
           "away": "한화 이글스",
           "home": "키움 히어로즈",
           "away_score": "1",
           "home_score": "3",
           "status": "종료",
-          "stadium": "고척스카이돔",
-          "away_pitcher": "패박준영",
-          "home_pitcher": "승알칸타라",
-          "broadcaster": "MS-T"
+          "stadium": ""
         }
       ]
     },
@@ -3486,7 +3536,7 @@
       "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
     }
   ],
-  "standings_updated": "2026-06-13",
+  "standings_updated": "2026-06-14",
   "last10_records": {
     "headers": [
       "팀",
@@ -6911,5 +6961,5 @@
       ]
     ]
   },
-  "records_updated": "2026-06-13"
+  "records_updated": "2026-06-14"
 }
