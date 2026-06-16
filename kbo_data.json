@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-16T11:31:11",
+  "updated": "2026-06-16T12:01:13",
   "today": "2026-06-16",
   "dates": {
     "2026-06-16": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "고영표",
-          "home_pitcher": "박지훈",
+          "away_pitcher": "김민혁",
+          "home_pitcher": "박신지",
           "broadcaster": "SPO-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "권혁빈",
-          "home_pitcher": "이재희",
+          "away_pitcher": "최주환",
+          "home_pitcher": "배찬승",
           "broadcaster": "MS-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "고승민",
-          "home_pitcher": "이건욱",
+          "away_pitcher": "손성빈",
+          "home_pitcher": "김민",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "문보경",
-          "home_pitcher": "최지민",
+          "away_pitcher": "우강훈",
+          "home_pitcher": "황대인",
           "broadcaster": "SS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "장유호",
-          "home_pitcher": "김한별",
+          "away_pitcher": "황준서",
+          "home_pitcher": "박민우",
           "broadcaster": "KN-T"
         }
       ]
