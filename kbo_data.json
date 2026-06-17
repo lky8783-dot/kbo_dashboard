@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-17T10:01:12",
+  "updated": "2026-06-17T10:31:01",
   "today": "2026-06-17",
   "dates": {
     "2026-06-17": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "사우어",
-          "home_pitcher": "오명진",
+          "away_pitcher": "허경민",
+          "home_pitcher": "타카다",
           "broadcaster": "SPO-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회말",
           "stadium": "삼성 라이온즈파크",
           "away_pitcher": "박준현",
-          "home_pitcher": "전병우",
+          "home_pitcher": "구자욱",
           "broadcaster": "MS-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "박세웅",
-          "home_pitcher": "고명준",
+          "away_pitcher": "손호영",
+          "home_pitcher": "김건우",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "장현식",
-          "home_pitcher": "김규성",
+          "away_pitcher": "박동원",
+          "home_pitcher": "올러",
           "broadcaster": "SS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "페라자",
-          "home_pitcher": "라일리",
+          "away_pitcher": "류현진",
+          "home_pitcher": "서호철",
           "broadcaster": "KN-T"
         }
       ]
