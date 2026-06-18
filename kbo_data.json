@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-18T11:31:01",
+  "updated": "2026-06-18T12:01:34",
   "today": "2026-06-18",
   "dates": {
     "2026-06-18": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "9회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "권동진",
-          "home_pitcher": "이용찬",
+          "away_pitcher": "류현인",
+          "home_pitcher": "이영하",
           "broadcaster": "MS-T,SPO-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "안우진",
-          "home_pitcher": "박승규",
+          "away_pitcher": "여동욱",
+          "home_pitcher": "이재희",
           "broadcaster": "KN-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "로드리게스",
-          "home_pitcher": "고명준",
+          "away_pitcher": "나승엽",
+          "home_pitcher": "조병현",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "톨허스트",
-          "home_pitcher": "김선빈",
+          "away_pitcher": "우강훈",
+          "home_pitcher": "김도영",
           "broadcaster": "S-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "이도윤",
-          "home_pitcher": "송명기",
+          "away_pitcher": "강백호",
+          "home_pitcher": "김태훈",
           "broadcaster": "SS-T"
         }
       ]
