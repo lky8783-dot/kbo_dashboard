@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-18T11:01:18",
+  "updated": "2026-06-18T11:31:01",
   "today": "2026-06-18",
   "dates": {
     "2026-06-18": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "안현민",
-          "home_pitcher": "최민석",
+          "away_pitcher": "권동진",
+          "home_pitcher": "이용찬",
           "broadcaster": "MS-T,SPO-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "김건희",
-          "home_pitcher": "오러클린",
+          "away_pitcher": "안우진",
+          "home_pitcher": "박승규",
           "broadcaster": "KN-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "한동희",
-          "home_pitcher": "타케다",
+          "away_pitcher": "로드리게스",
+          "home_pitcher": "고명준",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "오지환",
-          "home_pitcher": "양현종",
+          "away_pitcher": "톨허스트",
+          "home_pitcher": "김선빈",
           "broadcaster": "S-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "에르난데스",
-          "home_pitcher": "박민우",
+          "away_pitcher": "이도윤",
+          "home_pitcher": "송명기",
           "broadcaster": "SS-T"
         }
       ]
