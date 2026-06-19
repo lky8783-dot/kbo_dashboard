@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-19T13:01:10",
+  "updated": "2026-06-19T13:31:02",
   "today": "2026-06-19",
   "dates": {
     "2026-06-19": {
@@ -41,10 +41,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "11회초",
+          "status": "10회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "전병우",
-          "home_pitcher": "이민우",
+          "away_pitcher": "김재윤",
+          "home_pitcher": "김태연",
           "broadcaster": "SS-T"
         },
         {
