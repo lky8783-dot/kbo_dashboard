@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-20T12:01:10",
+  "updated": "2026-06-20T12:31:03",
   "today": "2026-06-20",
   "dates": {
     "2026-06-20": {
@@ -19,12 +19,10 @@
           "time": "17:00",
           "away": "KIA 타이거즈",
           "home": "kt wiz",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회말",
+          "away_score": "9",
+          "home_score": "10",
+          "status": "종료",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "성영탁",
-          "home_pitcher": "오윤석",
           "broadcaster": "KN-T"
         },
         {
