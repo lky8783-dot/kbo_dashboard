@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T10:01:09",
+  "updated": "2026-06-21T10:30:56",
   "today": "2026-06-21",
   "dates": {
     "2026-06-21": {
@@ -21,10 +21,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "이병헌",
-          "home_pitcher": "신민재",
+          "away_pitcher": "김정우",
+          "home_pitcher": "구본혁",
           "broadcaster": "KN-T,SPO-2T"
         },
         {
@@ -33,10 +33,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "시라카와",
-          "home_pitcher": "한승택",
+          "away_pitcher": "한준수",
+          "home_pitcher": "손동현",
           "broadcaster": "SS-T"
         },
         {
@@ -45,10 +45,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "노경은",
-          "home_pitcher": "데이비슨",
+          "away_pitcher": "박성한",
+          "home_pitcher": "김진호",
           "broadcaster": "MS-T,SPO-T"
         },
         {
@@ -57,10 +57,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "김지찬",
-          "home_pitcher": "화이트",
+          "away_pitcher": "디아즈",
+          "home_pitcher": "박준영",
           "broadcaster": "M-T"
         }
       ]
