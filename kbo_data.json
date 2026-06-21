@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T07:31:03",
+  "updated": "2026-06-21T08:01:03",
   "today": "2026-06-21",
   "dates": {
     "2026-06-21": {
@@ -9,12 +9,10 @@
           "time": "14:00",
           "away": "롯데 자이언츠",
           "home": "키움 히어로즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "6",
+          "home_score": "3",
+          "status": "종료",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김원중",
-          "home_pitcher": "최주환",
           "broadcaster": "S-T"
         },
         {
@@ -35,9 +33,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "김태형",
+          "away_pitcher": "김호령",
           "home_pitcher": "로건",
           "broadcaster": "SS-T"
         },
@@ -59,9 +57,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "양창섭",
+          "away_pitcher": "김지찬",
           "home_pitcher": "화이트",
           "broadcaster": "M-T"
         }
@@ -3806,8 +3804,8 @@
       "gb": "14.5",
       "last10": "4승1무0패",
       "streak": "4연승",
-      "next_opp": "키움 히어로즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
+      "next_opp": "NC 다이노스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
     },
     {
       "rank": 9,
@@ -3836,8 +3834,8 @@
       "gb": "18.5",
       "last10": "0승0무5패",
       "streak": "5연패",
-      "next_opp": "롯데 자이언츠",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     }
   ],
   "standings_updated": "2026-06-21",
