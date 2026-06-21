@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T05:01:00",
+  "updated": "2026-06-21T05:30:55",
   "today": "2026-06-21",
   "dates": {
     "2026-06-21": {
@@ -11,10 +11,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "황성빈",
-          "home_pitcher": "배동현",
+          "away_pitcher": "비슬리",
+          "home_pitcher": "추재현",
           "broadcaster": "S-T"
         },
         {
