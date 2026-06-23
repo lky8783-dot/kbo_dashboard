@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23T11:31:04",
+  "updated": "2026-06-23T12:01:11",
   "today": "2026-06-23",
   "dates": {
     "2026-06-23": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "김도환",
-          "home_pitcher": "김진수",
+          "away_pitcher": "김영웅",
+          "home_pitcher": "손주영",
           "broadcaster": "KN-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "사직야구장",
-          "away_pitcher": "김주원",
-          "home_pitcher": "김원중",
+          "away_pitcher": "서호철",
+          "home_pitcher": "최준용",
           "broadcaster": "MS-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "박시후",
-          "home_pitcher": "최원준",
+          "away_pitcher": "신상연",
+          "home_pitcher": "권동진",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "안재석",
-          "home_pitcher": "조동욱",
+          "away_pitcher": "박찬호",
+          "home_pitcher": "이상규",
           "broadcaster": "SS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "올러",
-          "home_pitcher": "최주환",
+          "away_pitcher": "조상우",
+          "home_pitcher": "서건창",
           "broadcaster": "SPO-T"
         }
       ]
