@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23T09:01:17",
+  "updated": "2026-06-23T09:31:02",
   "today": "2026-06-23",
   "dates": {
     "2026-06-23": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "최원태",
+          "away_pitcher": "김지찬",
           "home_pitcher": "장현식",
           "broadcaster": "KN-T"
         },
@@ -23,9 +23,9 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "사직야구장",
-          "away_pitcher": "라일리",
+          "away_pitcher": "이우성",
           "home_pitcher": "박세웅",
           "broadcaster": "MS-T"
         },
@@ -35,9 +35,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "김건우",
+          "away_pitcher": "정준재",
           "home_pitcher": "고영표",
           "broadcaster": "SPO-2T"
         },
@@ -47,9 +47,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "타카다",
+          "away_pitcher": "카메론",
           "home_pitcher": "류현진",
           "broadcaster": "SS-T"
         },
