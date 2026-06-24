@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24T11:31:04",
+  "updated": "2026-06-24T12:01:25",
   "today": "2026-06-24",
   "dates": {
     "2026-06-24": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "김영웅",
-          "home_pitcher": "김윤식",
+          "away_pitcher": "배찬승",
+          "home_pitcher": "박해민",
           "broadcaster": "KN-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "사직야구장",
-          "away_pitcher": "박건우",
-          "home_pitcher": "현도훈",
+          "away_pitcher": "안중열",
+          "home_pitcher": "정철원",
           "broadcaster": "MS-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "고명준",
-          "home_pitcher": "주권",
+          "away_pitcher": "문승원",
+          "home_pitcher": "김민혁",
           "broadcaster": "SPO-2T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "최민석",
-          "home_pitcher": "심우준",
+          "away_pitcher": "김동주",
+          "home_pitcher": "허인서",
           "broadcaster": "SS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "8회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "나성범",
-          "home_pitcher": "박지성",
+          "away_pitcher": "김도영",
+          "home_pitcher": "김동규",
           "broadcaster": "SPO-T"
         }
       ]
