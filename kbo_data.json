@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26T11:31:00",
+  "updated": "2026-06-26T12:01:14",
   "today": "2026-06-26",
   "dates": {
     "2026-06-26": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "전상현",
-          "home_pitcher": "안재석",
+          "away_pitcher": "김범수",
+          "home_pitcher": "양의지",
           "broadcaster": "SS-T"
         },
         {
@@ -23,22 +23,20 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "7회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "이정훈",
-          "home_pitcher": "최지광",
+          "away_pitcher": "이상동",
+          "home_pitcher": "디아즈",
           "broadcaster": "SPO-2T"
         },
         {
           "time": "18:30",
           "away": "LG 트윈스",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회초",
+          "away_score": "2",
+          "home_score": "3",
+          "status": "종료",
           "stadium": "사직야구장",
-          "away_pitcher": "박해민",
-          "home_pitcher": "김원중",
           "broadcaster": "KN-T"
         },
         {
@@ -47,10 +45,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "이진영",
-          "home_pitcher": "전영준",
+          "away_pitcher": "심우준",
+          "home_pitcher": "서진용",
           "broadcaster": "SPO-T"
         },
         {
@@ -59,10 +57,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "전준표",
-          "home_pitcher": "권희동",
+          "away_pitcher": "안치홍",
+          "home_pitcher": "김진호",
           "broadcaster": "MS-T"
         }
       ]
