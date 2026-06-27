@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-27T07:30:59",
+  "updated": "2026-06-27T08:01:06",
   "today": "2026-06-27",
   "dates": {
     "2026-06-27": {
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "로건",
+          "away_pitcher": "최원준",
           "home_pitcher": "원태인",
           "broadcaster": "SPO-2T"
         },
@@ -47,9 +47,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "화이트",
+          "away_pitcher": "페라자",
           "home_pitcher": "타케다",
           "broadcaster": "SPO-T"
         },
@@ -59,9 +59,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "하영민",
+          "away_pitcher": "서건창",
           "home_pitcher": "구창모",
           "broadcaster": "MS-T"
         }
