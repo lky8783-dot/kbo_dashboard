@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-27T10:00:59",
+  "updated": "2026-06-27T10:30:56",
   "today": "2026-06-27",
   "dates": {
     "2026-06-27": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "전상현",
-          "home_pitcher": "박찬호",
+          "away_pitcher": "박재현",
+          "home_pitcher": "김정우",
           "broadcaster": "SS-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "8회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "최원준",
-          "home_pitcher": "백정현",
+          "away_pitcher": "한승혁",
+          "home_pitcher": "구자욱",
           "broadcaster": "SPO-2T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "사직야구장",
-          "away_pitcher": "박해민",
-          "home_pitcher": "김진욱",
+          "away_pitcher": "홍창기",
+          "home_pitcher": "이이무라",
           "broadcaster": "KN-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "화이트",
-          "home_pitcher": "김재환",
+          "away_pitcher": "장유호",
+          "home_pitcher": "정준재",
           "broadcaster": "SPO-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "임병욱",
-          "home_pitcher": "송명기",
+          "away_pitcher": "유토",
+          "home_pitcher": "이우성",
           "broadcaster": "MS-T"
         }
       ]
