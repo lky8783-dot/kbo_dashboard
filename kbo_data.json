@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T10:01:00",
+  "updated": "2026-06-28T10:30:56",
   "today": "2026-06-28",
   "dates": {
     "2026-06-28": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "9회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "변우혁",
-          "home_pitcher": "박신지",
+          "away_pitcher": "김규성",
+          "home_pitcher": "최지강",
           "broadcaster": "SS-T"
         },
         {
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "김현수",
+          "away_pitcher": "안현민",
           "home_pitcher": "최지광",
           "broadcaster": "SPO-2T"
         },
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "사직야구장",
-          "away_pitcher": "문정빈",
-          "home_pitcher": "현도훈",
+          "away_pitcher": "이영빈",
+          "home_pitcher": "김강현",
           "broadcaster": "KN-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "조동욱",
-          "home_pitcher": "조형우",
+          "away_pitcher": "심우준",
+          "home_pitcher": "조병현",
           "broadcaster": "SPO-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "8회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "박찬혁",
-          "home_pitcher": "김태훈",
+          "away_pitcher": "서건창",
+          "home_pitcher": "하준영",
           "broadcaster": "MS-T"
         }
       ]
