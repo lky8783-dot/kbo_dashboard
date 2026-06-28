@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T08:01:01",
+  "updated": "2026-06-28T08:31:11",
   "today": "2026-06-28",
   "dates": {
     "2026-06-28": {
@@ -11,9 +11,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "3회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "김선빈",
+          "away_pitcher": "박재현",
           "home_pitcher": "최승용",
           "broadcaster": "SS-T"
         },
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "3회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "김현수",
+          "away_pitcher": "권동진",
           "home_pitcher": "양창섭",
           "broadcaster": "SPO-2T"
         },
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "사직야구장",
-          "away_pitcher": "송찬의",
-          "home_pitcher": "비슬리",
+          "away_pitcher": "장현식",
+          "home_pitcher": "고승민",
           "broadcaster": "KN-T"
         },
         {
@@ -47,9 +47,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "3회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "페라자",
+          "away_pitcher": "심우준",
           "home_pitcher": "최민준",
           "broadcaster": "SPO-T"
         },
@@ -59,10 +59,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "1회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "서건창",
-          "home_pitcher": "라일리",
+          "away_pitcher": "와일스",
+          "home_pitcher": "김한별",
           "broadcaster": "MS-T"
         }
       ]
