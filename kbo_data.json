@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30T13:01:05",
+  "updated": "2026-06-30T13:30:57",
   "today": "2026-06-30",
   "dates": {
     "2026-06-30": {
@@ -31,10 +31,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "8회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "장승현",
-          "home_pitcher": "송명기",
+          "away_pitcher": "김재윤",
+          "home_pitcher": "이우성",
           "broadcaster": "SS-T"
         },
         {
