@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T10:01:17",
+  "updated": "2026-07-03T10:31:06",
   "today": "2026-07-03",
   "dates": {
     "2026-07-03": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "4회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "심우준",
-          "home_pitcher": "웰스",
+          "away_pitcher": "화이트",
+          "home_pitcher": "박해민",
           "broadcaster": "K-2T"
         },
         {
@@ -23,9 +23,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김상준",
+          "away_pitcher": "강민호",
           "home_pitcher": "해치",
           "broadcaster": "SPO-T"
         },
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회말",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "구창모",
-          "home_pitcher": "나성범",
+          "home_pitcher": "김도영",
           "broadcaster": "MS-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "손호영",
-          "home_pitcher": "로건",
+          "away_pitcher": "김진욱",
+          "home_pitcher": "김상수",
           "broadcaster": "SS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "안재석",
-          "home_pitcher": "하영민",
+          "away_pitcher": "잭로그",
+          "home_pitcher": "임병욱",
           "broadcaster": "KN-T,SPO-2T"
         }
       ]
