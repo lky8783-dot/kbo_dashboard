@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T11:31:09",
+  "updated": "2026-07-03T12:01:09",
   "today": "2026-07-03",
   "dates": {
     "2026-07-03": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "화이트",
-          "home_pitcher": "천성호",
+          "away_pitcher": "이상규",
+          "home_pitcher": "이영빈",
           "broadcaster": "K-2T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "원태인",
-          "home_pitcher": "박성한",
+          "away_pitcher": "류지혁",
+          "home_pitcher": "박시후",
           "broadcaster": "SPO-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "김주원",
-          "home_pitcher": "김범수",
+          "home_pitcher": "지현",
           "broadcaster": "MS-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "레이예스",
-          "home_pitcher": "전용주",
+          "away_pitcher": "김원중",
+          "home_pitcher": "김상수",
           "broadcaster": "SS-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김정우",
-          "home_pitcher": "권혁빈",
+          "away_pitcher": "김택연",
+          "home_pitcher": "히우라",
           "broadcaster": "KN-T,SPO-2T"
         }
       ]
