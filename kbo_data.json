@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T11:31:04",
+  "updated": "2026-07-04T12:01:09",
   "today": "2026-07-04",
   "dates": {
     "2026-07-04": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "문현빈",
-          "home_pitcher": "김진수",
+          "away_pitcher": "강재민",
+          "home_pitcher": "오스틴",
           "broadcaster": "MS-T"
         },
         {
@@ -23,9 +23,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "8회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "류지혁",
+          "away_pitcher": "최형우",
           "home_pitcher": "한두솔",
           "broadcaster": "SPO-T"
         },
@@ -35,22 +35,20 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "박건우",
-          "home_pitcher": "정해영",
+          "away_pitcher": "임지민",
+          "home_pitcher": "박재현",
           "broadcaster": "SS-T"
         },
         {
           "time": "18:00",
           "away": "롯데 자이언츠",
           "home": "kt wiz",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "4",
+          "home_score": "1",
+          "status": "종료",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "최준용",
-          "home_pitcher": "류현인",
           "broadcaster": "KN-T"
         },
         {
@@ -59,10 +57,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "이용찬",
-          "home_pitcher": "서건창",
+          "away_pitcher": "안재석",
+          "home_pitcher": "이준우",
           "broadcaster": "SPO-2T"
         }
       ]
