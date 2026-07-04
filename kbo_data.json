@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T11:01:07",
+  "updated": "2026-07-04T11:31:04",
   "today": "2026-07-04",
   "dates": {
     "2026-07-04": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "허인서",
-          "home_pitcher": "우강훈",
+          "away_pitcher": "문현빈",
+          "home_pitcher": "김진수",
           "broadcaster": "MS-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "전병우",
-          "home_pitcher": "서진용",
+          "away_pitcher": "류지혁",
+          "home_pitcher": "한두솔",
           "broadcaster": "SPO-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "라일리",
-          "home_pitcher": "나성범",
+          "away_pitcher": "박건우",
+          "home_pitcher": "정해영",
           "broadcaster": "SS-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "윤동희",
-          "home_pitcher": "전용주",
+          "away_pitcher": "최준용",
+          "home_pitcher": "류현인",
           "broadcaster": "KN-T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "박치국",
-          "home_pitcher": "히우라",
+          "away_pitcher": "이용찬",
+          "home_pitcher": "서건창",
           "broadcaster": "SPO-2T"
         }
       ]
