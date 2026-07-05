@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T09:31:04",
+  "updated": "2026-07-05T10:01:12",
   "today": "2026-07-05",
   "dates": {
     "2026-07-05": {
@@ -21,7 +21,7 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "경기취소",
           "stadium": "잠실야구장",
           "away_pitcher": "류현진",
           "home_pitcher": "톨허스트",
@@ -33,9 +33,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "양창섭",
+          "away_pitcher": "강민호",
           "home_pitcher": "김건우",
           "broadcaster": "SPO-T"
         },
@@ -57,10 +57,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "황성빈",
-          "home_pitcher": "사우어",
+          "away_pitcher": "박세웅",
+          "home_pitcher": "김민혁",
           "broadcaster": "KN-T,SPO-2T"
         }
       ]
@@ -4353,8 +4353,8 @@
       "gb": "-",
       "last10": "3승0무2패",
       "streak": "1연승",
-      "next_opp": "한화 이글스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
+      "next_opp": "삼성 라이온즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
     },
     {
       "rank": 2,
@@ -4428,8 +4428,8 @@
       "gb": "10.0",
       "last10": "3승0무2패",
       "streak": "1연패",
-      "next_opp": "LG 트윈스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
+      "next_opp": "NC 다이노스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
     },
     {
       "rank": 7,
