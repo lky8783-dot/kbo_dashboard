@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T10:31:04",
+  "updated": "2026-07-05T11:01:11",
   "today": "2026-07-05",
   "dates": {
     "2026-07-05": {
@@ -33,10 +33,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "3회말",
+          "status": "5회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "양창섭",
-          "home_pitcher": "정준재",
+          "away_pitcher": "김지찬",
+          "home_pitcher": "전영준",
           "broadcaster": "SPO-T"
         },
         {
@@ -57,9 +57,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "6회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "손성빈",
+          "away_pitcher": "장두성",
           "home_pitcher": "사우어",
           "broadcaster": "KN-T,SPO-2T"
         }
