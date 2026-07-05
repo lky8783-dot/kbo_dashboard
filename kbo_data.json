@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T04:01:12",
+  "updated": "2026-07-05T05:01:11",
   "today": "2026-07-05",
   "dates": {
     "2026-07-05": {
@@ -11,9 +11,9 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "최민석",
+          "away_pitcher": "김민석",
           "home_pitcher": "김윤하",
           "broadcaster": "S-T"
         },
