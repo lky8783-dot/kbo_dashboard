@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T09:01:15",
+  "updated": "2026-07-05T09:31:04",
   "today": "2026-07-05",
   "dates": {
     "2026-07-05": {
@@ -45,7 +45,7 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "경기취소",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "테일러",
           "home_pitcher": "김태형",
@@ -57,9 +57,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "박세웅",
+          "away_pitcher": "황성빈",
           "home_pitcher": "사우어",
           "broadcaster": "KN-T,SPO-2T"
         }
@@ -4398,8 +4398,8 @@
       "gb": "6.5",
       "last10": "2승1무2패",
       "streak": "2연패",
-      "next_opp": "NC 다이노스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
+      "next_opp": "롯데 자이언츠",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
     },
     {
       "rank": 5,
@@ -4443,8 +4443,8 @@
       "gb": "11.5",
       "last10": "3승0무2패",
       "streak": "2연승",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "한화 이글스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
     },
     {
       "rank": 8,
