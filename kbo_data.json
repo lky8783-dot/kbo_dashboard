@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07T09:31:15",
+  "updated": "2026-07-07T10:01:21",
   "today": "2026-07-07",
   "dates": {
     "2026-07-07": {
@@ -11,9 +11,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "김민준",
+          "away_pitcher": "박성한",
           "home_pitcher": "벤자민",
           "broadcaster": "SS-T"
         },
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "홍창기",
+          "away_pitcher": "박해민",
           "home_pitcher": "후라도",
           "broadcaster": "KN-T"
         },
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "1회말",
           "stadium": "사직야구장",
-          "away_pitcher": "박재현",
-          "home_pitcher": "로드리게스",
+          "away_pitcher": "김태형",
+          "home_pitcher": "손성빈",
           "broadcaster": "SPO-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "kt wiz 파크",
           "away_pitcher": "안우진",
-          "home_pitcher": "소형준",
+          "home_pitcher": "권동진",
           "broadcaster": "SPO-2T"
         },
         {
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "김주원",
-          "home_pitcher": "박준영",
+          "away_pitcher": "테일러",
+          "home_pitcher": "강백호",
           "broadcaster": "MS-T"
         }
       ]
