@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-08T11:31:37",
+  "updated": "2026-07-08T12:01:25",
   "today": "2026-07-08",
   "dates": {
     "2026-07-08": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "이준기",
-          "home_pitcher": "박찬호",
+          "away_pitcher": "최정",
+          "home_pitcher": "이영하",
           "broadcaster": "SS-T"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "홍창기",
-          "home_pitcher": "백정현",
+          "away_pitcher": "오지환",
+          "home_pitcher": "이재희",
           "broadcaster": "KN-T"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "사직야구장",
-          "away_pitcher": "김선빈",
-          "home_pitcher": "현도훈",
+          "away_pitcher": "한재승",
+          "home_pitcher": "레이예스",
           "broadcaster": "SPO-T"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "kt wiz 파크",
           "away_pitcher": "박정훈",
-          "home_pitcher": "한승택",
+          "home_pitcher": "안현민",
           "broadcaster": "SPO-2T"
         },
         {
