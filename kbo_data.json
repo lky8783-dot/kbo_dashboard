@@ -1,56 +1,56 @@
 {
-  "updated": "2026-07-08T14:31:20",
-  "today": "2026-07-08",
+  "updated": "2026-07-09T00:01:23",
+  "today": "2026-07-09",
   "dates": {
-    "2026-07-08": {
-      "date": "2026-07-08",
+    "2026-07-09": {
+      "date": "2026-07-09",
       "games": [
         {
           "time": "18:30",
           "away": "SSG 랜더스",
           "home": "두산 베어스",
-          "away_score": "3",
-          "home_score": "7",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "잠실야구장",
-          "away_pitcher": "패전영준",
-          "home_pitcher": "승곽빈",
+          "away_pitcher": "해치",
+          "home_pitcher": "잭로그",
           "broadcaster": "SS-T"
         },
         {
           "time": "18:30",
           "away": "LG 트윈스",
           "home": "삼성 라이온즈",
-          "away_score": "8",
-          "home_score": "2",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "승임찬규",
-          "home_pitcher": "패오러클린",
+          "away_pitcher": "웰스",
+          "home_pitcher": "원태인",
           "broadcaster": "KN-T"
         },
         {
           "time": "18:30",
           "away": "KIA 타이거즈",
           "home": "롯데 자이언츠",
-          "away_score": "3",
-          "home_score": "11",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "사직야구장",
-          "away_pitcher": "패네일",
-          "home_pitcher": "승나균안",
+          "away_pitcher": "양현종",
+          "home_pitcher": "김진욱",
           "broadcaster": "SPO-T"
         },
         {
           "time": "18:30",
           "away": "키움 히어로즈",
           "home": "kt wiz",
-          "away_score": "3",
-          "home_score": "7",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "패배동현",
-          "home_pitcher": "승손동현",
+          "away_pitcher": "하영민",
+          "home_pitcher": "배제성",
           "broadcaster": "SPO-2T"
         },
         {
@@ -59,11 +59,61 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "경기취소",
+          "status": "예정",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "토다",
-          "home_pitcher": "왕옌청",
+          "away_pitcher": "구창모",
+          "home_pitcher": "화이트",
           "broadcaster": "MS-T"
+        }
+      ]
+    },
+    "2026-07-08": {
+      "date": "2026-07-08",
+      "games": [
+        {
+          "time": "",
+          "away": "SSG 랜더스",
+          "home": "두산 베어스",
+          "away_score": "3",
+          "home_score": "7",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "LG 트윈스",
+          "home": "삼성 라이온즈",
+          "away_score": "8",
+          "home_score": "2",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "KIA 타이거즈",
+          "home": "롯데 자이언츠",
+          "away_score": "3",
+          "home_score": "11",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "키움 히어로즈",
+          "home": "kt wiz",
+          "away_score": "3",
+          "home_score": "7",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "NC 다이노스",
+          "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "우천취소",
+          "stadium": ""
         }
       ]
     },
@@ -4598,7 +4648,7 @@
       "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
     }
   ],
-  "standings_updated": "2026-07-08",
+  "standings_updated": "2026-07-09",
   "last10_records": {
     "headers": [
       "팀",
@@ -8023,5 +8073,5 @@
       ]
     ]
   },
-  "records_updated": "2026-07-08"
+  "records_updated": "2026-07-09"
 }
