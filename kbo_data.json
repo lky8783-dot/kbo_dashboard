@@ -1,9 +1,9 @@
 {
-  "updated": "2026-07-10T14:31:08",
-  "today": "2026-07-10",
+  "updated": "2026-07-11T00:01:24",
+  "today": "2026-07-11",
   "dates": {
-    "2026-07-10": {
-      "date": "2026-07-10",
+    "2026-07-11": {
+      "date": "2026-07-11",
       "games": [
         {
           "time": "",
@@ -18,6 +18,10 @@
           "broadcaster": "MS-T,KN-T,SS-T,SPO-T,SPO-2T"
         }
       ]
+    },
+    "2026-07-10": {
+      "date": "2026-07-10",
+      "games": []
     },
     "2026-07-09": {
       "date": "2026-07-09",
@@ -4650,7 +4654,7 @@
       "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
     }
   ],
-  "standings_updated": "2026-07-10",
+  "standings_updated": "2026-07-11",
   "last10_records": {
     "headers": [
       "팀",
@@ -8075,5 +8079,5 @@
       ]
     ]
   },
-  "records_updated": "2026-07-10"
+  "records_updated": "2026-07-11"
 }
