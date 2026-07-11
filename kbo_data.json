@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11T09:01:20",
+  "updated": "2026-07-11T09:31:20",
   "today": "2026-07-11",
   "dates": {
     "2026-07-11": {
@@ -11,10 +11,10 @@
           "home": "드림",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "올러",
-          "home_pitcher": "곽빈",
+          "away_pitcher": "박민우",
+          "home_pitcher": "양창섭",
           "broadcaster": "MS-T,KN-T,SS-T,SPO-T,SPO-2T"
         }
       ]
