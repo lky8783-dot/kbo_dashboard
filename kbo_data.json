@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11T13:01:21",
+  "updated": "2026-07-11T13:31:22",
   "today": "2026-07-11",
   "dates": {
     "2026-07-11": {
@@ -9,12 +9,12 @@
           "time": "",
           "away": "나눔",
           "home": "드림",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회말",
+          "away_score": "10",
+          "home_score": "2",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "성영탁",
-          "home_pitcher": "정준재",
+          "away_pitcher": "승안우진",
+          "home_pitcher": "패현도훈",
           "broadcaster": "MS-T,KN-T,SS-T,SPO-T,SPO-2T"
         }
       ]
