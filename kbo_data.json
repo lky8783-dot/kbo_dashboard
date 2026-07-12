@@ -1,23 +1,75 @@
 {
-  "updated": "2026-07-11T14:31:22",
-  "today": "2026-07-11",
+  "updated": "2026-07-12T00:01:20",
+  "today": "2026-07-12",
   "dates": {
-    "2026-07-11": {
-      "date": "2026-07-11",
+    "2026-07-12": {
+      "date": "2026-07-12",
       "games": [
         {
-          "time": "",
-          "away": "나눔",
-          "home": "드림",
-          "away_score": "10",
-          "home_score": "2",
-          "status": "종료",
+          "time": "18:30",
+          "away": "kt wiz",
+          "home": "LG 트윈스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "잠실야구장",
-          "away_pitcher": "승안우진",
-          "home_pitcher": "패현도훈",
-          "broadcaster": "MS-T,KN-T,SS-T,SPO-T,SPO-2T"
+          "away_pitcher": "",
+          "home_pitcher": "",
+          "broadcaster": "SPO-T"
+        },
+        {
+          "time": "18:30",
+          "away": "롯데 자이언츠",
+          "home": "삼성 라이온즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "삼성 라이온즈파크",
+          "away_pitcher": "",
+          "home_pitcher": "",
+          "broadcaster": "MS-T"
+        },
+        {
+          "time": "18:30",
+          "away": "KIA 타이거즈",
+          "home": "SSG 랜더스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SSG 랜더스필드",
+          "away_pitcher": "",
+          "home_pitcher": "",
+          "broadcaster": "SPO-2T"
+        },
+        {
+          "time": "18:30",
+          "away": "두산 베어스",
+          "home": "NC 다이노스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "창원 NC 파크",
+          "away_pitcher": "",
+          "home_pitcher": "",
+          "broadcaster": "KN-T"
+        },
+        {
+          "time": "18:30",
+          "away": "키움 히어로즈",
+          "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "한화생명 이글스파크",
+          "away_pitcher": "",
+          "home_pitcher": "",
+          "broadcaster": "SS-T"
         }
       ]
+    },
+    "2026-07-11": {
+      "date": "2026-07-11",
+      "games": []
     },
     "2026-07-10": {
       "date": "2026-07-10",
@@ -4654,7 +4706,7 @@
       "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
     }
   ],
-  "standings_updated": "2026-07-11",
+  "standings_updated": "2026-07-12",
   "last10_records": {
     "headers": [
       "팀",
@@ -8079,5 +8131,5 @@
       ]
     ]
   },
-  "records_updated": "2026-07-11"
+  "records_updated": "2026-07-12"
 }
