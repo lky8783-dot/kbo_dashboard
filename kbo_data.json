@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-14T00:01:17",
+  "updated": "2026-07-14T01:01:23",
   "today": "2026-07-14",
   "dates": {
     "2026-07-14": {
@@ -15,7 +15,7 @@
           "stadium": "잠실야구장",
           "away_pitcher": "",
           "home_pitcher": "",
-          "broadcaster": "SPO-T"
+          "broadcaster": "SPOTV"
         },
         {
           "time": "18:30",
@@ -27,7 +27,7 @@
           "stadium": "삼성 라이온즈파크",
           "away_pitcher": "",
           "home_pitcher": "",
-          "broadcaster": "MS-T"
+          "broadcaster": "MBC SPORTS"
         },
         {
           "time": "18:30",
@@ -39,7 +39,7 @@
           "stadium": "SSG 랜더스필드",
           "away_pitcher": "",
           "home_pitcher": "",
-          "broadcaster": "SPO-2T"
+          "broadcaster": "SPOTV2"
         },
         {
           "time": "18:30",
@@ -51,7 +51,7 @@
           "stadium": "창원 NC 파크",
           "away_pitcher": "",
           "home_pitcher": "",
-          "broadcaster": "KN-T"
+          "broadcaster": "KBS N SPORTS"
         },
         {
           "time": "18:30",
@@ -63,7 +63,7 @@
           "stadium": "한화생명 이글스파크",
           "away_pitcher": "",
           "home_pitcher": "",
-          "broadcaster": "SS-T"
+          "broadcaster": "SBS SPORTS"
         }
       ]
     },
