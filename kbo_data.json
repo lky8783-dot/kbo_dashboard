@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15T03:01:24",
+  "updated": "2026-07-15T04:01:17",
   "today": "2026-07-15",
   "dates": {
     "2026-07-15": {
@@ -37,8 +37,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "올러",
+          "home_pitcher": "아빌라",
           "broadcaster": "SPOTV2"
         },
         {
@@ -49,8 +49,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "곽빈",
+          "home_pitcher": "라일리",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -61,8 +61,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "알칸타라",
+          "home_pitcher": "화이트",
           "broadcaster": "SBS SPORTS"
         }
       ]
