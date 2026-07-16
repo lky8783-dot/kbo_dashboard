@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16T10:02:01",
+  "updated": "2026-07-16T10:31:11",
   "today": "2026-07-16",
   "dates": {
     "2026-07-16": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "김현수",
-          "home_pitcher": "톨허스트",
+          "away_pitcher": "로건",
+          "home_pitcher": "박해민",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "3회말",
           "stadium": "삼성 라이온즈파크",
           "away_pitcher": "로드리게스",
-          "home_pitcher": "김성윤",
+          "home_pitcher": "김영웅",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "한준수",
-          "home_pitcher": "아빌라",
+          "away_pitcher": "올러",
+          "home_pitcher": "박성한",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,9 +47,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "4회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "류승민",
+          "away_pitcher": "박찬호",
           "home_pitcher": "라일리",
           "broadcaster": "KBS N SPORTS"
         },
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "알칸타라",
-          "home_pitcher": "노시환",
+          "away_pitcher": "여동욱",
+          "home_pitcher": "화이트",
           "broadcaster": "SBS SPORTS"
         }
       ]
