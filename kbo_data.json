@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T10:01:10",
+  "updated": "2026-07-17T10:31:03",
   "today": "2026-07-17",
   "dates": {
     "2026-07-17": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회말",
           "stadium": "잠실야구장",
           "away_pitcher": "소형준",
-          "home_pitcher": "홍창기",
+          "home_pitcher": "신민재",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "한준수",
-          "home_pitcher": "박시후",
+          "away_pitcher": "시라카와",
+          "home_pitcher": "정준재",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,9 +47,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "6회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "양의지",
+          "away_pitcher": "정수빈",
           "home_pitcher": "테일러",
           "broadcaster": "KBS N SPORTS"
         },
@@ -59,9 +59,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "권혁빈",
+          "away_pitcher": "히우라",
           "home_pitcher": "왕옌청",
           "broadcaster": "SBS SPORTS"
         }
