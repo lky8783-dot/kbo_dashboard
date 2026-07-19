@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T11:30:52",
+  "updated": "2026-07-19T12:01:02",
   "today": "2026-07-19",
   "dates": {
     "2026-07-19": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "권동진",
-          "home_pitcher": "손주영",
+          "away_pitcher": "박영현",
+          "home_pitcher": "오지환",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "이이무라",
-          "home_pitcher": "구자욱",
+          "away_pitcher": "신윤후",
+          "home_pitcher": "김태훈",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김선빈",
-          "home_pitcher": "전영준",
+          "away_pitcher": "나성범",
+          "home_pitcher": "박시후",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김정우",
-          "home_pitcher": "천재환",
+          "away_pitcher": "이병헌",
+          "home_pitcher": "김휘집",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "정다훈",
-          "home_pitcher": "최재훈",
+          "away_pitcher": "히우라",
+          "home_pitcher": "조동욱",
           "broadcaster": "SBS SPORTS"
         }
       ]
