@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T10:30:54",
+  "updated": "2026-07-19T11:01:11",
   "today": "2026-07-19",
   "dates": {
     "2026-07-19": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "고영표",
-          "home_pitcher": "구본혁",
+          "away_pitcher": "안현민",
+          "home_pitcher": "김윤식",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "삼성 라이온즈파크",
           "away_pitcher": "김진욱",
-          "home_pitcher": "김성윤",
+          "home_pitcher": "디아즈",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "양현종",
-          "home_pitcher": "고명준",
+          "away_pitcher": "김호령",
+          "home_pitcher": "이로운",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "세베리노",
-          "home_pitcher": "토다",
+          "away_pitcher": "조수행",
+          "home_pitcher": "하준영",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "여동욱",
-          "home_pitcher": "류현진",
+          "away_pitcher": "임지열",
+          "home_pitcher": "장유호",
           "broadcaster": "SBS SPORTS"
         }
       ]
