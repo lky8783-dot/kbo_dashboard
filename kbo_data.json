@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T11:01:00",
+  "updated": "2026-07-21T11:30:53",
   "today": "2026-07-21",
   "dates": {
     "2026-07-21": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "한재환",
-          "home_pitcher": "함덕주",
+          "away_pitcher": "천재환",
+          "home_pitcher": "우강훈",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "사직야구장",
-          "away_pitcher": "타케다",
-          "home_pitcher": "손성빈",
+          "away_pitcher": "이건욱",
+          "home_pitcher": "손호영",
           "broadcaster": "SPOTV2"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "6회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "이교훈",
-          "home_pitcher": "김규성",
+          "away_pitcher": "오재원",
+          "home_pitcher": "성영탁",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "박찬호",
-          "home_pitcher": "오원석",
+          "away_pitcher": "세베리노",
+          "home_pitcher": "이상동",
           "broadcaster": "SPOTV"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "최원태",
-          "home_pitcher": "김웅빈",
+          "away_pitcher": "이승현",
+          "home_pitcher": "임병욱",
           "broadcaster": "KBS N SPORTS"
         }
       ]
