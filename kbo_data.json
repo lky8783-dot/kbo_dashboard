@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T10:01:21",
+  "updated": "2026-07-21T10:31:04",
   "today": "2026-07-21",
   "dates": {
     "2026-07-21": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "박건우",
-          "home_pitcher": "장현식",
+          "away_pitcher": "원종해",
+          "home_pitcher": "오지환",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -23,9 +23,9 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "5회초",
           "stadium": "사직야구장",
-          "away_pitcher": "홍대인",
+          "away_pitcher": "정준재",
           "home_pitcher": "비슬리",
           "broadcaster": "SPOTV2"
         },
@@ -35,9 +35,9 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "이도윤",
+          "away_pitcher": "페라자",
           "home_pitcher": "황동하",
           "broadcaster": "MBC SPORTS"
         },
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "벤자민",
-          "home_pitcher": "김상수",
+          "away_pitcher": "박찬호",
+          "home_pitcher": "오원석",
           "broadcaster": "SPOTV"
         },
         {
@@ -59,9 +59,9 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "4회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김지찬",
+          "away_pitcher": "이재현",
           "home_pitcher": "배동현",
           "broadcaster": "KBS N SPORTS"
         }
