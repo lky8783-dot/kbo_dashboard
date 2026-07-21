@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T09:00:59",
+  "updated": "2026-07-21T09:30:51",
   "today": "2026-07-21",
   "dates": {
     "2026-07-21": {
@@ -47,9 +47,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "벤자민",
+          "away_pitcher": "박찬호",
           "home_pitcher": "오원석",
           "broadcaster": "SPOTV"
         },
