@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T10:31:04",
+  "updated": "2026-07-21T11:01:00",
   "today": "2026-07-21",
   "dates": {
     "2026-07-21": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "3회말",
+          "status": "5회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "원종해",
-          "home_pitcher": "오지환",
+          "away_pitcher": "한재환",
+          "home_pitcher": "함덕주",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "사직야구장",
-          "away_pitcher": "정준재",
-          "home_pitcher": "비슬리",
+          "away_pitcher": "타케다",
+          "home_pitcher": "손성빈",
           "broadcaster": "SPOTV2"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "페라자",
-          "home_pitcher": "황동하",
+          "away_pitcher": "이교훈",
+          "home_pitcher": "김규성",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -47,7 +47,7 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회초",
           "stadium": "kt wiz 파크",
           "away_pitcher": "박찬호",
           "home_pitcher": "오원석",
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "이재현",
-          "home_pitcher": "배동현",
+          "away_pitcher": "최원태",
+          "home_pitcher": "김웅빈",
           "broadcaster": "KBS N SPORTS"
         }
       ]
@@ -5497,32 +5497,6 @@
         "1.9"
       ],
       [
-        "16",
-        "데이비슨",
-        "https://sports-phinf.pstatic.net/player/kbo/default/54944.png",
-        "NC",
-        "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88",
-        "0.29",
-        "40",
-        "23",
-        "8",
-        "64",
-        "11",
-        "1",
-        "63",
-        "221",
-        "1",
-        "",
-        "12",
-        "17",
-        "58",
-        "",
-        "0.369",
-        "0.457",
-        "0.826",
-        "1.59"
-      ],
-      [
         "17",
         "김성윤",
         "https://sports-phinf.pstatic.net/player/kbo/default/67449.png",
@@ -6379,6 +6353,32 @@
         "0.394",
         "0.728",
         "0.65"
+      ],
+      [
+        "",
+        "전다민",
+        "https://sports-phinf.pstatic.net/player/kbo/default/54214.png",
+        "두산",
+        "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88",
+        "1.0",
+        "1",
+        "2",
+        "0",
+        "1",
+        "0",
+        "0",
+        "6",
+        "1",
+        "1",
+        "",
+        "0",
+        "0",
+        "0",
+        "",
+        "1.0",
+        "1.0",
+        "2.0",
+        "0.07"
       ]
     ]
   },
