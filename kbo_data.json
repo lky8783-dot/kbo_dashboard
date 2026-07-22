@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T11:00:53",
+  "updated": "2026-07-22T11:30:49",
   "today": "2026-07-22",
   "dates": {
     "2026-07-22": {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "사직야구장",
-          "away_pitcher": "전의산",
-          "home_pitcher": "이민석",
+          "away_pitcher": "아빌라",
+          "home_pitcher": "한동희",
           "broadcaster": "SPOTV2"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "화이트",
-          "home_pitcher": "박재현",
+          "home_pitcher": "한준수",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김백산",
-          "home_pitcher": "박찬혁",
+          "away_pitcher": "류지혁",
+          "home_pitcher": "김성민",
           "broadcaster": "KBS N SPORTS"
         }
       ]
