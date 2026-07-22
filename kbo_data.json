@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T07:30:59",
+  "updated": "2026-07-22T08:01:03",
   "today": "2026-07-22",
   "dates": {
     "2026-07-22": {
@@ -47,7 +47,7 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "경기취소",
           "stadium": "kt wiz 파크",
           "away_pitcher": "곽빈",
           "home_pitcher": "로건",
