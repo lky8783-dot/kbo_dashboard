@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-23T07:30:48",
+  "updated": "2026-07-23T08:00:55",
   "today": "2026-07-23",
   "dates": {
     "2026-07-23": {
@@ -47,7 +47,7 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "경기취소",
           "stadium": "kt wiz 파크",
           "away_pitcher": "곽빈",
           "home_pitcher": "로건",
@@ -4902,8 +4902,8 @@
       "gb": "2.0",
       "last10": "4승1무0패",
       "streak": "7연승",
-      "next_opp": "두산 베어스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
+      "next_opp": "롯데 자이언츠",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
     },
     {
       "rank": 3,
@@ -4947,8 +4947,8 @@
       "gb": "7.5",
       "last10": "3승1무1패",
       "streak": "3연승",
-      "next_opp": "kt wiz",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
+      "next_opp": "삼성 라이온즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
     },
     {
       "rank": 6,
