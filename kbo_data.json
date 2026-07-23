@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-23T12:00:58",
+  "updated": "2026-07-23T12:30:56",
   "today": "2026-07-23",
   "dates": {
     "2026-07-23": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "김진호",
-          "home_pitcher": "구본혁",
+          "away_pitcher": "전사민",
+          "home_pitcher": "문정빈",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -23,22 +23,20 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "8회말",
+          "status": "9회말",
           "stadium": "사직야구장",
-          "away_pitcher": "전영준",
-          "home_pitcher": "황성빈",
+          "away_pitcher": "조병현",
+          "home_pitcher": "박건우",
           "broadcaster": "SPOTV2"
         },
         {
           "time": "18:30",
           "away": "한화 이글스",
           "home": "KIA 타이거즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "9",
+          "home_score": "3",
+          "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "노시환",
-          "home_pitcher": "한재승",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -59,10 +57,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회말",
+          "status": "10회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김태훈",
-          "home_pitcher": "안치홍",
+          "away_pitcher": "김지찬",
+          "home_pitcher": "박지성",
           "broadcaster": "KBS N SPORTS"
         }
       ]
@@ -4930,10 +4928,10 @@
       "l": 41,
       "pct": 0.544,
       "gb": "6.0",
-      "last10": "4승0무1패",
+      "last10": "3승0무2패",
       "streak": "1연패",
-      "next_opp": "한화 이글스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
+      "next_opp": "키움 히어로즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
     },
     {
       "rank": 5,
@@ -4960,10 +4958,10 @@
       "l": 44,
       "pct": 0.482,
       "gb": "11.5",
-      "last10": "1승1무3패",
+      "last10": "2승1무2패",
       "streak": "1연승",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "LG 트윈스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
     },
     {
       "rank": 7,
@@ -5077,12 +5075,12 @@
         "KIA 타이거즈",
         "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
         "5승 0무 5패",
-        "0.259",
-        "5.069",
-        "51",
-        "54",
-        "12",
-        "7"
+        "0.253",
+        "5.379",
+        "50",
+        "58",
+        "13",
+        "9"
       ],
       [
         "롯데 자이언츠",
@@ -5121,12 +5119,12 @@
         "한화 이글스",
         "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88",
         "3승 1무 6패",
-        "0.275",
-        "5.4",
-        "55",
-        "63",
-        "10",
-        "14"
+        "0.277",
+        "5.6",
+        "56",
+        "65",
+        "9",
+        "15"
       ],
       [
         "SSG 랜더스",
@@ -5468,6 +5466,32 @@
       ],
       [
         "12",
+        "한준수",
+        "https://sports-phinf.pstatic.net/player/kbo/default/68646.png",
+        "KIA",
+        "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
+        "0.307",
+        "31",
+        "31",
+        "7",
+        "71",
+        "19",
+        "0",
+        "80",
+        "231",
+        "0",
+        "",
+        "39",
+        "7",
+        "40",
+        "",
+        "0.415",
+        "0.474",
+        "0.889",
+        "2.37"
+      ],
+      [
+        "13",
         "최정",
         "https://sports-phinf.pstatic.net/player/kbo/default/75847.png",
         "SSG",
@@ -5493,7 +5517,7 @@
         "2.94"
       ],
       [
-        "13",
+        "14",
         "페라자",
         "https://sports-phinf.pstatic.net/player/kbo/default/54730.png",
         "한화",
@@ -5513,13 +5537,13 @@
         "3",
         "76",
         "",
-        "0.412",
-        "0.545",
-        "0.957",
+        "0.414",
+        "0.549",
+        "0.963",
         "4.12"
       ],
       [
-        "14",
+        "15",
         "김주원",
         "https://sports-phinf.pstatic.net/player/kbo/default/51907.png",
         "NC",
@@ -5545,7 +5569,7 @@
         "3.31"
       ],
       [
-        "15",
+        "16",
         "김성윤",
         "https://sports-phinf.pstatic.net/player/kbo/default/67449.png",
         "삼성",
@@ -5571,7 +5595,7 @@
         "1.88"
       ],
       [
-        "16",
+        "17",
         "디아즈",
         "https://sports-phinf.pstatic.net/player/kbo/default/54400.png",
         "삼성",
@@ -5597,7 +5621,7 @@
         "2.86"
       ],
       [
-        "17",
+        "18",
         "문현빈",
         "https://sports-phinf.pstatic.net/player/kbo/default/53764.png",
         "한화",
@@ -5617,13 +5641,13 @@
         "4",
         "48",
         "",
-        "0.375",
-        "0.467",
-        "0.842",
+        "0.373",
+        "0.473",
+        "0.846",
         "2.64"
       ],
       [
-        "18",
+        "19",
         "데이비슨",
         "https://sports-phinf.pstatic.net/player/kbo/default/54944.png",
         "키움",
@@ -5649,7 +5673,7 @@
         "1.85"
       ],
       [
-        "19",
+        "20",
         "류지혁",
         "https://sports-phinf.pstatic.net/player/kbo/default/62234.png",
         "삼성",
@@ -5675,7 +5699,7 @@
         "2.4"
       ],
       [
-        "20",
+        "21",
         "힐리어드",
         "https://sports-phinf.pstatic.net/player/kbo/default/56034.png",
         "KT",
@@ -5701,7 +5725,7 @@
         "3.45"
       ],
       [
-        "21",
+        "22",
         "김도영",
         "https://sports-phinf.pstatic.net/player/kbo/default/52605.png",
         "KIA",
@@ -5721,13 +5745,13 @@
         "5",
         "66",
         "",
-        "0.388",
-        "0.597",
-        "0.985",
+        "0.387",
+        "0.592",
+        "0.979",
         "4.07"
       ],
       [
-        "21",
+        "22",
         "박건우",
         "https://sports-phinf.pstatic.net/player/kbo/default/79215.png",
         "NC",
@@ -5753,7 +5777,7 @@
         "2.08"
       ],
       [
-        "23",
+        "24",
         "박해민",
         "https://sports-phinf.pstatic.net/player/kbo/default/62415.png",
         "LG",
@@ -5779,7 +5803,7 @@
         "1.66"
       ],
       [
-        "24",
+        "25",
         "나성범",
         "https://sports-phinf.pstatic.net/player/kbo/default/62947.png",
         "KIA",
@@ -5800,12 +5824,12 @@
         "97",
         "",
         "0.377",
-        "0.535",
-        "0.912",
+        "0.534",
+        "0.911",
         "3.14"
       ],
       [
-        "25",
+        "26",
         "카메론",
         "https://sports-phinf.pstatic.net/player/kbo/default/56251.png",
         "두산",
@@ -5831,7 +5855,7 @@
         "1.79"
       ],
       [
-        "26",
+        "27",
         "박찬호",
         "https://sports-phinf.pstatic.net/player/kbo/default/64646.png",
         "두산",
@@ -5857,7 +5881,7 @@
         "2.29"
       ],
       [
-        "27",
+        "28",
         "에레디아",
         "https://sports-phinf.pstatic.net/player/kbo/default/53827.png",
         "SSG",
@@ -5883,7 +5907,7 @@
         "1.15"
       ],
       [
-        "28",
+        "29",
         "김현수",
         "https://sports-phinf.pstatic.net/player/kbo/default/76290.png",
         "KT",
@@ -5909,7 +5933,7 @@
         "1.33"
       ],
       [
-        "29",
+        "30",
         "김상수",
         "https://sports-phinf.pstatic.net/player/kbo/default/79402.png",
         "KT",
@@ -5935,7 +5959,7 @@
         "1.33"
       ],
       [
-        "29",
+        "30",
         "김호령",
         "https://sports-phinf.pstatic.net/player/kbo/default/65653.png",
         "KIA",
@@ -5956,12 +5980,12 @@
         "100",
         "",
         "0.33",
-        "0.446",
-        "0.776",
+        "0.445",
+        "0.775",
         "3.25"
       ],
       [
-        "31",
+        "32",
         "정준재",
         "https://sports-phinf.pstatic.net/player/kbo/default/54812.png",
         "SSG",
@@ -5987,7 +6011,7 @@
         "1.92"
       ],
       [
-        "32",
+        "33",
         "김태연",
         "https://sports-phinf.pstatic.net/player/kbo/default/66704.png",
         "한화",
@@ -6007,13 +6031,13 @@
         "5",
         "47",
         "",
-        "0.347",
-        "0.417",
-        "0.764",
+        "0.345",
+        "0.41",
+        "0.755",
         "1.01"
       ],
       [
-        "33",
+        "34",
         "박재현",
         "https://sports-phinf.pstatic.net/player/kbo/default/55636.png",
         "KIA",
@@ -6033,13 +6057,13 @@
         "0",
         "67",
         "",
-        "0.32",
+        "0.319",
         "0.422",
-        "0.742",
+        "0.741",
         "1.15"
       ],
       [
-        "34",
+        "35",
         "안치홍",
         "https://sports-phinf.pstatic.net/player/kbo/default/79608.png",
         "키움",
@@ -6065,7 +6089,33 @@
         "1.07"
       ],
       [
-        "35",
+        "36",
+        "이도윤",
+        "https://sports-phinf.pstatic.net/player/kbo/default/65703.png",
+        "한화",
+        "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88",
+        "0.268",
+        "29",
+        "30",
+        "1",
+        "66",
+        "12",
+        "2",
+        "77",
+        "246",
+        "2",
+        "",
+        "14",
+        "2",
+        "40",
+        "",
+        "0.312",
+        "0.36",
+        "0.672",
+        "0.8"
+      ],
+      [
+        "37",
         "심우준",
         "https://sports-phinf.pstatic.net/player/kbo/default/64006.png",
         "한화",
@@ -6085,13 +6135,13 @@
         "3",
         "47",
         "",
-        "0.349",
-        "0.346",
-        "0.695",
+        "0.348",
+        "0.344",
+        "0.692",
         "1.23"
       ],
       [
-        "36",
+        "38",
         "전민재",
         "https://sports-phinf.pstatic.net/player/kbo/default/68205.png",
         "롯데",
@@ -6117,7 +6167,7 @@
         "1.66"
       ],
       [
-        "37",
+        "39",
         "노시환",
         "https://sports-phinf.pstatic.net/player/kbo/default/69737.png",
         "한화",
@@ -6137,13 +6187,13 @@
         "7",
         "101",
         "",
-        "0.347",
-        "0.491",
-        "0.838",
+        "0.342",
+        "0.483",
+        "0.825",
         "2.05"
       ],
       [
-        "38",
+        "40",
         "정수빈",
         "https://sports-phinf.pstatic.net/player/kbo/default/79231.png",
         "두산",
@@ -6169,7 +6219,7 @@
         "1.54"
       ],
       [
-        "39",
+        "41",
         "홍창기",
         "https://sports-phinf.pstatic.net/player/kbo/default/66108.png",
         "LG",
@@ -6195,7 +6245,7 @@
         "1.8"
       ],
       [
-        "40",
+        "42",
         "김선빈",
         "https://sports-phinf.pstatic.net/player/kbo/default/78603.png",
         "KIA",
@@ -6216,12 +6266,12 @@
         "35",
         "",
         "0.358",
-        "0.317",
-        "0.675",
+        "0.318",
+        "0.676",
         "0.99"
       ],
       [
-        "41",
+        "43",
         "김건희",
         "https://sports-phinf.pstatic.net/player/kbo/default/53312.png",
         "키움",
@@ -6247,7 +6297,7 @@
         "0.83"
       ],
       [
-        "42",
+        "44",
         "신민재",
         "https://sports-phinf.pstatic.net/player/kbo/default/65207.png",
         "LG",
@@ -6273,7 +6323,7 @@
         "0.5"
       ],
       [
-        "43",
+        "45",
         "양의지",
         "https://sports-phinf.pstatic.net/player/kbo/default/76232.png",
         "두산",
@@ -6299,7 +6349,7 @@
         "2.06"
       ],
       [
-        "44",
+        "46",
         "오지환",
         "https://sports-phinf.pstatic.net/player/kbo/default/79109.png",
         "LG",
@@ -6325,7 +6375,7 @@
         "0.82"
       ],
       [
-        "45",
+        "47",
         "최지훈",
         "https://sports-phinf.pstatic.net/player/kbo/default/50854.png",
         "SSG",
@@ -6351,7 +6401,7 @@
         "1.32"
       ],
       [
-        "46",
+        "48",
         "박동원",
         "https://sports-phinf.pstatic.net/player/kbo/default/79365.png",
         "LG",
@@ -6377,7 +6427,7 @@
         "1.17"
       ],
       [
-        "47",
+        "49",
         "전병우",
         "https://sports-phinf.pstatic.net/player/kbo/default/65586.png",
         "삼성",
@@ -6403,7 +6453,7 @@
         "0.56"
       ],
       [
-        "48",
+        "50",
         "김재환",
         "https://sports-phinf.pstatic.net/player/kbo/default/78224.png",
         "SSG",
@@ -6427,58 +6477,6 @@
         "0.392",
         "0.726",
         "0.66"
-      ],
-      [
-        "",
-        "전다민",
-        "https://sports-phinf.pstatic.net/player/kbo/default/54214.png",
-        "두산",
-        "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88",
-        "1.0",
-        "1",
-        "2",
-        "0",
-        "1",
-        "0",
-        "0",
-        "6",
-        "1",
-        "1",
-        "",
-        "0",
-        "0",
-        "0",
-        "",
-        "1.0",
-        "1.0",
-        "2.0",
-        "0.07"
-      ],
-      [
-        "",
-        "박재엽",
-        "https://sports-phinf.pstatic.net/player/kbo/default/55563.png",
-        "롯데",
-        "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88",
-        "0.667",
-        "3",
-        "1",
-        "0",
-        "2",
-        "1",
-        "0",
-        "4",
-        "3",
-        "0",
-        "",
-        "0",
-        "0",
-        "1",
-        "",
-        "0.667",
-        "1.0",
-        "1.667",
-        "0.1"
       ]
     ]
   },
@@ -6739,7 +6737,7 @@
         "41",
         "6",
         "0.636",
-        "4",
+        "5",
         "1.52",
         "1.04",
         ""
@@ -7894,20 +7892,20 @@
         "KIA",
         "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
         "0.268",
-        "487",
-        "468",
-        "3159",
-        "110",
-        "848",
+        "490",
+        "471",
+        "3189",
+        "111",
+        "854",
         "165",
-        "9",
+        "10",
         "56",
         "",
         "",
-        "715",
-        "0.344",
-        "0.431",
-        "0.774"
+        "724",
+        "0.343",
+        "0.43",
+        "0.773"
       ],
       [
         "두산",
@@ -7932,20 +7930,20 @@
         "한화",
         "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88",
         "0.275",
-        "513",
-        "482",
-        "3112",
-        "101",
-        "855",
-        "141",
+        "522",
+        "491",
+        "3149",
+        "103",
+        "865",
+        "143",
         "14",
         "52",
         "",
         "",
-        "700",
+        "707",
         "0.354",
-        "0.426",
-        "0.78"
+        "0.427",
+        "0.781"
       ],
       [
         "NC",
@@ -8107,20 +8105,20 @@
         "KIA",
         "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
         "0.268",
-        "487",
-        "468",
-        "3159",
-        "110",
-        "848",
+        "490",
+        "471",
+        "3189",
+        "111",
+        "854",
         "165",
-        "9",
+        "10",
         "56",
         "",
         "",
-        "715",
-        "0.344",
-        "0.431",
-        "0.774"
+        "724",
+        "0.343",
+        "0.43",
+        "0.773"
       ],
       [
         "두산",
@@ -8145,20 +8143,20 @@
         "한화",
         "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88",
         "0.275",
-        "513",
-        "482",
-        "3112",
-        "101",
-        "855",
-        "141",
+        "522",
+        "491",
+        "3149",
+        "103",
+        "865",
+        "143",
         "14",
         "52",
         "",
         "",
-        "700",
+        "707",
         "0.354",
-        "0.426",
-        "0.78"
+        "0.427",
+        "0.781"
       ],
       [
         "NC",
@@ -8319,21 +8317,21 @@
       [
         "KIA",
         "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
-        "4.253",
-        "428",
-        "385",
-        "814.2",
-        "806",
-        "86",
-        "655",
+        "4.294",
+        "437",
+        "393",
+        "823.2",
+        "816",
+        "88",
+        "662",
         "",
         "",
         "63",
-        "1.417",
+        "1.418",
         "30",
         "16",
         "56",
-        "30"
+        "31"
       ],
       [
         "두산",
@@ -8357,18 +8355,18 @@
       [
         "한화",
         "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88",
-        "4.605",
-        "458",
-        "402",
-        "785.2",
-        "824",
-        "76",
-        "636",
+        "4.587",
+        "461",
+        "405",
+        "794.2",
+        "830",
+        "77",
+        "645",
         "",
         "",
         "69",
-        "1.494",
-        "27",
+        "1.487",
+        "28",
         "13",
         "44",
         "31"
