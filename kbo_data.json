@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-24T13:30:51",
+  "updated": "2026-07-24T14:11:04",
   "today": "2026-07-24",
   "dates": {
     "2026-07-24": {
@@ -25,6 +25,7 @@
           "home_score": "4",
           "status": "종료",
           "stadium": "사직야구장",
+          "away_pitcher": "승로건",
           "home_pitcher": "패나균안",
           "broadcaster": "SBS SPORTS"
         },
@@ -36,6 +37,8 @@
           "home_score": "7",
           "status": "종료",
           "stadium": "SSG 랜더스필드",
+          "away_pitcher": "패구창모",
+          "home_pitcher": "승해치",
           "broadcaster": "SPOTV"
         },
         {
@@ -46,7 +49,7 @@
           "home_score": "5",
           "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "세원종현",
+          "away_pitcher": "승정다훈",
           "home_pitcher": "패조상우",
           "broadcaster": "SPOTV2"
         },
@@ -58,7 +61,8 @@
           "home_score": "8",
           "status": "종료",
           "stadium": "한화생명 이글스파크",
-          "home_pitcher": "승장지수",
+          "away_pitcher": "패임찬규",
+          "home_pitcher": "승장유호",
           "broadcaster": "MBC SPORTS"
         }
       ]
