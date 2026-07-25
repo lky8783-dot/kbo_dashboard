@@ -1,10 +1,71 @@
 {
-  "updated": "2026-07-25T08:30:53",
+  "updated": "2026-07-25T09:00:54",
   "today": "2026-07-25",
   "dates": {
     "2026-07-25": {
       "date": "2026-07-25",
-      "games": []
+      "games": [
+        {
+          "time": "18:00",
+          "away": "삼성 라이온즈",
+          "home": "두산 베어스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "잠실야구장",
+          "away_pitcher": "원태인",
+          "home_pitcher": "잭로그",
+          "broadcaster": "KBS N SPORTS"
+        },
+        {
+          "time": "18:00",
+          "away": "kt wiz",
+          "home": "롯데 자이언츠",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "사직야구장",
+          "away_pitcher": "소형준",
+          "home_pitcher": "김진욱",
+          "broadcaster": "SBS SPORTS"
+        },
+        {
+          "time": "18:00",
+          "away": "NC 다이노스",
+          "home": "SSG 랜더스",
+          "away_score": null,
+          "home_score": null,
+          "status": "1회초",
+          "stadium": "SSG 랜더스필드",
+          "away_pitcher": "김주원",
+          "home_pitcher": "김건우",
+          "broadcaster": "SPOTV"
+        },
+        {
+          "time": "18:00",
+          "away": "키움 히어로즈",
+          "home": "KIA 타이거즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "광주-기아 챔피언스필드",
+          "away_pitcher": "박준현",
+          "home_pitcher": "양현종",
+          "broadcaster": "SPOTV2"
+        },
+        {
+          "time": "18:00",
+          "away": "LG 트윈스",
+          "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "1회초",
+          "stadium": "한화생명 이글스파크",
+          "away_pitcher": "홍창기",
+          "home_pitcher": "류현진",
+          "broadcaster": "MBC SPORTS"
+        }
+      ]
     },
     "2026-07-24": {
       "date": "2026-07-24",
