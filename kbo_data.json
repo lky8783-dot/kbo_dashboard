@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-25T11:00:53",
+  "updated": "2026-07-25T11:30:47",
   "today": "2026-07-25",
   "dates": {
     "2026-07-25": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "김지찬",
-          "home_pitcher": "김정우",
+          "away_pitcher": "이승민",
+          "home_pitcher": "박준순",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "사직야구장",
-          "away_pitcher": "소형준",
-          "home_pitcher": "황성빈",
+          "away_pitcher": "힐리어드",
+          "home_pitcher": "이민석",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "6회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김휘집",
-          "home_pitcher": "김건우",
+          "away_pitcher": "김태훈",
+          "home_pitcher": "박성한",
           "broadcaster": "SPOTV"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "정다훈",
-          "home_pitcher": "김도영",
+          "away_pitcher": "최현우",
+          "home_pitcher": "박재현",
           "broadcaster": "SPOTV2"
         },
         {
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "오스틴",
-          "home_pitcher": "이교훈",
+          "away_pitcher": "김진성",
+          "home_pitcher": "장규현",
           "broadcaster": "MBC SPORTS"
         }
       ]
