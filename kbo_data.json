@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26T08:30:57",
+  "updated": "2026-07-26T09:00:53",
   "today": "2026-07-26",
   "dates": {
     "2026-07-26": {
@@ -35,9 +35,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "라일리",
+          "away_pitcher": "김주원",
           "home_pitcher": "타케다",
           "broadcaster": "SPOTV"
         },
@@ -169,7 +169,53 @@
     },
     "2026-07-23": {
       "date": "2026-07-23",
-      "games": []
+      "games": [
+        {
+          "time": "",
+          "away": "NC 다이노스",
+          "home": "LG 트윈스",
+          "away_score": "7",
+          "home_score": "5",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "SSG 랜더스",
+          "home": "롯데 자이언츠",
+          "away_score": "5",
+          "home_score": "2",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "한화 이글스",
+          "home": "KIA 타이거즈",
+          "away_score": "9",
+          "home_score": "3",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "두산 베어스",
+          "home": "kt wiz",
+          "away_score": null,
+          "home_score": null,
+          "status": "우천취소",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "삼성 라이온즈",
+          "home": "키움 히어로즈",
+          "away_score": "3",
+          "home_score": "1",
+          "status": "종료",
+          "stadium": ""
+        }
+      ]
     },
     "2026-07-22": {
       "date": "2026-07-22",
