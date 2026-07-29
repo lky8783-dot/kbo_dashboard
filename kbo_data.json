@@ -1,10 +1,71 @@
 {
-  "updated": "2026-07-29T09:00:51",
+  "updated": "2026-07-29T09:30:48",
   "today": "2026-07-29",
   "dates": {
     "2026-07-29": {
       "date": "2026-07-29",
-      "games": []
+      "games": [
+        {
+          "time": "18:30",
+          "away": "키움 히어로즈",
+          "home": "LG 트윈스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "잠실야구장",
+          "away_pitcher": "하영민",
+          "home_pitcher": "웰스",
+          "broadcaster": "KBS N SPORTS"
+        },
+        {
+          "time": "18:30",
+          "away": "KIA 타이거즈",
+          "home": "삼성 라이온즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "1회초",
+          "stadium": "삼성 라이온즈파크",
+          "away_pitcher": "박재현",
+          "home_pitcher": "양창섭",
+          "broadcaster": "SPOTV"
+        },
+        {
+          "time": "18:30",
+          "away": "두산 베어스",
+          "home": "SSG 랜더스",
+          "away_score": null,
+          "home_score": null,
+          "status": "1회초",
+          "stadium": "SSG 랜더스필드",
+          "away_pitcher": "세베리노",
+          "home_pitcher": "김민준",
+          "broadcaster": "SPOTV2"
+        },
+        {
+          "time": "18:30",
+          "away": "kt wiz",
+          "home": "NC 다이노스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "창원 NC 파크",
+          "away_pitcher": "오원석",
+          "home_pitcher": "테일러",
+          "broadcaster": "SBS SPORTS"
+        },
+        {
+          "time": "18:30",
+          "away": "롯데 자이언츠",
+          "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "1회초",
+          "stadium": "한화생명 이글스파크",
+          "away_pitcher": "황성빈",
+          "home_pitcher": "왕옌청",
+          "broadcaster": "MBC SPORTS"
+        }
+      ]
     },
     "2026-07-28": {
       "date": "2026-07-28",
