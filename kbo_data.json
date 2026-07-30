@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-30T11:30:51",
+  "updated": "2026-07-30T12:00:58",
   "today": "2026-07-30",
   "dates": {
     "2026-07-30": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "데이비슨",
-          "home_pitcher": "김진수",
+          "away_pitcher": "최주환",
+          "home_pitcher": "손주영",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "하주석",
-          "home_pitcher": "배찬승",
+          "away_pitcher": "김선빈",
+          "home_pitcher": "박용재",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김민석",
-          "home_pitcher": "해치",
+          "away_pitcher": "김택연",
+          "home_pitcher": "마드리스",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,9 +47,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "8회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "류현인",
+          "away_pitcher": "김민혁",
           "home_pitcher": "송명기",
           "broadcaster": "SBS SPORTS"
         },
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "윤동희",
-          "home_pitcher": "이상규",
+          "away_pitcher": "김세민",
+          "home_pitcher": "장유호",
           "broadcaster": "MBC SPORTS"
         }
       ]
