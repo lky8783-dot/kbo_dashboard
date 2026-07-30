@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-30T09:00:50",
+  "updated": "2026-07-30T09:30:49",
   "today": "2026-07-30",
   "dates": {
     "2026-07-30": {
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "네일",
+          "away_pitcher": "박재현",
           "home_pitcher": "페덱",
           "broadcaster": "SPOTV"
         },
@@ -35,9 +35,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "최민석",
+          "away_pitcher": "박찬호",
           "home_pitcher": "해치",
           "broadcaster": "SPOTV2"
         },
@@ -59,9 +59,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "나균안",
+          "away_pitcher": "황성빈",
           "home_pitcher": "박준영",
           "broadcaster": "MBC SPORTS"
         }
