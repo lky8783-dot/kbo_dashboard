@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-30T12:00:58",
+  "updated": "2026-07-30T12:30:46",
   "today": "2026-07-30",
   "dates": {
     "2026-07-30": {
@@ -9,12 +9,12 @@
           "time": "18:30",
           "away": "키움 히어로즈",
           "home": "LG 트윈스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회초",
+          "away_score": "3",
+          "home_score": "5",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "최주환",
-          "home_pitcher": "손주영",
+          "away_pitcher": "",
+          "home_pitcher": "",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "김선빈",
-          "home_pitcher": "박용재",
+          "away_pitcher": "박정우",
+          "home_pitcher": "이승현",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김택연",
-          "home_pitcher": "마드리스",
+          "away_pitcher": "이용찬",
+          "home_pitcher": "최지훈",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "8회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김민혁",
-          "home_pitcher": "송명기",
+          "away_pitcher": "한차현",
+          "home_pitcher": "최정원",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "김세민",
-          "home_pitcher": "장유호",
+          "away_pitcher": "김원중",
+          "home_pitcher": "노시환",
           "broadcaster": "MBC SPORTS"
         }
       ]
@@ -5221,8 +5221,8 @@
       "gb": "5.0",
       "last10": "2승0무3패",
       "streak": "1연패",
-      "next_opp": "키움 히어로즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
+      "next_opp": "두산 베어스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
     },
     {
       "rank": 4,
@@ -5326,8 +5326,8 @@
       "gb": "23.5",
       "last10": "3승0무2패",
       "streak": "1연승",
-      "next_opp": "LG 트윈스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
+      "next_opp": "SSG 랜더스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SK.png?type=f92_88"
     }
   ],
   "standings_updated": "2026-07-30",
