@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-31T11:00:50",
+  "updated": "2026-07-31T11:30:49",
   "today": "2026-07-31",
   "dates": {
     "2026-07-31": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "송승기",
-          "home_pitcher": "박준순",
+          "away_pitcher": "김영우",
+          "home_pitcher": "오명진",
           "broadcaster": "SPOTV2"
         },
         {
@@ -25,8 +25,8 @@
           "home_score": null,
           "status": "6회초",
           "stadium": "사직야구장",
-          "away_pitcher": "구자욱",
-          "home_pitcher": "김진욱",
+          "away_pitcher": "최형우",
+          "home_pitcher": "정철원",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "강백호",
-          "home_pitcher": "소형준",
+          "away_pitcher": "류현진",
+          "home_pitcher": "김상수",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "6회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "이태양",
-          "home_pitcher": "박건우",
+          "away_pitcher": "김선빈",
+          "home_pitcher": "토다",
           "broadcaster": "SPOTV"
         },
         {
@@ -59,7 +59,7 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회초",
           "stadium": "고척스카이돔",
           "away_pitcher": "최지훈",
           "home_pitcher": "박준현",
