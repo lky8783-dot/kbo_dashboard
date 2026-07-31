@@ -1,171 +1,18 @@
 {
-  "updated": "2026-07-31T08:30:58",
+  "updated": "2026-07-31T09:01:14",
   "today": "2026-07-31",
   "dates": {
     "2026-07-31": {
       "date": "2026-07-31",
-      "games": [
-        {
-          "time": "18:30",
-          "away": "LG 트윈스",
-          "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "잠실야구장",
-          "away_pitcher": "송승기",
-          "home_pitcher": "잭로그",
-          "broadcaster": "SPOTV2"
-        },
-        {
-          "time": "18:30",
-          "away": "삼성 라이온즈",
-          "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "사직야구장",
-          "away_pitcher": "원태인",
-          "home_pitcher": "김진욱",
-          "broadcaster": "MBC SPORTS"
-        },
-        {
-          "time": "18:30",
-          "away": "한화 이글스",
-          "home": "kt wiz",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "kt wiz 파크",
-          "away_pitcher": "류현진",
-          "home_pitcher": "소형준",
-          "broadcaster": "KBS N SPORTS"
-        },
-        {
-          "time": "18:30",
-          "away": "KIA 타이거즈",
-          "home": "NC 다이노스",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "창원 NC 파크",
-          "away_pitcher": "양현종",
-          "home_pitcher": "토다",
-          "broadcaster": "SPOTV"
-        },
-        {
-          "time": "18:30",
-          "away": "SSG 랜더스",
-          "home": "키움 히어로즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "고척스카이돔",
-          "away_pitcher": "김건우",
-          "home_pitcher": "박준현",
-          "broadcaster": "SBS SPORTS"
-        }
-      ]
+      "games": []
     },
     "2026-07-30": {
       "date": "2026-07-30",
-      "games": [
-        {
-          "time": "",
-          "away": "키움 히어로즈",
-          "home": "LG 트윈스",
-          "away_score": "3",
-          "home_score": "5",
-          "status": "종료",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "KIA 타이거즈",
-          "home": "삼성 라이온즈",
-          "away_score": "12",
-          "home_score": "3",
-          "status": "종료",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "두산 베어스",
-          "home": "SSG 랜더스",
-          "away_score": "5",
-          "home_score": "3",
-          "status": "종료",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "kt wiz",
-          "home": "NC 다이노스",
-          "away_score": "10",
-          "home_score": "2",
-          "status": "종료",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "롯데 자이언츠",
-          "home": "한화 이글스",
-          "away_score": "2",
-          "home_score": "3",
-          "status": "종료",
-          "stadium": ""
-        }
-      ]
+      "games": []
     },
     "2026-07-29": {
       "date": "2026-07-29",
-      "games": [
-        {
-          "time": "",
-          "away": "키움 히어로즈",
-          "home": "LG 트윈스",
-          "away_score": "18",
-          "home_score": "11",
-          "status": "종료",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "KIA 타이거즈",
-          "home": "삼성 라이온즈",
-          "away_score": "9",
-          "home_score": "4",
-          "status": "종료",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "두산 베어스",
-          "home": "SSG 랜더스",
-          "away_score": "2",
-          "home_score": "6",
-          "status": "종료",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "kt wiz",
-          "home": "NC 다이노스",
-          "away_score": "10",
-          "home_score": "3",
-          "status": "종료",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "롯데 자이언츠",
-          "home": "한화 이글스",
-          "away_score": "3",
-          "home_score": "5",
-          "status": "종료",
-          "stadium": ""
-        }
-      ]
+      "games": []
     },
     "2026-07-28": {
       "date": "2026-07-28",
