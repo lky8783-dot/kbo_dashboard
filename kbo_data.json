@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-01T09:01:05",
+  "updated": "2026-08-01T09:30:45",
   "today": "2026-08-01",
   "dates": {
     "2026-08-01": {
@@ -11,9 +11,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "카라스코",
+          "away_pitcher": "구본혁",
           "home_pitcher": "곽빈",
           "broadcaster": "SPOTV2"
         },
@@ -35,10 +35,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "kt wiz 파크",
           "away_pitcher": "짐머맨",
-          "home_pitcher": "배제성",
+          "home_pitcher": "오윤석",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -59,9 +59,9 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "타케다",
+          "away_pitcher": "한유섬",
           "home_pitcher": "김윤하",
           "broadcaster": "SBS SPORTS"
         }
