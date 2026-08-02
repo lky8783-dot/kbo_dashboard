@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-02T05:30:51",
+  "updated": "2026-08-02T06:00:55",
   "today": "2026-08-02",
   "dates": {
     "2026-08-02": {
@@ -11,10 +11,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "조형우",
-          "home_pitcher": "전준표",
+          "away_pitcher": "아빌라",
+          "home_pitcher": "김건희",
           "broadcaster": "MBC TV"
         },
         {
@@ -5355,8 +5355,8 @@
       "gb": "8.0",
       "last10": "2승0무3패",
       "streak": "1연패",
-      "next_opp": "NC 다이노스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
+      "next_opp": "kt wiz",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
     },
     {
       "rank": 6,
@@ -5385,8 +5385,8 @@
       "gb": "14.5",
       "last10": "1승1무3패",
       "streak": "1연승",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "두산 베어스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
     },
     {
       "rank": 8,
