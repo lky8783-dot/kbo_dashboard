@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-04T09:31:04",
+  "updated": "2026-08-04T10:00:52",
   "today": "2026-08-04",
   "dates": {
     "2026-08-04": {
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "3회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "이원석",
+          "away_pitcher": "허인서",
           "home_pitcher": "양창섭",
           "broadcaster": "SBS SPORTS"
         },
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회말",
           "stadium": "사직야구장",
           "away_pitcher": "하영민",
-          "home_pitcher": "로드리게스",
+          "home_pitcher": "손성빈",
           "broadcaster": "MBC SPORTS"
         },
         {
@@ -47,9 +47,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "홍창기",
+          "away_pitcher": "오지환",
           "home_pitcher": "김민준",
           "broadcaster": "SPOTV2"
         },
