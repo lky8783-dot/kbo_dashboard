@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-05T04:00:54",
+  "updated": "2026-08-05T05:00:54",
   "today": "2026-08-05",
   "dates": {
     "2026-08-05": {
@@ -5399,8 +5399,8 @@
       "gb": "-",
       "last10": "5승0무0패",
       "streak": "6연승",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "롯데 자이언츠",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
     },
     {
       "rank": 2,
@@ -5414,8 +5414,8 @@
       "gb": "1.5",
       "last10": "1승0무4패",
       "streak": "2연패",
-      "next_opp": "한화 이글스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
+      "next_opp": "두산 베어스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
     },
     {
       "rank": 3,
@@ -5429,8 +5429,8 @@
       "gb": "6.5",
       "last10": "1승1무3패",
       "streak": "3연패",
-      "next_opp": "SSG 랜더스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SK.png?type=f92_88"
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     },
     {
       "rank": 4,
@@ -5444,8 +5444,8 @@
       "gb": "8.0",
       "last10": "3승1무1패",
       "streak": "3연승",
-      "next_opp": "NC 다이노스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
+      "next_opp": "삼성 라이온즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
     },
     {
       "rank": 5,
@@ -5459,8 +5459,8 @@
       "gb": "8.5",
       "last10": "2승0무3패",
       "streak": "1연패",
-      "next_opp": "kt wiz",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
+      "next_opp": "LG 트윈스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
     },
     {
       "rank": 6,
@@ -5474,8 +5474,8 @@
       "gb": "12.5",
       "last10": "2승0무3패",
       "streak": "1연승",
-      "next_opp": "삼성 라이온즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
+      "next_opp": "키움 히어로즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
     },
     {
       "rank": 7,
@@ -5489,8 +5489,8 @@
       "gb": "15.0",
       "last10": "1승1무3패",
       "streak": "1연승",
-      "next_opp": "두산 베어스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
+      "next_opp": "SSG 랜더스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SK.png?type=f92_88"
     },
     {
       "rank": 8,
@@ -5504,8 +5504,8 @@
       "gb": "16.5",
       "last10": "2승0무3패",
       "streak": "2연승",
-      "next_opp": "키움 히어로즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
+      "next_opp": "kt wiz",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
     },
     {
       "rank": 9,
@@ -5519,8 +5519,8 @@
       "gb": "22.0",
       "last10": "2승0무3패",
       "streak": "1연승",
-      "next_opp": "LG 트윈스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
+      "next_opp": "NC 다이노스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
     },
     {
       "rank": 10,
@@ -5534,8 +5534,8 @@
       "gb": "24.5",
       "last10": "2승0무3패",
       "streak": "1연패",
-      "next_opp": "롯데 자이언츠",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
+      "next_opp": "한화 이글스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
     }
   ],
   "standings_updated": "2026-08-05",
