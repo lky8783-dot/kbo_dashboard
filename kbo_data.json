@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-07T04:00:54",
+  "updated": "2026-08-07T05:00:52",
   "today": "2026-08-07",
   "dates": {
     "2026-08-07": {
@@ -59,53 +59,7 @@
     },
     "2026-08-06": {
       "date": "2026-08-06",
-      "games": [
-        {
-          "time": "",
-          "away": "NC 다이노스",
-          "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "한화 이글스",
-          "home": "삼성 라이온즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "키움 히어로즈",
-          "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "LG 트윈스",
-          "home": "SSG 랜더스",
-          "away_score": null,
-          "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
-        },
-        {
-          "time": "",
-          "away": "kt wiz",
-          "home": "KIA 타이거즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "우천취소",
-          "stadium": ""
-        }
-      ]
+      "games": []
     },
     "2026-08-05": {
       "date": "2026-08-05",
