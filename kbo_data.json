@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-11T12:00:58",
+  "updated": "2026-08-11T12:30:51",
   "today": "2026-08-11",
   "dates": {
     "2026-08-11": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "이도윤",
-          "home_pitcher": "김택연",
+          "away_pitcher": "페라자",
+          "home_pitcher": "타카다",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "9회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "유강남",
-          "home_pitcher": "노경은",
+          "away_pitcher": "손호영",
+          "home_pitcher": "조병현",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "이재현",
-          "home_pitcher": "전상현",
+          "away_pitcher": "장찬희",
+          "home_pitcher": "김도영",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "이상동",
-          "home_pitcher": "김형준",
+          "away_pitcher": "김현수",
+          "home_pitcher": "김진호",
           "broadcaster": "SPOTV2"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "카라스코",
-          "home_pitcher": "김웅빈",
+          "away_pitcher": "오지환",
+          "home_pitcher": "박지성",
           "broadcaster": "MBC SPORTS+"
         }
       ]
