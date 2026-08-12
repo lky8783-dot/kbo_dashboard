@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-12T07:00:51",
+  "updated": "2026-08-12T07:30:48",
   "today": "2026-08-12",
   "dates": {
     "2026-08-12": {
@@ -25,7 +25,7 @@
           "home_score": null,
           "status": "예정",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "나균안",
+          "away_pitcher": "김한결",
           "home_pitcher": "김민준",
           "broadcaster": "SPOTV"
         },
