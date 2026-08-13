@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-13T12:00:55",
+  "updated": "2026-08-13T12:30:43",
   "today": "2026-08-13",
   "dates": {
     "2026-08-13": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "채은성",
-          "home_pitcher": "최민석",
+          "away_pitcher": "강백호",
+          "home_pitcher": "이병헌",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "로드리게스",
-          "home_pitcher": "마드리스",
+          "away_pitcher": "장두성",
+          "home_pitcher": "서진용",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "원태인",
-          "home_pitcher": "김태군",
+          "away_pitcher": "전병우",
+          "home_pitcher": "성영탁",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "이상동",
-          "home_pitcher": "블레인",
+          "away_pitcher": "힐리어드",
+          "home_pitcher": "신영우",
           "broadcaster": "SPOTV2"
         },
         {
@@ -59,7 +59,7 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "고척스카이돔",
           "away_pitcher": "문보경",
           "home_pitcher": "정현우",
