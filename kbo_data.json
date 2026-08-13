@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-13T09:30:53",
+  "updated": "2026-08-13T10:00:53",
   "today": "2026-08-13",
   "dates": {
     "2026-08-13": {
@@ -35,9 +35,9 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "원태인",
+          "away_pitcher": "김지찬",
           "home_pitcher": "시라카와",
           "broadcaster": "KBS N SPORTS"
         },
@@ -59,9 +59,9 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "톨허스트",
+          "away_pitcher": "홍창기",
           "home_pitcher": "알칸타라",
           "broadcaster": "MBC SPORTS+"
         }
