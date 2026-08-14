@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-14T09:30:51",
+  "updated": "2026-08-14T10:00:51",
   "today": "2026-08-14",
   "dates": {
     "2026-08-14": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "최민준",
+          "away_pitcher": "정준재",
           "home_pitcher": "송승기",
           "broadcaster": "SPOTV"
         },
