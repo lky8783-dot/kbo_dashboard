@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-14T11:00:52",
+  "updated": "2026-08-14T11:30:45",
   "today": "2026-08-14",
   "dates": {
     "2026-08-14": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "한유섬",
-          "home_pitcher": "송승기",
+          "away_pitcher": "전의산",
+          "home_pitcher": "김영우",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회말",
           "stadium": "삼성 라이온즈파크",
           "away_pitcher": "짐머맨",
-          "home_pitcher": "전병우",
+          "home_pitcher": "구자욱",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -35,7 +35,7 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회초",
           "stadium": "사직야구장",
           "away_pitcher": "블레인",
           "home_pitcher": "김진욱",
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "1회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "윤준호",
-          "home_pitcher": "황동하",
+          "away_pitcher": "잭로그",
+          "home_pitcher": "박재현",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "3회말",
+          "status": "4회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "박준현",
-          "home_pitcher": "허경민",
+          "away_pitcher": "배동현",
+          "home_pitcher": "안현민",
           "broadcaster": "SPOTV2"
         }
       ]
