@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-14T12:00:51",
+  "updated": "2026-08-14T12:30:46",
   "today": "2026-08-14",
   "dates": {
     "2026-08-14": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "전영준",
-          "home_pitcher": "문보경",
+          "away_pitcher": "문승원",
+          "home_pitcher": "송찬의",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "짐머맨",
-          "home_pitcher": "류지혁",
+          "away_pitcher": "문현빈",
+          "home_pitcher": "김태훈",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "사직야구장",
-          "away_pitcher": "손주환",
-          "home_pitcher": "전민재",
+          "away_pitcher": "이용준",
+          "home_pitcher": "고승민",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "김민석",
-          "home_pitcher": "황동하",
+          "away_pitcher": "잭로그",
+          "home_pitcher": "김태군",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "김웅빈",
-          "home_pitcher": "전용주",
+          "away_pitcher": "김동헌",
+          "home_pitcher": "우규민",
           "broadcaster": "SPOTV2"
         }
       ]
