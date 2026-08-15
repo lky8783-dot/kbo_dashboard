@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-15T11:30:53",
+  "updated": "2026-08-15T12:00:54",
   "today": "2026-08-15",
   "dates": {
     "2026-08-15": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "잠실야구장",
           "away_pitcher": "김건우",
-          "home_pitcher": "신민재",
+          "home_pitcher": "문정빈",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "박준영",
-          "home_pitcher": "김지찬",
+          "away_pitcher": "채은성",
+          "home_pitcher": "이승현",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "6회말",
           "stadium": "사직야구장",
-          "away_pitcher": "박민우",
-          "home_pitcher": "박세웅",
+          "away_pitcher": "류진욱",
+          "home_pitcher": "박승욱",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "6회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "최승용",
-          "home_pitcher": "김도영",
+          "away_pitcher": "박지훈",
+          "home_pitcher": "양현종",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "6회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "하영민",
-          "home_pitcher": "김상수",
+          "away_pitcher": "안치홍",
+          "home_pitcher": "이상동",
           "broadcaster": "SPOTV2"
         }
       ]
