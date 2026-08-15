@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-15T12:30:57",
+  "updated": "2026-08-15T13:00:59",
   "today": "2026-08-15",
   "dates": {
     "2026-08-15": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "정준재",
-          "home_pitcher": "우강훈",
+          "away_pitcher": "오태곤",
+          "home_pitcher": "손주영",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "이상규",
-          "home_pitcher": "김지찬",
+          "away_pitcher": "채은성",
+          "home_pitcher": "배찬승",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "사직야구장",
-          "away_pitcher": "이우성",
-          "home_pitcher": "이이무라",
+          "away_pitcher": "송명기",
+          "home_pitcher": "손성빈",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "이병헌",
-          "home_pitcher": "한준수",
+          "away_pitcher": "이유찬",
+          "home_pitcher": "이의리",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "박지성",
-          "home_pitcher": "장준원",
+          "away_pitcher": "박채울",
+          "home_pitcher": "이정현",
           "broadcaster": "SPOTV2"
         }
       ]
