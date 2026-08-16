@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16T07:30:43",
+  "updated": "2026-08-16T08:00:59",
   "today": "2026-08-16",
   "dates": {
     "2026-08-16": {
@@ -23,7 +23,7 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "경기취소",
           "stadium": "삼성 라이온즈파크",
           "away_pitcher": "왕옌청",
           "home_pitcher": "페덱",
@@ -5918,8 +5918,8 @@
       "gb": "0.5",
       "last10": "3승0무2패",
       "streak": "3연승",
-      "next_opp": "한화 이글스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
+      "next_opp": "SSG 랜더스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SK.png?type=f92_88"
     },
     {
       "rank": 3,
@@ -5978,8 +5978,8 @@
       "gb": "13.5",
       "last10": "1승0무4패",
       "streak": "3연패",
-      "next_opp": "삼성 라이온즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     },
     {
       "rank": 7,
