@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16T11:30:49",
+  "updated": "2026-08-16T12:00:58",
   "today": "2026-08-16",
   "dates": {
     "2026-08-16": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "마드리스",
-          "home_pitcher": "카라스코",
+          "away_pitcher": "한유섬",
+          "home_pitcher": "김영우",
           "broadcaster": "SPOTV"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "김대한",
-          "home_pitcher": "올러",
+          "away_pitcher": "곽빈",
+          "home_pitcher": "박정우",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,9 +59,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "박채울",
+          "away_pitcher": "김건희",
           "home_pitcher": "로건",
           "broadcaster": "SPOTV2"
         }
