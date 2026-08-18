@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-18T11:40:54",
+  "updated": "2026-08-18T12:00:51",
   "today": "2026-08-18",
   "dates": {
     "2026-08-18": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "소형준",
-          "home_pitcher": "송찬의",
+          "away_pitcher": "김민혁",
+          "home_pitcher": "이우찬",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "김민준",
-          "home_pitcher": "구자욱",
+          "away_pitcher": "김민",
+          "home_pitcher": "이재현",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "사직야구장",
-          "away_pitcher": "김건희",
-          "home_pitcher": "비슬리",
+          "away_pitcher": "데이비슨",
+          "home_pitcher": "이민석",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김민석",
-          "home_pitcher": "라일리",
+          "away_pitcher": "타카다",
+          "home_pitcher": "블레인",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "한화생명 이글스파크",
           "away_pitcher": "네일",
-          "home_pitcher": "문현빈",
+          "home_pitcher": "허인서",
           "broadcaster": "SPOTV2"
         }
       ]
