@@ -1,69 +1,119 @@
 {
-  "updated": "2026-08-18T14:30:49",
-  "today": "2026-08-18",
+  "updated": "2026-08-19T00:00:52",
+  "today": "2026-08-19",
   "dates": {
-    "2026-08-18": {
-      "date": "2026-08-18",
+    "2026-08-19": {
+      "date": "2026-08-19",
       "games": [
         {
           "time": "19:00",
           "away": "kt wiz",
           "home": "LG 트윈스",
-          "away_score": "1",
-          "home_score": "9",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "잠실야구장",
-          "away_pitcher": "패소형준",
-          "home_pitcher": "승임찬규",
+          "away_pitcher": "대니엘",
+          "home_pitcher": "톨허스트",
           "broadcaster": "SPOTV"
         },
         {
           "time": "19:00",
           "away": "SSG 랜더스",
           "home": "삼성 라이온즈",
-          "away_score": "5",
-          "home_score": "4",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "승전영준",
-          "home_pitcher": "패김재윤",
+          "away_pitcher": "타케다",
+          "home_pitcher": "보스",
           "broadcaster": "KBS N SPORTS"
         },
         {
           "time": "19:00",
           "away": "키움 히어로즈",
           "home": "롯데 자이언츠",
-          "away_score": "10",
-          "home_score": "15",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "사직야구장",
-          "away_pitcher": "패박지성",
-          "home_pitcher": "승이민석",
+          "away_pitcher": "알칸타라",
+          "home_pitcher": "로드리게스",
           "broadcaster": "SBS SPORTS"
         },
         {
           "time": "19:00",
           "away": "두산 베어스",
           "home": "NC 다이노스",
-          "away_score": "6",
-          "home_score": "4",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "승김택연",
-          "home_pitcher": "패손주환",
+          "away_pitcher": "최민석",
+          "home_pitcher": "테일러",
           "broadcaster": "MBC SPORTS+"
         },
         {
           "time": "19:00",
           "away": "KIA 타이거즈",
           "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "한화생명 이글스파크",
+          "away_pitcher": "시라카와",
+          "home_pitcher": "화이트",
+          "broadcaster": "SPOTV2"
+        }
+      ]
+    },
+    "2026-08-18": {
+      "date": "2026-08-18",
+      "games": [
+        {
+          "time": "",
+          "away": "kt wiz",
+          "home": "LG 트윈스",
+          "away_score": "1",
+          "home_score": "9",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "SSG 랜더스",
+          "home": "삼성 라이온즈",
+          "away_score": "5",
+          "home_score": "4",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "키움 히어로즈",
+          "home": "롯데 자이언츠",
+          "away_score": "10",
+          "home_score": "15",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "두산 베어스",
+          "home": "NC 다이노스",
+          "away_score": "6",
+          "home_score": "4",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "KIA 타이거즈",
+          "home": "한화 이글스",
           "away_score": "4",
           "home_score": "3",
           "status": "종료",
-          "stadium": "한화생명 이글스파크",
-          "away_pitcher": "승네일",
-          "home_pitcher": "패왕옌청",
-          "broadcaster": "SPOTV2"
+          "stadium": ""
         }
       ]
     },
@@ -6096,7 +6146,7 @@
       "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
     }
   ],
-  "standings_updated": "2026-08-18",
+  "standings_updated": "2026-08-19",
   "last10_records": {
     "headers": [
       "팀",
@@ -6114,7 +6164,7 @@
         "KIA 타이거즈",
         "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
         "7승 0무 3패",
-        "0.303",
+        "0.3",
         "3.944",
         "59",
         "44",
@@ -6192,7 +6242,7 @@
         "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88",
         "4승 0무 6패",
         "0.283",
-        "6.414",
+        "6.207",
         "55",
         "67",
         "11",
@@ -6642,32 +6692,6 @@
       ],
       [
         "16",
-        "나성범",
-        "https://sports-phinf.pstatic.net/player/kbo/default/62947.png",
-        "KIA",
-        "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
-        "0.297",
-        "70",
-        "61",
-        "23",
-        "109",
-        "21",
-        "0",
-        "103",
-        "367",
-        "0",
-        "",
-        "45",
-        "5",
-        "113",
-        "",
-        "0.379",
-        "0.542",
-        "0.921",
-        "3.79"
-      ],
-      [
-        "17",
         "김도영",
         "https://sports-phinf.pstatic.net/player/kbo/default/52605.png",
         "KIA",
@@ -6693,6 +6717,32 @@
         "5.12"
       ],
       [
+        "17",
+        "나성범",
+        "https://sports-phinf.pstatic.net/player/kbo/default/62947.png",
+        "KIA",
+        "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
+        "0.294",
+        "70",
+        "61",
+        "23",
+        "108",
+        "21",
+        "0",
+        "103",
+        "367",
+        "0",
+        "",
+        "45",
+        "5",
+        "113",
+        "",
+        "0.376",
+        "0.54",
+        "0.916",
+        "3.79"
+      ],
+      [
         "18",
         "디아즈",
         "https://sports-phinf.pstatic.net/player/kbo/default/54400.png",
@@ -6716,7 +6766,7 @@
         "0.376",
         "0.477",
         "0.853",
-        "2.84"
+        "2.79"
       ],
       [
         "19",
@@ -8968,7 +9018,7 @@
         "547",
         "3683",
         "136",
-        "1001",
+        "1000",
         "185",
         "12",
         "65",
@@ -8977,7 +9027,7 @@
         "848",
         "0.345",
         "0.439",
-        "0.785"
+        "0.784"
       ],
       [
         "두산",
@@ -9181,7 +9231,7 @@
         "547",
         "3683",
         "136",
-        "1001",
+        "1000",
         "185",
         "12",
         "65",
@@ -9190,7 +9240,7 @@
         "848",
         "0.345",
         "0.439",
-        "0.785"
+        "0.784"
       ],
       [
         "두산",
@@ -9351,17 +9401,17 @@
       [
         "삼성",
         "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88",
-        "4.294",
+        "4.275",
         "493",
-        "449",
+        "447",
         "941.0",
-        "939",
+        "938",
         "103",
         "801",
         "",
         "",
-        "66",
-        "1.392",
+        "67",
+        "1.391",
         "42",
         "30",
         "61",
@@ -9521,5 +9571,5 @@
       ]
     ]
   },
-  "records_updated": "2026-08-18"
+  "records_updated": "2026-08-19"
 }
