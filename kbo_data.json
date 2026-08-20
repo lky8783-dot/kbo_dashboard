@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T12:30:54",
+  "updated": "2026-08-20T13:01:37",
   "today": "2026-08-20",
   "dates": {
     "2026-08-20": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "고영표",
-          "home_pitcher": "홍창기",
+          "away_pitcher": "최원준",
+          "home_pitcher": "백승현",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,22 +23,20 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "김민",
-          "home_pitcher": "이재현",
+          "away_pitcher": "노경은",
+          "home_pitcher": "최형우",
           "broadcaster": "KBS N SPORTS"
         },
         {
           "time": "19:00",
           "away": "키움 히어로즈",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회초",
+          "away_score": "1",
+          "home_score": "7",
+          "status": "종료",
           "stadium": "사직야구장",
-          "away_pitcher": "안치홍",
-          "home_pitcher": "박정민",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -47,10 +45,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "8회말",
+          "status": "9회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "박치국",
-          "home_pitcher": "김휘집",
+          "away_pitcher": "김택연",
+          "home_pitcher": "천재환",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -59,10 +57,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "김도영",
-          "home_pitcher": "이상규",
+          "away_pitcher": "김호령",
+          "home_pitcher": "황준서",
           "broadcaster": "SPOTV2"
         }
       ]
@@ -6162,8 +6160,8 @@
       "gb": "15.0",
       "last10": "4승0무1패",
       "streak": "3연승",
-      "next_opp": "키움 히어로즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
+      "next_opp": "두산 베어스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
     },
     {
       "rank": 9,
@@ -6192,8 +6190,8 @@
       "gb": "25.5",
       "last10": "1승0무4패",
       "streak": "3연패",
-      "next_opp": "롯데 자이언츠",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     }
   ],
   "standings_updated": "2026-08-20",
