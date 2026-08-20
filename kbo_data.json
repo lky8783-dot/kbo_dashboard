@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T09:30:44",
+  "updated": "2026-08-20T10:00:52",
   "today": "2026-08-20",
   "dates": {
     "2026-08-20": {
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "최민준",
+          "away_pitcher": "정준재",
           "home_pitcher": "최원태",
           "broadcaster": "KBS N SPORTS"
         },
@@ -47,9 +47,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "잭로그",
+          "away_pitcher": "조수행",
           "home_pitcher": "구창모",
           "broadcaster": "MBC SPORTS+"
         },
