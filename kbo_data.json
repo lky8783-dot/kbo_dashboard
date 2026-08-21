@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21T11:30:57",
+  "updated": "2026-08-21T12:01:07",
   "today": "2026-08-21",
   "dates": {
     "2026-08-21": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "레이예스",
-          "home_pitcher": "최승용",
+          "away_pitcher": "김진욱",
+          "home_pitcher": "김대한",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "전용주",
-          "home_pitcher": "전의산",
+          "away_pitcher": "손동현",
+          "home_pitcher": "조형우",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "원태인",
-          "home_pitcher": "김형준",
+          "away_pitcher": "전병우",
+          "home_pitcher": "이용준",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회말",
           "stadium": "한화생명 이글스파크",
           "away_pitcher": "송승기",
-          "home_pitcher": "채은성",
+          "home_pitcher": "노시환",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "오선우",
-          "home_pitcher": "하영민",
+          "away_pitcher": "김도영",
+          "home_pitcher": "박지성",
           "broadcaster": "SPOTV2"
         }
       ]
