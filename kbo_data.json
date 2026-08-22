@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-22T11:00:52",
+  "updated": "2026-08-22T11:30:50",
   "today": "2026-08-22",
   "dates": {
     "2026-08-22": {
@@ -14,7 +14,7 @@
           "status": "7회말",
           "stadium": "고척스카이돔",
           "away_pitcher": "조상우",
-          "home_pitcher": "김건희",
+          "home_pitcher": "서건창",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "4회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "전병우",
-          "home_pitcher": "원종해",
+          "away_pitcher": "양창섭",
+          "home_pitcher": "블레인",
           "broadcaster": "SBS SPORTS"
         },
         {
