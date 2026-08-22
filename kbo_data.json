@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-22T12:00:50",
+  "updated": "2026-08-22T12:30:55",
   "today": "2026-08-22",
   "dates": {
     "2026-08-22": {
@@ -45,10 +45,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김지찬",
-          "home_pitcher": "송명기",
+          "away_pitcher": "이승민",
+          "home_pitcher": "최정원",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -6311,11 +6311,11 @@
       [
         "KIA 타이거즈",
         "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88",
-        "8승 0무 2패",
-        "0.288",
-        "3.2",
-        "61",
-        "37",
+        "7승 0무 3패",
+        "0.292",
+        "3.337",
+        "59",
+        "39",
         "13",
         "8"
       ],
@@ -6410,13 +6410,13 @@
       [
         "키움 히어로즈",
         "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88",
-        "2승 0무 8패",
-        "0.252",
-        "7.32",
+        "3승 0무 7패",
+        "0.253",
+        "6.588",
         "44",
-        "81",
-        "11",
-        "10"
+        "74",
+        "10",
+        "8"
       ]
     ]
   },
