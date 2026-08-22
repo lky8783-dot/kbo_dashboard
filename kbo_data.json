@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-22T10:30:46",
+  "updated": "2026-08-22T11:00:52",
   "today": "2026-08-22",
   "dates": {
     "2026-08-22": {
@@ -11,10 +11,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "올러",
-          "home_pitcher": "서건창",
+          "away_pitcher": "조상우",
+          "home_pitcher": "김건희",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,9 +47,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "4회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "강민호",
+          "away_pitcher": "전병우",
           "home_pitcher": "원종해",
           "broadcaster": "SBS SPORTS"
         },
