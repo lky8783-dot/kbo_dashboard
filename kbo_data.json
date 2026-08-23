@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-23T09:30:47",
+  "updated": "2026-08-23T10:00:55",
   "today": "2026-08-23",
   "dates": {
     "2026-08-23": {
@@ -33,9 +33,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "로건",
+          "away_pitcher": "최원준",
           "home_pitcher": "아빌라",
           "broadcaster": "SPOTV,MBC SPORTS+"
         },
@@ -57,9 +57,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "카라스코",
+          "away_pitcher": "박해민",
           "home_pitcher": "박준영",
           "broadcaster": "SPOTV2"
         }
