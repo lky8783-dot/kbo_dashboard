@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-23T08:00:52",
+  "updated": "2026-08-23T08:30:54",
   "today": "2026-08-23",
   "dates": {
     "2026-08-23": {
@@ -9,12 +9,10 @@
           "time": "14:00",
           "away": "KIA 타이거즈",
           "home": "키움 히어로즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "7",
+          "home_score": "8",
+          "status": "종료",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김민규",
-          "home_pitcher": "이강준",
           "broadcaster": "SBS TV"
         },
         {
