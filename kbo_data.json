@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-23T10:00:55",
+  "updated": "2026-08-23T10:30:46",
   "today": "2026-08-23",
   "dates": {
     "2026-08-23": {
@@ -21,10 +21,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "잠실야구장",
           "away_pitcher": "박세웅",
-          "home_pitcher": "곽빈",
+          "home_pitcher": "세베리노",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -33,9 +33,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "최원준",
+          "away_pitcher": "김민혁",
           "home_pitcher": "아빌라",
           "broadcaster": "SPOTV,MBC SPORTS+"
         },
@@ -45,9 +45,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "페덱",
+          "away_pitcher": "김태훈",
           "home_pitcher": "라일리",
           "broadcaster": "KBS N SPORTS"
         },
@@ -57,9 +57,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "박해민",
+          "away_pitcher": "신민재",
           "home_pitcher": "박준영",
           "broadcaster": "SPOTV2"
         }
