@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-23T07:00:51",
+  "updated": "2026-08-23T07:30:51",
   "today": "2026-08-23",
   "dates": {
     "2026-08-23": {
@@ -11,10 +11,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "8회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김선빈",
-          "home_pitcher": "조영건",
+          "away_pitcher": "하주석",
+          "home_pitcher": "원종현",
           "broadcaster": "SBS TV"
         },
         {
