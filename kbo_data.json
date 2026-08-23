@@ -1,21 +1,21 @@
 {
-  "updated": "2026-08-22T14:30:48",
-  "today": "2026-08-22",
+  "updated": "2026-08-23T00:00:57",
+  "today": "2026-08-23",
   "dates": {
-    "2026-08-22": {
-      "date": "2026-08-22",
+    "2026-08-23": {
+      "date": "2026-08-23",
       "games": [
         {
-          "time": "18:00",
+          "time": "14:00",
           "away": "KIA 타이거즈",
           "home": "키움 히어로즈",
-          "away_score": "1",
-          "home_score": "3",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "고척스카이돔",
-          "away_pitcher": "패올러",
-          "home_pitcher": "승안우진",
-          "broadcaster": "SPOTV2"
+          "away_pitcher": "네일",
+          "home_pitcher": "전준표",
+          "broadcaster": "SBS TV"
         },
         {
           "time": "19:00",
@@ -23,11 +23,11 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "경기취소",
+          "status": "예정",
           "stadium": "잠실야구장",
           "away_pitcher": "박세웅",
           "home_pitcher": "곽빈",
-          "broadcaster": "MBC SPORTS+"
+          "broadcaster": "SBS SPORTS"
         },
         {
           "time": "19:00",
@@ -35,23 +35,23 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "경기취소",
+          "status": "예정",
           "stadium": "SSG 랜더스필드",
           "away_pitcher": "로건",
           "home_pitcher": "아빌라",
-          "broadcaster": "SPOTV"
+          "broadcaster": "SPOTV,MBC SPORTS+"
         },
         {
           "time": "19:00",
           "away": "삼성 라이온즈",
           "home": "NC 다이노스",
-          "away_score": "8",
-          "home_score": "6",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "승이승민",
-          "home_pitcher": "패배재환",
-          "broadcaster": "SBS SPORTS"
+          "away_pitcher": "페덱",
+          "home_pitcher": "라일리",
+          "broadcaster": "KBS N SPORTS"
         },
         {
           "time": "19:00",
@@ -59,11 +59,61 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "경기취소",
+          "status": "예정",
           "stadium": "한화생명 이글스파크",
           "away_pitcher": "카라스코",
           "home_pitcher": "박준영",
-          "broadcaster": "KBS LIFE"
+          "broadcaster": "SPOTV2"
+        }
+      ]
+    },
+    "2026-08-22": {
+      "date": "2026-08-22",
+      "games": [
+        {
+          "time": "",
+          "away": "KIA 타이거즈",
+          "home": "키움 히어로즈",
+          "away_score": "1",
+          "home_score": "3",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "롯데 자이언츠",
+          "home": "두산 베어스",
+          "away_score": null,
+          "home_score": null,
+          "status": "우천취소",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "kt wiz",
+          "home": "SSG 랜더스",
+          "away_score": null,
+          "home_score": null,
+          "status": "우천취소",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "삼성 라이온즈",
+          "home": "NC 다이노스",
+          "away_score": "8",
+          "home_score": "6",
+          "status": "종료",
+          "stadium": ""
+        },
+        {
+          "time": "",
+          "away": "LG 트윈스",
+          "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "우천취소",
+          "stadium": ""
         }
       ]
     },
@@ -6296,7 +6346,7 @@
       "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     }
   ],
-  "standings_updated": "2026-08-22",
+  "standings_updated": "2026-08-23",
   "last10_records": {
     "headers": [
       "팀",
@@ -9721,5 +9771,5 @@
       ]
     ]
   },
-  "records_updated": "2026-08-22"
+  "records_updated": "2026-08-23"
 }
