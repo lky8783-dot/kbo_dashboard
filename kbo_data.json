@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25T11:30:56",
+  "updated": "2026-08-25T12:00:54",
   "today": "2026-08-25",
   "dates": {
     "2026-08-25": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "테일러",
-          "home_pitcher": "송찬의",
+          "away_pitcher": "이용준",
+          "home_pitcher": "문정빈",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "화이트",
-          "home_pitcher": "전의산",
+          "away_pitcher": "이도윤",
+          "home_pitcher": "이건욱",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "비슬리",
-          "home_pitcher": "나성범",
+          "away_pitcher": "한동희",
+          "home_pitcher": "성영탁",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "9회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "안재석",
-          "home_pitcher": "주권",
+          "away_pitcher": "김대한",
+          "home_pitcher": "전용주",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "이승현",
-          "home_pitcher": "박주홍",
+          "away_pitcher": "디아즈",
+          "home_pitcher": "유토",
           "broadcaster": "KBS N SPORTS"
         }
       ]
