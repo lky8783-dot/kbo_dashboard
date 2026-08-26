@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26T10:30:46",
+  "updated": "2026-08-26T11:00:56",
   "today": "2026-08-26",
   "dates": {
     "2026-08-26": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "권희동",
-          "home_pitcher": "임찬규",
+          "away_pitcher": "구창모",
+          "home_pitcher": "오스틴",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "6회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "류현진",
-          "home_pitcher": "김재환",
+          "away_pitcher": "한지윤",
+          "home_pitcher": "최민준",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "3회말",
+          "status": "4회말",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "로드리게스",
-          "home_pitcher": "김도영",
+          "home_pitcher": "박상준",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "세베리노",
-          "home_pitcher": "대니엘",
+          "away_pitcher": "잭로그",
+          "home_pitcher": "안현민",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "이재현",
-          "home_pitcher": "정현우",
+          "away_pitcher": "최원태",
+          "home_pitcher": "원성준",
           "broadcaster": "KBS N SPORTS"
         }
       ]
