@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26T09:30:46",
+  "updated": "2026-08-26T10:01:06",
   "today": "2026-08-26",
   "dates": {
     "2026-08-26": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "김주원",
-          "home_pitcher": "임찬규",
+          "away_pitcher": "구창모",
+          "home_pitcher": "박해민",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김태연",
-          "home_pitcher": "최민준",
+          "away_pitcher": "류현진",
+          "home_pitcher": "최지훈",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "로드리게스",
-          "home_pitcher": "황동하",
+          "home_pitcher": "김호령",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,9 +47,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "3회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "잭로그",
+          "away_pitcher": "조수행",
           "home_pitcher": "대니엘",
           "broadcaster": "SBS SPORTS"
         },
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "1회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "박승규",
-          "home_pitcher": "박준현",
+          "away_pitcher": "최원태",
+          "home_pitcher": "히우라",
           "broadcaster": "KBS N SPORTS"
         }
       ]
