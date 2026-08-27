@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-27T09:30:57",
+  "updated": "2026-08-27T10:00:51",
   "today": "2026-08-27",
   "dates": {
     "2026-08-27": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회말",
           "stadium": "잠실야구장",
           "away_pitcher": "토다",
-          "home_pitcher": "박시원",
+          "home_pitcher": "오스틴",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "1회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "이원석",
-          "home_pitcher": "김건우",
+          "away_pitcher": "짐머맨",
+          "home_pitcher": "전의산",
           "broadcaster": "SPOTV"
         },
         {
@@ -47,9 +47,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "최승용",
+          "away_pitcher": "정수빈",
           "home_pitcher": "고영표",
           "broadcaster": "SBS SPORTS"
         },
@@ -59,9 +59,9 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "원태인",
+          "away_pitcher": "강민호",
           "home_pitcher": "하영민",
           "broadcaster": "KBS N SPORTS"
         }
