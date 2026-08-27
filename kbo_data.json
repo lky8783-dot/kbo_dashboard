@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-27T09:00:50",
+  "updated": "2026-08-27T09:30:57",
   "today": "2026-08-27",
   "dates": {
     "2026-08-27": {
@@ -23,9 +23,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "짐머맨",
+          "away_pitcher": "이원석",
           "home_pitcher": "김건우",
           "broadcaster": "SPOTV"
         },
