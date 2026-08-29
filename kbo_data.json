@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-29T13:00:58",
+  "updated": "2026-08-29T13:30:52",
   "today": "2026-08-29",
   "dates": {
     "2026-08-29": {
@@ -29,12 +29,10 @@
           "time": "18:00",
           "away": "LG 트윈스",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "7회말",
+          "away_score": "8",
+          "home_score": "3",
+          "status": "종료",
           "stadium": "사직야구장",
-          "away_pitcher": "케네디",
-          "home_pitcher": "레이예스",
           "broadcaster": "SPOTV"
         },
         {
