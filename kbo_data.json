@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-29T10:30:46",
+  "updated": "2026-08-29T11:01:00",
   "today": "2026-08-29",
   "dates": {
     "2026-08-29": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "안우진",
-          "home_pitcher": "정수빈",
+          "away_pitcher": "서건창",
+          "home_pitcher": "타카다",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "안현민",
-          "home_pitcher": "페덱",
+          "away_pitcher": "로건",
+          "home_pitcher": "강민호",
           "broadcaster": "SPOTV2"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "사직야구장",
           "away_pitcher": "송찬의",
-          "home_pitcher": "김진욱",
+          "home_pitcher": "현도훈",
           "broadcaster": "SPOTV"
         },
         {
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "박성한",
-          "home_pitcher": "올러",
+          "away_pitcher": "최지훈",
+          "home_pitcher": "곽도규",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "6회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "라일리",
-          "home_pitcher": "허인서",
+          "away_pitcher": "김주원",
+          "home_pitcher": "권민규",
           "broadcaster": "KBS N SPORTS"
         }
       ]
