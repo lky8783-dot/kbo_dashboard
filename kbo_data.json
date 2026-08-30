@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30T11:01:03",
+  "updated": "2026-08-30T11:30:50",
   "today": "2026-08-30",
   "dates": {
     "2026-08-30": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "8회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "김웅빈",
-          "home_pitcher": "최민석",
+          "away_pitcher": "데이비슨",
+          "home_pitcher": "윤태호",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -59,10 +59,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "송명기",
-          "home_pitcher": "박정현",
+          "away_pitcher": "신영우",
+          "home_pitcher": "강백호",
           "broadcaster": "KBS N SPORTS"
         }
       ]
