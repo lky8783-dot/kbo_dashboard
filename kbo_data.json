@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30T12:30:45",
+  "updated": "2026-08-30T13:00:53",
   "today": "2026-08-30",
   "dates": {
     "2026-08-30": {
@@ -55,12 +55,10 @@
           "time": "18:00",
           "away": "NC 다이노스",
           "home": "한화 이글스",
-          "away_score": null,
-          "home_score": null,
-          "status": "10회초",
+          "away_score": "10",
+          "home_score": "7",
+          "status": "종료",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "박건우",
-          "home_pitcher": "김서현",
           "broadcaster": "KBS N SPORTS"
         }
       ]
@@ -6584,8 +6582,8 @@
       "gb": "16.0",
       "last10": "2승0무3패",
       "streak": "2연승",
-      "next_opp": "한화 이글스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     },
     {
       "rank": 7,
@@ -6614,8 +6612,8 @@
       "gb": "18.0",
       "last10": "0승0무5패",
       "streak": "5연패",
-      "next_opp": "NC 다이노스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
+      "next_opp": "kt wiz",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
     },
     {
       "rank": 9,
