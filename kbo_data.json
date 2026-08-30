@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30T10:30:57",
+  "updated": "2026-08-30T11:01:03",
   "today": "2026-08-30",
   "dates": {
     "2026-08-30": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "6회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "전준표",
-          "home_pitcher": "김대한",
+          "away_pitcher": "김웅빈",
+          "home_pitcher": "최민석",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "3회말",
+          "status": "경기취소",
           "stadium": "사직야구장",
           "away_pitcher": "톨허스트",
-          "home_pitcher": "황성빈",
+          "home_pitcher": "나균안",
           "broadcaster": "SPOTV"
         },
         {
@@ -59,9 +59,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "테일러",
+          "away_pitcher": "송명기",
           "home_pitcher": "박정현",
           "broadcaster": "KBS N SPORTS"
         }
@@ -6556,8 +6556,8 @@
       "gb": "5.5",
       "last10": "4승0무1패",
       "streak": "1연승",
-      "next_opp": "롯데 자이언츠",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
+      "next_opp": "두산 베어스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
     },
     {
       "rank": 5,
@@ -6601,8 +6601,8 @@
       "gb": "17.5",
       "last10": "1승0무4패",
       "streak": "4연패",
-      "next_opp": "LG 트윈스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
+      "next_opp": "삼성 라이온즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
     },
     {
       "rank": 8,
