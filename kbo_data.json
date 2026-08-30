@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30T11:30:50",
+  "updated": "2026-08-30T12:00:51",
   "today": "2026-08-30",
   "dates": {
     "2026-08-30": {
@@ -9,12 +9,10 @@
           "time": "18:00",
           "away": "키움 히어로즈",
           "home": "두산 베어스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회초",
+          "away_score": "1",
+          "home_score": "15",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "데이비슨",
-          "home_pitcher": "윤태호",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -59,10 +57,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "신영우",
-          "home_pitcher": "강백호",
+          "away_pitcher": "이용준",
+          "home_pitcher": "심우준",
           "broadcaster": "KBS N SPORTS"
         }
       ]
@@ -6571,8 +6569,8 @@
       "gb": "8.0",
       "last10": "3승0무2패",
       "streak": "1연승",
-      "next_opp": "키움 히어로즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
+      "next_opp": "LG 트윈스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
     },
     {
       "rank": 6,
@@ -6646,8 +6644,8 @@
       "gb": "28.5",
       "last10": "1승1무3패",
       "streak": "3연패",
-      "next_opp": "두산 베어스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
+      "next_opp": "SSG 랜더스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SK.png?type=f92_88"
     }
   ],
   "standings_updated": "2026-08-30",
