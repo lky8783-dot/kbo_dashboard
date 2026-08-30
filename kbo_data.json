@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30T07:00:59",
+  "updated": "2026-08-30T07:30:44",
   "today": "2026-08-30",
   "dates": {
     "2026-08-30": {
@@ -47,7 +47,7 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "경기취소",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "이준기",
           "home_pitcher": "네일",
@@ -6541,8 +6541,8 @@
       "gb": "5.5",
       "last10": "3승0무2패",
       "streak": "3연승",
-      "next_opp": "SSG 랜더스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SK.png?type=f92_88"
+      "next_opp": "NC 다이노스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
     },
     {
       "rank": 4,
@@ -6631,8 +6631,8 @@
       "gb": "20.5",
       "last10": "3승0무2패",
       "streak": "1연패",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "키움 히어로즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
     },
     {
       "rank": 10,
