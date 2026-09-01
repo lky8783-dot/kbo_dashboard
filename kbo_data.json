@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-01T12:00:58",
+  "updated": "2026-09-01T12:30:51",
   "today": "2026-09-01",
   "dates": {
     "2026-09-01": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "문보경",
-          "home_pitcher": "윤태호",
+          "away_pitcher": "우강훈",
+          "home_pitcher": "세베리노",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "한태양",
-          "home_pitcher": "이승민",
+          "away_pitcher": "전민재",
+          "home_pitcher": "김재윤",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "유민",
-          "home_pitcher": "손동현",
+          "away_pitcher": "황영묵",
+          "home_pitcher": "주권",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "7회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "고종욱",
-          "home_pitcher": "이용준",
+          "away_pitcher": "이태양",
+          "home_pitcher": "이우성",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "8회말",
+          "status": "9회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "김민",
-          "home_pitcher": "권혁빈",
+          "away_pitcher": "조병현",
+          "home_pitcher": "안치홍",
           "broadcaster": "KBS N SPORTS"
         }
       ]
