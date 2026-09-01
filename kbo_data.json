@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-01T10:31:01",
+  "updated": "2026-09-01T11:00:56",
   "today": "2026-09-01",
   "dates": {
     "2026-09-01": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "오지환",
-          "home_pitcher": "잭로그",
+          "away_pitcher": "임찬규",
+          "home_pitcher": "세베리노",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "레이예스",
-          "home_pitcher": "보스",
+          "away_pitcher": "로드리게스",
+          "home_pitcher": "강민호",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "3회말",
+          "status": "5회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "화이트",
-          "home_pitcher": "허경민",
+          "away_pitcher": "심우준",
+          "home_pitcher": "대니엘",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "이호연",
-          "home_pitcher": "구창모",
+          "away_pitcher": "네일",
+          "home_pitcher": "이우성",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "최지훈",
-          "home_pitcher": "알칸타라",
+          "away_pitcher": "최민준",
+          "home_pitcher": "추재현",
           "broadcaster": "KBS N SPORTS"
         }
       ]
