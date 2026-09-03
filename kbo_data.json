@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-03T07:01:07",
+  "updated": "2026-09-03T07:30:57",
   "today": "2026-09-03",
   "dates": {
     "2026-09-03": {
@@ -47,7 +47,7 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "경기취소",
           "stadium": "창원 NC 파크",
           "away_pitcher": "양현종",
           "home_pitcher": "이재학",
@@ -6710,8 +6710,8 @@
       "gb": "7.5",
       "last10": "3승0무2패",
       "streak": "2연패",
-      "next_opp": "NC 다이노스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png?type=f92_88"
+      "next_opp": "kt wiz",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
     },
     {
       "rank": 5,
@@ -6740,8 +6740,8 @@
       "gb": "15.5",
       "last10": "5승0무0패",
       "streak": "5연승",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "키움 히어로즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
     },
     {
       "rank": 7,
