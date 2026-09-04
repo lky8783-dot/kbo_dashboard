@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04T13:00:59",
+  "updated": "2026-09-04T13:30:59",
   "today": "2026-09-04",
   "dates": {
     "2026-09-04": {
@@ -19,12 +19,10 @@
           "time": "18:30",
           "away": "한화 이글스",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "14",
+          "home_score": "4",
+          "status": "종료",
           "stadium": "사직야구장",
-          "away_pitcher": "장규현",
-          "home_pitcher": "현도훈",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -43,10 +41,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "9회초",
+          "status": "10회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "최원준",
-          "home_pitcher": "이의리",
+          "away_pitcher": "주권",
+          "home_pitcher": "김호령",
           "broadcaster": "KBS N SPORTS"
         },
         {
