@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-09T10:30:51",
+  "updated": "2026-09-09T11:01:02",
   "today": "2026-09-09",
   "dates": {
     "2026-09-09": {
@@ -11,9 +11,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "최지훈",
+          "away_pitcher": "안상현",
           "home_pitcher": "곽빈",
           "broadcaster": "SPOTV,MBC SPORTS+"
         },
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "힐리어드",
-          "home_pitcher": "원태인",
+          "away_pitcher": "고영표",
+          "home_pitcher": "이재현",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회말",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "송명기",
-          "home_pitcher": "박재현",
+          "home_pitcher": "김호령",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "카라스코",
-          "home_pitcher": "강백호",
+          "away_pitcher": "신민재",
+          "home_pitcher": "왕옌청",
           "broadcaster": "SBS SPORTS"
         }
       ]
