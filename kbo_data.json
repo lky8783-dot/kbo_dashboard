@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-10T10:30:54",
+  "updated": "2026-09-10T11:01:03",
   "today": "2026-09-10",
   "dates": {
     "2026-09-10": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "6회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "추재현",
-          "home_pitcher": "벤자민",
+          "away_pitcher": "권혁빈",
+          "home_pitcher": "타카다",
           "broadcaster": "KBS N SPORTS,SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회초",
           "stadium": "사직야구장",
-          "away_pitcher": "한승택",
-          "home_pitcher": "비슬리",
+          "away_pitcher": "권동진",
+          "home_pitcher": "김태균",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -35,9 +35,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "6회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "강백호",
+          "away_pitcher": "문현빈",
           "home_pitcher": "아빌라",
           "broadcaster": "SPOTV2"
         },
@@ -47,10 +47,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "박건우",
-          "home_pitcher": "올러",
+          "away_pitcher": "라일리",
+          "home_pitcher": "박재현",
           "broadcaster": "MBC SPORTS+"
         }
       ]
