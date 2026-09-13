@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-13T08:30:53",
+  "updated": "2026-09-13T09:01:30",
   "today": "2026-09-13",
   "dates": {
     "2026-09-13": {
@@ -11,7 +11,7 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "3회말",
           "stadium": "잠실야구장",
           "away_pitcher": "토다",
           "home_pitcher": "세베리노",
@@ -23,9 +23,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "박동원",
+          "away_pitcher": "홍창기",
           "home_pitcher": "최원태",
           "broadcaster": "KBS N SPORTS"
         },
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "화이트",
-          "home_pitcher": "하주석",
+          "away_pitcher": "노시환",
+          "home_pitcher": "시라카와",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "3회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "장두성",
-          "home_pitcher": "소형준",
+          "away_pitcher": "나균안",
+          "home_pitcher": "김현수",
           "broadcaster": "SPOTV"
         }
       ]
