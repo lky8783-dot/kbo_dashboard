@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17T09:30:49",
+  "updated": "2026-09-17T10:00:56",
   "today": "2026-09-17",
   "dates": {
     "2026-09-17": {
@@ -11,10 +11,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "안우진",
-          "home_pitcher": "올러",
+          "home_pitcher": "하주석",
           "broadcaster": "SPOTV2,MBC SPORTS+"
         },
         {
@@ -23,9 +23,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "3회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "박성한",
+          "away_pitcher": "한유섬",
           "home_pitcher": "라일리",
           "broadcaster": "KBS N SPORTS,SPOTV"
         }
