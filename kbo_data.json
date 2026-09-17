@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17T09:00:51",
+  "updated": "2026-09-17T09:30:49",
   "today": "2026-09-17",
   "dates": {
     "2026-09-17": {
@@ -23,9 +23,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "이로운",
+          "away_pitcher": "박성한",
           "home_pitcher": "라일리",
           "broadcaster": "KBS N SPORTS,SPOTV"
         }
