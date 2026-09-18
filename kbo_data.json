@@ -1,33 +1,80 @@
 {
-  "updated": "2026-09-17T14:30:50",
-  "today": "2026-09-17",
+  "updated": "2026-09-18T00:01:33",
+  "today": "2026-09-18",
   "dates": {
+    "2026-09-18": {
+      "date": "2026-09-18",
+      "games": [
+        {
+          "time": "18:30",
+          "away": "키움 히어로즈",
+          "home": "두산 베어스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "잠실야구장",
+          "away_pitcher": "알칸타라",
+          "home_pitcher": "잭로그",
+          "broadcaster": "SPOTV,KBS N SPORTS"
+        },
+        {
+          "time": "18:30",
+          "away": "NC 다이노스",
+          "home": "롯데 자이언츠",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "사직야구장",
+          "away_pitcher": "이재학",
+          "home_pitcher": "로드리게스",
+          "broadcaster": "MBC SPORTS+"
+        },
+        {
+          "time": "18:30",
+          "away": "LG 트윈스",
+          "home": "kt wiz",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "kt wiz 파크",
+          "away_pitcher": "톨허스트",
+          "home_pitcher": "로건",
+          "broadcaster": "SPOTV2"
+        },
+        {
+          "time": "18:30",
+          "away": "삼성 라이온즈",
+          "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "한화생명 이글스파크",
+          "away_pitcher": "후라도",
+          "home_pitcher": "박준영",
+          "broadcaster": "SBS SPORTS"
+        }
+      ]
+    },
     "2026-09-17": {
       "date": "2026-09-17",
       "games": [
         {
-          "time": "18:30",
+          "time": "",
           "away": "키움 히어로즈",
           "home": "KIA 타이거즈",
           "away_score": "0",
           "home_score": "2",
           "status": "종료",
-          "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "패박준현",
-          "home_pitcher": "승곽도규",
-          "broadcaster": "SPOTV2,MBC SPORTS+"
+          "stadium": ""
         },
         {
-          "time": "18:30",
+          "time": "",
           "away": "SSG 랜더스",
           "home": "NC 다이노스",
           "away_score": "2",
           "home_score": "1",
           "status": "종료",
-          "stadium": "창원 NC 파크",
-          "away_pitcher": "승이로운",
-          "home_pitcher": "패손주환",
-          "broadcaster": "KBS N SPORTS,SPOTV"
+          "stadium": ""
         }
       ]
     },
@@ -7313,7 +7360,7 @@
       "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
     }
   ],
-  "standings_updated": "2026-09-17",
+  "standings_updated": "2026-09-18",
   "last10_records": {
     "headers": [
       "팀",
@@ -10738,5 +10785,5 @@
       ]
     ]
   },
-  "records_updated": "2026-09-17"
+  "records_updated": "2026-09-18"
 }
