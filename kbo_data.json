@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-20T06:00:59",
+  "updated": "2026-09-20T06:30:51",
   "today": "2026-09-20",
   "dates": {
     "2026-09-20": {
@@ -11,7 +11,7 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회초",
           "stadium": "잠실야구장",
           "away_pitcher": "한지윤",
           "home_pitcher": "카라스코",
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "3회말",
+          "status": "4회말",
           "stadium": "사직야구장",
-          "away_pitcher": "원태인",
-          "home_pitcher": "고승민",
+          "away_pitcher": "이승현",
+          "home_pitcher": "전민재",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "권혁빈",
-          "home_pitcher": "김건우",
+          "away_pitcher": "하영민",
+          "home_pitcher": "박성한",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "3회말",
+          "status": "5회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "김동주",
-          "home_pitcher": "한승택",
+          "away_pitcher": "강승호",
+          "home_pitcher": "고영표",
           "broadcaster": "SPOTV2"
         },
         {
@@ -59,9 +59,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "나성범",
+          "away_pitcher": "한준수",
           "home_pitcher": "토다",
           "broadcaster": "SBS SPORTS"
         }
