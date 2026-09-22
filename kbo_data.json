@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-22T11:01:37",
+  "updated": "2026-09-22T11:30:49",
   "today": "2026-09-22",
   "dates": {
     "2026-09-22": {
@@ -11,10 +11,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "이준혁",
-          "home_pitcher": "김상준",
+          "away_pitcher": "김진호",
+          "home_pitcher": "전병우",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "6회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "배제성",
-          "home_pitcher": "최지훈",
+          "away_pitcher": "전용주",
+          "home_pitcher": "임근우",
           "broadcaster": "SPOTV2"
         },
         {
@@ -35,10 +35,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "손성빈",
-          "home_pitcher": "주현상",
+          "away_pitcher": "비슬리",
+          "home_pitcher": "한지윤",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "고척스카이돔",
-          "away_pitcher": "류승민",
-          "home_pitcher": "전준표",
+          "away_pitcher": "벤자민",
+          "home_pitcher": "임병욱",
           "broadcaster": "MBC SPORTS+,SPOTV"
         }
       ]
