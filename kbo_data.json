@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-24T07:31:27",
+  "updated": "2026-09-24T08:00:59",
   "today": "2026-09-24",
   "dates": {
     "2026-09-24": {
@@ -23,9 +23,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "후라도",
+          "away_pitcher": "박승규",
           "home_pitcher": "김민준",
           "broadcaster": "KBS N SPORTS,SBS SPORTS"
         },
@@ -35,9 +35,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "송명기",
+          "away_pitcher": "천재환",
           "home_pitcher": "대니엘",
           "broadcaster": "SPOTV2,MBC SPORTS+"
         }
