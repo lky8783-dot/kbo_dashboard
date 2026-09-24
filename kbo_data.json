@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-24T09:31:12",
+  "updated": "2026-09-24T10:00:58",
   "today": "2026-09-24",
   "dates": {
     "2026-09-24": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회말",
           "stadium": "잠실야구장",
           "away_pitcher": "로드리게스",
-          "home_pitcher": "신민재",
+          "home_pitcher": "오스틴",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "최형우",
-          "home_pitcher": "김민준",
+          "away_pitcher": "전병우",
+          "home_pitcher": "이건욱",
           "broadcaster": "KBS N SPORTS,SBS SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "이준혁",
-          "home_pitcher": "안현민",
+          "away_pitcher": "블레인",
+          "home_pitcher": "대니엘",
           "broadcaster": "SPOTV2,MBC SPORTS+"
         }
       ]
