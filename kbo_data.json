@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25T08:30:58",
+  "updated": "2026-09-25T09:01:21",
   "today": "2026-09-25",
   "dates": {
     "2026-09-25": {
@@ -35,10 +35,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "1회말",
+          "status": "3회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "화이트",
-          "home_pitcher": "천재환",
+          "away_pitcher": "원종혁",
+          "home_pitcher": "한재환",
           "broadcaster": "SBS SPORTS,SPOTV2"
         }
       ]
