@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T10:30:50",
+  "updated": "2026-09-27T11:01:01",
   "today": "2026-09-27",
   "dates": {
     "2026-09-27": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "힐리어드",
-          "home_pitcher": "김정우",
+          "away_pitcher": "안현민",
+          "home_pitcher": "이영하",
           "broadcaster": "SPOTV2"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "8회초",
+          "status": "9회말",
           "stadium": "사직야구장",
-          "away_pitcher": "한지윤",
-          "home_pitcher": "이진하",
+          "away_pitcher": "김서현",
+          "home_pitcher": "고승민",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "경기취소",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "오스틴",
-          "home_pitcher": "김범수",
+          "away_pitcher": "카라스코",
+          "home_pitcher": "시라카와",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김웅빈",
-          "home_pitcher": "전사민",
+          "away_pitcher": "유토",
+          "home_pitcher": "권희동",
           "broadcaster": "KBS N SPORTS,MBC SPORTS+"
         }
       ]
@@ -7556,8 +7556,8 @@
       "gb": "6.5",
       "last10": "3승0무2패",
       "streak": "2연패",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "SSG 랜더스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SK.png?type=f92_88"
     },
     {
       "rank": 4,
@@ -7571,8 +7571,8 @@
       "gb": "8.5",
       "last10": "4승0무1패",
       "streak": "1연승",
-      "next_opp": "LG 트윈스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
+      "next_opp": "kt wiz",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
     },
     {
       "rank": 5,
