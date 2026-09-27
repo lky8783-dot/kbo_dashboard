@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T07:30:51",
+  "updated": "2026-09-27T08:00:55",
   "today": "2026-09-27",
   "dates": {
     "2026-09-27": {
@@ -23,9 +23,9 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "사직야구장",
-          "away_pitcher": "이상규",
+          "away_pitcher": "심우준",
           "home_pitcher": "나균안",
           "broadcaster": "SPOTV"
         },
