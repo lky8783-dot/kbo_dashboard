@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T08:00:55",
+  "updated": "2026-09-27T08:30:57",
   "today": "2026-09-27",
   "dates": {
     "2026-09-27": {
@@ -11,9 +11,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "배제성",
+          "away_pitcher": "김현수",
           "home_pitcher": "최승용",
           "broadcaster": "SPOTV2"
         },
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "1회말",
           "stadium": "사직야구장",
-          "away_pitcher": "심우준",
-          "home_pitcher": "나균안",
+          "away_pitcher": "이상규",
+          "home_pitcher": "고승민",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "광주-기아 챔피언스필드",
           "away_pitcher": "카라스코",
-          "home_pitcher": "시라카와",
+          "home_pitcher": "이호연",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "창원 NC 파크",
           "away_pitcher": "하영민",
-          "home_pitcher": "클레빈저",
+          "home_pitcher": "블레인",
           "broadcaster": "KBS N SPORTS,MBC SPORTS+"
         }
       ]
