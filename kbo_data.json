@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T09:30:48",
+  "updated": "2026-09-27T10:01:03",
   "today": "2026-09-27",
   "dates": {
     "2026-09-27": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "장성우",
-          "home_pitcher": "이용찬",
+          "away_pitcher": "배제성",
+          "home_pitcher": "김민석",
           "broadcaster": "SPOTV2"
         },
         {
@@ -23,9 +23,9 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "사직야구장",
-          "away_pitcher": "심우준",
+          "away_pitcher": "페라자",
           "home_pitcher": "나균안",
           "broadcaster": "SPOTV"
         },
@@ -35,10 +35,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "4회말",
+          "status": "5회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "카라스코",
-          "home_pitcher": "카스트로",
+          "away_pitcher": "오스틴",
+          "home_pitcher": "김범수",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "김웅빈",
-          "home_pitcher": "클레빈저",
+          "away_pitcher": "하영민",
+          "home_pitcher": "김형준",
           "broadcaster": "KBS N SPORTS,MBC SPORTS+"
         }
       ]
