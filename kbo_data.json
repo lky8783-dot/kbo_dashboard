@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29T11:30:51",
+  "updated": "2026-09-29T12:01:07",
   "today": "2026-09-29",
   "dates": {
     "2026-09-29": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "블레인",
-          "home_pitcher": "벤자민",
+          "away_pitcher": "이준혁",
+          "home_pitcher": "박준순",
           "broadcaster": "SPOTV2"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "원종혁",
-          "home_pitcher": "이재현",
+          "away_pitcher": "강건우",
+          "home_pitcher": "김영웅",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "8회말",
           "stadium": "사직야구장",
-          "away_pitcher": "전준표",
-          "home_pitcher": "전준우",
+          "away_pitcher": "박준현",
+          "home_pitcher": "고승민",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "장현식",
-          "home_pitcher": "최지훈",
+          "away_pitcher": "문정빈",
+          "home_pitcher": "아빌라",
           "broadcaster": "SPOTV"
         },
         {
@@ -59,10 +59,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "7회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "손동현",
-          "home_pitcher": "나성범",
+          "away_pitcher": "허경민",
+          "home_pitcher": "전상현",
           "broadcaster": "MBC SPORTS+"
         }
       ]
