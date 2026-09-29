@@ -1,57 +1,114 @@
 {
-  "updated": "2026-09-27T14:30:53",
-  "today": "2026-09-27",
+  "updated": "2026-09-29T00:01:01",
+  "today": "2026-09-29",
   "dates": {
+    "2026-09-29": {
+      "date": "2026-09-29",
+      "games": [
+        {
+          "time": "18:30",
+          "away": "NC 다이노스",
+          "home": "두산 베어스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "잠실야구장",
+          "away_pitcher": "이재학",
+          "home_pitcher": "벤자민",
+          "broadcaster": "SPOTV2"
+        },
+        {
+          "time": "18:30",
+          "away": "한화 이글스",
+          "home": "삼성 라이온즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "삼성 라이온즈파크",
+          "away_pitcher": "박준영",
+          "home_pitcher": "페덱",
+          "broadcaster": "SBS SPORTS"
+        },
+        {
+          "time": "18:30",
+          "away": "키움 히어로즈",
+          "home": "롯데 자이언츠",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "사직야구장",
+          "away_pitcher": "전준표",
+          "home_pitcher": "박세웅",
+          "broadcaster": "KBS N SPORTS"
+        },
+        {
+          "time": "18:30",
+          "away": "LG 트윈스",
+          "home": "SSG 랜더스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "SSG 랜더스필드",
+          "away_pitcher": "톨허스트",
+          "home_pitcher": "아빌라",
+          "broadcaster": "SPOTV"
+        },
+        {
+          "time": "18:30",
+          "away": "kt wiz",
+          "home": "KIA 타이거즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "광주-기아 챔피언스필드",
+          "away_pitcher": "로건",
+          "home_pitcher": "올러",
+          "broadcaster": "MBC SPORTS+"
+        }
+      ]
+    },
+    "2026-09-28": {
+      "date": "2026-09-28",
+      "games": []
+    },
     "2026-09-27": {
       "date": "2026-09-27",
       "games": [
         {
-          "time": "17:00",
+          "time": "",
           "away": "kt wiz",
           "home": "두산 베어스",
           "away_score": "12",
           "home_score": "6",
           "status": "종료",
-          "stadium": "잠실야구장",
-          "away_pitcher": "승배제성",
-          "home_pitcher": "패최승용",
-          "broadcaster": "SPOTV2"
+          "stadium": ""
         },
         {
-          "time": "17:00",
+          "time": "",
           "away": "한화 이글스",
           "home": "롯데 자이언츠",
           "away_score": "6",
           "home_score": "2",
           "status": "종료",
-          "stadium": "사직야구장",
-          "away_pitcher": "승주현상",
-          "home_pitcher": "패나균안",
-          "broadcaster": "SPOTV"
+          "stadium": ""
         },
         {
-          "time": "17:00",
+          "time": "",
           "away": "LG 트윈스",
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "경기취소",
-          "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "카라스코",
-          "home_pitcher": "시라카와",
-          "broadcaster": "SBS SPORTS"
+          "status": "우천취소",
+          "stadium": ""
         },
         {
-          "time": "17:00",
+          "time": "",
           "away": "키움 히어로즈",
           "home": "NC 다이노스",
           "away_score": "8",
           "home_score": "4",
           "status": "종료",
-          "stadium": "창원 NC 파크",
-          "away_pitcher": "승하영민",
-          "home_pitcher": "패이준혁",
-          "broadcaster": "KBS N SPORTS,MBC SPORTS+"
+          "stadium": ""
         }
       ]
     },
@@ -7665,7 +7722,7 @@
       "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
     }
   ],
-  "standings_updated": "2026-09-27",
+  "standings_updated": "2026-09-29",
   "last10_records": {
     "headers": [
       "팀",
@@ -11090,5 +11147,5 @@
       ]
     ]
   },
-  "records_updated": "2026-09-27"
+  "records_updated": "2026-09-29"
 }
