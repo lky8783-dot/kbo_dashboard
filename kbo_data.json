@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30T11:01:02",
+  "updated": "2026-09-30T11:30:55",
   "today": "2026-09-30",
   "dates": {
     "2026-09-30": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "잠실야구장",
           "away_pitcher": "천재환",
-          "home_pitcher": "잭로그",
+          "home_pitcher": "이용찬",
           "broadcaster": "SPOTV"
         },
         {
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "화이트",
-          "home_pitcher": "디아즈",
+          "away_pitcher": "조동욱",
+          "home_pitcher": "김지찬",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -35,10 +35,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회초",
           "stadium": "사직야구장",
-          "away_pitcher": "최재영",
-          "home_pitcher": "현도훈",
+          "away_pitcher": "임병욱",
+          "home_pitcher": "김원중",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "구본혁",
-          "home_pitcher": "김건우",
+          "away_pitcher": "문보경",
+          "home_pitcher": "타케다",
           "broadcaster": "SBS SPORTS"
         },
         {
@@ -59,10 +59,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "안현민",
-          "home_pitcher": "김태형",
+          "away_pitcher": "대니엘",
+          "home_pitcher": "김도영",
           "broadcaster": "SPOTV2"
         }
       ]
