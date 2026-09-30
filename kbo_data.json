@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30T12:30:56",
+  "updated": "2026-09-30T13:01:18",
   "today": "2026-09-30",
   "dates": {
     "2026-09-30": {
@@ -11,10 +11,10 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "9회초",
+          "status": "9회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "김휘집",
-          "home_pitcher": "이영하",
+          "away_pitcher": "신영우",
+          "home_pitcher": "강승호",
           "broadcaster": "SPOTV"
         },
         {
@@ -31,12 +31,10 @@
           "time": "18:30",
           "away": "키움 히어로즈",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "6",
+          "home_score": "8",
+          "status": "종료",
           "stadium": "사직야구장",
-          "away_pitcher": "임진묵",
-          "home_pitcher": "나승엽",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -53,12 +51,10 @@
           "time": "18:30",
           "away": "kt wiz",
           "home": "KIA 타이거즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "3",
+          "home_score": "2",
+          "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "손동현",
-          "home_pitcher": "나성범",
           "broadcaster": "SPOTV2"
         }
       ]
@@ -7734,8 +7730,8 @@
       "gb": "22.5",
       "last10": "4승0무1패",
       "streak": "1연승",
-      "next_opp": "키움 히어로즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png?type=f92_88"
+      "next_opp": "kt wiz",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
     },
     {
       "rank": 9,
@@ -7764,8 +7760,8 @@
       "gb": "36.5",
       "last10": "2승0무3패",
       "streak": "1연패",
-      "next_opp": "롯데 자이언츠",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
+      "next_opp": "한화 이글스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png?type=f92_88"
     }
   ],
   "standings_updated": "2026-09-30",
