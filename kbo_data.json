@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-01T09:01:00",
+  "updated": "2026-10-01T09:30:54",
   "today": "2026-10-01",
   "dates": {
     "2026-10-01": {
@@ -11,9 +11,9 @@
           "home": "두산 베어스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "송명기",
+          "away_pitcher": "김주원",
           "home_pitcher": "최민석",
           "broadcaster": "SBS SPORTS,SPOTV"
         },
@@ -35,9 +35,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "임찬규",
+          "away_pitcher": "박해민",
           "home_pitcher": "김민준",
           "broadcaster": "SPOTV2"
         },
