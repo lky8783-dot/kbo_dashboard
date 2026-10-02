@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02T03:01:04",
+  "updated": "2026-10-02T04:00:53",
   "today": "2026-10-02",
   "dates": {
     "2026-10-02": {
@@ -61,8 +61,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "하영민",
+          "home_pitcher": "이상규",
           "broadcaster": "SBS SPORTS"
         }
       ]
