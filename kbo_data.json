@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02T02:01:04",
+  "updated": "2026-10-02T03:01:04",
   "today": "2026-10-02",
   "dates": {
     "2026-10-02": {
@@ -13,8 +13,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "잠실야구장",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "네일",
+          "home_pitcher": "카라스코",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -25,8 +25,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "최승용",
+          "home_pitcher": "최원태",
           "broadcaster": "SPOTV"
         },
         {
@@ -37,8 +37,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "비슬리",
+          "home_pitcher": "고영표",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -49,8 +49,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "이로운",
+          "home_pitcher": "구창모",
           "broadcaster": "SPOTV2"
         },
         {
