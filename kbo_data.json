@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04T09:01:00",
+  "updated": "2026-10-04T09:30:49",
   "today": "2026-10-04",
   "dates": {
     "2026-10-04": {
@@ -51,10 +51,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "4회초",
+          "status": "5회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "고승민",
-          "home_pitcher": "배제성",
+          "away_pitcher": "나균안",
+          "home_pitcher": "힐리어드",
           "broadcaster": "SPOTV"
         }
       ]
