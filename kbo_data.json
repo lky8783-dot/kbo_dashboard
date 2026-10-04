@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04T05:01:00",
+  "updated": "2026-10-04T05:30:51",
   "today": "2026-10-04",
   "dates": {
     "2026-10-04": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "시라카와",
+          "away_pitcher": "김호령",
           "home_pitcher": "김윤식",
           "broadcaster": "SBS SPORTS"
         },
@@ -23,10 +23,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "박찬호",
-          "home_pitcher": "이승현",
+          "away_pitcher": "벤자민",
+          "home_pitcher": "최형우",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -35,10 +35,10 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "박성한",
-          "home_pitcher": "클레빈저",
+          "away_pitcher": "최민준",
+          "home_pitcher": "천재환",
           "broadcaster": "SPOTV2"
         },
         {
@@ -47,10 +47,10 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "안우진",
-          "home_pitcher": "박준영",
+          "away_pitcher": "추재현",
+          "home_pitcher": "짐머맨",
           "broadcaster": "MBC SPORTS+"
         },
         {
