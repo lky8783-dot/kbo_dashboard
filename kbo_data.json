@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T09:30:55",
+  "updated": "2026-10-07T10:01:00",
   "today": "2026-10-07",
   "dates": {
     "2026-10-07": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "3회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "박찬호",
+          "away_pitcher": "조수행",
           "home_pitcher": "임찬규",
           "broadcaster": "SPOTV2"
         },
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "사직야구장",
           "away_pitcher": "양현종",
-          "home_pitcher": "김태균",
+          "home_pitcher": "한동희",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김주원",
-          "home_pitcher": "김민준",
+          "away_pitcher": "송명기",
+          "home_pitcher": "김재환",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "김현준",
-          "home_pitcher": "소형준",
+          "away_pitcher": "원태인",
+          "home_pitcher": "힐리어드",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "2회말",
           "stadium": "고척스카이돔",
           "away_pitcher": "정우주",
-          "home_pitcher": "김성진",
+          "home_pitcher": "박찬혁",
           "broadcaster": "SBS SPORTS"
         }
       ]
