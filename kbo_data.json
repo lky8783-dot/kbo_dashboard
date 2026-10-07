@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T09:00:56",
+  "updated": "2026-10-07T09:30:55",
   "today": "2026-10-07",
   "dates": {
     "2026-10-07": {
@@ -11,9 +11,9 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "최민석",
+          "away_pitcher": "박찬호",
           "home_pitcher": "임찬규",
           "broadcaster": "SPOTV2"
         },
@@ -35,9 +35,9 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "송명기",
+          "away_pitcher": "김주원",
           "home_pitcher": "김민준",
           "broadcaster": "KBS N SPORTS"
         },
@@ -47,9 +47,9 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "원태인",
+          "away_pitcher": "김현준",
           "home_pitcher": "소형준",
           "broadcaster": "MBC SPORTS+"
         },
