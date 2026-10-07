@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T10:01:00",
+  "updated": "2026-10-07T10:30:50",
   "today": "2026-10-07",
   "dates": {
     "2026-10-07": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "3회말",
           "stadium": "잠실야구장",
-          "away_pitcher": "조수행",
-          "home_pitcher": "임찬규",
+          "away_pitcher": "최민석",
+          "home_pitcher": "오스틴",
           "broadcaster": "SPOTV2"
         },
         {
@@ -23,10 +23,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "사직야구장",
-          "away_pitcher": "양현종",
-          "home_pitcher": "한동희",
+          "away_pitcher": "한준수",
+          "home_pitcher": "김태균",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,10 +35,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "3회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "송명기",
-          "home_pitcher": "김재환",
+          "away_pitcher": "신영우",
+          "home_pitcher": "조형우",
           "broadcaster": "KBS N SPORTS"
         },
         {
@@ -47,10 +47,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "원태인",
-          "home_pitcher": "힐리어드",
+          "away_pitcher": "최형우",
+          "home_pitcher": "소형준",
           "broadcaster": "MBC SPORTS+"
         },
         {
@@ -59,10 +59,10 @@
           "home": "키움 히어로즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "고척스카이돔",
-          "away_pitcher": "정우주",
-          "home_pitcher": "박찬혁",
+          "away_pitcher": "노시환",
+          "home_pitcher": "김성진",
           "broadcaster": "SBS SPORTS"
         }
       ]
