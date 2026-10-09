@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T05:30:48",
+  "updated": "2026-10-09T06:00:54",
   "today": "2026-10-09",
   "dates": {
     "2026-10-09": {
@@ -11,10 +11,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "사직야구장",
-          "away_pitcher": "카라스코",
-          "home_pitcher": "윤동희",
+          "away_pitcher": "구본혁",
+          "home_pitcher": "김한결",
           "broadcaster": "SPOTV2,MBC SPORTS+"
         },
         {
@@ -23,10 +23,10 @@
           "home": "SSG 랜더스",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회말",
           "stadium": "SSG 랜더스필드",
-          "away_pitcher": "김영웅",
-          "home_pitcher": "이로운",
+          "away_pitcher": "임기영",
+          "home_pitcher": "한유섬",
           "broadcaster": "KBS N SPORTS,SPOTV"
         },
         {
@@ -35,9 +35,9 @@
           "home": "NC 다이노스",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "4회초",
           "stadium": "창원 NC 파크",
-          "away_pitcher": "박재현",
+          "away_pitcher": "김태군",
           "home_pitcher": "구창모",
           "broadcaster": "SBS SPORTS"
         }
