@@ -1,45 +1,77 @@
 {
-  "updated": "2026-10-09T14:30:51",
-  "today": "2026-10-09",
+  "updated": "2026-10-10T00:02:44",
+  "today": "2026-10-10",
   "dates": {
-    "2026-10-09": {
-      "date": "2026-10-09",
+    "2026-10-10": {
+      "date": "2026-10-10",
       "games": [
         {
           "time": "14:00",
           "away": "LG 트윈스",
           "home": "롯데 자이언츠",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "사직야구장",
+          "away_pitcher": "톨허스트",
+          "home_pitcher": "나균안",
+          "broadcaster": "SBS SPORTS,SPOTV2"
+        },
+        {
+          "time": "17:00",
+          "away": "SSG 랜더스",
+          "home": "KIA 타이거즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "광주-기아 챔피언스필드",
+          "away_pitcher": "최민준",
+          "home_pitcher": "시라카와",
+          "broadcaster": "SPOTV"
+        },
+        {
+          "time": "17:00",
+          "away": "NC 다이노스",
+          "home": "한화 이글스",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "한화생명 이글스파크",
+          "away_pitcher": "클레빈저",
+          "home_pitcher": "황준서",
+          "broadcaster": "MBC SPORTS+,KBS N SPORTS"
+        }
+      ]
+    },
+    "2026-10-09": {
+      "date": "2026-10-09",
+      "games": [
+        {
+          "time": "",
+          "away": "LG 트윈스",
+          "home": "롯데 자이언츠",
           "away_score": "1",
           "home_score": "9",
           "status": "종료",
-          "stadium": "사직야구장",
-          "away_pitcher": "패카라스코",
-          "home_pitcher": "승최준용",
-          "broadcaster": "SPOTV2,MBC SPORTS+"
+          "stadium": ""
         },
         {
-          "time": "14:00",
+          "time": "",
           "away": "삼성 라이온즈",
           "home": "SSG 랜더스",
           "away_score": "1",
           "home_score": "3",
           "status": "종료",
-          "stadium": "SSG 랜더스필드",
-          "away_pitcher": "패사토시",
-          "home_pitcher": "승이로운",
-          "broadcaster": "KBS N SPORTS,SPOTV"
+          "stadium": ""
         },
         {
-          "time": "14:00",
+          "time": "",
           "away": "KIA 타이거즈",
           "home": "NC 다이노스",
           "away_score": "7",
           "home_score": "2",
           "status": "종료",
-          "stadium": "창원 NC 파크",
-          "away_pitcher": "승네일",
-          "home_pitcher": "패구창모",
-          "broadcaster": "SBS SPORTS"
+          "stadium": ""
         }
       ]
     },
@@ -8005,7 +8037,7 @@
       "next_logo": ""
     }
   ],
-  "standings_updated": "2026-10-09",
+  "standings_updated": "2026-10-10",
   "last10_records": {
     "headers": [
       "팀",
@@ -11430,5 +11462,5 @@
       ]
     ]
   },
-  "records_updated": "2026-10-09"
+  "records_updated": "2026-10-10"
 }
