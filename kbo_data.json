@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-10T08:30:49",
+  "updated": "2026-10-10T09:00:52",
   "today": "2026-10-10",
   "dates": {
     "2026-10-10": {
@@ -9,12 +9,10 @@
           "time": "14:00",
           "away": "LG 트윈스",
           "home": "롯데 자이언츠",
-          "away_score": null,
-          "home_score": null,
-          "status": "10회초",
+          "away_score": "4",
+          "home_score": "3",
+          "status": "종료",
           "stadium": "사직야구장",
-          "away_pitcher": "문정빈",
-          "home_pitcher": "이이무라",
           "broadcaster": "SBS SPORTS,SPOTV2"
         },
         {
@@ -23,10 +21,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "4회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "최민준",
-          "home_pitcher": "김선빈",
+          "away_pitcher": "조형우",
+          "home_pitcher": "시라카와",
           "broadcaster": "SPOTV"
         },
         {
@@ -35,9 +33,9 @@
           "home": "한화 이글스",
           "away_score": null,
           "home_score": null,
-          "status": "2회초",
+          "status": "4회초",
           "stadium": "한화생명 이글스파크",
-          "away_pitcher": "고준휘",
+          "away_pitcher": "신재인",
           "home_pitcher": "황준서",
           "broadcaster": "MBC SPORTS+,KBS N SPORTS"
         }
@@ -7943,8 +7941,8 @@
       "gb": "13.0",
       "last10": "2승0무3패",
       "streak": "1연패",
-      "next_opp": "롯데 자이언츠",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png?type=f92_88"
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     },
     {
       "rank": 5,
@@ -7988,8 +7986,8 @@
       "gb": "26.5",
       "last10": "1승1무3패",
       "streak": "1연승",
-      "next_opp": "LG 트윈스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     },
     {
       "rank": 8,
