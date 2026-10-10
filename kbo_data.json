@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-10T05:01:16",
+  "updated": "2026-10-10T05:30:52",
   "today": "2026-10-10",
   "dates": {
     "2026-10-10": {
@@ -11,10 +11,10 @@
           "home": "롯데 자이언츠",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "사직야구장",
-          "away_pitcher": "홍창기",
-          "home_pitcher": "나균안",
+          "away_pitcher": "톨허스트",
+          "home_pitcher": "윤동희",
           "broadcaster": "SBS SPORTS,SPOTV2"
         },
         {
