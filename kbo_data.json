@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11T07:00:59",
+  "updated": "2026-10-11T07:30:55",
   "today": "2026-10-11",
   "dates": {
     "2026-10-11": {
@@ -11,10 +11,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회말",
+          "status": "8회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "김정운",
-          "home_pitcher": "이재현",
+          "away_pitcher": "배제성",
+          "home_pitcher": "김현준",
           "broadcaster": "MBC SPORTS+,SPOTV2"
         },
         {
@@ -23,10 +23,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "9회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "장두성",
-          "home_pitcher": "정해영",
+          "away_pitcher": "한동희",
+          "home_pitcher": "황동하",
           "broadcaster": "KBS N SPORTS,SPOTV"
         }
       ]
