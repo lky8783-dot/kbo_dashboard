@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T01:00:57",
+  "updated": "2026-10-13T02:00:55",
   "today": "2026-10-13",
   "dates": {
     "2026-10-13": {
@@ -13,8 +13,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "잠실야구장",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "곽빈",
+          "home_pitcher": "카라스코",
           "broadcaster": "WC 1차전"
         }
       ]
