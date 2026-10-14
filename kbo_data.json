@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T11:01:34",
+  "updated": "2026-10-14T11:30:55",
   "today": "2026-10-14",
   "dates": {
     "2026-10-14": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "5회말",
+          "status": "7회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "곽빈",
-          "home_pitcher": "오스틴",
+          "away_pitcher": "정수빈",
+          "home_pitcher": "케네디",
           "broadcaster": "WC 1차전 MBC TV"
         }
       ]
