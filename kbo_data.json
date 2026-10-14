@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T13:00:58",
+  "updated": "2026-10-14T13:30:53",
   "today": "2026-10-14",
   "dates": {
     "2026-10-14": {
@@ -13,8 +13,8 @@
           "home_score": "4",
           "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "패곽빈",
+          "home_pitcher": "승카라스코",
           "broadcaster": "WC 1차전 MBC TV"
         }
       ]
@@ -7995,8 +7995,8 @@
       "gb": "12.5",
       "last10": "4승0무1패",
       "streak": "1연승",
-      "next_opp": "",
-      "next_logo": ""
+      "next_opp": "LG 트윈스",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
     },
     {
       "rank": 4,
@@ -8010,8 +8010,8 @@
       "gb": "14.0",
       "last10": "3승0무2패",
       "streak": "1연패",
-      "next_opp": "두산 베어스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png?type=f92_88"
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     },
     {
       "rank": 5,
@@ -8025,8 +8025,8 @@
       "gb": "17.0",
       "last10": "3승0무2패",
       "streak": "2연패",
-      "next_opp": "LG 트윈스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
+      "next_opp": "",
+      "next_logo": ""
     },
     {
       "rank": 6,
