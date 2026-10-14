@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T12:30:57",
+  "updated": "2026-10-14T13:00:58",
   "today": "2026-10-14",
   "dates": {
     "2026-10-14": {
@@ -9,12 +9,12 @@
           "time": "18:30",
           "away": "두산 베어스",
           "home": "LG 트윈스",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "1",
+          "home_score": "4",
+          "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "이영하",
-          "home_pitcher": "송찬의",
+          "away_pitcher": "",
+          "home_pitcher": "",
           "broadcaster": "WC 1차전 MBC TV"
         }
       ]
