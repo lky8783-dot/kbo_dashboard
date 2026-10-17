@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T06:30:50",
+  "updated": "2026-10-17T07:01:02",
   "today": "2026-10-17",
   "dates": {
     "2026-10-17": {
@@ -11,10 +11,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "6회초",
+          "status": "7회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "박해민",
-          "home_pitcher": "네일",
+          "away_pitcher": "케네디",
+          "home_pitcher": "김규성",
           "broadcaster": "준PO 1차전 KBS 2TV"
         }
       ]
