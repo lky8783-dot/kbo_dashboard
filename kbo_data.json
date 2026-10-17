@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T08:00:55",
+  "updated": "2026-10-17T08:30:49",
   "today": "2026-10-17",
   "dates": {
     "2026-10-17": {
@@ -13,8 +13,8 @@
           "home_score": "5",
           "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "패톨허스트",
+          "home_pitcher": "승네일",
           "broadcaster": "준PO 1차전 KBS 2TV"
         }
       ]
