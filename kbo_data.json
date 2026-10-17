@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T07:30:52",
+  "updated": "2026-10-17T08:00:55",
   "today": "2026-10-17",
   "dates": {
     "2026-10-17": {
@@ -9,12 +9,12 @@
           "time": "14:00",
           "away": "LG 트윈스",
           "home": "KIA 타이거즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회초",
+          "away_score": "1",
+          "home_score": "5",
+          "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "문정빈",
-          "home_pitcher": "전상현",
+          "away_pitcher": "",
+          "home_pitcher": "",
           "broadcaster": "준PO 1차전 KBS 2TV"
         }
       ]
