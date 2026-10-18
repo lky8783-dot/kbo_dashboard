@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T06:30:51",
+  "updated": "2026-10-18T07:00:58",
   "today": "2026-10-18",
   "dates": {
     "2026-10-18": {
@@ -11,10 +11,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "5회초",
+          "status": "6회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "오지환",
-          "home_pitcher": "올러",
+          "away_pitcher": "손주영",
+          "home_pitcher": "박민",
           "broadcaster": "준PO 2차전 SBS TV"
         }
       ]
