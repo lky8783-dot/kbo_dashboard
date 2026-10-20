@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20T13:01:03",
+  "updated": "2026-10-20T13:30:46",
   "today": "2026-10-20",
   "dates": {
     "2026-10-20": {
@@ -13,8 +13,8 @@
           "home_score": "1",
           "status": "종료",
           "stadium": "잠실야구장",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "승시라카와",
+          "home_pitcher": "패카라스코",
           "broadcaster": "준PO 3차전 MBC TV"
         }
       ]
@@ -8004,8 +8004,8 @@
       "gb": "8.0",
       "last10": "1승0무4패",
       "streak": "4연패",
-      "next_opp": "",
-      "next_logo": ""
+      "next_opp": "KIA 타이거즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
     },
     {
       "rank": 3,
@@ -8019,8 +8019,8 @@
       "gb": "12.5",
       "last10": "4승0무1패",
       "streak": "1연승",
-      "next_opp": "LG 트윈스",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png?type=f92_88"
+      "next_opp": "삼성 라이온즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
     },
     {
       "rank": 4,
@@ -8034,8 +8034,8 @@
       "gb": "14.0",
       "last10": "3승0무2패",
       "streak": "1연패",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "",
+      "next_logo": ""
     },
     {
       "rank": 5,
