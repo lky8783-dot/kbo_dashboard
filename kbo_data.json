@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20T10:30:56",
+  "updated": "2026-10-20T11:01:00",
   "today": "2026-10-20",
   "dates": {
     "2026-10-20": {
@@ -11,10 +11,10 @@
           "home": "LG 트윈스",
           "away_score": null,
           "home_score": null,
-          "status": "3회초",
+          "status": "5회초",
           "stadium": "잠실야구장",
-          "away_pitcher": "하주석",
-          "home_pitcher": "케네디",
+          "away_pitcher": "김규성",
+          "home_pitcher": "이우찬",
           "broadcaster": "준PO 3차전 MBC TV"
         }
       ]
