@@ -1,23 +1,27 @@
 {
-  "updated": "2026-10-20T14:30:58",
-  "today": "2026-10-20",
+  "updated": "2026-10-21T00:01:15",
+  "today": "2026-10-21",
   "dates": {
-    "2026-10-20": {
-      "date": "2026-10-20",
+    "2026-10-21": {
+      "date": "2026-10-21",
       "games": [
         {
-          "time": "18:30",
+          "time": "14:00",
           "away": "KIA 타이거즈",
-          "home": "LG 트윈스",
-          "away_score": "13",
-          "home_score": "1",
-          "status": "종료",
-          "stadium": "잠실야구장",
-          "away_pitcher": "승시라카와",
-          "home_pitcher": "패카라스코",
-          "broadcaster": "준PO 3차전 MBC TV"
+          "home": "삼성 라이온즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "삼성 라이온즈파크",
+          "away_pitcher": "",
+          "home_pitcher": "",
+          "broadcaster": "PO 1차전"
         }
       ]
+    },
+    "2026-10-20": {
+      "date": "2026-10-20",
+      "games": []
     },
     "2026-10-19": {
       "date": "2026-10-19",
@@ -8128,7 +8132,7 @@
       "next_logo": ""
     }
   ],
-  "standings_updated": "2026-10-20",
+  "standings_updated": "2026-10-21",
   "last10_records": {
     "headers": [
       "팀",
@@ -11553,5 +11557,5 @@
       ]
     ]
   },
-  "records_updated": "2026-10-20"
+  "records_updated": "2026-10-21"
 }
