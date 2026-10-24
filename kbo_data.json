@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-23T14:30:55",
-  "today": "2026-10-23",
+  "updated": "2026-10-24T00:00:56",
+  "today": "2026-10-24",
   "dates": {
-    "2026-10-23": {
-      "date": "2026-10-23",
+    "2026-10-24": {
+      "date": "2026-10-24",
       "games": [
         {
           "time": "14:00",
@@ -13,11 +13,15 @@
           "home_score": null,
           "status": "예정",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "네일",
+          "home_pitcher": "페덱",
           "broadcaster": "PO 1차전 MBC TV"
         }
       ]
+    },
+    "2026-10-23": {
+      "date": "2026-10-23",
+      "games": []
     },
     "2026-10-22": {
       "date": "2026-10-22",
@@ -8140,7 +8144,7 @@
       "next_logo": ""
     }
   ],
-  "standings_updated": "2026-10-23",
+  "standings_updated": "2026-10-24",
   "last10_records": {
     "headers": [
       "팀",
@@ -11565,5 +11569,5 @@
       ]
     ]
   },
-  "records_updated": "2026-10-23"
+  "records_updated": "2026-10-24"
 }
