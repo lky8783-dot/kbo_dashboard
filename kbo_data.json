@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T09:30:49",
+  "updated": "2026-10-27T10:01:09",
   "today": "2026-10-27",
   "dates": {
     "2026-10-27": {
@@ -11,10 +11,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "박재현",
-          "home_pitcher": "후라도",
+          "away_pitcher": "올러",
+          "home_pitcher": "김영웅",
           "broadcaster": "PO 2차전 KBS 2TV"
         }
       ]
