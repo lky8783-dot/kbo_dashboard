@@ -1,23 +1,10 @@
 {
-  "updated": "2026-10-28T09:30:51",
+  "updated": "2026-10-28T10:00:54",
   "today": "2026-10-28",
   "dates": {
     "2026-10-28": {
       "date": "2026-10-28",
-      "games": [
-        {
-          "time": "18:30",
-          "away": "삼성 라이온즈",
-          "home": "KIA 타이거즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "예정",
-          "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "최원태",
-          "home_pitcher": "시라카와",
-          "broadcaster": "PO 3차전 SBS TV"
-        }
-      ]
+      "games": []
     },
     "2026-10-27": {
       "date": "2026-10-27",
