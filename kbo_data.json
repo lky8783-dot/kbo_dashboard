@@ -1,23 +1,27 @@
 {
-  "updated": "2026-10-27T14:35:43",
-  "today": "2026-10-27",
+  "updated": "2026-10-28T00:00:57",
+  "today": "2026-10-28",
   "dates": {
-    "2026-10-27": {
-      "date": "2026-10-27",
+    "2026-10-28": {
+      "date": "2026-10-28",
       "games": [
         {
           "time": "18:30",
-          "away": "KIA 타이거즈",
-          "home": "삼성 라이온즈",
-          "away_score": "3",
-          "home_score": "8",
-          "status": "종료",
-          "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "패올러",
-          "home_pitcher": "승후라도",
-          "broadcaster": "PO 2차전 KBS 2TV"
+          "away": "삼성 라이온즈",
+          "home": "KIA 타이거즈",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
+          "stadium": "광주-기아 챔피언스필드",
+          "away_pitcher": "최원태",
+          "home_pitcher": "시라카와",
+          "broadcaster": "PO 3차전 SBS TV"
         }
       ]
+    },
+    "2026-10-27": {
+      "date": "2026-10-27",
+      "games": []
     },
     "2026-10-26": {
       "date": "2026-10-26",
@@ -8156,7 +8160,7 @@
       "next_logo": ""
     }
   ],
-  "standings_updated": "2026-10-27",
+  "standings_updated": "2026-10-28",
   "last10_records": {
     "headers": [
       "팀",
@@ -11581,5 +11585,5 @@
       ]
     ]
   },
-  "records_updated": "2026-10-27"
+  "records_updated": "2026-10-28"
 }
