@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T12:00:54",
+  "updated": "2026-10-29T12:30:50",
   "today": "2026-10-29",
   "dates": {
     "2026-10-29": {
@@ -11,10 +11,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회초",
+          "status": "8회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "이재현",
-          "home_pitcher": "조상우",
+          "away_pitcher": "류지혁",
+          "home_pitcher": "김범수",
           "broadcaster": "PO 3차전 SBS TV"
         }
       ]
