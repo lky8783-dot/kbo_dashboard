@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T10:00:54",
+  "updated": "2026-10-29T10:30:46",
   "today": "2026-10-29",
   "dates": {
     "2026-10-29": {
@@ -11,10 +11,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "2회말",
+          "status": "3회말",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "최원태",
-          "home_pitcher": "나성범",
+          "away_pitcher": "배찬승",
+          "home_pitcher": "카스트로",
           "broadcaster": "PO 3차전 SBS TV"
         }
       ]
