@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T13:30:50",
+  "updated": "2026-10-29T14:01:10",
   "today": "2026-10-29",
   "dates": {
     "2026-10-29": {
@@ -13,8 +13,8 @@
           "home_score": "4",
           "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "승원태인",
+          "home_pitcher": "패조상우",
           "broadcaster": "PO 3차전 SBS TV"
         }
       ]
