@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30T12:30:52",
+  "updated": "2026-10-30T13:00:57",
   "today": "2026-10-30",
   "dates": {
     "2026-10-30": {
@@ -9,12 +9,12 @@
           "time": "18:30",
           "away": "삼성 라이온즈",
           "home": "KIA 타이거즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "2",
+          "home_score": "4",
+          "status": "종료",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "김영웅",
-          "home_pitcher": "전상현",
+          "away_pitcher": "패사토시",
+          "home_pitcher": "승조상우",
           "broadcaster": "PO 4차전 MBC SPORTS+,KBS N SPORTS,SBS SPORTS,SPOTV,SPOTV2"
         }
       ]
