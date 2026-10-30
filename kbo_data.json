@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30T12:01:16",
+  "updated": "2026-10-30T12:30:52",
   "today": "2026-10-30",
   "dates": {
     "2026-10-30": {
@@ -11,10 +11,10 @@
           "home": "KIA 타이거즈",
           "away_score": null,
           "home_score": null,
-          "status": "7회말",
+          "status": "9회초",
           "stadium": "광주-기아 챔피언스필드",
-          "away_pitcher": "사토시",
-          "home_pitcher": "김선빈",
+          "away_pitcher": "김영웅",
+          "home_pitcher": "전상현",
           "broadcaster": "PO 4차전 MBC SPORTS+,KBS N SPORTS,SBS SPORTS,SPOTV,SPOTV2"
         }
       ]
