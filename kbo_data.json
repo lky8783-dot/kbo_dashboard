@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31T00:00:58",
+  "updated": "2026-10-31T01:00:49",
   "today": "2026-10-31",
   "dates": {
     "2026-10-31": {
@@ -13,8 +13,8 @@
           "home_score": null,
           "status": "예정",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "",
-          "home_pitcher": "",
+          "away_pitcher": "올러",
+          "home_pitcher": "후라도",
           "broadcaster": "PO 5차전 KBS 2TV"
         }
       ]
