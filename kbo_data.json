@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01T04:00:52",
+  "updated": "2026-11-01T05:00:52",
   "today": "2026-11-01",
   "dates": {
     "2026-11-01": {
@@ -11,9 +11,9 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "예정",
+          "status": "1회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "올러",
+          "away_pitcher": "박재현",
           "home_pitcher": "후라도",
           "broadcaster": "PO 5차전 KBS 2TV"
         }
