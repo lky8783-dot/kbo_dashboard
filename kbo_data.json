@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01T07:30:48",
+  "updated": "2026-11-01T08:01:02",
   "today": "2026-11-01",
   "dates": {
     "2026-11-01": {
@@ -9,12 +9,12 @@
           "time": "14:00",
           "away": "KIA 타이거즈",
           "home": "삼성 라이온즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "1",
+          "home_score": "6",
+          "status": "종료",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "한준수",
-          "home_pitcher": "원태인",
+          "away_pitcher": "패올러",
+          "home_pitcher": "승후라도",
           "broadcaster": "PO 5차전 KBS 2TV"
         }
       ]
@@ -8037,8 +8037,8 @@
       "gb": "-",
       "last10": "5승0무0패",
       "streak": "10연승",
-      "next_opp": "",
-      "next_logo": ""
+      "next_opp": "삼성 라이온즈",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
     },
     {
       "rank": 2,
@@ -8052,8 +8052,8 @@
       "gb": "8.0",
       "last10": "1승0무4패",
       "streak": "4연패",
-      "next_opp": "KIA 타이거즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png?type=f92_88"
+      "next_opp": "kt wiz",
+      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
     },
     {
       "rank": 3,
@@ -8067,8 +8067,8 @@
       "gb": "12.5",
       "last10": "4승0무1패",
       "streak": "1연승",
-      "next_opp": "삼성 라이온즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
+      "next_opp": "",
+      "next_logo": ""
     },
     {
       "rank": 4,
