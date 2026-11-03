@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03T13:01:12",
+  "updated": "2026-11-03T13:31:01",
   "today": "2026-11-03",
   "dates": {
     "2026-11-03": {
@@ -9,12 +9,12 @@
           "time": "18:30",
           "away": "삼성 라이온즈",
           "home": "kt wiz",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "7",
+          "home_score": "8",
+          "status": "종료",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "김도환",
-          "home_pitcher": "박영현",
+          "away_pitcher": "패최원태",
+          "home_pitcher": "승대니엘",
           "broadcaster": "KS 1차전 SBS TV"
         }
       ]
