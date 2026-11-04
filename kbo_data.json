@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04T13:01:07",
+  "updated": "2026-11-04T13:30:52",
   "today": "2026-11-04",
   "dates": {
     "2026-11-04": {
@@ -11,10 +11,10 @@
           "home": "kt wiz",
           "away_score": null,
           "home_score": null,
-          "status": "10회말",
+          "status": "12회초",
           "stadium": "kt wiz 파크",
-          "away_pitcher": "원태인",
-          "home_pitcher": "힐리어드",
+          "away_pitcher": "디아즈",
+          "home_pitcher": "오원석",
           "broadcaster": "KS 2차전 MBC TV"
         }
       ]
