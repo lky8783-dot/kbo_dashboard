@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06T12:10:05",
+  "updated": "2026-11-06T12:30:48",
   "today": "2026-11-06",
   "dates": {
     "2026-11-06": {
@@ -9,12 +9,12 @@
           "time": "18:30",
           "away": "kt wiz",
           "home": "삼성 라이온즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "1",
+          "home_score": "5",
+          "status": "종료",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "배제성",
-          "home_pitcher": "김상준",
+          "away_pitcher": "패소형준",
+          "home_pitcher": "승후라도",
           "broadcaster": "KS 3차전 KBS 2TV"
         }
       ]
