@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07T08:00:49",
+  "updated": "2026-11-07T08:30:45",
   "today": "2026-11-07",
   "dates": {
     "2026-11-07": {
@@ -9,12 +9,12 @@
           "time": "14:00",
           "away": "kt wiz",
           "home": "삼성 라이온즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "8회말",
+          "away_score": "5",
+          "home_score": "10",
+          "status": "종료",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "스기모토",
-          "home_pitcher": "전병우",
+          "away_pitcher": "패로건",
+          "home_pitcher": "승이재희",
           "broadcaster": "KS 4차전 SBS TV"
         }
       ]
