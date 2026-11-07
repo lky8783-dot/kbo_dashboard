@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07T05:30:46",
+  "updated": "2026-11-07T06:00:57",
   "today": "2026-11-07",
   "dates": {
     "2026-11-07": {
@@ -11,10 +11,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회말",
+          "status": "3회초",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "로건",
-          "home_pitcher": "김도환",
+          "away_pitcher": "장진혁",
+          "home_pitcher": "장찬희",
           "broadcaster": "KS 4차전 SBS TV"
         }
       ]
