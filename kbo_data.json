@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08T05:00:52",
+  "updated": "2026-11-08T05:30:55",
   "today": "2026-11-08",
   "dates": {
     "2026-11-08": {
@@ -11,10 +11,10 @@
           "home": "삼성 라이온즈",
           "away_score": null,
           "home_score": null,
-          "status": "1회초",
+          "status": "2회말",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "최원준",
-          "home_pitcher": "원태인",
+          "away_pitcher": "대니엘",
+          "home_pitcher": "김영웅",
           "broadcaster": "KS 5차전 MBC TV"
         }
       ]
