@@ -1,23 +1,27 @@
 {
-  "updated": "2026-11-07T14:30:51",
-  "today": "2026-11-07",
+  "updated": "2026-11-08T00:01:01",
+  "today": "2026-11-08",
   "dates": {
-    "2026-11-07": {
-      "date": "2026-11-07",
+    "2026-11-08": {
+      "date": "2026-11-08",
       "games": [
         {
           "time": "14:00",
           "away": "kt wiz",
           "home": "삼성 라이온즈",
-          "away_score": "5",
-          "home_score": "10",
-          "status": "종료",
+          "away_score": null,
+          "home_score": null,
+          "status": "예정",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "패로건",
-          "home_pitcher": "승이재희",
-          "broadcaster": "KS 4차전 SBS TV"
+          "away_pitcher": "대니엘",
+          "home_pitcher": "원태인",
+          "broadcaster": "KS 5차전 MBC TV"
         }
       ]
+    },
+    "2026-11-07": {
+      "date": "2026-11-07",
+      "games": []
     },
     "2026-11-06": {
       "date": "2026-11-06",
@@ -8200,7 +8204,7 @@
       "next_logo": ""
     }
   ],
-  "standings_updated": "2026-11-07",
+  "standings_updated": "2026-11-08",
   "last10_records": {
     "headers": [
       "팀",
@@ -11625,5 +11629,5 @@
       ]
     ]
   },
-  "records_updated": "2026-11-07"
+  "records_updated": "2026-11-08"
 }
