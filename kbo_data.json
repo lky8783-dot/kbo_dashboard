@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08T08:30:45",
+  "updated": "2026-11-08T09:00:54",
   "today": "2026-11-08",
   "dates": {
     "2026-11-08": {
@@ -8055,21 +8055,6 @@
   "standings": [
     {
       "rank": 1,
-      "team": "kt wiz",
-      "team_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
-      "gp": 144,
-      "w": 90,
-      "d": 5,
-      "l": 49,
-      "pct": 0.647,
-      "gb": "-",
-      "last10": "5승0무0패",
-      "streak": "10연승",
-      "next_opp": "",
-      "next_logo": ""
-    },
-    {
-      "rank": 2,
       "team": "삼성 라이온즈",
       "team_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88",
       "gp": 144,
@@ -8080,6 +8065,21 @@
       "gb": "8.0",
       "last10": "1승0무4패",
       "streak": "4연패",
+      "next_opp": "",
+      "next_logo": ""
+    },
+    {
+      "rank": 2,
+      "team": "kt wiz",
+      "team_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
+      "gp": 144,
+      "w": 90,
+      "d": 5,
+      "l": 49,
+      "pct": 0.647,
+      "gb": "-",
+      "last10": "5승0무0패",
+      "streak": "10연승",
       "next_opp": "",
       "next_logo": ""
     },
@@ -10838,7 +10838,7 @@
         "https://sports-phinf.pstatic.net/player/kbo/default/62360.png",
         "삼성",
         "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88",
-        "2.475",
+        "2.48",
         "2",
         "1",
         "0",
@@ -11012,25 +11012,6 @@
     ],
     "rows": [
       [
-        "KT",
-        "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
-        "0.286",
-        "825",
-        "772",
-        "5047",
-        "121",
-        "1441",
-        "253",
-        "20",
-        "61",
-        "",
-        "",
-        "1094",
-        "0.367",
-        "0.415",
-        "0.783"
-      ],
-      [
         "삼성",
         "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88",
         "0.273",
@@ -11048,6 +11029,25 @@
         "0.362",
         "0.414",
         "0.776"
+      ],
+      [
+        "KT",
+        "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
+        "0.286",
+        "825",
+        "772",
+        "5047",
+        "121",
+        "1441",
+        "253",
+        "20",
+        "61",
+        "",
+        "",
+        "1094",
+        "0.367",
+        "0.415",
+        "0.783"
       ],
       [
         "KIA",
@@ -11225,25 +11225,6 @@
     ],
     "rows": [
       [
-        "KT",
-        "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
-        "0.286",
-        "825",
-        "772",
-        "5047",
-        "121",
-        "1441",
-        "253",
-        "20",
-        "61",
-        "",
-        "",
-        "1094",
-        "0.367",
-        "0.415",
-        "0.783"
-      ],
-      [
         "삼성",
         "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88",
         "0.273",
@@ -11261,6 +11242,25 @@
         "0.362",
         "0.414",
         "0.776"
+      ],
+      [
+        "KT",
+        "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
+        "0.286",
+        "825",
+        "772",
+        "5047",
+        "121",
+        "1441",
+        "253",
+        "20",
+        "61",
+        "",
+        "",
+        "1094",
+        "0.367",
+        "0.415",
+        "0.783"
       ],
       [
         "KIA",
@@ -11438,25 +11438,6 @@
     ],
     "rows": [
       [
-        "KT",
-        "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
-        "4.138",
-        "649",
-        "594",
-        "1292.0",
-        "1334",
-        "123",
-        "1161",
-        "",
-        "",
-        "87",
-        "1.382",
-        "67",
-        "33",
-        "86",
-        "62"
-      ],
-      [
         "삼성",
         "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88",
         "4.31",
@@ -11474,6 +11455,25 @@
         "42",
         "75",
         "53"
+      ],
+      [
+        "KT",
+        "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88",
+        "4.138",
+        "649",
+        "594",
+        "1292.0",
+        "1334",
+        "123",
+        "1161",
+        "",
+        "",
+        "87",
+        "1.382",
+        "67",
+        "33",
+        "86",
+        "62"
       ],
       [
         "KIA",
