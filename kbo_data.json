@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08T08:00:56",
+  "updated": "2026-11-08T08:30:45",
   "today": "2026-11-08",
   "dates": {
     "2026-11-08": {
@@ -9,12 +9,12 @@
           "time": "14:00",
           "away": "kt wiz",
           "home": "삼성 라이온즈",
-          "away_score": null,
-          "home_score": null,
-          "status": "9회초",
+          "away_score": "1",
+          "home_score": "12",
+          "status": "종료",
           "stadium": "삼성 라이온즈파크",
-          "away_pitcher": "장성우",
-          "home_pitcher": "페덱",
+          "away_pitcher": "패대니엘",
+          "home_pitcher": "승원태인",
           "broadcaster": "KS 5차전 MBC TV"
         }
       ]
@@ -8065,8 +8065,8 @@
       "gb": "-",
       "last10": "5승0무0패",
       "streak": "10연승",
-      "next_opp": "삼성 라이온즈",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png?type=f92_88"
+      "next_opp": "",
+      "next_logo": ""
     },
     {
       "rank": 2,
@@ -8080,8 +8080,8 @@
       "gb": "8.0",
       "last10": "1승0무4패",
       "streak": "4연패",
-      "next_opp": "kt wiz",
-      "next_logo": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png?type=f92_88"
+      "next_opp": "",
+      "next_logo": ""
     },
     {
       "rank": 3,
